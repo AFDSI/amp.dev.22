@@ -1,6 +1,6 @@
 <amp-autocomplete filter="substring" id="myAutocomplete">
   <p>Search for</p>
-  <form class="sample-form" method="post" action-xhr="https://amp-new.netlify.app/documentation/examples/api/echo" target="_top">
+  <form class="sample-form" method="post" action-xhr="https://amp.dev/documentation/examples/api/echo" target="_top">
     <amp-autocomplete filter="substring" src="/static/samples/json/amp-autocomplete-cities.json">
       <input>
     </amp-autocomplete>

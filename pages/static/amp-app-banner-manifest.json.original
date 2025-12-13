@@ -1,7 +1,7 @@
 {
-  "name": "ABC by Example",
-  "short_name": "ABC Examples",
-  "description": "Learn ABC by Examples",
+  "name": "AMP by Example",
+  "short_name": "AMP Examples",
+  "description": "Learn AMP by Examples",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#607D8B",

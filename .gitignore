@@ -1,24 +1,44 @@
-*.mo
+# ===========================================
+# OS and editor files
+# ===========================================
 .DS_Store
-.sass-cache
-.idea
-.podcache.yaml
-.vscode
-.eslintcache
-*.pyc
-*.log
-node_modules
 .com.apple.timemachine.supported
+.idea
+.vscode
 *.swp
 *.swo
+desktop.ini
 
+# ===========================================
+# Dependencies
+# ===========================================
+node_modules
+
+# ===========================================
+# Cache files
+# ===========================================
+.sass-cache
+.eslintcache
+.podcache.yaml
+.depcache.json
+
+# ===========================================
+# Compiled and generated code
+# ===========================================
+*.mo
+*.pyc
+*.log
+
+# ===========================================
+# Build outputs
+# ===========================================
 dist
 /build
 assets/css/*
-.depcache.json
 
-# Ignore dynamically built and collected files that are only
-# used during development
+# ===========================================
+# Development-only files (dynamically generated)
+# ===========================================
 pages/podspec.yaml
 pages/css
 pages/icons
@@ -28,33 +48,59 @@ pages/partials
 pages/templates
 pages/layouts
 pages/views
+
+# ===========================================
+# Examples - ignore all except _blueprint.yaml
+# ===========================================
 pages/content/amp-dev/documentation/examples/*/**
 !pages/content/amp-dev/documentation/examples/*/**/_blueprint.yaml
+examples/static/samples/samples.json
+
+# ===========================================
+# Component reference - ignore all except versioned (@) files
+# ===========================================
 pages/content/amp-dev/documentation/components/reference/*.md
 !pages/content/amp-dev/documentation/components/reference/*@*.md
-examples/static/samples/samples.json
+
+# ===========================================
+# Working groups - ignore all except _blueprint.yaml
+# ===========================================
 pages/content/amp-dev/community/working-groups/*.yaml
 !pages/content/amp-dev/community/working-groups/_blueprint.yaml
 pages/content/amp-dev/community/working-groups/*.json
+
+# ===========================================
+# Dynamic data files (generated during build)
+# ===========================================
 pages/routescache.json
 pages/shared/data/componentSamples.json
 pages/shared/data/roadmap.json
 
-# Ignore files created during build process
-artifacts/
+# ===========================================
+# Build process artifacts
+# ===========================================
 platform/pages*
 platform/static
 platform/config/build-info.yaml
 thumbor/static
 frontend/templates/views/partials/pixi/webpack.j2
+artifacts/
+*.tar.gz
+baseline-*.tar.gz
 
-# Ignore pipeline cache
+# ===========================================
+# Pipeline cache - keep .gitkeep for structure
+# ===========================================
 .cache/**/*
 !.cache/.gitkeep
 
-# Ignore certs from being accidentally committed
+# ===========================================
+# Security - prevent accidental cert commits
+# ===========================================
 packager/certs/*pem
 packager/certs/*pem.enc
 
-# Local Netlify folder
+# ===========================================
+# Netlify local development
+# ===========================================
 .netlify

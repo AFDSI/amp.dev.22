@@ -60,7 +60,7 @@
 {% set title_prefix = _('Success Story: ') %}
 {% endif %}
 
-<title>{{title_prefix|e}}{{title|e}} - amp-new</title>
+<title>{{title_prefix|e}}{{title|e}} - amp.dev</title>
 
 {% if description %}
 <meta name="description" content="{{ description }}">
@@ -71,7 +71,7 @@
   "@context": "http://schema.org",
   "@type": "Webpage",
   "url": "{{ canonical}} ",
-  "name": "amp-new",
+  "name": "amp.dev",
   "headline":"{{ title_prefix }}{{ title }}",
   {% if description %}
   "description":"{{ description }}",
@@ -114,7 +114,7 @@
 <meta property="og:image:width" content="600">
 <meta property="og:image:height" content="314">
 
-{# meta tags for amp-new search filtering #}
+{# meta tags for amp.dev search filtering #}
 {% set supported_formats = ','.join(doc.formats or doc.collection.formats or ['websites', 'stories', 'ads', 'email']) %}
 <meta name="supported-amp-formats" content="{{supported_formats}}">
 <meta name="page-locale" content="{{doc.pod.amp_dev.get_represented_locales(doc)}}">
