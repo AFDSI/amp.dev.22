@@ -74,6 +74,10 @@ jobs:
         env:
           APP_ENV: production
           AMP_DOC_TOKEN: ${{ secrets.AMP_DOC_TOKEN }}
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+          GOOGLE_KNOWLEDGE_GRAPH_API_KEY: ${{ secrets.GOOGLE_KNOWLEDGE_GRAPH_API_KEY }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           npx gulp buildPrepare --queue-imports
 
@@ -86,6 +90,10 @@ jobs:
   build:
     env:
       APP_ENV: production
+      GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+      GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+      GOOGLE_KNOWLEDGE_GRAPH_API_KEY: ${{ secrets.GOOGLE_KNOWLEDGE_GRAPH_API_KEY }}
+      GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
     needs: prepare
     strategy:
       matrix:
