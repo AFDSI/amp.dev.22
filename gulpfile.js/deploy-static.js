@@ -18,9 +18,7 @@
 
 const {sh} = require('@lib/utils/sh.js');
 const {cyan, red} = require('ansi-colors');
-// const {DIST, PAGES_DEST} = require('@lib/utils/project').paths;
-const {PAGES_DEST} = require('@lib/utils/project').paths;
-// const {NETLIFY_DEPLOY_TOKEN, DEPLOY_ENVIRONMENT} = process.env;
+const {DIST, PAGES_DEST} = require('@lib/utils/project').paths;
 const {NETLIFY_DEPLOY_TOKEN} = process.env;
 
 /** @typedef {'Staging' | 'Production'} DeploymentEnvironmentsDef */
