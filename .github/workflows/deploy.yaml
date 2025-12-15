@@ -20,7 +20,7 @@ on:
 
 jobs:
   queue:
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-32x
     outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
@@ -33,7 +33,7 @@ jobs:
           paths_ignore: '["**/README.md", "**/docs/**"]'
           do_not_skip: '["workflow_dispatch", "schedule"]'
   verify:
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-32x
     steps:
       - name: Cloning repository
         uses: actions/checkout@v4
@@ -56,7 +56,7 @@ jobs:
           npm run test:playground
   prepare:
     needs: verify
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-32x
     steps:
       - name: Cloning repository
         uses: actions/checkout@v4
@@ -115,7 +115,7 @@ jobs:
             'pl',
             'vi',
           ]
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-32x
     steps:
       - name: Cloning repository
         uses: actions/checkout@v4
@@ -161,7 +161,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-32x
     environment: Production
     env:
       APP_ENV: production
