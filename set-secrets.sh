@@ -13,6 +13,7 @@ echo "Setting secrets for $REPO..."
 # Authentication tokens
 gh secret set AMP_DOC_TOKEN --body "$AMP_DOC_TOKEN" --repo "$REPO"
 gh secret set NETLIFY_DEPLOY_TOKEN --body "$NETLIFY_DEPLOY_TOKEN" --repo "$REPO"
+gh secret set NETLIFY_PLAYGROUND_TOKEN --body "$NETLIFY_PLAYGROUND_TOKEN" --repo "$REPO"
 
 # Google API keys (match googleSearch.js expectations)
 gh secret set GOOGLE_CSE_API_KEY --body "$GOOGLE_CSE_API_KEY" --repo "$REPO"

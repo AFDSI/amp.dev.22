@@ -38,13 +38,13 @@ const SITES = {
       id: 'f1b7e5a9-b9dc-481b-b183-24ba61ba6244',
       dir: PAGES_DEST,
     },
+    {
+      name: 'playground-amp-new.netlify.app',
+      id: 'aadcd0ab-1ef1-4d58-bddc-0d37c44d629b',
+      dir: `${DIST}/playground`,
+    },
     // {
-    //   name: 'playground-staging-amp-dev.netlify.app',
-    //   id: 'a9f7ee74-0f49-49ff-9c2d-5cac85df3dc8',
-    //   dir: `${DIST}/playground`,
-    // },
-    // {
-    //   name: 'preview-staging-amp-dev.netlify.app',
+    //   name: 'preview-amp-dev.netlify.app',
     //   id: '8ade0d74-9b2c-4e8e-8d85-73e198208fba',
     //   dir: `${DIST}/examples`,
     // },
