@@ -799,7 +799,14 @@ exports.buildPixiFunctions = buildPixiFunctions;
 function copyNetlifyConfig() {
   const fs = require('fs');
   const path = require('path');
-  const configSrc = path.join(__dirname, '..', 'netlify', 'configs', 'amp.dev', 'netlify.toml');
+  const configSrc = path.join(
+    __dirname,
+    '..',
+    'netlify',
+    'configs',
+    'amp.dev',
+    'netlify.toml'
+  );
   const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
   fs.copyFileSync(configSrc, configDest);
   log.success('Copied netlify.toml to publish directory');
