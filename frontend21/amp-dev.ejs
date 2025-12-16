@@ -114,6 +114,10 @@
     {% include 'views/2021/partials/header.j2' %}
     {% endblock %}
 
+    {% block search %}
+    {% include 'views/partials/search.j2' %}
+    {% endblock %}
+
     {% block main %}
     {{ doc.html|render|safe }}
     {% endblock %}
