@@ -795,10 +795,13 @@ exports.collectStatics = collectStatics;
 exports.whoAmI = whoAmI;
 exports.buildPixiFunctions = buildPixiFunctions;
 
-// Copy Netlify config to publish directory
+// Copy Netlify config and functions to publish directory
 function copyNetlifyConfig() {
   const fs = require('fs');
   const path = require('path');
+  const {execSync} = require('child_process');
+
+  // Copy netlify.toml
   const configSrc = path.join(
     __dirname,
     '..',
@@ -810,6 +813,17 @@ function copyNetlifyConfig() {
   const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
   fs.copyFileSync(configSrc, configDest);
   signale.success('Copied netlify.toml to publish directory');
+
+  // Copy functions directory
+  const functionsSrc = path.join(__dirname, '..', 'netlify', 'functions');
+  const functionsDest = path.join(
+    project.paths.PAGES_DEST,
+    'netlify',
+    'functions'
+  );
+  execSync(`cp -r "${functionsSrc}" "${path.dirname(functionsDest)}"`);
+  signale.success('Copied netlify/functions to publish directory');
+
   return Promise.resolve();
 }
 
