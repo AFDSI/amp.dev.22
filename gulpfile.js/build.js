@@ -794,9 +794,22 @@ exports.unpackArtifacts = unpackArtifacts;
 exports.collectStatics = collectStatics;
 exports.whoAmI = whoAmI;
 exports.buildPixiFunctions = buildPixiFunctions;
+
+// Copy Netlify config to publish directory
+function copyNetlifyConfig() {
+  const fs = require('fs');
+  const path = require('path');
+  const configSrc = path.join(__dirname, '..', 'netlify', 'configs', 'amp.dev', 'netlify.toml');
+  const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
+  fs.copyFileSync(configSrc, configDest);
+  log.success('Copied netlify.toml to publish directory');
+  return Promise.resolve();
+}
+
 exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
-  thumborImageIndex
+  thumborImageIndex,
+  copyNetlifyConfig
 );
 
 exports.build = gulp.series(
