@@ -809,7 +809,7 @@ function copyNetlifyConfig() {
   );
   const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
   fs.copyFileSync(configSrc, configDest);
-  log.success('Copied netlify.toml to publish directory');
+  signale.success('Copied netlify.toml to publish directory');
   return Promise.resolve();
 }
 
