@@ -79,6 +79,12 @@ const search = express.Router();
 
 search.get('/search/autosuggest', handleAutosuggestRequest);
 search.get('/search/highlights', handleHighlightsRequest);
+
+search.get('/search/highlights/:locale.json', (req, res) => {
+  req.query.locale = req.params.locale;
+  handleHighlightsRequest(req, res);
+});
+
 search.get('/search/do', handleSearchRequest);
 search.get('/search/latest-query', handleNullResponse);
 search.get('/search/clear-latest-query', handleNullResponse);
