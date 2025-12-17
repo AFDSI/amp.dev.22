@@ -821,9 +821,10 @@ function copyNetlifyConfig() {
     'netlify',
     'functions'
   );
+  // Create parent directory if it doesn't exist
+  fs.mkdirSync(path.dirname(functionsDest), {recursive: true});
   execSync(`cp -r "${functionsSrc}" "${path.dirname(functionsDest)}"`);
   signale.success('Copied netlify/functions to publish directory');
-
   return Promise.resolve();
 }
 
