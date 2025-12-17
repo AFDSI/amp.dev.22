@@ -201,15 +201,17 @@ const handler = async (ev) => {
       'Content-Type': 'application/javascript',
       'Cache-Control': 'no-cache',
     },
-    body: JSON.stringify(createResult(
-      totalResults,
-      page,
-      pageCount,
-      components,
-      pages,
-      query,
-      locale
-    )),
+    body: JSON.stringify(
+      createResult(
+        totalResults,
+        page,
+        pageCount,
+        components,
+        pages,
+        query,
+        locale
+      )
+    ),
   };
 };
 
