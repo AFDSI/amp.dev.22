@@ -1,4 +1,4 @@
-const handler = async () => {
+const handler = async (ev) => {
   return {
     headers: {
       'Access-Control-Allow-Origin': ev.headers?.origin || '',

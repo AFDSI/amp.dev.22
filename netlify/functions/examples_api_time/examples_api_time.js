@@ -1,4 +1,4 @@
-const handler = async () => {
+const handler = async (ev) => {
   const time = new Date().toLocaleTimeString();
   const body = JSON.stringify({time});
 

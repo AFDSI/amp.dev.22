@@ -7,7 +7,7 @@ const {
 
 let items = null;
 
-const handler = async () => {
+const handler = async (ev) => {
   if (!items) {
     const components = Object.keys(componentVersions).concat(
       BUILT_IN_COMPONENTS,

@@ -1,6 +1,6 @@
 const {STYLE} = require('../cache.js');
 
-const handler = async () => {
+const handler = async (ev) => {
   const body = `<!doctype html>
 <html ⚡ lang="en">
   <head>
