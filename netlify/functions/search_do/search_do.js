@@ -201,7 +201,7 @@ const handler = async (ev) => {
       'Content-Type': 'application/javascript',
       'Cache-Control': 'no-cache',
     },
-    body: createResult(
+    body: JSON.stringify(createResult(
       totalResults,
       page,
       pageCount,
@@ -209,7 +209,7 @@ const handler = async (ev) => {
       pages,
       query,
       locale
-    ),
+    )),
   };
 };
 
