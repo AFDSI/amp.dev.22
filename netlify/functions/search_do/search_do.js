@@ -160,7 +160,7 @@ const handler = async (ev) => {
         'Content-Type': 'text/plain',
         'Cache-Control': `no-cache`,
       },
-      body: err,
+      body: String(err),
     };
   }
 
