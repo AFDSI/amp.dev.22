@@ -89,7 +89,8 @@ function createResult(
       encodeURIComponent(query) +
       '&locale=' +
       encodeURIComponent(locale) +
-      '&page=https://amp-new.netlify.app/'
+      '&page=',
+    'https://amp-new.netlify.app/'
   ).toString();
 
   if (page < lastPage && page < LAST_PAGE) {
