@@ -866,7 +866,8 @@ exports.build = gulp.series(
   clean,
   buildPrepare,
   buildPages,
-  gulp.parallel(collectStatics, persistBuildInfo)
+  gulp.parallel(collectStatics, persistBuildInfo),
+  copyRootFiles // Add this line
 );
 
 exports.buildForGrowTests = gulp.series(buildBoilerplate, buildPages);
