@@ -39,6 +39,10 @@
     appearance: none;
     cursor: pointer;
     color: inherit;
+    option {
+      font-weight: bold;
+      font-family: 'Poppins', system;
+    }
   }
 
   .mainmenuopen & {
