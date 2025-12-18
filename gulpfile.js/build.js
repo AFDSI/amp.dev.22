@@ -828,10 +828,38 @@ function copyNetlifyConfig() {
   return Promise.resolve();
 }
 
+async function copyRootFiles() {
+  const fs = require('fs').promises;
+
+  // Copy robots.txt
+  await fs.copyFile(
+    `${project.paths.STATICS_DEST}/robots/platform_prod.txt`,
+    `${project.paths.PAGES_DEST}/robots.txt`
+  );
+  signale.success('Copied robots.txt');
+
+  // Copy sitemap.xml
+  await fs.copyFile(
+    `${project.paths.STATICS_DEST}/sitemap/sitemap.xml`,
+    `${project.paths.PAGES_DEST}/sitemap.xml`
+  );
+  signale.success('Copied sitemap.xml');
+
+  // Copy Google verification file (collectStatics already copied it to STATICS_DEST)
+  await fs.copyFile(
+    `${project.paths.STATICS_DEST}/googleb5588557ad6b0d99.html`,
+    `${project.paths.PAGES_DEST}/googleb5588557ad6b0d99.html`
+  );
+  signale.success('Copied Google verification file');
+}
+
+exports.copyRootFiles = copyRootFiles; // Add this line
+
 exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
   thumborImageIndex,
-  copyNetlifyConfig
+  copyNetlifyConfig,
+  copyRootFiles // Add this to the series
 );
 
 exports.build = gulp.series(
