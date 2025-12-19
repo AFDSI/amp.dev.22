@@ -23,7 +23,7 @@
         'event_name': event_name or id,
         'event_action': action,
         'event_category': cat,
-        'destination_url': '${' ~ 'target' ~ '}' {# Fixed: Escaped string concatenation #}
+        'destination_url': '{% raw %}${target}{% endraw %}' 
       }
     }
   }) %}
@@ -38,24 +38,24 @@
     }
   },
   'extraUrlParams': {
-      'cd2': '${' ~ 'ampdocHost' ~ '}', {# Escaped to prevent Grow build errors #}
+      'cd2': '{% raw %}${ampdocHost}{% endraw %}',
       'debug_mode': 'true',
       '_dbg': '1',
-      'page_category': category.value {# Corrected: Removed double braces #}
+      'page_category': category.value 
     },
   'requests': {
-    'base': 'https://google-analytics.com/collect/',
-    'CWV_EVENT': '${base}?v=1&t=event&tid=${gtag_id}&cid=0&ec=cwv'
-  },
+      'base': 'https://google-analytics.com/collect/',
+      'CWV_EVENT': '{% raw %}${base}{% endraw %}?v=1&t=event&tid=${gtag_id}&cid=0&ec=cwv'
+    },
   'triggers': {
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
-      'vars': { 'title': title } {# Corrected: title variable used directly #}
+      'vars': { 'title': title } 
     },
-    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${cumulativeLayoutShift}' } },
-    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${largestContentfulPaint}' } },
-    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '${firstInputDelay}' } }
+    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '{% raw %}${cumulativeLayoutShift}{% endraw %}' } },
+    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '{% raw %}${largestContentfulPaint}{% endraw %}' } },
+    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '{% raw %}${firstInputDelay}{% endraw %}' } }
   }
 } %}
 
