@@ -21,9 +21,9 @@
       'on': 'click',
       'vars': {
         'event_name': event_name or id,
-        'event_label': event_name or id,
+        'event_action': action,
         'event_category': cat,
-        'event_action': action
+        'destination_url': '${target}' {# Behavior: Where are they going? #}
       }
     }
   }) %}
@@ -39,8 +39,9 @@
   },
   'extraUrlParams': {
       'cd2': '${ampdocHost}',
-      'debug_mode': true,
-      '_dbg': '1'
+      'debug_mode': 'true',
+      '_dbg': '1',
+      'page_category': category.value {# Corrected: Removed double braces #}
     },
   'requests': {
     'base': 'https://google-analytics.com/collect/',
@@ -50,7 +51,7 @@
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
-      'vars': { 'title': '{{title}}' }
+      'vars': { 'title': title } {# Corrected: title variable used directly #}
     },
     'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${cumulativeLayoutShift}' } },
     'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${largestContentfulPaint}' } },
@@ -58,18 +59,34 @@
   }
 } %}
 
-{# 4. Global Triggers (Header/Nav/Scroll) #}
+{# 4. Global Triggers #}
 {{ add_trigger(config, 'banner', '#top-banner', 'click') }}
 {{ add_trigger(config, 'navigation', '.ap--header a, .ap-o-burger-menu-link', 'link') }}
 {{ add_trigger(config, 'searchButton', '#searchTriggerOpen', 'open', event_name='search', cat='search') }}
 
-{# Scroll Triggers (Manual definition due to unique 'on' type) #}
+{# 5. Behavioral Scroll Triggers #}
 {% do config['triggers'].update({
-  'scrolledHalf': { 'on': 'scroll', 'scrollSpec': { 'verticalBoundaries': [50] }, 'vars': { 'event_name': 'scroll', 'event_category': category.value, 'event_action': 'half' } },
-  'scrolledEnd': { 'on': 'scroll', 'scrollSpec': { 'verticalBoundaries': [90] }, 'vars': { 'event_name': 'scroll', 'event_category': category.value, 'event_action': 'end' } }
+  'scrolledHalf': { 
+    'on': 'scroll', 
+    'scrollSpec': { 'verticalBoundaries': [50] }, 
+    'vars': { 
+      'event_name': 'content_engagement', 
+      'event_category': category.value, 
+      'event_action': 'read_50' 
+    } 
+  },
+  'scrolledEnd': { 
+    'on': 'scroll', 
+    'scrollSpec': { 'verticalBoundaries': [90] }, 
+    'vars': { 
+      'event_name': 'content_engagement', 
+      'event_category': category.value, 
+      'event_action': 'read_90' 
+    } 
+  }
 }) %}
 
-{# 5. Conditional Triggers (Sidebar, TOC, etc.) #}
+{# 6. Conditional Triggers #}
 {% if category.value != 'other' %}
     {{ add_trigger(config, 'sidebarLink', '.ap-o-sidebar a', 'link') }}
     {{ add_trigger(config, 'sidebarToggle', 'label[for="sidebar-desktop"], label[for="sidebar"]', 'toggle') }}
@@ -82,7 +99,7 @@
     {% endif %}
 {% endif %}
 
-{# 6. Page-Specific Triggers (Pixi & Courses) #}
+{# 7. Page-Specific (Pixi & Courses) #}
 {% if 'teachers.md' in doc.pod_path %}
     {{ add_trigger(config, 'getCoursesButton', '#get-courses', 'download', event_name='courses') }}
 {% endif %}
