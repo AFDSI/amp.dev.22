@@ -14,7 +14,7 @@
 {% endfor %}
 
 {# 2. Define the Macro for Reusable Triggers #}
-{% macro add_trigger(config, id, selector, action, event_name=none, cat=category.value|string) %}
+{% macro add_trigger(config, id, selector, action, event_name=none, cat=category.value | default('other') | string) %}
   {% do config['triggers'].update({
     id: {
       'selector': selector,
@@ -23,7 +23,7 @@
         'event_name': event_name or id,
         'event_action': action,
         'event_category': cat,
-        'destination_url': '{% raw %}${target}{% endraw %}' 
+        'destination_url': '${' ~ 'target}'
       }
     }
   }) %}
@@ -38,14 +38,14 @@
     }
   },
   'extraUrlParams': {
-      'cd2': '{% raw %}${ampdocHost}{% endraw %}',
+      'cd2': '${' ~ 'ampdocHost}',
       'debug_mode': 'true',
       '_dbg': '1',
       'page_category': category.value | default('other') | string
     },
   'requests': {
       'base': 'https://google-analytics.com/collect/',
-      'CWV_EVENT': '{% raw %}${base}{% endraw %}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
+      'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
   'triggers': {
     'defaultPageview': {
@@ -53,9 +53,9 @@
       'request': 'pageview',
       'vars': { 'title': title | default('Untitled Page') } 
     },
-    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '{% raw %}${cumulativeLayoutShift}{% endraw %}' } },
-    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '{% raw %}${largestContentfulPaint}{% endraw %}' } },
-    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '{% raw %}${firstInputDelay}{% endraw %}' } }
+    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${' ~ 'cumulativeLayoutShift}' } },
+    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${' ~ 'largestContentfulPaint}' } },
+    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '${' ~ 'firstInputDelay}' } }
   }
 } %}
 
@@ -73,7 +73,7 @@
       'event_name': 'content_engagement',
       'event_category': category.value | default('other') | string,
       'event_action': 'read_50' 
-     }
+    } 
   },
   'scrolledEnd': { 
     'on': 'scroll', 
@@ -82,7 +82,7 @@
       'event_name': 'content_engagement', 
       'event_category': category.value | default('other') | string,
       'event_action': 'read_90' 
-    }
+    } 
   }
 }) %}
 
