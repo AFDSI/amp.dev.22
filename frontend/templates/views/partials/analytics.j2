@@ -32,26 +32,26 @@
 {# 3. Initial Configuration Object #}
 {% set config = {
   'vars': {
-    'gtag_id': podspec.gaTrackingId,
+    'gtag_id': podspec.gaTrackingId | default('G-XXXXXXXX'),
     'config': {
-      podspec.gaTrackingId: { 'groups': 'default' }
+      (podspec.gaTrackingId | default('G-XXXXXXXX')): { 'groups': 'default' }
     }
   },
   'extraUrlParams': {
       'cd2': '{% raw %}${ampdocHost}{% endraw %}',
       'debug_mode': 'true',
       '_dbg': '1',
-      'page_category': category.value|string
+      'page_category': category.value | default('other') | string
     },
   'requests': {
       'base': 'https://google-analytics.com/collect/',
-      'CWV_EVENT': '{% raw %}${base}{% endraw %}?v=1&t=event&tid=${gtag_id}&cid=0&ec=cwv'
+      'CWV_EVENT': '{% raw %}${base}{% endraw %}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
   'triggers': {
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
-      'vars': { 'title': title } 
+      'vars': { 'title': title | default('Untitled Page') } 
     },
     'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '{% raw %}${cumulativeLayoutShift}{% endraw %}' } },
     'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '{% raw %}${largestContentfulPaint}{% endraw %}' } },
@@ -71,18 +71,18 @@
     'scrollSpec': { 'verticalBoundaries': [50] }, 
     'vars': { 
       'event_name': 'content_engagement',
-      'event_category': category.value|string,
+      'event_category': category.value | default('other') | string,
       'event_action': 'read_50' 
-    } 
+     }
   },
   'scrolledEnd': { 
     'on': 'scroll', 
     'scrollSpec': { 'verticalBoundaries': [90] }, 
     'vars': { 
       'event_name': 'content_engagement', 
-      'event_category': category.value|string,
+      'event_category': category.value | default('other') | string,
       'event_action': 'read_90' 
-    } 
+    }
   }
 }) %}
 
