@@ -134,7 +134,7 @@ recent_components:
         <h2>Filter by category</h2>
         {% include 'views/partials/category-filter.j2'%}
 
-        {% for category, docs in categories %}
+        {% for cat, docs in categories %}
         {% set scope = namespace(categoryFormats = []) %}
 
         {% for doc in docs %}
@@ -142,11 +142,11 @@ recent_components:
           {% set scope.categoryFormats = scope.categoryFormats + formats %}
         {% endfor %}
 
-        [% if not {{ filter_categories }}.includes(category) or {{ filter_categories }}.includes(category) and category == '{{ category|slug }}' %]
-        {% set category_name = category.split('.')[1] if category and category.split('.')|length == 2 else category %}
-        <div id="{{ category }}" class="ap-m-table-component">
-            {% if category %}
-            <h4 id="{{ category }}">{{ _(category_name) }}</h4>
+        {% set category_name = cat.split('.')[1] if cat and cat.split('.')|length == 2 else cat %}
+        {% set category_slug = category_name|slug %}
+        <div id="{{ cat }}" class="ap-m-table-component" [hidden]="category != '' && category != '{{ category_slug }}'">
+            {% if cat %}
+            <h4 id="{{ cat }}">{{ _(category_name) }}</h4>
             {% endif %}
             {% for component in docs if component.is_current %}
             {# The latest document might not support a format, hence we have to check if any version supports a format #}
@@ -159,7 +159,7 @@ recent_components:
             {% endif %}
             {% set formats = formats|sum(start=[])|unique|list %}
 
-            <a class="ap-m-table-component-link" href="{{ component.url.path }}" [% if format not in {{ formats|tojson }} and forcedFiltered != true %]hidden[% endif %]>
+            <a class="ap-m-table-component-link" href="{{ component.url.path }}" [hidden]="!({% for fmt in formats %}format == '{{ fmt }}'{% if not loop.last %} || {% endif %}{% endfor %})">
               <div class="ap-m-table-component-row-components">
                 {% if formats %}
                 {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
@@ -190,7 +190,6 @@ recent_components:
             </a>
             {% endfor %}
           </div>
-        [% endif %]
         {% endfor %}
       </section>
     </section>
