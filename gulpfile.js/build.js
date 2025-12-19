@@ -851,9 +851,85 @@ async function copyRootFiles() {
     `${project.paths.PAGES_DEST}/googleb5588557ad6b0d99.html`
   );
   signale.success('Copied Google verification file');
+
+  // Copy serviceworker.html
+  await fs.copyFile(
+    `${project.paths.STATICS_DEST}/serviceworker.html`,
+    `${project.paths.PAGES_DEST}/serviceworker.html`
+  );
+  signale.success('Copied serviceworker.html');
 }
 
-exports.copyRootFiles = copyRootFiles; // Add this line
+async function generateSitemap() {
+  const fs = require('fs').promises;
+  const path = require('path');
+  
+  const BASE_URL = 'https://amp-new.netlify.app';
+  const PAGES_DIR = project.paths.PAGES_DEST;
+  
+  const EXCLUDE = [
+    '/shared/',
+    '/static/',
+    '/netlify/',
+    '/documentation/examples/previews/',
+  ];
+  
+  async function walkDir(dir, fileList = []) {
+    const files = await fs.readdir(dir);
+    for (const file of files) {
+      const filePath = path.join(dir, file);
+      const stat = await fs.stat(filePath);
+      if (stat.isDirectory()) {
+        await walkDir(filePath, fileList);
+      } else if (file.endsWith('.html')) {
+        fileList.push(filePath);
+      }
+    }
+    return fileList;
+  }
+  
+  const files = await walkDir(PAGES_DIR);
+  
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  
+  let count = 0;
+  for (const file of files) {
+    let urlPath = file
+      .replace(PAGES_DIR, '')
+      .replace(/\\/g, '/');
+    
+    if (EXCLUDE.some(ex => urlPath.includes(ex))) {
+      continue;
+    }
+    
+    urlPath = urlPath
+      .replace('/index.html', '/')
+      .replace('.html', '/');
+    
+    xml += `  <url>\n`;
+    xml += `    <loc>${BASE_URL}${urlPath}</loc>\n`;
+    xml += `  </url>\n`;
+    count++;
+  }
+  
+  xml += '</urlset>';
+  
+  await fs.writeFile(`${PAGES_DIR}/sitemap_generated.xml`, xml);
+  signale.success(`Generated sitemap with ${count} URLs`);
+}
+
+exports.generateSitemap = generateSitemap;  // Add this line
+
+exports.copyRootFiles = copyRootFiles;
+
+exports.testSitemap = gulp.series(
+  buildFrontend,
+  async function quickGrow() {
+    await grow('deploy --noconfirm --threaded');
+  },
+  generateSitemap
+);
 
 exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
@@ -867,7 +943,8 @@ exports.build = gulp.series(
   buildPrepare,
   buildPages,
   gulp.parallel(collectStatics, persistBuildInfo),
-  copyRootFiles // Add this line
+  generateSitemap,  // Add this line
+  copyRootFiles // Add this to the series
 );
 
 exports.buildForGrowTests = gulp.series(buildBoilerplate, buildPages);
