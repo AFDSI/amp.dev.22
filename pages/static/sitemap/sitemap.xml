@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://amp-new.netlify.app/sitemap_amp-new.xml</loc>
+    <loc>https://amp-new.netlify.app/sitemap_generated.xml</loc>
   </sitemap>
   <sitemap>
     <loc>https://amp-new.netlify.app/sitemap_manual.xml</loc>
