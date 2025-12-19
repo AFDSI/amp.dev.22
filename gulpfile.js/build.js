@@ -838,6 +838,13 @@ async function copyRootFiles() {
   );
   signale.success('Copied robots.txt');
 
+  // Copy sitemap_manual.xml
+  await fs.copyFile(
+    `${project.paths.STATICS_DEST}/sitemap/sitemap_manual.xml`,
+    `${project.paths.PAGES_DEST}/sitemap_manual.xml`
+  );
+  signale.success('Copied sitemap_manual.xml');
+
   // Copy sitemap.xml
   await fs.copyFile(
     `${project.paths.STATICS_DEST}/sitemap/sitemap.xml`,
