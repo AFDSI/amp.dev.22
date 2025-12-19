@@ -13,7 +13,7 @@
 
 # 2. SPECIFIC OVERRIDES (Sitemap Fix)
 [[headers]]
-  for = "/sitemap.xml"
+  for = "/sitemap*.xml" # This covers sitemap.xml, sitemap_manual.xml, etc.
   [headers.values]
     Content-Type = "application/xml; charset=UTF-8"
     X-Content-Type-Options = "nosniff"
