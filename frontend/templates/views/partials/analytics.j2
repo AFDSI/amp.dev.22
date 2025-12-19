@@ -14,7 +14,7 @@
 {% endfor %}
 
 {# 2. Define the Macro for Reusable Triggers #}
-{% macro add_trigger(config, id, selector, action, event_name=none, cat=category.value) %}
+{% macro add_trigger(config, id, selector, action, event_name=none, cat=category.value|string) %}
   {% do config['triggers'].update({
     id: {
       'selector': selector,
@@ -41,7 +41,7 @@
       'cd2': '{% raw %}${ampdocHost}{% endraw %}',
       'debug_mode': 'true',
       '_dbg': '1',
-      'page_category': category.value 
+      'page_category': category.value|string {# Add |string filter here #}
     },
   'requests': {
       'base': 'https://google-analytics.com/collect/',
@@ -70,8 +70,8 @@
     'on': 'scroll', 
     'scrollSpec': { 'verticalBoundaries': [50] }, 
     'vars': { 
-      'event_name': 'content_engagement', 
-      'event_category': category.value, 
+      'event_name': 'content_engagement',
+      'event_category': category.value|string, {# Add |string filter here #}
       'event_action': 'read_50' 
     } 
   },
@@ -80,7 +80,7 @@
     'scrollSpec': { 'verticalBoundaries': [90] }, 
     'vars': { 
       'event_name': 'content_engagement', 
-      'event_category': category.value, 
+      'event_category': category.value|string, {# Add |string filter here #}
       'event_action': 'read_90' 
     } 
   }
