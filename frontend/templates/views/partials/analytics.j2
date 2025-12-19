@@ -23,7 +23,7 @@
         'event_name': event_name or id,
         'event_action': action,
         'event_category': cat,
-        'destination_url': '${target}' {# Behavior: Where are they going? #}
+        'destination_url': '${' ~ 'target' ~ '}' {# Fixed: Escaped string concatenation #}
       }
     }
   }) %}
@@ -38,7 +38,7 @@
     }
   },
   'extraUrlParams': {
-      'cd2': '${ampdocHost}',
+      'cd2': '${' ~ 'ampdocHost' ~ '}', {# Escaped to prevent Grow build errors #}
       'debug_mode': 'true',
       '_dbg': '1',
       'page_category': category.value {# Corrected: Removed double braces #}
