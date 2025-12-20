@@ -24,6 +24,9 @@ const CLIENT_TOKEN = process.env.AMP_DOC_TOKEN;
 const CLIENT_SECRET = process.env.AMP_DOC_SECRET;
 const CLIENT_ID = process.env.AMP_DOC_ID;
 
+// Debug: Log token presence during build
+console.log(`[GitHubImporter Debug] AMP_DOC_TOKEN present: ${!!CLIENT_TOKEN}, length: ${CLIENT_TOKEN ? CLIENT_TOKEN.length : 0}`);
+
 /* The GitHub organisation where the repositories imported from are located */
 const DEFAULT_ORGANISATION = 'ampproject';
 const DEFAULT_REPOSITORY = `${DEFAULT_ORGANISATION}/amphtml`;
