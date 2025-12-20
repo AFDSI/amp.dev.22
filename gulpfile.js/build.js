@@ -256,13 +256,19 @@ function zipTemplates() {
  * @return {Promise}
  */
 function importAll() {
+  const safeImport = (promise, name) =>
+    promise.catch((err) => {
+      console.error(`[${name}] Import failed but continuing:`, err.message);
+      return null;
+    });
+
   return Promise.all([
-    new ComponentReferenceImporter().import(),
-    new SpecImporter().import(),
-    new RecentGuides().import(),
-    importRoadmap.importRoadmap(),
-    importWorkingGroups.importWorkingGroups(),
-    importAdVendorList.importAdVendorList(),
+    safeImport(new ComponentReferenceImporter().import(), 'ComponentReference'),
+    safeImport(new SpecImporter().import(), 'Spec'),
+    safeImport(new RecentGuides().import(), 'RecentGuides'),
+    safeImport(importRoadmap.importRoadmap(), 'Roadmap'),
+    safeImport(importWorkingGroups.importWorkingGroups(), 'WorkingGroups'),
+    safeImport(importAdVendorList.importAdVendorList(), 'AdVendorList'),
   ]);
 }
 
