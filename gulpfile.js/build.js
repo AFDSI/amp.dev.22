@@ -321,11 +321,14 @@ function buildPrepare(done) {
       await sh('mkdir -p artifacts');
       await sh(`tar cfj ${SETUP_ARCHIVE} ${SETUP_STORED_PATHS.join(' ')}`);
     },
-    // eslint-disable-next-line prefer-arrow-callback
+// eslint-disable-next-line prefer-arrow-callback
     function exit(_done) {
       done();
       _done();
-      process.exit(0);
+      // Only exit if running buildPrepare standalone in CI split-build mode
+      if (process.env.CI && process.env.SPLIT_BUILD) {
+        process.exit(0);
+      }
     }
   )(done);
 }
