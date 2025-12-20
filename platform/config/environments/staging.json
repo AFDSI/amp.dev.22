@@ -16,6 +16,11 @@
       "host": "amp-new.netlify.app",
       "port": ""
     },
+    "websocket": {
+      "scheme": "wss",
+      "host": "amp-new.netlify.app",
+      "port": ""
+    },
     "playground": {
       "scheme": "https",
       "host": "playground-amp-new.netlify.app",
