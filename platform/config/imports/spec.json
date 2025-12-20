@@ -91,15 +91,6 @@
 		"formats": ["websites", "stories", "ads"]
 	},
 	{
-		"title": "Help",
-		"order": 1,
-		"repo": "ampproject/amphtml",
-		"from": "docs/SUPPORT.md",
-		"to": "support/index.md",
-		"group": 1,
-		"formats": ["websites","email","stories", "ads"]
-	},
-	{
 		"title": "Integrate your ad technologies into AMP",
 		"order": 3,
 		"repo": "ampproject/amphtml",
