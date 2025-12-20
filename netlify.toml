@@ -1,0 +1,6 @@
+[build]
+  command = "pip install grow && npm run build:staging"
+  publish = "dist/pages"
+
+[build.environment]
+  PYTHON_VERSION = "3.9"
