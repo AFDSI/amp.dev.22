@@ -28,7 +28,7 @@ const MAX_PAGE = 10;
 
 const CSE_BASE_URL = 'https://www.googleapis.com/customsearch/v1';
 let API_KEY = undefined;
-let CSE_ID = undefined;
+let CSE_ID = 'a1a3679a4a68c41f5';
 
 // Load API key from environment
 credentials
