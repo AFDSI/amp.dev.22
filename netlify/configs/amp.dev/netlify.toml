@@ -1,7 +1,6 @@
 [build]
   base = "./dist/pages"
   publish = "."
-  command = "pip install grow && npm run build:staging"
 
 # 1. GLOBAL HEADERS (Apply to everything first)
 [[headers]]

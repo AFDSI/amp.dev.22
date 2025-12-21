@@ -167,4 +167,3 @@ To manually trigger a deployment (required for production):
 3. Confirm deployment
 
 **Note**: Ensure your changes have been properly tested in staging environment before deploying to production.
-# amp.dev.22

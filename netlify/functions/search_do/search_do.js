@@ -89,8 +89,7 @@ function createResult(
       encodeURIComponent(query) +
       '&locale=' +
       encodeURIComponent(locale) +
-      '&page=',
-    'https://amp-new.netlify.app/'
+      '&page=https://amp-new.netlify.app/'
   ).toString();
 
   if (page < lastPage && page < LAST_PAGE) {
@@ -161,7 +160,7 @@ const handler = async (ev) => {
         'Content-Type': 'text/plain',
         'Cache-Control': `no-cache`,
       },
-      body: String(err),
+      body: err,
     };
   }
 
@@ -202,16 +201,14 @@ const handler = async (ev) => {
       'Content-Type': 'application/javascript',
       'Cache-Control': 'no-cache',
     },
-    body: JSON.stringify(
-      createResult(
-        totalResults,
-        page,
-        pageCount,
-        components,
-        pages,
-        query,
-        locale
-      )
+    body: createResult(
+      totalResults,
+      page,
+      pageCount,
+      components,
+      pages,
+      query,
+      locale
     ),
   };
 };

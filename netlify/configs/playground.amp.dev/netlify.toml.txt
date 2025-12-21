@@ -1,0 +1,17 @@
+
+update:
+
+[[redirects]]
+  from = "/documentation/examples/api/*"
+  to = "https://amp.dev/documentation/examples/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/documentation/examples/*"
+  to = "https://preview.amp.dev/documentation/examples/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/static/*"
+  to = "https://amp.dev/static/:splat"
+  status = 200

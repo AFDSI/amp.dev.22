@@ -12,17 +12,17 @@
 
 [[redirects]]
   from = "/documentation/examples/api/*"
-  to = "https://amp.dev/documentation/examples/api/:splat"
+  to = "https://amp-new.netlify.app/documentation/examples/api/:splat"
   status = 200
 
 [[redirects]]
   from = "/documentation/examples/*"
-  to = "https://preview.amp.dev/documentation/examples/:splat"
+  to = "https://preview-amp-new.netlify.app/documentation/examples/:splat"
   status = 200
 
 [[redirects]]
   from = "/static/*"
-  to = "https://amp.dev/static/:splat"
+  to = "https://amp-new.netlify.app/static/:splat"
   status = 200
 
 [[redirects]]
