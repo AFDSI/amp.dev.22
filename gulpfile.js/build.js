@@ -321,7 +321,7 @@ function buildPrepare(done) {
       await sh('mkdir -p artifacts');
       await sh(`tar cfj ${SETUP_ARCHIVE} ${SETUP_STORED_PATHS.join(' ')}`);
     },
-// eslint-disable-next-line prefer-arrow-callback
+    // eslint-disable-next-line prefer-arrow-callback
     function exit(_done) {
       done();
       _done();
@@ -947,7 +947,7 @@ exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
   thumborImageIndex,
   copyNetlifyConfig,
-  generateSitemap,  // Add this line
+  generateSitemap, // Add this line
   copyRootFiles // Add this to the series
 );
 

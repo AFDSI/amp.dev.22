@@ -26,7 +26,8 @@ const CLIENT_ID = process.env.AMP_DOC_ID;
 
 // Debug: Log token presence during build
 console.log(
-  `[GitHubImporter Debug] AMP_DOC_TOKEN present: ${!!CLIENT_TOKEN}, length: ${CLIENT_TOKEN ? CLIENT_TOKEN.length : 0}`
+  `[GitHubImporter Debug] AMP_DOC_TOKEN present: ${!!CLIENT_TOKEN}, 
+  length: ${CLIENT_TOKEN ? CLIENT_TOKEN.length : 0}`
 );
 
 // Debug: Test API call
@@ -37,14 +38,16 @@ if (CLIENT_TOKEN) {
     path: '/repos/ampproject/amphtml/contents/src/builtins/amp-img/amp-img.md',
     headers: {
       'Authorization': `token ${CLIENT_TOKEN}`,
-      'User-Agent': 'amp-dev-build'
-    }
+      'User-Agent': 'amp-dev-build',
+    },
   };
-  https.get(opts, (res) => {
-    console.log('[GitHubImporter Debug] API status:', res.statusCode);
-  }).on('error', (e) => {
-    console.log('[GitHubImporter Debug] API error:', e.message);
-  });
+  https
+    .get(opts, (res) => {
+      console.log('[GitHubImporter Debug] API status:', res.statusCode);
+    })
+    .on('error', (e) => {
+      console.log('[GitHubImporter Debug] API error:', e.message);
+    });
 }
 
 /* The GitHub organisation where the repositories imported from are located */
