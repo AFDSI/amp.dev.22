@@ -110,3 +110,11 @@ packager/certs/*pem.enc
 # Netlify local development
 # ===========================================
 .netlify
+
+# ===========================================
+# GitHub documentation
+# ===========================================
+_deprecate
+_claude
+import-log.txt
+
