@@ -930,8 +930,8 @@ async function generateSitemap() {
   await fs.writeFile(`${PAGES_DIR}/sitemap_generated.xml`, xml);
   signale.success(`Generated sitemap with ${count} URLs`);
 }
-
-exports.generateSitemap = generateSitemap; // Add this line
+// Add this line
+exports.generateSitemap = generateSitemap;
 
 exports.copyRootFiles = copyRootFiles;
 
@@ -947,8 +947,10 @@ exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
   thumborImageIndex,
   copyNetlifyConfig,
-  generateSitemap, // Add this line
-  copyRootFiles // Add this to the series
+  // Add this line 
+  generateSitemap,
+  // Add this to the series
+  copyRootFiles
 );
 
 exports.build = gulp.series(
@@ -956,8 +958,10 @@ exports.build = gulp.series(
   buildPrepare,
   buildPages,
   gulp.parallel(collectStatics, persistBuildInfo),
-  generateSitemap, // Add this line
-  copyRootFiles // Add this to the series
+  // Add this line 
+  generateSitemap,
+  // Add this to the series
+  copyRootFiles
 );
 
 exports.buildForGrowTests = gulp.series(buildBoilerplate, buildPages);
