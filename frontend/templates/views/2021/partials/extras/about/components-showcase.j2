@@ -2,16 +2,17 @@
 
 <article class="ap-components-showcase">
   <div class="ap-components-showcase-buttons" role="list">
-    <button [class]="[componentsShowcase] == 'carousel' ? 'ap-button' : 'ap-button --inactive' " on="tap:AMP.setState({componentsShowcase: 'carousel' })" class="ap-button">{{ _('Carousel') }}</button>
-    <button [class]="[componentsShowcase] == 'animation' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'animation' })" class="ap-button --inactive">{{ _('Animation') }}</button>
-    <button [class]="[componentsShowcase] == 'accordion' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'accordion' })" class="ap-button --inactive">{{ _('Accordion') }}</button>
-    <button [class]="[componentsShowcase] == 'autocomplete' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'autocomplete' })" class="ap-button --inactive">{{ _('Autocomplete') }}</button>
+    <button [class]="[componentsShowcase] == 'carousel' ? 'ap-button' : 'ap-button --inactive' " on="tap:AMP.setState({componentsShowcase: 'carousel' })" class="ap-button">{{ _('Carousel') }}</button>
+    <button [class]="[componentsShowcase] == 'animation' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'animation' })" class="ap-button --inactive">{{ _('Animation') }}</button>
+    <button [class]="[componentsShowcase] == 'accordion' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'accordion' })" class="ap-button --inactive">{{ _('Accordion') }}</button>
+    <button [class]="[componentsShowcase] == 'autocomplete' ? 'ap-button' : 'ap-button --inactive'" on="tap:AMP.setState({componentsShowcase: 'autocomplete' })" class="ap-button --inactive">{{ _('Autocomplete') }}</button>
   </div>
 
   <div class="ap-components-showcase-demos">
     {% for component in components %}
     {% set showcase_code_path = "/shared/components-showcase/amp-" ~ component ~ ".html" %}
-    {% set component_doc = g.doc('/content/amp-dev/documentation/components/amp-'~component, locale=doc.locale).url.path %}
+    {# {% set component_doc = g.doc('/content/amp-dev/documentation/components/amp-'~component, locale=doc.locale).url.path %} #}
+    {% set component_doc = g.doc('/content/amp-dev/documentation/components/reference/amp-'~component, locale=doc.locale).url.path %}
 
     <div [class]="componentsShowcase == '{{component}}' ? 'ap-components-showcase-demo --{{component}} show' : 'ap-components-showcase-demo hide' " class="{% if loop.first %}ap-components-showcase-demo show{% else %}ap-components-showcase-demo hide{% endif %}">
       <div class="ap-components-showcase-demo-code" title={{"amp-"~component}}>
