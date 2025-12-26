@@ -33,11 +33,11 @@ stage:
 <section class="ap--stage ap--container-fluid">
   {% do doc.styles.addCssFile('css/components/organisms/stage.css') %}
 
-  {# Initialize amp-state for client-side filtering #}
-  <amp-state id="activeFilter">
+  {# Initialize amp-state for client-side filtering - matches teaser.j2 expectations #}
+  <amp-state id="filter">
     <script type="application/json">
       {
-        "chosenFilter": "all"
+        "category": "none"
       }
     </script>
   </amp-state>
@@ -104,20 +104,20 @@ stage:
     {% do doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
     {% do doc.styles.addCssFile('css/components/atoms/pill.css', -100) %}
     <div class="ap-o-filter-bubbles-list">
-      {# "All" button - uses client-side state #}
+      {# "All" button - uses 'none' to show all (matches teaser.j2 logic) #}
       <button
         class="ap-a-pill filtered"
-        [class]="activeFilter.chosenFilter == 'all' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-        on="tap:AMP.setState({ activeFilter: {chosenFilter: 'all' } })"
+        [class]="filter.category == 'none' ? 'ap-a-pill filtered' : 'ap-a-pill'"
+        on="tap:AMP.setState({ filter: {category: 'none' } })"
         name="all">
         {{ _('All') }}
       </button>
-      {# Category buttons - use client-side state #}
+      {# Category buttons - use filter.category state #}
       {% for category, stories in categories %}
       <button
           class="ap-a-pill"
-          [class]="activeFilter.chosenFilter == '{{ category|slug }}' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-          on="tap:AMP.setState({ activeFilter: {chosenFilter: '{{ category|slug }}' } })"
+          [class]="filter.category == '{{ category|slug }}' ? 'ap-a-pill filtered' : 'ap-a-pill'"
+          on="tap:AMP.setState({ filter: {category: '{{ category|slug }}' } })"
           name="{{ category|slug }}">
           {{ _(category) }}
       </button>
@@ -125,30 +125,11 @@ stage:
     </div>
   </section>
 
-{# TEMPORARY DEBUG - remove after testing #}
-<div style="background: yellow; padding: 10px; margin: 10px;">
-  <strong>DEBUG - Categories from g.categories():</strong><br>
-  {% for cat, stories in categories %}
-    "{{ cat }}" → slug: "{{ cat|slug }}"<br>
-  {% endfor %}
-  <hr>
-  <strong>DEBUG - Teaser categories:</strong><br>
-  {% for teaser_doc in doc.collection.list_docs(locale=doc.locale, order_by='date')|reverse %}
-    {{ teaser_doc.title }}: "{{ teaser_doc.category }}" → slug: "{{ teaser_doc.category|slug }}"<br>
-  {% endfor %}
-</div>
-{# END DEBUG #}
-
   <section class="ap--teaser-grid ap--container">
     <div class="ap-o-teaser-grid">
       <div class="ap-o-teaser-grid-list">
         {% for teaser_doc in doc.collection.list_docs(locale=doc.locale, order_by='date')|reverse %}
-        {# Wrap teaser in filterable container with [hidden] binding #}
-        {% set teaser_category = teaser_doc.category|default('uncategorized')|slug %}
-        <div class="ap-teaser-filterable"
-             [hidden]="activeFilter.chosenFilter != 'all' && activeFilter.chosenFilter != '{{ teaser_category }}'">
-          {% include '/views/partials/teaser.j2' %}
-        </div>
+        {% include '/views/partials/teaser.j2' %}
         {% endfor %}
       </div>
     </div>
