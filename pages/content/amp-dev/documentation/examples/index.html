@@ -1,5 +1,5 @@
 ---
-$title: AMP Examples
+$title: AMP [= format|capitalize =] Examples
 $titles:
   navigation: Examples
   teaser: Examples.
@@ -166,15 +166,10 @@ recent_examples:
 {% block main %}
 {% include 'views/partials/sidebar-toggle-observer.j2' %}
 <main class="ap--main ap-t-component-overview">
-  {# Initialize amp-state for client-side filtering #}
+  {# Initialize amp-state for category filtering only - format is handled by sidebar #}
   <amp-state id="category">
     <script type="application/json">
       ""
-    </script>
-  </amp-state>
-  <amp-state id="format">
-    <script type="application/json">
-      "websites"
     </script>
   </amp-state>
 
@@ -185,33 +180,7 @@ recent_examples:
       {% include '/views/partials/sidebar-toggle-button.j2' %}
       {% include '/views/partials/breadcrumbs.j2' %}
 
-      <h1>AMP <span [text]="format.charAt(0).toUpperCase() + format.slice(1)">Websites</span> Examples</h1>
-
-      {# Format selector buttons #}
-      {% do doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
-      {% do doc.styles.addCssFile('css/components/atoms/pill.css') %}
-      <div class="ap-o-filter-bubbles-list" style="margin-bottom: 2rem;">
-        <button class="ap-a-pill filtered"
-            [class]="format == 'websites' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'websites', category: '' })">
-          {{ _('Websites') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'stories' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'stories', category: '' })">
-          {{ _('Stories') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'ads' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'ads', category: '' })">
-          {{ _('Ads') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'email' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'email', category: '' })">
-          {{ _('Email') }}
-        </button>
-      </div>
+      <h1>{{ _(doc.title) }}</h1>
 
       {% do doc.styles.addCssFile('/css/components/organisms/card-grid.css') %}
       <section class="ap--card-grid">
@@ -265,9 +234,9 @@ recent_examples:
 
         {# Category names might contain indices for sorting. Tidy them up #}
         {% set filter_categories = [] %}
-        {% for category in categories|map(attribute=0)|list %}
-        {% set category = (category.split('.')[1] if category and category.split('.')|length == 2 else category)|slug %}
-        {% do filter_categories.append(category) %}
+        {% for cat in categories|map(attribute=0)|list %}
+        {% set cat_clean = (cat.split('.')[1] if cat and cat.split('.')|length == 2 else cat)|slug %}
+        {% do filter_categories.append(cat_clean) %}
         {% endfor %}
         {% set filter_categories = filter_categories|tojson %}
 
