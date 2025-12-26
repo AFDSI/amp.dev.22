@@ -37,18 +37,6 @@ recent_components:
 {% block main %}
 {% include 'views/partials/sidebar-toggle-observer.j2' %}
 <main class="ap--main ap-t-component-overview">
-  {# Initialize amp-state for client-side filtering #}
-  <amp-state id="category">
-    <script type="application/json">
-      ""
-    </script>
-  </amp-state>
-  <amp-state id="format">
-    <script type="application/json">
-      "websites"
-    </script>
-  </amp-state>
-
   <div class="ap--container">
     {% include 'views/partials/sidebar-toggle.j2' %}
     <span id="ap--sidebar-content" class="ap--sidebar"></span>
@@ -111,12 +99,11 @@ recent_components:
           <div class="ap-m-teaser-container">
             {% for teaser_doc in doc.highlighted_components %}
             {% set teaser_doc = g.doc(teaser_doc, locale=doc.locale) %}
-              {# Show highlighted component if format matches any of its supported formats #}
-              <div [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})">
+              [% if format in '{{ teaser_doc.formats }}'%]
                 {% with highlightedTeaser = True %}
                 {% include 'views/partials/teaser.j2' %}
                 {% endwith %}
-              </div>
+              [% endif %]
             {% endfor %}
           </div>
         </div>
@@ -128,12 +115,11 @@ recent_components:
           <div class="ap-m-teaser-container">
             {% for teaser_doc in doc.recent_components %}
             {% set teaser_doc = g.doc(teaser_doc, locale=doc.locale) %}
-              {# Show recent component if format matches any of its supported formats #}
-              <div [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})">
+              [% if format in '{{ teaser_doc.formats }}'%]
                 {% with highlightedTeaser = True %}
                 {% include 'views/partials/teaser.j2' %}
                 {% endwith %}
-              </div>
+              [% endif %]
             {% endfor %}
           </div>
         </div>

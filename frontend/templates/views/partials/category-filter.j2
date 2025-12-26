@@ -2,25 +2,29 @@
 {% do doc.styles.addCssFile('css/components/atoms/pill.css') %}
 
 <div class="ap-o-filter-bubbles-list">
-  <a class="ap-a-pill [% if not {{ filter_categories }}.includes(category)%]filtered[% endif %]" href="{{ doc.url.path }}#filter" name="all">
+  {# "All" button - shows all categories #}
+  <button class="ap-a-pill filtered"
+      [class]="category == '' ? 'ap-a-pill filtered' : 'ap-a-pill'"
+      on="tap:AMP.setState({ category: '' })"
+      name="all">
     {{ _('All') }}
-  </a>
-  {% for category, components in categories %}
+  </button>
+  {% for cat, components in categories %}
   {% set scope = namespace(categoryFormats = []) %}
     {% for component in components %}
       {% set formats = component.formats or ['websites'] %}
       {% set scope.categoryFormats = scope.categoryFormats + formats %}
     {% endfor %}
-  {% if category %}
-  [% if format in '{{ scope.categoryFormats|unique|list|tojson }}' %]
-  {% set category = category.split('.')[1] if category and category.split('.')|length == 2 else category %}
-
-  <a class="ap-a-pill [% if {{ filter_categories }}.includes(category) and category == '{{ category|slug }}' %]filtered[% endif %]"
-      href="{{ doc.url.path }}?category={{category|slug}}#filter"
-      name="{{ _(category) }}">
-    {{ _(category) }}
-  </a>
-  [% endif %]
+  {% if cat %}
+  {% set category_name = cat.split('.')[1] if cat and cat.split('.')|length == 2 else cat %}
+  {# Category button - hidden if no components in this category support the current format #}
+  <button class="ap-a-pill"
+      [class]="category == '{{ category_name|slug }}' ? 'ap-a-pill filtered' : 'ap-a-pill'"
+      [hidden]="!{{ scope.categoryFormats|unique|list|tojson }}.includes(format)"
+      on="tap:AMP.setState({ category: '{{ category_name|slug }}' })"
+      name="{{ _(category_name) }}">
+    {{ _(category_name) }}
+  </button>
   {% endif %}
   {% endfor %}
 </div>
