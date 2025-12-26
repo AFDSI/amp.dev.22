@@ -32,16 +32,6 @@ stage:
 <main class="ap--main ap-t-success-story">
 <section class="ap--stage ap--container-fluid">
   {% do doc.styles.addCssFile('css/components/organisms/stage.css') %}
-
-  {# Initialize amp-state for client-side filtering #}
-  <amp-state id="activeFilter">
-    <script type="application/json">
-      {
-        "chosenFilter": "all"
-      }
-    </script>
-  </amp-state>
-
   <div class="ap-o-stage ap-o-stage-websites {{doc.stage.layout}}">
     <div class="ap--container-fluid">
       <div class="ap-o-stage-content">
@@ -104,20 +94,23 @@ stage:
     {% do doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
     {% do doc.styles.addCssFile('css/components/atoms/pill.css', -100) %}
     <div class="ap-o-filter-bubbles-list">
-      {# "All" button - uses client-side state #}
       <button
+        [% if not category or category not in '{{ categories }}' %]
         class="ap-a-pill filtered"
-        [class]="activeFilter.chosenFilter == 'all' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-        on="tap:AMP.setState({ activeFilter: {chosenFilter: 'all' } })"
+        [% else %]
+        class="ap-a-pill"
+        [% endif %]
         name="all">
         {{ _('All') }}
       </button>
-      {# Category buttons - use client-side state #}
       {% for category, stories in categories %}
       <button
+          [% if category == '{{ category|slug }}' %]
+          class="ap-a-pill filtered"
+          [% else %]
           class="ap-a-pill"
-          [class]="activeFilter.chosenFilter == '{{ category|slug }}' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-          on="tap:AMP.setState({ activeFilter: {chosenFilter: '{{ category|slug }}' } })"
+          [% endif %]
+          on="tap:AMP.navigateTo(url='{{ g.doc('/content/amp-dev/about/success-stories/index.html', locale=doc.locale).url.path }}?category={{ category|slug }}')"
           name="{{ category|slug }}">
           {{ _(category) }}
       </button>
@@ -129,12 +122,7 @@ stage:
     <div class="ap-o-teaser-grid">
       <div class="ap-o-teaser-grid-list">
         {% for teaser_doc in doc.collection.list_docs(locale=doc.locale, order_by='date')|reverse %}
-        {# Wrap teaser in filterable container with [hidden] binding #}
-        {% set teaser_category = teaser_doc.category|default('uncategorized')|slug %}
-        <div class="ap-teaser-filterable"
-             [hidden]="activeFilter.chosenFilter != 'all' && activeFilter.chosenFilter != '{{ teaser_category }}'">
-          {% include '/views/partials/teaser.j2' %}
-        </div>
+        {% include '/views/partials/teaser.j2' %}
         {% endfor %}
       </div>
     </div>

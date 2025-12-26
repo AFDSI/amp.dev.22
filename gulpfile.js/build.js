@@ -947,7 +947,7 @@ exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
   thumborImageIndex,
   copyNetlifyConfig,
-  // Add this line 
+  // Add this line
   generateSitemap,
   // Add this to the series
   copyRootFiles
@@ -958,7 +958,7 @@ exports.build = gulp.series(
   buildPrepare,
   buildPages,
   gulp.parallel(collectStatics, persistBuildInfo),
-  // Add this line 
+  // Add this line
   generateSitemap,
   // Add this to the series
   copyRootFiles
