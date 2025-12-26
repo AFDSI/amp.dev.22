@@ -125,6 +125,20 @@ stage:
     </div>
   </section>
 
+{# TEMPORARY DEBUG - remove after testing #}
+<div style="background: yellow; padding: 10px; margin: 10px;">
+  <strong>DEBUG - Categories from g.categories():</strong><br>
+  {% for cat, stories in categories %}
+    "{{ cat }}" → slug: "{{ cat|slug }}"<br>
+  {% endfor %}
+  <hr>
+  <strong>DEBUG - Teaser categories:</strong><br>
+  {% for teaser_doc in doc.collection.list_docs(locale=doc.locale, order_by='date')|reverse %}
+    {{ teaser_doc.title }}: "{{ teaser_doc.category }}" → slug: "{{ teaser_doc.category|slug }}"<br>
+  {% endfor %}
+</div>
+{# END DEBUG #}
+
   <section class="ap--teaser-grid ap--container">
     <div class="ap-o-teaser-grid">
       <div class="ap-o-teaser-grid-list">
