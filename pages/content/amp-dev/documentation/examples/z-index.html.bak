@@ -1,5 +1,5 @@
 ---
-$title: AMP Examples
+$title: AMP [= format|capitalize =] Examples
 $titles:
   navigation: Examples
   teaser: Examples.
@@ -166,18 +166,6 @@ recent_examples:
 {% block main %}
 {% include 'views/partials/sidebar-toggle-observer.j2' %}
 <main class="ap--main ap-t-component-overview">
-  {# Initialize amp-state for client-side filtering #}
-  <amp-state id="category">
-    <script type="application/json">
-      ""
-    </script>
-  </amp-state>
-  <amp-state id="format">
-    <script type="application/json">
-      "websites"
-    </script>
-  </amp-state>
-
   <div class="ap--container">
     {% include 'views/partials/sidebar-toggle.j2' %}
     <span id="ap--sidebar-content" class="ap--sidebar"></span>
@@ -185,46 +173,19 @@ recent_examples:
       {% include '/views/partials/sidebar-toggle-button.j2' %}
       {% include '/views/partials/breadcrumbs.j2' %}
 
-      <h1>AMP <span [text]="format.charAt(0).toUpperCase() + format.slice(1)">Websites</span> Examples</h1>
-
-      {# Format selector buttons #}
-      {% do doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
-      {% do doc.styles.addCssFile('css/components/atoms/pill.css') %}
-      <div class="ap-o-filter-bubbles-list" style="margin-bottom: 2rem;">
-        <button class="ap-a-pill filtered"
-            [class]="format == 'websites' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'websites', category: '' })">
-          {{ _('Websites') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'stories' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'stories', category: '' })">
-          {{ _('Stories') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'ads' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'ads', category: '' })">
-          {{ _('Ads') }}
-        </button>
-        <button class="ap-a-pill"
-            [class]="format == 'email' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-            on="tap:AMP.setState({ format: 'email', category: '' })">
-          {{ _('Email') }}
-        </button>
-      </div>
+      <h1>{{ _(doc.title) }}</h1>
 
       {% do doc.styles.addCssFile('/css/components/organisms/card-grid.css') %}
       <section class="ap--card-grid">
         <h2 class="ap-o-card-grid-text">Featured examples</h2>
-        {# Featured examples for each format - use [hidden] binding #}
-        {% for fmt in ['websites', 'stories', 'ads', 'email'] %}
-        <div [hidden]="format != '{{ fmt }}'">
-          {% for item in doc.examples[fmt] %}
+        {% for format in doc.examples %}
+        [% if format == '{{ format }}' %]
+          {% for item in doc.examples[format] %}
           {% set card_grid_items_custom = [] %}
           {% do card_grid_items_custom.append(item) %}
           {% include '/views/partials/card-grid.j2' %}
           {% endfor %}
-        </div>
+        [% endif %]
         {% endfor %}
     </section>
 
@@ -235,8 +196,15 @@ recent_examples:
           <h2>{{ _('AMP Playground') }}</h2>
           <p>{{ _('Try it yourself with the AMP Playground. Test your ideas directly in the browser and get instant feedback.') }}</p>
           <a class="ap-m-lnk ap-m-lnk-square"
+             [% if format == 'websites' %]
              href="https://playground.amp.dev/"
-             [href]="format == 'websites' ? 'https://playground.amp.dev/' : format == 'stories' ? 'https://playground.amp.dev/?runtime=amp4stories' : format == 'ads' ? 'https://playground.amp.dev/?runtime=amp4ads' : 'https://playground.amp.dev/?runtime=amp4email'"
+             [% elif format == 'stories' %]
+             href="https://playground.amp.dev/?runtime=amp4stories"
+             [% elif format == 'ads' %]
+             href="https://playground.amp.dev/?runtime=amp4ads"
+             [% elif format == 'email' %]
+             href="https://playground.amp.dev/?runtime=amp4email"
+             [% endif %]
              >
             <div class="ap-a-ico ap-m-lnk-icon">
               {% do doc.icons.useIcon('icons/internal.svg') %}
@@ -274,75 +242,67 @@ recent_examples:
         <h2>{{ _('Filter by category') }}</h2>
         {% include '/views/partials/category-filter.j2'%}
 
-        {% for cat, documents in categories %}
-        {% set category_name = cat.split('.')[1] if cat and cat.split('.')|length == 2 else cat %}
-        {% set category_slug = category_name|slug %}
-        {% set category_formats = documents|map(attribute='formats')|sum(start=[])|unique|list %}
+        {% for category, documents in categories %}
+        {% set category_name = category.split('.')[1] if category and category.split('.')|length == 2 else category %}
 
-        {# Category section wrapper - hidden based on category and format filters #}
-        <div class="ap-m-category-section" 
-             [hidden]="(category != '' && category != '{{ category_slug }}') || !{{ category_formats|tojson }}.includes(format)">
-          
-          <h4 id="{{ category_name }}">{{ _(category_name) }}</h4>
-          
-          {# Teaser grid for documents with teasers #}
-          <div class="ap-o-teaser-grid">
-            <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
-              {% for document in documents if document.teaser %}
-              <div [hidden]="!{{ document.formats|tojson }}.includes(format)">
-                {% with teaser_doc = document %}
-                {% include '/views/partials/teaser.j2' %}
-                {% endwith %}
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-          
-          {# Table component for documents without teasers #}
-          <div class="ap-m-table-component{{ '-components' if category_name == 'components' else '' }}">
-            {% for document in documents if not document.teaser %}
-            <a class="ap-m-table-component-link" 
-               href="{{ document.url.path }}" 
-               [hidden]="!{{ document.formats|tojson }}.includes(format)">
-              <div class="ap-m-table-component-row">
-                {% if document.formats %}
-                {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
-                <div class="ap-m-table-component-tags">
-                  {% if 'websites' in document.formats %}
-                  <div class="ap-m-tag ap-m-tag-websites ap-m-table-component-tag"></div>
-                  {% endif %}
-                  {% if 'stories' in document.formats %}
-                  <div class="ap-m-tag ap-m-tag-stories ap-m-table-component-tag"></div>
-                  {% endif %}
-                  {% if 'ads' in document.formats %}
-                  <div class="ap-m-tag ap-m-tag-ads ap-m-table-component-tag"></div>
-                  {% endif %}
-                  {% if 'email' in document.formats or 'emails' in document.formats %}
-                  <div class="ap-m-tag ap-m-tag-email ap-m-table-component-tag"></div>
-                  {% endif %}
-                </div>
-                {% endif %}
-                <div class="ap-m-table-component-name ap-m-table-component-name-example">
-                  <span class="ap-m-table-component-name-title">{{ _(document.titles('teaser')) }}</span>
-                </div>
-                {% if category_name != 'components' %}
-                <div class="ap-m-table-component-info">
-                  <div class="ap-m-table-component-used-components">
-                    {% if document.used_components %}
-                    {% for component in document.used_components %}
-                    <code>{{ _(component) }}</code>
-                    {% endfor %}
-                    {% else %}
-                    <p> </p>
-                    {% endif %}
-                  </div>
-                </div>
-                {% endif %}
-              </div>
-            </a>
+        [% if not {{ filter_categories }}.includes(category) or {{ filter_categories }}.includes(category) and category == '{{ category_name|slug }}' %]
+        [% if format in {{ documents|map(attribute='formats')|sum(start=[])|unique|list|tojson }} %]
+        <h4 id="{{ category_name }}">{{ _(category_name) }}</h4>
+        [% endif %]
+        [% if format in {{ documents|map(attribute='formats')|sum(start=[])|unique|list|tojson }} %]
+        <div class="ap-o-teaser-grid">
+          {# Hardcode to a length of 9 teasers as there will be at least that much #}
+          <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
+            {% for document in documents if document.teaser %}
+            {% with teaser_doc = document %}
+            {% include '/views/partials/teaser.j2' %}
+            {% endwith %}
             {% endfor %}
           </div>
         </div>
+        [% endif %]
+        <div class="ap-m-table-component{{'-components' if category_name == 'components'}}" [% if format not in {{ documents|map(attribute='formats')|sum(start=[])|unique|list|tojson }}%]hidden[% endif %]>
+          {% for document in documents if not document.teaser %}
+          <a class="ap-m-table-component-link" href="{{ document.url.path }}" [% if format not in '{{ document.formats }}' and forcedFiltered != true %]hidden[% endif %]>
+            <div class="ap-m-table-component-row">
+              {% if document.formats %}
+              {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
+              <div class="ap-m-table-component-tags">
+                {% if 'websites' in document.formats %}
+                <div class="ap-m-tag ap-m-tag-websites ap-m-table-component-tag"></div>
+                {% endif %}
+                {% if 'stories' in document.formats %}
+                <div class="ap-m-tag ap-m-tag-stories ap-m-table-component-tag"></div>
+                {% endif %}
+                {% if 'ads' in document.formats %}
+                <div class="ap-m-tag ap-m-tag-ads ap-m-table-component-tag"></div>
+                {% endif %}
+                {% if 'email' in document.formats or 'emails' in document.formats %}
+                <div class="ap-m-tag ap-m-tag-email ap-m-table-component-tag"></div>
+                {% endif %}
+              </div>
+              {% endif %}
+              <div class="ap-m-table-component-name ap-m-table-component-name-example">
+                <span class="ap-m-table-component-name-title">{{ _(document.titles('teaser')) }}</span>
+              </div>
+              {% if category_name != 'components' %}
+              <div class="ap-m-table-component-info">
+                <div class="ap-m-table-component-used-components">
+                  {% if document.used_components %}
+                  {% for component in document.used_components %}
+                  <code>{{ _(component) }}</code>
+                  {% endfor %}
+                  {% else %}
+                  <p> </p>
+                  {% endif %}
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        [% endif %]
         {% endfor %}
       </section>
     </section>
