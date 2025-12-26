@@ -10,14 +10,6 @@ roadmap: !g.json /shared/data/roadmap.json
 <main class="ap--main ap-t-roadmap">
   <section class="ap--stage ap--container-fluid">
     {% do doc.styles.addCssFile('css/components/organisms/stage.css') %}
-
-    {# Initialize amp-state for client-side filtering #}
-    <amp-state id="category">
-      <script type="application/json">
-        ""
-      </script>
-    </amp-state>
-
     <div class="ap-o-stage">
       <div class="ap--container-fluid">
         <div class="ap-o-stage-content">
@@ -54,21 +46,17 @@ roadmap: !g.json /shared/data/roadmap.json
 
     <h2 class="ap-t-roadmap-filter-headline">{{ _('Select working groups') }}</h2>
     <div class="ap-t-roadmap-filter-list">
-      {# "All" button - uses empty string to show all #}
-      <button class="ap-a-pill reset active"
-          [class]="category == '' ? 'ap-a-pill reset active' : 'ap-a-pill reset'"
-          on="tap:AMP.setState({ category: '' })"
+      <a class="ap-a-pill reset [% if not category %]active[% endif %]"
+          href="{{ doc.url.path }}#status-updates"
           style="color: #005AF0;">
         <span class="ap-a-pill-text">{{ _('All') }}</span>
-      </button>
-      {# Working group buttons #}
+      </a>
       {% for group in doc.roadmap.working_groups %}
-      <button class="ap-a-pill {{ group.slug }}"
-          [class]="category == '{{ group.slug }}' ? 'ap-a-pill {{ group.slug }} active' : 'ap-a-pill {{ group.slug }}'"
-          on="tap:AMP.setState({ category: '{{ group.slug }}' })"
+      <a class="ap-a-pill {{ group.slug }} [% if category == '{{ group.slug }}' %]active[% endif %]"
+          href="{{ doc.url.path }}?category={{ group.slug }}#status-updates"
           style="color: {{ group.color }}">
         <span class="ap-a-pill-text">{{ group.title }}</span>
-      </button>
+      </a>
       {% endfor %}
     </div>
   </section>
@@ -77,82 +65,83 @@ roadmap: !g.json /shared/data/roadmap.json
     <div class="ap-t-roadmap-navigation">
       <div class="ap-t-roadmap-navigation-list">
         {% for quarter in doc.roadmap.quarters.ordered %}
-        {# Quarter navigation items - show all, filter via hidden binding #}
-        <div [hidden]="category != '' && !{{ doc.roadmap.quarters.working_groups[quarter]|tojson }}.includes(category)">
-          <amp-animation id="anim-{{ quarter|slug }}" layout="nodisplay">
-            <script type="application/json">
-              {
-                "duration": ".3s",
-                "fill": "both",
-                "direction": "alternate",
-                "animations": [
-                  {
-                    "selector": ".nav-item-title",
-                    "keyframes": {
-                      "opacity": ".3"
-                    }
-                  },
-                  {
-                    "selector": "#nav-item-{{ quarter|slug }}",
-                    "keyframes": {
-                      "opacity": "1"
-                    }
-                  },
-                  {
-                    "selector": ".nav-item-timeline",
-                    "keyframes": {
-                      "opacity": "0"
-                    }
-                  },
-                  {
-                    "selector": "#nav-item-timeline-{{ quarter|slug }}",
-                    "keyframes": {
-                      "opacity": "1"
-                    }
+
+        [% set roadmap_quarter = {{ doc.roadmap.quarters.working_groups[quarter]|tojson }} %]
+        [% if not category or roadmap_quarter.includes(category) %]
+        <amp-animation id="anim-{{ quarter|slug }}" layout="nodisplay">
+          <script type="application/json">
+            {
+              "duration": ".3s",
+              "fill": "both",
+              "direction": "alternate",
+              "animations": [
+                {
+                  "selector": ".nav-item-title",
+                  "keyframes": {
+                    "opacity": ".3"
                   }
-                ]
-              }
-            </script>
-          </amp-animation>
-          <button class="ap-t-roadmap-navigation-list-item"
-              on="tap:{{ 'status-updates' if loop.first else quarter|slug }}.scrollTo(duration=500)">
-            <h3 class="ap-t-roadmap-navigation-list-item-title nav-item-title"
-                id="nav-item-{{ quarter|slug }}">
-              {{ quarter }}
-            </h3>
-            <span class="ap-t-roadmap-navigation-list-item-timeline nav-item-timeline"
-                id="nav-item-timeline-{{ quarter|slug }}">
-            </span>
-          </button>
-        </div>
+                },
+                {
+                  "selector": "#nav-item-{{ quarter|slug }}",
+                  "keyframes": {
+                    "opacity": "1"
+                  }
+                },
+                {
+                  "selector": ".nav-item-timeline",
+                  "keyframes": {
+                    "opacity": "0"
+                  }
+                },
+                {
+                  "selector": "#nav-item-timeline-{{ quarter|slug }}",
+                  "keyframes": {
+                    "opacity": "1"
+                  }
+                }
+              ]
+            }
+          </script>
+        </amp-animation>
+        <button class="ap-t-roadmap-navigation-list-item"
+            on="tap:{{ 'status-updates' if loop.first else quarter|slug }}.scrollTo(duration=500)">
+          <h3 class="ap-t-roadmap-navigation-list-item-title nav-item-title"
+              id="nav-item-{{ quarter|slug }}">
+            {{ quarter }}
+          </h3>
+          <span class="ap-t-roadmap-navigation-list-item-timeline nav-item-timeline"
+              id="nav-item-timeline-{{ quarter|slug }}">
+          </span>
+        </button>
+        [% endif %]
+
         {% endfor %}
       </div>
     </div>
 
     <div class="ap-t-roadmap-list">
       {% do doc.icons.useIcon('icons/angle-down-solid.svg') %}
-      {% set ns = namespace(prev_quarter='') %}
+      [% set quarters = {{ doc.roadmap.quarters.working_groups|tojson }} %]
+      [% set currenQuarter = 'undefined' %]
 
       {% for issue in doc.roadmap.issues %}
-      {# Each issue wrapped with [hidden] binding for filtering #}
+      [% if not category or category == '{{ issue.wg_slug }}' %]
       <div class="ap-t-roadmap-list-item"
-          id="{{ issue.wg_slug }}-{{ issue.number }}"
-          [hidden]="category != '' && category != '{{ issue.wg_slug }}'">
+          id="{{ issue.wg_slug }}-{{ issue.number }}">
 
-        {# Quarter header - only show when quarter changes #}
-        {% if ns.prev_quarter != issue.quarter %}
-        {% set ns.prev_quarter = issue.quarter %}
-        <div [hidden]="category != '' && !{{ doc.roadmap.quarters.working_groups[issue.quarter]|tojson }}.includes(category)">
-          <amp-position-observer intersection-ratios=".95"
-              target="{{ issue.quarter|slug }}"
-              on="enter:anim-{{ issue.quarter|slug }}.start"
-              layout="nodisplay">
-          </amp-position-observer>
-          <aside class="ap-t-roadmap-list-item-quarter" id="{{ issue.quarter|slug }}">
-            <h3>{{ issue.quarter }}</h3>
-          </aside>
-        </div>
-        {% endif %}
+        [% if currenQuarter != '{{ issue.quarter }}' %]
+        [% if not category or quarters['{{ issue.quarter }}'].includes(category) %]
+        [% set currenQuarter = '{{ issue.quarter }}' %]
+        <amp-position-observer intersection-ratios=".95"
+            target="{{ issue.quarter|slug }}"
+            on="enter:anim-{{ issue.quarter|slug }}.start"
+            layout="nodisplay">
+        </amp-position-observer>
+        <aside class="ap-t-roadmap-list-item-quarter" id="{{ issue.quarter|slug }}">
+          <h3>{{ issue.quarter }}</h3>
+        </aside>
+        [% endif %]
+        [% endif %]
 
         <aside class="ap-t-roadmap-list-item-scroll-spacer"
             id="scroll-{{ issue.wg_slug }}-{{ issue.number }}">
@@ -193,6 +182,7 @@ roadmap: !g.json /shared/data/roadmap.json
           </div>
         </div>
       </div>
+      [% endif %]
       {% endfor %}
     </div>
   </section>
