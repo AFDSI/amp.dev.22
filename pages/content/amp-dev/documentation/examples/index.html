@@ -190,9 +190,9 @@ recent_examples:
       {% do doc.styles.addCssFile('/css/components/organisms/card-grid.css') %}
       <section class="ap--card-grid">
         <h2 class="ap-o-card-grid-text">Featured examples</h2>
-        {# Show featured examples for current format #}
+        {# Show featured examples for current format - display:contents preserves grid layout #}
         {% for fmt in ['websites', 'stories', 'ads', 'email'] %}
-        <div [hidden]="format != '{{ fmt }}'">
+        <div style="display: contents;" [hidden]="format != '{{ fmt }}'">
           {% for item in doc.examples[fmt] %}
           {% set card_grid_items_custom = [] %}
           {% do card_grid_items_custom.append(item) %}
