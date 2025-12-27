@@ -935,15 +935,11 @@ exports.generateSitemap = generateSitemap;
 
 exports.copyRootFiles = copyRootFiles;
 
-// Define the task separately
-async function quickGrow() {
-  await grow('deploy --noconfirm --threaded');
-}
-
-// Reference it by name
 exports.testSitemap = gulp.series(
   buildFrontend,
-  quickGrow,
+  async function quickGrow() {
+    await grow('deploy --noconfirm --threaded');
+  },
   generateSitemap
 );
 
