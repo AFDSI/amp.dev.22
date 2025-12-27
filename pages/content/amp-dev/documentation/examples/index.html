@@ -166,10 +166,15 @@ recent_examples:
 {% block main %}
 {% include 'views/partials/sidebar-toggle-observer.j2' %}
 <main class="ap--main ap-t-component-overview">
-  {# Initialize amp-state for category filtering only - format is handled by sidebar #}
+  {# Initialize amp-state for client-side filtering #}
   <amp-state id="category">
     <script type="application/json">
       ""
+    </script>
+  </amp-state>
+  <amp-state id="format">
+    <script type="application/json">
+      "websites"
     </script>
   </amp-state>
 
@@ -185,7 +190,7 @@ recent_examples:
       {% do doc.styles.addCssFile('/css/components/organisms/card-grid.css') %}
       <section class="ap--card-grid">
         <h2 class="ap-o-card-grid-text">Featured examples</h2>
-        {# Featured examples for each format - use [hidden] binding #}
+        {# Show featured examples for current format #}
         {% for fmt in ['websites', 'stories', 'ads', 'email'] %}
         <div [hidden]="format != '{{ fmt }}'">
           {% for item in doc.examples[fmt] %}
@@ -195,7 +200,7 @@ recent_examples:
           {% endfor %}
         </div>
         {% endfor %}
-    </section>
+      </section>
 
 
       {% do doc.styles.addCssFile('/css/components/molecules/teaser-info.css') %}
@@ -248,14 +253,14 @@ recent_examples:
         {% set category_slug = category_name|slug %}
         {% set category_formats = documents|map(attribute='formats')|sum(start=[])|unique|list %}
 
-        {# Category section wrapper - hidden based on category and format filters #}
-        <div class="ap-m-category-section" 
-             [hidden]="(category != '' && category != '{{ category_slug }}') || !{{ category_formats|tojson }}.includes(format)">
+        {# Category section - hidden based on category filter only #}
+        <div [hidden]="category != '' && category != '{{ category_slug }}'">
           
-          <h4 id="{{ category_name }}">{{ _(category_name) }}</h4>
+          {# Header - hidden if no docs in this category support current format #}
+          <h4 id="{{ category_name }}" [hidden]="!{{ category_formats|tojson }}.includes(format)">{{ _(category_name) }}</h4>
           
           {# Teaser grid for documents with teasers #}
-          <div class="ap-o-teaser-grid">
+          <div class="ap-o-teaser-grid" [hidden]="!{{ category_formats|tojson }}.includes(format)">
             <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
               {% for document in documents if document.teaser %}
               <div [hidden]="!{{ document.formats|tojson }}.includes(format)">
@@ -268,7 +273,7 @@ recent_examples:
           </div>
           
           {# Table component for documents without teasers #}
-          <div class="ap-m-table-component{{ '-components' if category_name == 'components' else '' }}">
+          <div class="ap-m-table-component{{ '-components' if category_name == 'components' else '' }}" [hidden]="!{{ category_formats|tojson }}.includes(format)">
             {% for document in documents if not document.teaser %}
             <a class="ap-m-table-component-link" 
                href="{{ document.url.path }}" 
