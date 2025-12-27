@@ -259,15 +259,13 @@ recent_examples:
           {# Header - hidden if no docs in this category support current format #}
           <h4 id="{{ category_name }}" [hidden]="!{{ category_formats|tojson }}.includes(format)">{{ _(category_name) }}</h4>
           
-          {# Teaser grid for documents with teasers #}
+          {# Teaser grid for documents with teasers - teaser.j2 handles format/category filtering internally #}
           <div class="ap-o-teaser-grid" [hidden]="!{{ category_formats|tojson }}.includes(format)">
             <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
               {% for document in documents if document.teaser %}
-              <div [hidden]="!{{ document.formats|tojson }}.includes(format)">
-                {% with teaser_doc = document %}
-                {% include '/views/partials/teaser.j2' %}
-                {% endwith %}
-              </div>
+              {% with teaser_doc = document %}
+              {% include '/views/partials/teaser.j2' %}
+              {% endwith %}
               {% endfor %}
             </div>
           </div>

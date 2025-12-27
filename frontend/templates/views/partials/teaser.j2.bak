@@ -2,6 +2,7 @@
 {% if teaser_doc.view == '/views/detail/success-story-detail.j2' %}
 {% do doc.styles.addCssFile('css/components/molecules/teaser-success-story.css') %}
 <div class="ap-m-teaser ap-m-teaser-success-story"
+    [% if category in {{ doc.collection.list_docs(locale=doc.locale)|map(attribute='category')|unique|list|tojson }} and category not in '{{ teaser_doc.category|slug }}' %]hidden[% endif %]
     [hidden]="filter.category != 'none' && filter.category != '{{ teaser_doc.category|slug }}'">
   <a href="{{ teaser_doc.url.path }}">
 
@@ -102,11 +103,11 @@
   </a>
 </div>
 {% elif teaser_doc.view == '/views/examples/documentation.j2' %}
-{# Example teaser - converted to client-side filtering #}
+{# Example teaser #}
 {% do doc.styles.addCssFile('/css/components/molecules/teaser-example.css') %}
 {% set formats = teaser_doc.formats or ['websites'] %}
-<div class="ap-m-teaser ap-m-teaser-example" data-category="{{ teaser_doc.category|slug }}" 
-     [hidden]="!{{ formats|tojson }}.includes(format) || (category != '' && category != '{{ teaser_doc.category|slug }}')">
+[% if ({{ formats|tojson }}).includes(format) %]
+<div class="ap-m-teaser ap-m-teaser-example" data-category="{{ teaser_doc.category|slug }}" [hidden]="activeFilter.chosenFilter != 'none' && activeFilter.chosenFilter != '{{ teaser_doc.category|slug }}'">
   {% if teaser_doc.used_components %}
   <div class="ap-m-teaser-info-trigger">
     <strong>{{ _(teaser_doc.used_components|length) }} AMP components</strong> used
@@ -182,6 +183,7 @@
     </div>
   </a>
 </div>
+[% endif %]
 {% elif teaser_doc.view == '/views/detail/docs-detail.j2' and highlightedTeaser %}
 {# guides and tutorials #}
 <div class="ap-m-teaser ap-m-teaser-highlighted">
@@ -232,11 +234,12 @@
   elif teaser_doc.view == '/views/detail/docs-detail.j2' or
   teaser_doc.view == '/views/custom.j2' and teaser
   %}
-{# custom teaser - converted to client-side filtering #}
+{# custom teaser #}
 {% do doc.styles.addCssFile('/css/components/molecules/teaser-guide-tutorial.css') %}
 {% set teaser = teaser_doc.teaser or {} %}
 {% set formats = teaser_doc.formats or ['websites'] %}
-<div class="ap-m-teaser ap-m-teaser-guide-tutorial" [hidden]="!{{ formats|tojson }}.includes(format)">
+[% if ({{ formats|tojson }}).includes(format) %]
+<div class="ap-m-teaser ap-m-teaser-guide-tutorial">
   <a href="{{ teaser_doc.url.path }}">
 
     {# tags #}
@@ -286,6 +289,7 @@
     </div>
   </a>
 </div>
+[% endif %]
 {% elif teaser_doc.view == '/views/detail/faq-detail.j2' %}
 {# FAQ teaser #}
   {% do doc.styles.addCssFile('/css/components/molecules/teaser-faq.css') %}
