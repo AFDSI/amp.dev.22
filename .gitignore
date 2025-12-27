@@ -115,6 +115,5 @@ packager/certs/*pem.enc
 # GitHub documentation
 # ===========================================
 _deprecate
-_claude
 import-log.txt
 
