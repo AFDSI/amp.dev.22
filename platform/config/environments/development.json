@@ -45,11 +45,6 @@
       "host": "localhost",
       "port": "8087"
 		},
-		"packager": {
-      "scheme": "https",
-      "host": "amp-dev-sxg.appspot.com",
-      "port": ""
-    },
     "thumbor": {
       "scheme": "http",
       "host": "localhost",

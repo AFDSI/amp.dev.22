@@ -70,9 +70,9 @@ const CACHE_DEST = utils.project.absolute('.cache/examples.json');
 // Path the all source files are written to, to vend them via express
 const SOURCE_DEST = utils.project.absolute('dist/examples/sources');
 // The API host used by samples depending on one
-const API_HOST = 'https://amp-by-example-api.appspot.com';
+// const API_HOST = 'https://amp-by-example-api.appspot.com';
 // The host used for samples depending on a backend
-const BACKEND_HOST = 'https://ampbyexample.com';
+// const BACKEND_HOST = 'https://ampbyexample.com';
 // The path where the playground's example sitemap is written
 const SITEMAP_DEST = utils.project.absolute(
   'examples/static/samples/samples.json'
