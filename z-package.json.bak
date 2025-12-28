@@ -15,6 +15,7 @@
 		"fix:node": "eslint \"**/*.js\" --fix",
 		"build:boilerplate": "cd boilerplate && node build.js",
 		"build:playground": "cd playground && webpack --mode production",
+		"build:pixi": "cd pixi && webpack --mode production",
 		"build:frontend": "cd frontend21 && webpack --mode production",
 		"build:local": "npx gulp build --env local",
 		"build:staging": "npx gulp build --env staging",
@@ -26,12 +27,15 @@
 		"smoke-test": "APP_ENV=local jest smoke-tests --forceExit",
 		"start:local": "cd platform && NODE_ENV=local node serve.js",
 		"start:playground": "cd playground && webpack serve --mode development",
+		"start:pixi": "cd pixi && webpack serve --mode development",
 		"start:frontend": "cd frontend21 && webpack serve --mode development",
 		"start": "cd platform && NODE_ENV=production node serve.js",
 		"test": "npm-run-all test:* --aggregate-output --parallel",
 		"test:prepare": "gulp updateTestResources",
 		"test:platform": "APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern platform --testPathIgnorePatterns smoke-tests",
 		"test:playground": "APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern playground",
+		"_test:pixi": "APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern pixi",
+		"_test:pixi:e2e": "APP_ENV=local jest --forceExit -c e2e.jest.config.js",
 		"test:grow-extensions": "cd pages/extensions && if which grow; then python3 -m unittest discover -p \"*_test.py\"; else echo grow not installed with pip. skip tests; fi"
 	},
 	"keywords": [

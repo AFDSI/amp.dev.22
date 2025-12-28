@@ -266,6 +266,11 @@
   status = 401
 
 [[redirects]]
+  from = "/pixi"
+  to = "https://web.dev/measure/"
+  status = 302
+
+[[redirects]]
   from = "/about/page-experience"
   to = "https://developers.google.com/search/docs/appearance/page-experience"
   status = 302
@@ -323,6 +328,11 @@
 [[redirects]]
   from = "/optimizer"
   to = "/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
+  status = 302
+
+[[redirects]]
+  from = "/pixi"
+  to = "https://web.dev/measure/"
   status = 302
 
 [[redirects]]
