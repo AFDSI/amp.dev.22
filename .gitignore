@@ -116,3 +116,13 @@ packager/certs/*pem.enc
 _deprecate
 import-log.txt
 
+# ===========================================
+# Backup files
+# ===========================================
+*.bak
+*.bak2
+z-*.bak
+z-*.bak2
+z-*.js.bak
+z-*.json.bak
+z-*.yaml.bak
