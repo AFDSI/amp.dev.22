@@ -330,9 +330,9 @@ class SamplesBuilder {
         'preview': `${platformHost}${this._getPreviewRoute(sample)}`,
         'hosts': {
           'platform': platformHost,
-          'api': ,
+          'api': '',
           'websocket': websocketHost,
-          'backend': ,
+          'backend': '',
           'preview': config.hosts.preview.base,
         },
       },
