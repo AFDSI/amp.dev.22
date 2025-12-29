@@ -49,7 +49,7 @@ const routers = {
   static: require('@lib/routers/static.js'),
   survey: require('@lib/routers/surveyComponent.js'),
   templates: require('@lib/routers/templates.js'),
-  thumbor: require('@lib/routers/thumbor.js').thumborRouter,
+  // thumbor: require('@lib/routers/thumbor.js').thumborRouter,
   whoAmI: require('@lib/routers/whoAmI.js'),
 };
 
@@ -169,7 +169,7 @@ class Platform {
     this.server.use(routers.cspReport);
     // Disable packager until we have a better way to manage our certs
     // this.server.use(routers.packager);
-    this.server.use(routers.thumbor);
+    // this.server.use(routers.thumbor);
     this.server.use(routers.whoAmI);
     this.server.use(routers.healthCheck);
     this.server.use(routers.example.api);

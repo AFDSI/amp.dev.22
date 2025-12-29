@@ -5,20 +5,71 @@ Identify all files that depend on site-specific variables for enabling multi-sit
 
 ---
 
+## PRUNING STATUS (Updated 2025-12-28)
+
+### Completed Pruning
+
+| Service | Status | Notes |
+|---------|--------|-------|
+| Pixi | ✅ Removed | Directories deleted, references cleaned |
+| Packager | ✅ Removed | gulpfile.js/packager.js deleted, config removed |
+| gCloud Deploy | ✅ Removed | app.yaml and z-deploy.js deleted |
+| Static-test environment | ✅ Removed | static-test.json deleted |
+
+### Remaining Cleanup (Thumbor)
+
+The following thumbor references still exist and should be cleaned up:
+
+| File | Line | Reference | Action |
+|------|------|-----------|--------|
+| `platform/lib/utils/imageOptimizer.js` | * | References thumbor | REVIEW |
+| `platform/lib/templates/ImportBlogFilter.js` | * | References thumbor | REVIEW |
+
+---
+
 ## PRIMARY CONFIGURATION FILES
 
-These files already serve as configuration sources:
+These files serve as configuration sources:
 
-| File | Purpose |
-|------|---------|
-| `platform/config/shared.json` | GA tracking ID, base URLs |
-| `platform/config/environments/production.json` | Production host configurations |
-| `platform/config/environments/staging.json` | Staging host configurations |
-| `platform/config/environments/development.json` | Development host configurations |
-| `platform/config/environments/local.json` | Local development hosts |
-| `package.json` | Site name, description, repository |
-| `pixi/config.js` | API endpoints (development/production) |
-| `app.yaml` | Google Cloud App Engine config |
+| File | Purpose | Status |
+|------|---------|--------|
+| `platform/config/shared.json` | GA tracking ID, base URLs, thumbor config | Active |
+| `platform/config/environments/production.json` | Production host configurations | Active |
+| `platform/config/environments/staging.json` | Staging host configurations | Active |
+| `platform/config/environments/development.json` | Development host configurations | Active |
+| `platform/config/environments/local.json` | Local development hosts | Active |
+| `platform/lib/config.js` | Central configuration loader | Active |
+| `package.json` | Site name, description, repository | Active |
+
+---
+
+## CONFIGURATION ARCHITECTURE
+
+### How Configuration Flows
+
+```
+Environment JSON files → config.js → podspec.yaml → Jinja2 templates
+                           ↓
+                      JavaScript modules (samples.js, etc.)
+```
+
+### Key Integration Points
+
+1. **`platform/lib/config.js`** (lines 68-88): Loads environment configs and shared.json
+2. **`config.buildGrowPodSpec()`** (line 198-287): Injects values into podspec for Grow/Jinja2
+3. **`podspec.base_urls.*`**: Available in all Jinja2 templates
+
+### Current Podspec Variables (from config.js:228-234)
+
+```javascript
+podspec['base_urls'] = {
+  'repository': this.shared.baseUrls.repository,
+  'playground': this.hosts.playground.base,
+  'platform': this.hosts.platform.base,
+  'api': this.hosts.api.base,
+  'preview': this.hosts.preview.base,
+};
+```
 
 ---
 
@@ -26,226 +77,248 @@ These files already serve as configuration sources:
 
 ### 1. Site Name / Branding
 
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `package.json` | 2 | `"name": "amp-new.netlify.app"` | JSON |
-| `package.json` | 4 | `"description": "The AMP Project website."` | JSON |
-| `pages/static/manifest.json` | 2 | `"name": "amp-new.netlify.app"` | JSON |
-| `pages/static/manifest.json` | 3 | `"short_name": "amp-new"` | JSON |
-| `frontend/templates/views/partials/structured-data.j2` | 63 | `- amp-new</title>` | Jinja2 |
-| `frontend/templates/views/partials/structured-data.j2` | 74 | `"name": "amp-new"` | Jinja2/JSON-LD |
-| `frontend/templates/views/partials/structured-data.j2` | 85 | `"name": "AMP Project"` | Jinja2/JSON-LD |
-| `frontend/templates/views/partials/header.j2` | 13 | `<span class="ap-o-header-home-title">AMP</span>` | Jinja2/HTML |
+| File | Line | Current Value | Variable Type | Configurable? |
+|------|------|---------------|---------------|---------------|
+| `package.json` | 2 | `"name": "amp-new.netlify.app"` | JSON | ❌ Static |
+| `package.json` | 4 | `"description": "The AMP Project website."` | JSON | ❌ Static |
+| `pages/static/manifest.json` | 2 | `"name": "amp-new.netlify.app"` | JSON | ❌ Static |
+| `pages/static/manifest.json` | 3 | `"short_name": "amp-new"` | JSON | ❌ Static |
+| `frontend/templates/views/partials/structured-data.j2` | 63 | `- amp-new</title>` | Jinja2 | ⚠️ Needs variable |
+| `frontend/templates/views/partials/structured-data.j2` | 74 | `"name": "amp-new"` | JSON-LD | ⚠️ Needs variable |
+| `frontend/templates/views/partials/structured-data.j2` | 85 | `"name": "AMP Project"` | JSON-LD | ⚠️ Needs variable |
+| `frontend/templates/views/partials/header.j2` | 13 | `<span class="ap-o-header-home-title">AMP</span>` | HTML | ⚠️ Needs variable |
 
 ### 2. Domain Names / Host URLs
 
-| File | Line | Current Value | Variable Type |
+| File | Line | Current Value | Configurable? |
 |------|------|---------------|---------------|
-| `platform/config/environments/production.json` | 6 | `"host": "amp-new.netlify.app"` | JSON |
-| `platform/config/environments/staging.json` | 6 | `"host": "amp-new.netlify.app"` | JSON |
-| `pages/static/sitemap/sitemap_manual.xml` | 4 | `https://playground-amp-new.netlify.app` | XML |
-| `pages/static/sitemap/sitemap_manual.xml` | 7 | `https://amp-new.netlify.app/boilerplate/` | XML |
-| `pages/static/sitemap/sitemap.xml` | * | Contains amp-new.netlify.app URLs | XML |
-| `pages/static/robots/platform_prod.txt` | 5 | `Sitemap: https://amp-new.netlify.app/sitemap.xml` | Text |
-| `pages/static/serviceworker.html` | 6 | `https://amp-new.netlify.app/serviceworker.js` | HTML/JS |
-| `pages/static/serviceworker.txt` | * | Service worker URLs | Text |
-| `netlify/configs/playground.amp.dev/netlify.toml` | * | Playground domain references | TOML |
-| `netlify/configs/preview.amp.dev/netlify.toml` | * | Preview domain references | TOML |
+| `platform/config/environments/production.json` | 6+ | All host configurations | ✅ Already configurable |
+| `platform/config/environments/staging.json` | 6+ | All host configurations | ✅ Already configurable |
+| `pages/static/sitemap/sitemap_manual.xml` | * | Contains amp-new.netlify.app | ⚠️ Needs build-time replacement |
+| `pages/static/robots/platform_prod.txt` | 5 | Sitemap URL | ⚠️ Needs build-time replacement |
 
 ### 3. External Blog URL
 
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `frontend/templates/views/partials/header.j2` | 23 | `https://blog.amp.dev` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 25 | `https://blog.amp.dev/` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 78 | `https://blog.amp.dev/2020/02/20/amp-conf-2020-return-to-nyc/` | Jinja2/HTML |
-| `frontend/templates/views/2021/partials/header.j2` | * | Blog link | Jinja2/HTML |
-| `frontend/templates/views/partials/burger-menu.j2` | * | Blog link | Jinja2/HTML |
-| `platform/lib/templates/ImportBlogFilter.js` | * | Blog import logic | JavaScript |
-| `netlify/functions/search_do/search_do.js` | * | Blog search integration | JavaScript |
+**HARDCODED - Needs Configuration Variable**
+
+| File | Line | Current Value |
+|------|------|---------------|
+| `frontend/templates/views/partials/header.j2` | 23 | `https://blog.amp.dev` |
+| `frontend/templates/views/partials/footer.j2` | 25 | `https://blog.amp.dev/` |
+| `frontend/templates/views/partials/footer.j2` | 78 | `https://blog.amp.dev/2020/02/20/...` |
+| `frontend/templates/views/2021/partials/header.j2` | * | Blog link |
+| `frontend/templates/views/partials/burger-menu.j2` | * | Blog link |
+| `platform/lib/routers/search.js` | 267 | `site:blog.amp.dev` in search scope |
+
+**Recommendation**: Add `blog` host to environment configs and `podspec.base_urls.blog`
 
 ### 4. Analytics IDs
 
-| File | Line | Current Value | Variable Type |
+| File | Line | Current Value | Configurable? |
 |------|------|---------------|---------------|
-| `platform/config/shared.json` | 6 | `"gaTrackingId": "G-1HFVWLN28T"` | JSON |
-| `frontend/templates/views/partials/analytics.j2` | 35-37 | Uses `podspec.gaTrackingId` | Jinja2 |
-
-**Legacy example analytics (in sample code):**
-- `examples/source/news-publishing/*.html` - `UA-73836974-1`
-- `examples/source/e-commerce/*.html` - `UA-73836974-1`, `UA-80609902-1`
+| `platform/config/shared.json` | 6 | `"gaTrackingId": "G-1HFVWLN28T"` | ✅ Already configurable |
+| `frontend/templates/views/partials/analytics.j2` | 35 | Uses `podspec.gaTrackingId` | ✅ Already configurable |
 
 ### 5. Social Media / External Links
 
-| File | Line | Current Value | Variable Type |
+| File | Line | Current Value | Configurable? |
 |------|------|---------------|---------------|
-| `frontend/templates/views/partials/structured-data.j2` | 107-108 | `@ampproject` (Twitter) | Jinja2 |
-| `frontend/templates/views/partials/footer.j2` | 15 | `https://twitter.com/AMPhtml` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 20 | `https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 30 | `https://github.com/ampproject` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 34 | `https://stackoverflow.com/questions/tagged/amp-html` | Jinja2/HTML |
-| `pages/content/amp-dev/index.html` | 89,97 | Newsletter signup URLs (Google Forms) | HTML/Jinja2 |
+| `frontend/templates/views/partials/structured-data.j2` | 107-108 | `@ampproject` (Twitter) | ⚠️ Needs variable |
+| `frontend/templates/views/partials/footer.j2` | 15 | `https://twitter.com/AMPhtml` | ⚠️ Needs variable |
+| `frontend/templates/views/partials/footer.j2` | 20 | YouTube channel URL | ⚠️ Needs variable |
+| `frontend/templates/views/partials/footer.j2` | 30 | `https://github.com/ampproject` | ⚠️ Needs variable |
 
 ### 6. GitHub Repository URLs
 
-| File | Line | Current Value | Variable Type |
+| File | Line | Current Value | Configurable? |
 |------|------|---------------|---------------|
-| `platform/config/shared.json` | 4 | `"repository": "https://github.com/AFDSI/amp-dev-22/docs/blob/future/"` | JSON |
-| `package.json` | 5 | `"repository": "git@github.com:AFDSI/amp-dev-22.git"` | JSON |
-| `netlify/configs/amp.dev/netlify.toml` | 70-76 | `https://github.com/ampproject/amphtml/` (redirects) | TOML |
-| `pages/content/amp-dev/index.html` | 392 | `https://github.com/orgs/ampproject/people` | HTML |
-| `pages/content/amp-dev/index.html` | 407 | `https://github.com/ampproject/amphtml/issues` | HTML |
-
-### 7. API Endpoints / Cloud Functions
-
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `pixi/config.js` | 18-19 | `http://localhost:8080/page-experience/api/lint` (dev) | JavaScript |
-| `pixi/config.js` | 29-30 | `https://amp.dev/page-experience/api/lint` (prod) | JavaScript |
-| `pixi/config.js` | 22,33 | `https://us-central1-amp-dev-230314.cloudfunctions.net/checkPageExperience` | JavaScript |
-| `pixi/config.js` | 35 | `https://www.googleapis.com/pagespeedonline/v5/runPagespeed` | JavaScript |
-| `pixi/config.js` | 37 | `https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run` | JavaScript |
-| `platform/lib/build/samplesBuilder.js` | 73 | `https://amp-by-example-api.appspot.com` | JavaScript |
-| `netlify/functions/search_do/googleSearch.js` | 29 | `https://www.googleapis.com/customsearch/v1` | JavaScript |
-| `platform/lib/utils/googleSearch.js` | 29 | `https://www.googleapis.com/customsearch/v1` | JavaScript |
-
-### 8. Google Cloud Project References
-
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `pixi/config.js` | 22,33 | `amp-dev-230314` (project ID) | JavaScript |
-| `platform/config/environments/development.json` | 50 | `amp-dev-sxg.appspot.com` | JSON |
-| `platform/config/environments/static-test.json` | 11 | `amp-dev-staging.appspot.com` | JSON |
-| `thumbor/Dockerfile` | 14-15 | `amp-dev-staging.appspot.com` | Docker |
-| `gulpfile.js/packager.js` | 43 | `amp-dev-staging.appspot.com` | JavaScript |
-
-### 9. Publisher Organization Info
-
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `frontend/templates/views/partials/structured-data.j2` | 85 | `"name": "AMP Project"` | Jinja2/JSON-LD |
-| `package.json` | 47 | `"author": "The AMP HTML Authors"` | JSON |
-| `frontend/templates/views/partials/footer.j2` | 67 | `OpenJS Foundation` section | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 99 | Copyright with `OpenJS Foundation and AMP Project` | Jinja2/HTML |
-
-### 10. CDN / External Script References
-
-| File | Line | Current Value | Variable Type |
-|------|------|---------------|---------------|
-| `frontend/templates/layouts/default.j2` | 43 | `https://cdn.ampproject.org/v0.js` | Jinja2/HTML |
-| `frontend/templates/views/partials/footer.j2` | 101 | `https://cdn.ampproject.org` reference | Jinja2/HTML |
-| Various template files | * | `https://fonts.googleapis.com/` | HTML |
-
-### 11. Playground URLs (CRITICAL)
-
-The playground is a separate application that loads AMP pages for editing/preview. It receives the target page URL via query parameter: `{playground_base}/?url={page_url_encoded}`
-
-**Current Production Domain**: `playground.amp.dev`
-**Current Build Domain**: `playground-amp-new.netlify.app`
-
-#### A. Configuration-Based (Already Externalized)
-
-These use `config.hosts.playground.base` or `podspec.base_urls.playground`:
-
-| File | Line | Pattern | Variable Type |
-|------|------|---------|---------------|
-| `platform/config/environments/production.json` | 25-28 | `"playground": { "host": "playground-amp-new.netlify.app" }` | JSON |
-| `platform/config/environments/staging.json` | 25-28 | `"playground": { "host": "playground-amp-new.netlify.app" }` | JSON |
-| `platform/config/environments/development.json` | 26-29 | `"playground": { "host": "localhost", "port": "8083" }` | JSON |
-| `platform/lib/common/samples.js` | 46-50 | `config.hosts.playground.base + '/?url=' + encodeURIComponent(previewUrl)` | JavaScript |
-| `platform/lib/config.js` | 230 | Builds `podspec.base_urls.playground` from `this.hosts.playground.base` | JavaScript |
-| `frontend/templates/views/partials/code-preview/code-preview.j2` | 146 | `{{podspec.base_urls.playground}}/?url={{preview.url|urlencode}}` | Jinja2 |
-| `frontend/templates/views/examples/documentation.j2` | 101 | `podspec.base_urls.playground + '/?url=' + podspec.base_urls.preview + doc.source` | Jinja2 |
-
-#### B. Hardcoded `playground.amp.dev` (Needs Externalization)
-
-These have `playground.amp.dev` hardcoded and need substitution:
-
-| File | Line | Context | Variable Type |
-|------|------|---------|---------------|
-| `pages/content/amp-dev/documentation/examples/index.html` | 212-213 | Examples index page - format-based playground links | HTML/AMP |
-| `platform/lib/routers/search.js` | 267 | Search scope: `site:playground.amp.dev` | JavaScript |
-| `platform/lib/routers/search.js` | 396 | Search results: `playgroundUrl: 'https://playground.amp.dev'` | JavaScript |
-| `netlify/functions/search_do/search_do.js` | 116 | Search scope: `site:playground.amp.dev` | JavaScript |
-| `pages/shared/data/tools.yaml` | 462 | Tools listing: `url: https://playground.amp.dev/` | YAML |
-| `examples/static/inline-examples/data/amp-list-urls.json` | 17 | Example data: `"url": "https://playground.amp.dev/"` | JSON |
-| `pages/static/sitemap/sitemap_manual.xml` | 4 | Sitemap entry (currently `playground-amp-new.netlify.app`) | XML |
-
-#### C. Documentation Content (100+ files)
-
-Hardcoded `playground.amp.dev` URLs in markdown documentation across all locales:
-
-| Pattern | File Count | Example Files |
-|---------|------------|---------------|
-| `https://playground.amp.dev/?runtime=amp4email` | ~45 | `create_email.md`, `validate_emails.md` (all locales) |
-| `https://playground.amp.dev/` | ~30 | `testing_amp_emails.md`, `formatting.md` (all locales) |
-| `[AMP Playground](https://playground.amp.dev/...)` | ~50 | Various guide/tutorial files |
-
-**Locales affected**: en, de, fr, ar, es, it, id, ja, ko, pt_BR, ru, tr, zh_CN, pl, vi
-
-#### D. URL Construction Pattern
-
-The playground expects a URL parameter pointing to the page to preview:
-
-```
-https://playground.amp.dev/?url=https://preview.amp.dev/documentation/examples/...
-                          ↑                    ↑
-                    playground host      preview host (page being edited)
-```
-
-**Key Integration Points**:
-1. `platform/lib/common/samples.js:46-50` - `getPlaygroundUrlForPreviewLink()` - Central function for constructing playground URLs
-2. `platform/lib/config.js:230` - Injects playground base URL into podspec for Jinja2 templates
-3. `frontend/templates/views/examples/documentation.j2:101` - Template-based URL construction
-
-#### E. Recommended Approach
-
-1. **For configuration-based references**: Already handled via environment configs
-2. **For hardcoded JS/YAML/JSON**: Replace with config variable references
-3. **For search scopes**: Make `site:` filter configurable
-4. **For documentation content**: Consider:
-   - Build-time string replacement
-   - Or: Accept that documentation refers to canonical `playground.amp.dev` (may be intentional)
+| `platform/config/shared.json` | 4 | `"repository": "https://github.com/AFDSI/amp-dev-22/docs/blob/future/"` | ✅ Already configurable |
+| `package.json` | 5 | `"repository": "git@github.com:AFDSI/amp-dev-22.git"` | ❌ Static (OK) |
 
 ---
 
-## FILE TYPES AND SUBSTITUTION METHODS
+## 11. Playground URLs (CRITICAL)
 
-| File Type | Extension | Substitution Method |
-|-----------|-----------|---------------------|
-| JSON | `.json` | Direct key replacement or JSON template processing |
-| JavaScript | `.js` | Environment variables, config imports, or build-time replacement |
-| Jinja2 Templates | `.j2` | Template variables from podspec or context |
-| YAML | `.yaml`, `.yml` | Direct key replacement or Jinja-style templating |
-| TOML | `.toml` | Direct key replacement |
-| HTML | `.html` | Build-time replacement or template processing |
-| XML | `.xml` | Build-time replacement |
-| Text | `.txt` | Build-time replacement |
-| Markdown | `.md` | Content is informational; links may need updates |
-| Docker | `Dockerfile` | Build arguments or environment variables |
+The playground is the most complex integration requiring careful configuration.
+
+### Current State Summary
+
+| Category | Count | Status |
+|----------|-------|--------|
+| Configuration-based references | 7+ files | ✅ Working via `config.hosts.playground` |
+| Hardcoded `playground.amp.dev` | 73 files | ❌ Needs attention |
+| Documentation content | 100+ files | ⚠️ May be intentional |
+
+### A. Configuration-Based (Working)
+
+These properly use `config.hosts.playground.base` or `podspec.base_urls.playground`:
+
+| File | Pattern |
+|------|---------|
+| `platform/config/environments/*.json` | `"playground": { "host": "..." }` |
+| `platform/lib/common/samples.js:46-50` | `config.hosts.playground.base + '/?url=...'` |
+| `platform/lib/config.js:230` | Builds `podspec.base_urls.playground` |
+| `frontend/templates/views/partials/code-preview/code-preview.j2:146` | `{{podspec.base_urls.playground}}` |
+| `frontend/templates/views/examples/documentation.j2:101` | `podspec.base_urls.playground` |
+
+### B. Hardcoded References (Needs Fix)
+
+| File | Line | Context | Priority |
+|------|------|---------|----------|
+| `platform/lib/routers/search.js` | 267 | `site:blog.amp.dev OR site:playground.amp.dev` | HIGH |
+| `platform/lib/routers/search.js` | 396 | `playgroundUrl: 'https://playground.amp.dev'` | HIGH |
+| `netlify/functions/search_do/search_do.js` | 116 | Search scope | HIGH |
+| `pages/shared/data/tools.yaml` | 462 | Tools listing URL | MEDIUM |
+| `pages/content/amp-dev/documentation/examples/index.html` | 212-213 | Examples index | MEDIUM |
+| `examples/static/inline-examples/data/amp-list-urls.json` | 17 | Example data | LOW |
+
+### C. Documentation Content (100+ files)
+
+Hardcoded URLs in markdown documentation across all locales. These reference the canonical AMP playground for educational purposes.
+
+**Affected patterns:**
+- `https://playground.amp.dev/?runtime=amp4email` (~45 files)
+- `[AMP Playground](https://playground.amp.dev/...)` (~50 files)
+
+**Decision needed**: Should documentation reference the canonical playground or the deployed instance?
+
+### D. URL Construction Pattern
+
+```
+{playground_host}/?url={preview_host}/{example_path}
+         ↓                    ↓
+   podspec.base_urls.playground  podspec.base_urls.preview
+```
+
+### E. Recommended Actions for Playground
+
+1. **search.js** (line 267): Make search scope configurable:
+   ```javascript
+   const searchScope = `site:${config.hosts.blog.base} OR site:${config.hosts.playground.base}`;
+   ```
+
+2. **search.js** (line 396): Use config for test data:
+   ```javascript
+   playgroundUrl: config.hosts.playground.base
+   ```
+
+3. **tools.yaml**: Consider templating or accepting canonical URL
+
+4. **Documentation**: Likely keep canonical URLs as educational references
 
 ---
 
-## NOTES FOR DISCUSSION
+## RECOMMENDED CONFIGURATION ADDITIONS
 
-1. **Environment Files Already Exist**: The `platform/config/environments/` directory already supports multiple environments. This pattern could be extended for multi-site configuration.
+### Add to `shared.json`
 
-2. **Config Loading**: `platform/lib/config.js` (line 68-88) loads environment configs and `shared.json`. This is the central configuration hub.
+```json
+{
+  "siteName": "amp-new",
+  "siteTitle": "AMP",
+  "twitterHandle": "@ampproject",
+  "socialLinks": {
+    "twitter": "https://twitter.com/AMPhtml",
+    "youtube": "https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw",
+    "github": "https://github.com/ampproject"
+  },
+  "blog": {
+    "url": "https://blog.amp.dev"
+  }
+}
+```
 
-3. **Grow CMS Integration**: `platform/lib/config.js` configures Grow via `buildGrowPodSpec()` which injects values into the podspec. This is a key integration point.
+### Add to config.js buildGrowPodSpec()
 
-4. **Content Files**: Many markdown files in `pages/content/amp-dev/` contain hardcoded references (e.g., `ampproject` GitHub links). These are informational content and may not need variable substitution.
+```javascript
+podspec['base_urls']['blog'] = this.hosts.blog?.base || this.shared.blog?.url;
+podspec['site'] = {
+  'name': this.shared.siteName,
+  'title': this.shared.siteTitle,
+  'twitter': this.shared.twitterHandle,
+};
+```
 
-5. **Example Code**: Files in `examples/source/` contain example Analytics IDs and API endpoints. These are sample code for documentation and likely should remain as examples.
+---
 
-6. **External Service Dependencies**: Several Google Cloud services (`amp-dev-230314`, `amp-dev-sxg`, etc.) and external APIs are referenced. Multi-site deployment may require separate service instances.
+## CDN References (Do NOT Change)
+
+These reference the official AMP CDN and should remain hardcoded:
+
+| Domain | Purpose |
+|--------|---------|
+| `cdn.ampproject.org` | AMP runtime and components |
+| `fonts.googleapis.com` | Google Fonts |
+
+---
+
+## EXTERNAL SERVICES (May Need Separate Instances)
+
+| Service | Current Reference | Multi-site Consideration |
+|---------|-------------------|--------------------------|
+| Google Custom Search | `googleapis.com/customsearch` | Need separate Search Engine ID |
+| Google Analytics | GA4 tracking ID | Need separate property per site |
 
 ---
 
 ## STATUS
 
-- [x] Initial scan complete
-- [ ] User review and additional context
-- [ ] Finalize variable list
+- [ ] User review and negotiation with Claude Chat
 - [ ] Design substitution patterns
 - [ ] Implement configuration system
+
+---
+
+## NEXT STEPS
+
+2. **Negotiate variable partitioning** with Claude Chat
+3. **Add missing configuration variables** to shared.json
+4. **Update templates** to use new variables
+5. **Update search.js** for configurable search scope
+6. **Decide on documentation** playground URL strategy
+
+-----
+
+# User Comments on Claude Code (CC) Analysis
+
+## Related to CC Analysis
+
+### Domain Names / Host URLs
+
+An additional site variable is `Google Site Verifcation` located in `pages/static/`
+Site verification is a file, not an inline value defined in `<head>`.
+Current value for `amp-new.netlify.app` is `pages/static/googleb5588557ad6b0d99.html`
+
+### Analytics IDs and External Services
+
+Private IDs for external services are stored in `secrets`.
+Secrets are site specific.
+Local secrets are stored in `env`.
+Instances of local secrets for server access are stored in GitHub secrets and Netlify secrets.
+Secrets management is a separate, independant process.
+
+Public IDs for external services are in the clear and should be managed by site configuration.
+Public IDs are site specific.
+Examples: Google Analytics, Google Maps, Google Programmable Search Engine account.
+
+### External Blog URL
+
+The current blog for `amp.dev` is inconsistent with TO BE blog for `abc.dev`.
+Further, it is not part of the repository and the file assigned to the blog value is not accessible.
+Decision:
+Do not address blog in configuration project.
+Retain hard wired blog link AS IS.
+
+## User Comments, General
+
+### Site Maps
+
+CC correcty identifies `pages/static/sitemap/sitemap_manual.xml`. `sitemap_manual.xml` is site specific.
+Previously, Claude Chat designed a generate for `sitemap_generate.xml` which consumes site-specific URLs.
+`sitemap_generate.xml` is integrated in `gulpfile.js/build.js`
+
+### Site Search
+
+`amp-site-search` fails to integrate Google Programmable Search Engine (GPSE) and site search results. The reason may be XHR end points are misalligned with Netlify functions.
+However, the GPSE API value is a `secret` and seprately managed. The GPSE ID is site specific and registered with the site configuration process.
+

@@ -40,7 +40,6 @@ const importWorkingGroups = require('./import/importWorkingGroups.js');
 const {staticify} = require('./staticify.js');
 const {whoAmI} = require('./whoAmI.js');
 const importAdVendorList = require('./import/importAdVendorList.js');
-// const {thumborImageIndex} = require('./thumbor.js');
 const CleanCSS = require('clean-css');
 const {copyFile} = require('fs/promises');
 const nunjucks = require('nunjucks');
@@ -923,7 +922,6 @@ exports.testSitemap = gulp.series(buildFrontend, quickGrow, generateSitemap);
 
 exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
-  // thumborImageIndex,
   copyNetlifyConfig,
   // Add this line
   generateSitemap,

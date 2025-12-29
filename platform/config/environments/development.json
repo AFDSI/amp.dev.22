@@ -38,17 +38,12 @@
       "subdomain": "go",
       "host": "localhost",
       "port": "8086"
-		},
+    },
     "log": {
       "scheme": "http",
       "subdomain": "log",
       "host": "localhost",
       "port": "8087"
-		},
-    "thumbor": {
-      "scheme": "http",
-      "host": "localhost",
-      "port": "8088"
     }
   }
 }
