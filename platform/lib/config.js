@@ -233,6 +233,23 @@ class Config {
       'preview': this.hosts.preview.base,
     };
 
+    // Site identity variables
+    podspec['site'] = {
+      'name': this.shared.site?.name || 'amp-new',
+      'short_name': this.shared.site?.shortName || 'amp-new',
+      'title': this.shared.site?.title || 'AMP',
+      'description': this.shared.site?.description || 'The AMP Project website.',
+    };
+    
+    // Social links
+    podspec['social'] = {
+      'twitter_handle': this.shared.social?.twitter?.handle || '@ampproject',
+      'twitter_url': this.shared.social?.twitter?.url || 'https://twitter.com/AMPhtml',
+      'youtube_url': this.shared.social?.youtube?.url || '',
+      'github_url': this.shared.social?.github?.url || 'https://github.com/ampproject',
+      'github_org': this.shared.social?.github?.org || 'ampproject',
+    };
+
     // Deployment specific
     podspec['deployments'] = {
       'default': {
