@@ -60,7 +60,7 @@
 {% set title_prefix = _('Success Story: ') %}
 {% endif %}
 
-<title>{{title_prefix|e}}{{title|e}} - amp-new</title>
+<title>{{title_prefix|e}}{{title|e}} - {{ podspec.site.name }}</title>
 
 {% if description %}
 <meta name="description" content="{{ description }}">
@@ -71,7 +71,7 @@
   "@context": "http://schema.org",
   "@type": "Webpage",
   "url": "{{ canonical}} ",
-  "name": "amp-new",
+  "name": "{{ podspec.site.name }}",
   "headline":"{{ title_prefix }}{{ title }}",
   {% if description %}
   "description":"{{ description }}",
@@ -82,7 +82,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "AMP Project",
+    "name": "{{ podspec.site.title }} Project",
     "logo": {
         "url": "{{ base_url }}/static/img/icons/icon-512x512.png",
         "width": 512,
@@ -104,8 +104,8 @@
 <meta name="twitter:description" content="{{ description }}">
 {% endif %}
 <meta name="twitter:title" content="{{ title_prefix|e }}{{ title|replace('<', '')|replace('>', '')|e }}">
-<meta name="twitter:creator" content="@ampproject">
-<meta name="twitter:site" content="@ampproject">
+<meta name="twitter:creator" content="{{ podspec.social.twitter_handle }}">
+<meta name="twitter:site" content="{{ podspec.social.twitter_handle }}">
 <meta name="twitter:image" content="{{ base_url }}{{ sharing_images.wide }}">
 
 <meta property="og:title" content="{{ title_prefix }}{{ title }}">
@@ -114,7 +114,7 @@
 <meta property="og:image:width" content="600">
 <meta property="og:image:height" content="314">
 
-{# meta tags for amp-new search filtering #}
+{# meta tags for search filtering #}
 {% set supported_formats = ','.join(doc.formats or doc.collection.formats or ['websites', 'stories', 'ads', 'email']) %}
 <meta name="supported-amp-formats" content="{{supported_formats}}">
 <meta name="page-locale" content="{{doc.pod.amp_dev.get_represented_locales(doc)}}">
