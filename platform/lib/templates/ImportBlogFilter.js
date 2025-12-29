@@ -15,8 +15,8 @@
  */
 
 'use strict';
-
 // const {REMOTE_STATIC_MOUNT} = require('@lib/routers/thumbor.js');
+const REMOTE_STATIC_MOUNT = '/static/remote/';
 const {createWriteStream, mkdirSync} = require('fs');
 const {project} = require('@lib/utils');
 
