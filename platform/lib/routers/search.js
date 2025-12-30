@@ -261,7 +261,9 @@ async function handleSearchRequest(request, response, next) {
 
   // The hidden query ensures we only get english results when the locale is en (default)
   // The blog and playground should be included without the page-locale metatag
-  const playgroundHost = config.hosts.playground.base.replace('https://', '').replace('http://', '');
+  const playgroundHost = config.hosts.playground.base
+    .replace('https://', '')
+    .replace('http://', '');
   const searchOptions = {
     hiddenQuery:
       `more:pagemap:metatags-page-locale:${locale}` +
@@ -393,7 +395,10 @@ async function handleTestSearchRequest(request, response, next) {
         title: 'component ' + query + ' ' + i,
         description: 'description component a ' + i,
         url: config.hosts.platform.base,
-        exampleUrl: i == 1 ? `${config.hosts.platform.base}/documentation/examples/` : null,
+        exampleUrl:
+          i == 1
+            ? `${config.hosts.platform.base}/documentation/examples/`
+            : null,
         playgroundUrl: i == 1 ? config.hosts.playground.base : null,
       });
     }

@@ -11,8 +11,10 @@ const COMPONENT_REFERENCE_DOC_PATTERN =
 const DEFAULT_LOCALE = 'en';
 
 // Base URLs - configure per environment
-const SITE_BASE_URL = process.env.SITE_BASE_URL || 'https://amp-new.netlify.app';
-const PLAYGROUND_BASE_URL = process.env.PLAYGROUND_BASE_URL || 'https://playground-amp-new.netlify.app';
+const SITE_BASE_URL =
+  process.env.SITE_BASE_URL || 'https://amp-new.netlify.app';
+const PLAYGROUND_BASE_URL =
+  process.env.PLAYGROUND_BASE_URL || 'https://playground-amp-new.netlify.app';
 
 /** Will remove/rewrite characters that cause problems when displaying */
 function cleanupText(text) {
@@ -67,13 +69,14 @@ function addExampleAndPlaygroundLink(page, locale) {
   const match = COMPONENT_REFERENCE_DOC_PATTERN.exec(page.url);
   if (match && match[1]) {
     const componentName = match[1];
-    
+
     // Add example URL
-    const examplePath = locale === DEFAULT_LOCALE 
-      ? `/documentation/examples/documentation/${componentName}.html`
-      : `/${locale}/documentation/examples/documentation/${componentName}.html`;
+    const examplePath =
+      locale === DEFAULT_LOCALE
+        ? `/documentation/examples/documentation/${componentName}.html`
+        : `/${locale}/documentation/examples/documentation/${componentName}.html`;
     page.exampleUrl = `${SITE_BASE_URL}${examplePath}`;
-    
+
     // Add playground URL
     page.playgroundUrl = `${PLAYGROUND_BASE_URL}/?url=${encodeURIComponent(page.exampleUrl)}`;
   }
@@ -120,7 +123,9 @@ function createResult(
     result.result.isTruncated = true;
   }
 
-  const searchBaseUrl = `${SITE_BASE_URL}/search/do?q=${encodeURIComponent(query)}&locale=${encodeURIComponent(locale)}&page=`;
+  const searchBaseUrl = 
+  `${SITE_BASE_URL}/search/do?q=${encodeURIComponent(query)}` +
+  `&locale=${encodeURIComponent(locale)}&page=`;
 
   if (page < lastPage && page < LAST_PAGE) {
     result.nextUrl = searchBaseUrl + (page + 1);
@@ -141,7 +146,10 @@ const handler = async (ev) => {
   // The hidden query ensures we only get english results when the locale is en (default)
   // The blog and playground should be included without the page-locale metatag
 
-  const playgroundHost = PLAYGROUND_BASE_URL.replace('https://', '').replace('http://', '');
+  const playgroundHost = PLAYGROUND_BASE_URL.replace('https://', '').replace(
+    'http://',
+    ''
+  );
   const searchOptions = {
     hiddenQuery:
       `more:pagemap:metatags-page-locale:${locale}` +
@@ -197,7 +205,9 @@ const handler = async (ev) => {
     };
   }
 
-  const totalResults = parseInt(cseResult.searchInformation?.totalResults || '0');
+  const totalResults = parseInt(
+    cseResult.searchInformation?.totalResults || '0'
+  );
   const pageCount = Math.ceil(totalResults / PAGE_SIZE);
   const pages = [];
   const components = [];
@@ -234,15 +244,17 @@ const handler = async (ev) => {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     },
-    body: JSON.stringify(createResult(
-      totalResults,
-      page,
-      pageCount,
-      components,
-      pages,
-      query,
-      locale
-    )),
+    body: JSON.stringify(
+      createResult(
+        totalResults,
+        page,
+        pageCount,
+        components,
+        pages,
+        query,
+        locale
+      )
+    ),
   };
 };
 
