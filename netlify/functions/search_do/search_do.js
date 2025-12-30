@@ -124,8 +124,12 @@ function createResult(
   }
 
   const searchBaseUrl =
-    `${SITE_BASE_URL}/search/do?q=${encodeURIComponent(query)}` +
-    `&locale=${encodeURIComponent(locale)}&page=`;
+    SITE_BASE_URL +
+    '/search/do?q=' +
+    encodeURIComponent(query) +
+    '&locale=' +
+    encodeURIComponent(locale) +
+    '&page=';
 
   if (page < lastPage && page < LAST_PAGE) {
     result.nextUrl = searchBaseUrl + (page + 1);
