@@ -4,7 +4,7 @@ const FetchError = require('./fetchError');
 const rateLimitedFetch = new RateLimitedFetch({
   requestHeaders: {
     'x-requested-by': 'playground',
-    'Referer': 'https://amp.dev/playground',
+    'Referer': 'https://amp-new.netlify.app/playground',
   },
 });
 
@@ -24,13 +24,13 @@ const errorIdMap = {
 };
 
 const handler = async (ev) => {
-  const query = ev.queryStringParameters;
+  const query = ev.queryStringParameters || {};
   let statusCode = 200;
   const headers = {
     'Cache-Control': `public, max-age=${MAX_AGE}, stale-while-revalidate=${Math.floor(
       MAX_AGE * 2
     )}`,
-    'Access-Control-Allow-Origin': ev.headers?.origin || '',
+    'Access-Control-Allow-Origin': ev.headers?.origin || '*',
     'Content-Type': 'text/html',
   };
   let body = '';
@@ -46,7 +46,7 @@ const handler = async (ev) => {
       body = error.message;
     } else {
       statusCode = 500;
-      body = `Internal error fetching ${request.query.url}`;
+      body = `Internal error fetching ${query.url}`;
     }
   }
 

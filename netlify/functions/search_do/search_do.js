@@ -10,8 +10,13 @@ const COMPONENT_REFERENCE_DOC_PATTERN =
 
 const DEFAULT_LOCALE = 'en';
 
+// Base URLs - configure per environment
+const SITE_BASE_URL = process.env.SITE_BASE_URL || 'https://amp-new.netlify.app';
+const PLAYGROUND_BASE_URL = process.env.PLAYGROUND_BASE_URL || 'https://playground-amp-new.netlify.app';
+
 /** Will remove/rewrite characters that cause problems when displaying */
 function cleanupText(text) {
+  if (!text) return '';
   // ` is problematic. For example `i will be rendered as ì.
   // It is not clear why, but we can simply convert it.
   text = text.replace(/`/g, "'");
@@ -41,6 +46,37 @@ function getCseItemMetaTagValue(item, metaTag) {
     return pagemap.metatags[0][metaTag];
   }
   return null;
+}
+
+/**
+ * Creates a page object from a Google CSE result item
+ */
+function createPageObject(item) {
+  return {
+    url: item.link || '',
+    title: item.title || '',
+    description: item.snippet || '',
+  };
+}
+
+/**
+ * Adds example and playground links to component pages
+ */
+function addExampleAndPlaygroundLink(page, locale) {
+  // Extract component name from URL
+  const match = COMPONENT_REFERENCE_DOC_PATTERN.exec(page.url);
+  if (match && match[1]) {
+    const componentName = match[1];
+    
+    // Add example URL
+    const examplePath = locale === DEFAULT_LOCALE 
+      ? `/documentation/examples/documentation/${componentName}.html`
+      : `/${locale}/documentation/examples/documentation/${componentName}.html`;
+    page.exampleUrl = `${SITE_BASE_URL}${examplePath}`;
+    
+    // Add playground URL
+    page.playgroundUrl = `${PLAYGROUND_BASE_URL}/?url=${encodeURIComponent(page.exampleUrl)}`;
+  }
 }
 
 function enrichComponentPageObject(item, page, locale) {
@@ -84,13 +120,7 @@ function createResult(
     result.result.isTruncated = true;
   }
 
-  const searchBaseUrl = new URL(
-    '/search/do?q=' +
-      encodeURIComponent(query) +
-      '&locale=' +
-      encodeURIComponent(locale) +
-      '&page=https://amp-new.netlify.app/'
-  ).toString();
+  const searchBaseUrl = `${SITE_BASE_URL}/search/do?q=${encodeURIComponent(query)}&locale=${encodeURIComponent(locale)}&page=`;
 
   if (page < lastPage && page < LAST_PAGE) {
     result.nextUrl = searchBaseUrl + (page + 1);
@@ -98,11 +128,11 @@ function createResult(
   if (page > 1) {
     result.prevUrl = searchBaseUrl + (page - 1);
   }
-  return JSON.stringify(result);
+  return result;
 }
 
 const handler = async (ev) => {
-  const searchQuery = ev.queryStringParameters;
+  const searchQuery = ev.queryStringParameters || {};
 
   const locale = searchQuery.locale ? searchQuery.locale : DEFAULT_LOCALE;
   const page = searchQuery.page ? parseInt(searchQuery.page) : 1;
@@ -110,26 +140,28 @@ const handler = async (ev) => {
 
   // The hidden query ensures we only get english results when the locale is en (default)
   // The blog and playground should be included without the page-locale metatag
+
+  const playgroundHost = PLAYGROUND_BASE_URL.replace('https://', '').replace('http://', '');
   const searchOptions = {
     hiddenQuery:
       `more:pagemap:metatags-page-locale:${locale}` +
-      'OR site:blog.amp.dev OR site:playground.amp.dev',
+      ` OR site:blog.amp.dev OR site:${playgroundHost}`,
   };
 
   if (locale != DEFAULT_LOCALE) {
     // For other languages also include en, since the index only contains the translated pages.
     searchOptions.hiddenQuery =
-      `more:pagemap:metatags-page-locale:${config.getDefaultLocale()}` +
-      `OR ${searchOptions.hiddenQuery}`;
+      `more:pagemap:metatags-page-locale:${DEFAULT_LOCALE}` +
+      ` OR ${searchOptions.hiddenQuery}`;
     searchOptions.noLanguageFilter = true;
   }
 
   if (isNaN(page) || page < 1 || query.length == 0) {
     const error =
       'Invalid search params (q=' +
-      request.query.q +
+      (searchQuery.q || '') +
       ', page=' +
-      request.query.page +
+      (searchQuery.page || '') +
       ')';
     console.error(error);
     // No error status since an empty query can always happen with our search template
@@ -138,8 +170,8 @@ const handler = async (ev) => {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': ev.headers?.origin || '',
-        'Content-Type': 'application/javascript',
+        'Access-Control-Allow-Origin': ev.headers?.origin || '*',
+        'Content-Type': 'application/json',
         'Cache-Control': 'no-cache',
       },
       body: JSON.stringify({error}),
@@ -152,56 +184,57 @@ const handler = async (ev) => {
   try {
     cseResult = await googleSearch.search(query, locale, page, searchOptions);
   } catch (err) {
+    console.error('Google Search error:', err);
     // problem was logged before, so simply forward the error
     return {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': ev.headers?.origin || '',
+        'Access-Control-Allow-Origin': ev.headers?.origin || '*',
         'Content-Type': 'text/plain',
-        'Cache-Control': `no-cache`,
+        'Cache-Control': 'no-cache',
       },
-      body: err,
+      body: String(err),
     };
   }
 
-  const totalResults = parseInt(cseResult.searchInformation.totalResults);
+  const totalResults = parseInt(cseResult.searchInformation?.totalResults || '0');
   const pageCount = Math.ceil(totalResults / PAGE_SIZE);
   const pages = [];
   const components = [];
 
-  if (totalResults > 0) {
+  if (totalResults > 0 && cseResult.items) {
     let componentCount = 0;
     for (let i = 0; i < cseResult.items.length; i++) {
       const item = cseResult.items[i];
-      const page = createPageObject(item);
+      const pageObj = createPageObject(item);
 
       if (
         highlightComponents &&
         i <= MAX_HIGHLIGHT_COMPONENT_INDEX &&
-        COMPONENT_REFERENCE_DOC_PATTERN.test(page.url)
+        COMPONENT_REFERENCE_DOC_PATTERN.test(pageObj.url)
       ) {
-        enrichComponentPageObject(item, page, locale);
-        components.push(page);
+        enrichComponentPageObject(item, pageObj, locale);
+        components.push(pageObj);
         componentCount++;
         if (componentCount >= MAX_HIGHLIGHT_COMPONENTS) {
           highlightComponents = false;
         }
       } else {
-        pages.push(page);
+        pages.push(pageObj);
       }
 
-      cleanupTexts(page);
+      cleanupTexts(pageObj);
     }
   }
 
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': ev.headers?.origin || '',
-      'Content-Type': 'application/javascript',
+      'Access-Control-Allow-Origin': ev.headers?.origin || '*',
+      'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     },
-    body: createResult(
+    body: JSON.stringify(createResult(
       totalResults,
       page,
       pageCount,
@@ -209,7 +242,7 @@ const handler = async (ev) => {
       pages,
       query,
       locale
-    ),
+    )),
   };
 };
 

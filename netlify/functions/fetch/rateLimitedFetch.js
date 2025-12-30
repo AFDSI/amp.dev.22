@@ -15,7 +15,6 @@
  */
 
 const fetch = require('node-fetch');
-const url = require('url');
 const LRU = require('lru-cache');
 const FetchError = require('./fetchError');
 
@@ -60,7 +59,16 @@ class RateLimitedFetch {
       throw new FetchError(FetchError.INVALID_URL, 'No URL provided.');
     }
 
-    const fetchUrl = url.parse(urlString);
+    let fetchUrl;
+    try {
+      fetchUrl = new URL(urlString);
+    } catch (e) {
+      throw new FetchError(
+        FetchError.INVALID_URL,
+        `${urlString} is not a valid URL.`
+      );
+    }
+
     if (
       !fetchUrl.protocol ||
       !fetchUrl.protocol.startsWith('http') ||
@@ -80,7 +88,6 @@ class RateLimitedFetch {
         `${fetchUrl.host} has been requested too many times. ` +
           'Please wait a few seconds and then try again.'
       );
-      return;
     }
 
     let response;

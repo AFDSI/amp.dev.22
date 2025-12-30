@@ -52,7 +52,7 @@ async function search(query, locale, page, options = {}) {
   const startIndex = (page - 1) * PAGE_SIZE + 1;
   let language = locale;
   if (language.length > 2) {
-    language = language.substr(0, 2);
+    language = language.substring(0, 2);
   }
 
   const url = new URL(CSE_BASE_URL);

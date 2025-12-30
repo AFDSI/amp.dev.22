@@ -24,6 +24,16 @@
   [headers.values]
     Content-Type = "application/json"
 
+[[redirects]]
+  from = "/search/clear-latest-query"
+  to = "/.netlify/functions/latest-query"
+  status = 200
+
+[[redirects]]
+  from = "/search/latest-query"
+  to = "/.netlify/functions/latest-query"
+  status = 200
+
 # ... (Keep all your [[redirects]] below this line)
 
 [[redirects]]
@@ -227,12 +237,6 @@
 [[redirects]]
   from = "/documentation/examples/api/time"
   to = "/.netlify/functions/examples_api_time"
-  status = 200
-
-
-[[redirects]]
-  from = "/search/latest-query"
-  to = "/.netlify/functions/latest-query"
   status = 200
 
 [[redirects]]

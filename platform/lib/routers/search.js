@@ -261,10 +261,11 @@ async function handleSearchRequest(request, response, next) {
 
   // The hidden query ensures we only get english results when the locale is en (default)
   // The blog and playground should be included without the page-locale metatag
+  const playgroundHost = config.hosts.playground.base.replace('https://', '').replace('http://', '');
   const searchOptions = {
     hiddenQuery:
       `more:pagemap:metatags-page-locale:${locale}` +
-      ' OR site:blog.amp.dev OR site:playground.amp.dev',
+      ` OR site:blog.amp.dev OR site:${playgroundHost}`,
   };
 
   if (locale != config.getDefaultLocale()) {
@@ -381,7 +382,7 @@ async function handleTestSearchRequest(request, response, next) {
     pages.push({
       title: 'test ' + query + ' a ' + ((page - 1) * PAGE_SIZE + i),
       description: 'description page a ' + ((page - 1) * PAGE_SIZE + i),
-      url: 'http://amp.dev',
+      url: config.hosts.platform.base,
     });
   }
 
@@ -391,9 +392,9 @@ async function handleTestSearchRequest(request, response, next) {
       components.push({
         title: 'component ' + query + ' ' + i,
         description: 'description component a ' + i,
-        url: 'https://amp.dev',
-        exampleUrl: i == 1 ? 'https://amp.dev/documentation/examples/' : null,
-        playgroundUrl: i == 1 ? 'https://playground.amp.dev' : null,
+        url: config.hosts.platform.base,
+        exampleUrl: i == 1 ? `${config.hosts.platform.base}/documentation/examples/` : null,
+        playgroundUrl: i == 1 ? config.hosts.playground.base : null,
       });
     }
   }
