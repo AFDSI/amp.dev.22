@@ -21,7 +21,7 @@ Al termine di questa esercitazione, sarai in grado di creare e inviare la tua pr
 Lo strumento playground AMP supporta il formato AMP per e-mail, permettendo di sviluppare, testare e convalidare le e-mail AMP. Aprire [Playground AMP](https://playground.amp.dev/?runtime=amp4email) e impostarne il formato su `AMP for Email` nell'angolo in alto a sinistra. Dovrebbe apparire il codice seguente:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

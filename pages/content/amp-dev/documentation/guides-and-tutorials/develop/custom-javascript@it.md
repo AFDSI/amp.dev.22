@@ -3,7 +3,7 @@ $title: Uso di codice JavaScript personalizzato nelle pagine AMP
 $order: 7
 author: CrystalOnScript
 contributors:
-  - fstanis
+- fstanis
 description: Per le esperienze web che richiedono un elevato livello di personalizzazione, AMP ha creato amp-script, un componente che consente l'uso libero di qualunque codice JavaScript nella pagina AMP, senza compromettere le prestazioni complessive della pagina.
 ---
 
@@ -63,7 +63,7 @@ Ad esempio, se si inizia con il codice seguente:
 il worker DOM consente lievi modifiche alla struttura ma non al contenuto:
 
 ```html
-<text>Ciao </text><text>mondo</text>
+ <text>Ciao </text><text>mondo</text>
 ```
 
 ## Manipolazione del DOM
@@ -92,7 +92,8 @@ Se occorre richiamare `document.body.appendChild(document.createElement('span'))
 <body>
   <p>Ciao!</p>
   <div>
-    <amp-script layout="container" src="customjs.js"> </amp-script>
+    <amp-script layout="container" src="customjs.js">
+    </amp-script>
   </div>
 </body>
 ```

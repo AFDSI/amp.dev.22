@@ -9,7 +9,7 @@ description: 使い慣れているテキストエディタで、my-amphtml-ad.ht
 使い慣れているテキストエディタで、**`my-amphtml-ad.html`** という HTML ファイルを作成します。以下の HTML マークアップをそのファイルにコピーします。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ description: 使い慣れているテキストエディタで、my-amphtml-ad.ht
 `<html>` タグに、`⚡4ads` 属性を追加します。この属性は、ドキュメントを AMPHTML 広告として識別するものです。または、`amp4ads` 属性を指定することもできます。これも有効です。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ AMPHTML 広告にスタイルを指定するには、`<head>` セクションに
 以下は、HTML ファイルの全コードです。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

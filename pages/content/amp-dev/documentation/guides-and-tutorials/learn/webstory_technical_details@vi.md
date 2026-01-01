@@ -26,7 +26,7 @@ Một Câu chuyện Web về mặt kỹ thuật là một trang web đơn lẻ �
 Khác biệt giữa một trang web AMP và một Câu chuyện Web được xây dựng với AMP là thành phần [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). Nó là con trực tiếp duy nhất của phần `<body>` (thân) tài liệu và phải chứa thuộc tính `standalone` (độc lập). Tất cả các trang, lớp và yếu tố của Câu chuyện Web đều được định nghĩa trong các thẻ `<amp-story>`.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

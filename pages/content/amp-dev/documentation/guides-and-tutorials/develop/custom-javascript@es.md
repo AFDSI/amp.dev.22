@@ -3,7 +3,7 @@ $title: Cómo utilizar JavaScript de manera personalizada en las páginas de AMP
 $order: 7
 author: CrystalOnScript
 contributors:
-  - fstanis
+- fstanis
 description: Para las experiencias web que requieren una gran cantidad de personalización AMP creó amp-script, un componente que le permite usar JavaScript de manera arbitraria en su página de AMP sin afectar el rendimiento general de la página.
 ---
 
@@ -63,7 +63,7 @@ Por ejemplo, si comienza con el código que se muestra a continuación:
 El Worker DOM permite realizar cambios menores en la estructura pero no en el contenido:
 
 ```html
-<text>Hello </text><text>world</text>
+ <text>Hello </text><text>world</text>
 ```
 
 ## Manipulación del DOM
@@ -92,7 +92,8 @@ Si llamara a `document.body.appendChild(document.createElement('span'))` dentro 
 <body>
   <p>Hello!</p>
   <div>
-    <amp-script layout="container" src="customjs.js"> </amp-script>
+    <amp-script layout="container" src="customjs.js">
+    </amp-script>
   </div>
 </body>
 ```

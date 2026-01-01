@@ -18,6 +18,8 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
+
+
 The following is the list of [AMP components](https://amp.dev/documentation/components/?format=email) that are currently supported in AMP email messages. The components are grouped into the following categories:
 
 <!--
@@ -27,9 +29,9 @@ The following is the list of [AMP components](https://amp.dev/documentation/comp
     amp markdown-toc --fix
 -->
 
-- [Dynamic Content](#dynamic-content)
-- [Layout](#layout)
-- [Media](#media)
+-   [Dynamic Content](#dynamic-content)
+-   [Layout](#layout)
+-   [Media](#media)
 
 ## Dynamic Content <a name="dynamic-content"></a>
 

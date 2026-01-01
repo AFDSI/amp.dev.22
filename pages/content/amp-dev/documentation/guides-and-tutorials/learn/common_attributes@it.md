@@ -16,22 +16,12 @@ Often used with: images, animations, audio, and videos
 Example:
 
 ```html
-<amp-img
-  src="invalid.jpg"
-  height="400"
-  width="300"
-  layout="responsive"
-  alt="..."
->
-  <div
-    fallback
-    style="background-color: #ccc; display: flex; justify-content: center; align-items: center;"
-  >
+<amp-img src="invalid.jpg" height="400" width="300" layout="responsive" alt="...">
+  <div fallback style="background-color: #ccc; display: flex; justify-content: center; align-items: center;">
     Could not load image
   </div>
 </amp-img>
 ```
-
 For more information, see [Placeholders & fallbacks](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md).
 
 ## heights
@@ -113,14 +103,7 @@ Often used with: images, animations, videos, and ads
 Example:
 
 ```html
-<amp-img
-  src="card.jpg"
-  noloading
-  height="190"
-  width="297"
-  layout="responsive"
-  alt="..."
->
+<amp-img src="card.jpg" noloading height="190" width="297" layout="responsive" alt="...">
 </amp-img>
 ```
 
@@ -154,13 +137,7 @@ Often used with: images, animations, videos, and ads
 Example:
 
 ```html
-<amp-anim
-  src="animated.gif"
-  width="466"
-  height="355"
-  layout="responsive"
-  alt="..."
->
+<amp-anim src="animated.gif" width="466" height="355" layout="responsive" alt="...">
   <amp-img placeholder src="preview.png" layout="fill" alt="..."></amp-img>
 </amp-anim>
 ```
@@ -205,7 +182,8 @@ For some [layouts](../../../documentation/guides-and-tutorials/develop/style_and
 Example:
 
 ```html
-<amp-anim width="245" height="300" src="/img/cat.gif" alt="..."> </amp-anim>
+<amp-anim width="245" height="300" src="/img/cat.gif" alt="...">
+</amp-anim>
 ```
 
 For more information, see [Layout & Media queries](../../../documentation/guides-and-tutorials/develop/style_and_layout/control_layout.md) and the [Layout Spec](amp-html-layout/index.md).

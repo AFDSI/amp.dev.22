@@ -302,7 +302,7 @@ Na also! Unser Bild hat das richtige Seitenverhältnis und passt zur Bildschirmb
 Jetzt sollte dein AMP Dokument etwa so aussehen:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

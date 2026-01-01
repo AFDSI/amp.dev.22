@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Aktiviere das Abfangen von xhr, indem du bei der Initialisierung den Viewer für die Funktion xhrInterceptor aktivierst. Wie das funktioniert, siehst du im Viewer Beispiel und im Beispiel für das Abfangen von xhr. Dann muss das AMP Dokument die XHR Interception zulassen. Die Funktion wird für Dokumente aktiviert, indem das Attribut `allow-xhr-interception` zum Tag `<html amp4email>` hinzugefügt wird. Der E-Mail Client muss dieses Attribut vor dem Rendern im AMP Dokument festlegen, da es bewusst ein ungültiges Attribut ist und bei der Validierung des AMP Dokuments als solches markiert wird.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

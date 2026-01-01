@@ -302,7 +302,7 @@ Voilà! Notre image est correctement dimensionnée et remplit de manière intera
 Votre document AMP devrait maintenant ressembler à ceci:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

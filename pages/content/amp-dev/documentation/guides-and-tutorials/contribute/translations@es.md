@@ -22,12 +22,12 @@ AMP cuenta con un proceso de traducción interna permanente para los documentos.
 ### Actualmente nuestro proceso es el siguiente:
 
 1. Encuentre un archivo que necesite traducción.
-2. Elabore una [Plantilla para solucionar problemas en GitHub](https://github.com/ampproject/docs/issues/new). _ Es necesario que mencione a cuál idioma traducirá el documento. _ Indique el nombre del archivo que desea traducir o actualizar. \* Dé un cálculo aproximado sobre cuál es el porcentaje del archivo que traducirá.
-   - Archivo completo
-   - Una parte del archivo
-   - Pocos términos _ Proporcione un cálculo general de cuánto tiempo le tomará completar la tarea de traducción. _ Agregue [@CrystalOnScript](https://github.com/CrystalOnScript) para que pueda seleccionar la solicitud de localización y le informe en caso de que alguien ya esté trabajando en la misma traducción:
-   - ¡Sí! ¡Haga la traducción!
-   - Gracias por su interés, pero el equipo interno o un voluntario ya están trabajando en este documento. Se le agregará como revisor antes de que dicho documento se publique.
+2. Elabore una [Plantilla para solucionar problemas en GitHub](https://github.com/ampproject/docs/issues/new). * Es necesario que mencione a cuál idioma traducirá el documento. * Indique el nombre del archivo que desea traducir o actualizar. * Dé un cálculo aproximado sobre cuál es el porcentaje del archivo que traducirá.
+    - Archivo completo
+    - Una parte del archivo
+    - Pocos términos * Proporcione un cálculo general de cuánto tiempo le tomará completar la tarea de traducción. * Agregue [@CrystalOnScript](https://github.com/CrystalOnScript) para que pueda seleccionar la solicitud de localización y le informe en caso de que alguien ya esté trabajando en la misma traducción:
+    - ¡Sí! ¡Haga la traducción!
+    - Gracias por su interés, pero el equipo interno o un voluntario ya están trabajando en este documento. Se le agregará como revisor antes de que dicho documento se publique.
 
 Algunos traductores auxiliares participan en canales de Slack. ¡Le animamos para que se una a alguno y se presente! Únase [al canal en Slack de AMP aquí](https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877).
 
@@ -37,20 +37,20 @@ En el sitio web de [amp.dev](https://amp.dev/) se establece una diferencia entre
 
 #### Los sufijos que deben usarse en los archivos para traducción en amp.dev
 
-| Idioma              |  Sufijo  |
-| ------------------- | :------: |
-| Árabe               |  `@ar`   |
-| Español             |  `@es`   |
-| Francés             |  `@fr`   |
-| Indonesio           |  `@id`   |
-| Italiano            |  `@it`   |
-| Japonés             |  `@ja`   |
-| Coreano             |  `@ko`   |
-| Portugués brasileño | `@pt_BR` |
-| Ruso                |  `@ru`   |
-| Turco               |  `@tr`   |
-| Vietnamita          |  `@vi`   |
-| Chino               | `@zh_CN` |
+Idioma | Sufijo
+--- | :-:
+Árabe | `@ar`
+Español | `@es`
+Francés | `@fr`
+Indonesio | `@id`
+Italiano | `@it`
+Japonés | `@ja`
+Coreano | `@ko`
+Portugués brasileño | `@pt_BR`
+Ruso | `@ru`
+Turco | `@tr`
+Vietnamita | `@vi`
+Chino | `@zh_CN`
 
 ## Comunidades
 

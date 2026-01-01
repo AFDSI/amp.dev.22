@@ -10,6 +10,7 @@ author: CrystalOnScript
 
 Ensure your Web Stories are reaching your intended audience by including necessary metadata and markup.
 
+
 # AMP-specific metadata
 
 Web Stories with missing or incorrect AMP-specific metadata may not surface in search engines or third party platforms.
@@ -38,23 +39,25 @@ The title of the Web Story.
 
 The name of the Web Story publisher.
 
+
 ### `publisher-logo-src`
 
 A URL to the Web Story publisher's logo image. The logo image should be larger than or equal to 96x96px and maintain a 1:1 aspect ratio. This logo appears in the right corner on the top of the poster image on platforms currently (October 2020) supporting Web Stories.
 
 ### `poster-portrait-src`
 
-A URL to an image used as the [Web Story poster](<https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)>). Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 640x853px and maintain a 3:4 aspect ratio.
+A URL to an image used as the [Web Story poster](https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)). Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 640x853px and maintain a 3:4 aspect ratio.
+
 
 ## Recommended &lt;amp-story&gt; attributes
 
 ### `poster-landscape-src`
 
-A URL to an image used as the [Web Story poster](<https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)>) in landscape format. Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 853x640px and maintain a 4:3 aspect ratio.
+A URL to an image used as the [Web Story poster](https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)) in landscape format. Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 853x640px and maintain a 4:3 aspect ratio.
 
 ### `poster-square-src`
 
-A URL to an image used as the [Web Story poster](<https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)>). Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 640x640px and maintain a 1:1 aspect ratio.
+A URL to an image used as the [Web Story poster](https://amp.dev/documentation/components/amp-story/#poster-guidelines-(for-poster-portrait-src,-poster-landscape-src,-and-poster-square-src)). Used as the cover for the Web Story and should be representative of the story. Do not embed or burn-in the Web Story title on it. Should be at least 640x640px and maintain a 1:1 aspect ratio.
 
 # Metadata
 
@@ -67,7 +70,7 @@ Include the following recommended HTML markup in your Web Stories for the best u
 All Web Stories must include a canonical URL that points to the Web Story itself.
 
 ```html
-<link rel="canonical" href="https://www.example.com/url/to/Web/Story.html" />
+<link rel="canonical" href="https://www.example.com/url/to/Web/Story.html">
 ```
 
 ## favicon
@@ -87,7 +90,6 @@ Maximize accessibility and indexability by including [meaningful alt-text for im
 Maximize accessibility and indexability by including [video subtitles and/or captions](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video).
 
 ## Page attachments
-
 Use [page attachments](https://amp.dev/documentation/components/amp-story-page-attachment/) to present additional information in “classic article form” alongside your Web Story. This can be useful to provide extra detail, deep dives, or onward journeys for the content presented in your Story.
 
 ## Schema.org metadata

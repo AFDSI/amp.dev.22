@@ -112,7 +112,6 @@ Referans için, koltuk planının son HTML'sini burada bulabilirsiniz:
 <amp-selector multiple on="select:AMP.setState({
           selectedSeats: event.selectedOptions
         })" layout="fill">
-
 <div class="svg-container">
 <svg preserveAspectRatio="xMidYMin slice" viewBox="0 0 {{width}} {{height}}">
 {{#seats}}

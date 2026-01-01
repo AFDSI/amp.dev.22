@@ -17,28 +17,28 @@ Many of the available components fulfill a single purpose of interactivity. Most
 
 AMP offers the following ready-made interactive components:
 
-- [**amp-accordion**](../../../components/reference/amp-accordion.md): a stacked list of headers that collapse or expand content sections with user interaction.
-- [**amp-app-banner**](../../../components/reference/amp-app-banner.md): A wrapper and minimal UI for a cross-platform, fixed-position banner showing a call-to-action to install an app.
-- [**amp-autocomplete**](../../..//components/reference/amp-autocomplete.md): suggests completed results corresponding to the user input as they type.
-- [**amp-base-carousel**](../../../components/reference/amp-base-carousel.md): displays multiple similar pieces of content along a horizontal axis or vertical axis.
-- [**amp-carousel**](../../../components/reference/amp-carousel.md): displays multiple pieces of content along a horizontal axis that users can tap through.
-- [**amp-consent**](../../../components/reference/amp-consent.md): a UI control that collects and stores a user’s consent. Can block other AMP components based on user consent.
-- [**amp-date-picker**](../../../components/reference/amp-date-picker.md): a widget to select dates.
-- [**amp-form**](../../../components/reference/amp-form.md): creates forms, but with AMP powers.
-- [**amp-lightbox-gallery**](../../../components/reference/amp-lightbox-gallery.md): displays images in a lightbox gallery.
-- [**amp-image-lightbox**](../../../components/reference/amp-image-lightbox.md): Provides a lightbox effect for a specified image.
-- [**amp-image-slider**](../../../components/reference/amp-image-slider.md): A slider to compare two images.
-- [**amp-inline-gallery**](../../../components/reference/amp-inline-gallery.md): displays multiple images along a horizontal axis that users can tap through.
-- [**amp-inputmask**](../../../components/reference/amp-inputmask.md): provides input masking capabilities to inputs in AMP forms.
-- [**amp-lightbox**](../../../components/reference/amp-lightbox.md): displays elements in a full-viewport “lightbox” modal.
-- [**amp-mega-menu**](../../../components/reference/amp-mega-menu.md): Displays top-level navigational content inside expandable containers.
-- [**amp-nested-menu**](../../../components/reference/amp-nested-menu.md): Displays a drilldown menu with arbitrary levels of nested submenus.
-- [**amp-recaptcha-input**](../../../components/reference/amp-recaptcha-input.md): appends a reCAPTCHA v3 token to AMP form submissions.
-- [**amp-sidebar**](../../../components/reference/amp-sidebar.md): a way to display meta content intended for temporary access such as navigation, links, buttons, menus.
-- [**amp-truncate-text**](../../../components/reference/amp-truncate-text.md): Truncates text with an ellipsis, optionally showing an overflow element.
-- [**amp-user-notification**](../../../components/reference/amp-user-notification.md): Displays a dismissable notification to the user.
-- [**amp-video**](../../../components/reference/amp-video.md): Replaces the HTML5 video tag.
-- [**amp-video-docking**](../../../components/reference/amp-video-docking.md): unctionality for videos that minimize ("dock") to a corner or a custom position on scroll.
+*   [**amp-accordion**](../../../components/reference/amp-accordion.md): a stacked list of headers that collapse or expand content sections with user interaction.
+*   [**amp-app-banner**](../../../components/reference/amp-app-banner.md): A wrapper and minimal UI for a cross-platform, fixed-position banner showing a call-to-action to install an app.
+*   [**amp-autocomplete**](../../..//components/reference/amp-autocomplete.md): suggests completed results corresponding to the user input as they type.
+*   [**amp-base-carousel**](../../../components/reference/amp-base-carousel.md): displays multiple similar pieces of content along a horizontal axis or vertical axis.
+*   [**amp-carousel**](../../../components/reference/amp-carousel.md): displays multiple pieces of content along a horizontal axis that users can tap through.
+*   [**amp-consent**](../../../components/reference/amp-consent.md): a UI control that collects and stores a user’s consent. Can block other AMP components based on user consent.
+*   [**amp-date-picker**](../../../components/reference/amp-date-picker.md): a widget to select dates.
+*   [**amp-form**](../../../components/reference/amp-form.md): creates forms, but with AMP powers.
+*   [**amp-lightbox-gallery**](../../../components/reference/amp-lightbox-gallery.md): displays images in a lightbox gallery.
+*   [**amp-image-lightbox**](../../../components/reference/amp-image-lightbox.md): Provides a lightbox effect for a specified image.
+*   [**amp-image-slider**](../../../components/reference/amp-image-slider.md): A slider to compare two images.
+*   [**amp-inline-gallery**](../../../components/reference/amp-inline-gallery.md): displays multiple images along a horizontal axis that users can tap through.
+*   [**amp-inputmask**](../../../components/reference/amp-inputmask.md): provides input masking capabilities to inputs in AMP forms.
+*   [**amp-lightbox**](../../../components/reference/amp-lightbox.md): displays elements in a full-viewport “lightbox” modal.
+*   [**amp-mega-menu**](../../../components/reference/amp-mega-menu.md): Displays top-level navigational content inside expandable containers.
+*   [**amp-nested-menu**](../../../components/reference/amp-nested-menu.md): Displays a drilldown menu with arbitrary levels of nested submenus.
+*   [**amp-recaptcha-input**](../../../components/reference/amp-recaptcha-input.md): appends a reCAPTCHA v3 token to AMP form submissions.
+*   [**amp-sidebar**](../../../components/reference/amp-sidebar.md): a way to display meta content intended for temporary access such as navigation, links, buttons, menus.
+*   [**amp-truncate-text**](../../../components/reference/amp-truncate-text.md): Truncates text with an ellipsis, optionally showing an overflow element.
+*   [**amp-user-notification**](../../../components/reference/amp-user-notification.md): Displays a dismissable notification to the user.
+*   [**amp-video**](../../../components/reference/amp-video.md): Replaces the HTML5 video tag.
+*   [**amp-video-docking**](../../../components/reference/amp-video-docking.md): unctionality for videos that minimize ("dock") to a corner or a custom position on scroll.
 
 # Implementation patterns
 
@@ -55,10 +55,9 @@ By using [common AMP attributes](../../learn/common_attributes.md) and element-s
 Some attributes will change a small behavior. In the example below, the [`amp-accordion`](../../../components/reference/amp-accordion.md) includes the [`animate`](../../../components/reference/amp-accordion.md#animate) attribute. This attribute adds a slight "roll down" animation to the expansion and collapse of each section when the user interacts with it.
 
 [example preview="top-frame" playground="true" orientation="portrait" imports="amp-accordion"]
-
 ```html
 <amp-accordion animate>
-  <section>
+ <section>
     <h2>Section 1</h2>
     <p>Content in section 1.</p>
   </section>
@@ -77,7 +76,6 @@ Some attributes will change a small behavior. In the example below, the [`amp-ac
   </section>
 </amp-accordion>
 ```
-
 [/example]
 
 ## Combination and composition
@@ -85,59 +83,27 @@ Some attributes will change a small behavior. In the example below, the [`amp-ac
 Combine AMP components with other AMP components or HTML elements to improve or build more complex interactivity and user experiences. For example, combine [`amp-form`](../../../components/reference/amp-form.md) and [`amp-date-picker`](../../../components/reference/amp-date-picker.md) to create a booking flow.
 
 [example preview="top-frame" playground="true" orientation="portrait" imports="amp-form, amp-date-picker"]
-
 ```html
-<form
-  method="post"
-  action-xhr="/documentation/examples/api/submit-form-xhr"
-  target="_top"
->
-  <amp-date-picker
-    id="form-picker"
-    type="single"
-    mode="static"
-    layout="fixed-height"
-    height="360"
-    format="YYYY-MM-DD"
-  >
+<form method="post" action-xhr="/documentation/examples/api/submit-form-xhr" target="_top">
+  <amp-date-picker id="form-picker" type="single" mode="static" layout="fixed-height" height="360" format="YYYY-MM-DD">
   </amp-date-picker>
-  <input type="submit" />
-  <div submit-success>Thanks!</div>
+  <input type="submit">
+  <div submit-success>
+    Thanks!
+  </div>
 </form>
 ```
-
 [/example]
 
 There are no limits on the number of components you may combine. The example below builds on the previous one. We’ve added [`amp-inputmask`](../../../components/reference/amp-inputmask.md) to communicate the type of input accepted from a user and [`amp-mustache`](../../../components/reference/amp-mustache.md) to relay a success message.
 
 [example preview="top-frame" playground="true" orientation="portrait" imports="amp-form, amp-date-picker, amp-inputmask" template="amp-mustache"]
-
 ```html
-<form
-  class="sample-form"
-  method="post"
-  action-xhr="/documentation/examples/api/postal"
-  target="_top"
->
-  <amp-date-picker
-    id="form-picker"
-    type="single"
-    mode="static"
-    layout="fixed-height"
-    height="360"
-    format="YYYY-MM-DD"
-  >
+<form class="sample-form" method="post" action-xhr="/documentation/examples/api/postal" target="_top">
+  <amp-date-picker id="form-picker" type="single" mode="static" layout="fixed-height" height="360" format="YYYY-MM-DD">
   </amp-date-picker>
-  <label
-    >Phone:
-    <input
-      name="code"
-      type="tel"
-      mask="+\1_(000)_000-0000"
-      placeholder="+1 (555) 555-5555"
-      mask-output="alphanumeric"
-  /></label>
-  <input type="submit" />
+  <label>Phone: <input name="code" type="tel" mask="+\1_(000)_000-0000" placeholder="+1 (555) 555-5555" mask-output="alphanumeric"></label>
+  <input type="submit">
   <div submit-success>
     <template type="amp-mustache">
       <p>The raw value: {% raw %}{{code}}{% endraw %}</p>
@@ -146,7 +112,6 @@ There are no limits on the number of components you may combine. The example bel
   </div>
 </form>
 ```
-
 [/example]
 
 The components listed at the beginning of the guides are a great way to get started with AMP. Familiarizing with these helps you get an overview of the different building blocks AMP provides.
@@ -156,31 +121,15 @@ The components listed at the beginning of the guides are a great way to get star
 As outlined in [Interactivity foundations](foundations.md), AMP exposes globally available actions and events. Many of AMP’s components have their own component specific actions and events, made available by use of that component. [AMP’s action and event system](../../learn/amp-actions-and-events.md) is a powerful way to implement more complex interaction patterns. In the example below we open a lightbox on a successful form submission.
 
 [example preview="top-frame" playground="true" orientation="portrait" imports="amp-form, amp-lightbox-gallery" template="amp-mustache"]
-
 ```html
-<form
-  on="submit-success:amp-lightbox-gallery.open(id='squirrel')"
-  method="post"
-  action-xhr="/documentation/examples/api/postal"
-  target="_top"
->
-  <label
-    >Postal code: <input name="code" mask="L0L_0L0" placeholder="A1A 1A1"
-  /></label>
-  <input type="submit" />
+<form on="submit-success:amp-lightbox-gallery.open(id='squirrel')" method="post" action-xhr="/documentation/examples/api/postal" target="_top">
+  <label>Postal code: <input name="code" mask="L0L_0L0" placeholder="A1A 1A1"></label>
+  <input type="submit">
   <div submit-success>
-    <amp-img
-      src="/static/inline-examples/images/squirrel.jpg"
-      width="320"
-      height="256"
-      lightbox
-      id="squirrel"
-      alt="Photo of a squirrel"
-    ></amp-img>
+    <amp-img src="/static/inline-examples/images/squirrel.jpg" width="320" height="256" lightbox id="squirrel" alt="Photo of a squirrel"></amp-img>
   </div>
 </form>
 ```
-
 [/example]
 
 Check out the actions and events overview page to learn more about the different kinds of actions and events available in AMP.
@@ -190,7 +139,6 @@ Check out the actions and events overview page to learn more about the different
 If you are chaining multiple actions, you can define them together as a single and reusable action. Use the [amp-action-macro](../../../components/reference/amp-action-macro.md) component to create AMP action macros. Each action macro needs an id and an action to execute. Call the action macro by it’s id and pass the arguments that alter its behavior.
 
 [example preview="top-frame" playground="true" imports="amp-action-macro"]
-
 ```html
 <amp-action-macro
   id="navigate-action"
@@ -199,7 +147,6 @@ If you are chaining multiple actions, you can define them together as a single a
 
 <button on="tap:navigate-action.execute()">amp.dev</button>
 ```
-
 [/example]
 
 # Customization continued

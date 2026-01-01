@@ -42,7 +42,6 @@ Each AMP ad has a 20,000 byte CSS limit, within the `<style amp-custom>` tag ins
 Define CSS within the `<style amp-custom>` tag inside the head of the document. There is only one `<style amp-custom>` tag allowed on each AMP page.
 
 [sourcecode:html]
-
 <!doctype html>
   <head>
     ...
@@ -60,7 +59,6 @@ Define CSS within the `<style amp-custom>` tag inside the head of the document. 
       }
     </style>
     ...
-
   </head>
 [/sourcecode]
 
@@ -68,7 +66,6 @@ Style AMP components and HTML elements with class or selectors
 using common CSS properties:
 
 [sourcecode:html]
-
 <body>
   <p>Hello, Kitty.</p>
   <amp-img
@@ -88,7 +85,6 @@ using common CSS properties:
 AMP allows inline styles:
 
 [sourcecode:html]
-
 <body>
   <p style="color:pink;margin-left:30px;">Hello, Kitty.</p>
 </body>

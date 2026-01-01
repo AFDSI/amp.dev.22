@@ -324,7 +324,7 @@ AMP では、指定された幅と高さから要素のアスペクト比を算�
 AMP ドキュメントは次のようになります。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

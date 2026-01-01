@@ -324,7 +324,7 @@ The implied layout 'CONTAINER' is not supported by tag 'amp-img'.
 现在，您的 AMP 文档应该会大致如下所示：
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

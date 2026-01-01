@@ -14,7 +14,7 @@ description: في دليل المشروع، ستجد ملفًا باسم article
 يجب أن يكون ملف `article.amp.html` الخاص بك على النحو التالي:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>News Article</title>

@@ -14,7 +14,7 @@ description: プロジェクトディレクトリには、article.html という
 `article.amp.html` ファイルは、次のような内容になっているはずです。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>News Article</title>

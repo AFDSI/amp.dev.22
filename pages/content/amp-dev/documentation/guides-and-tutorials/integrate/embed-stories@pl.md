@@ -79,11 +79,7 @@ Umieść dwa wymagane skrypty w sekcji head dokumentu:
 
 ```html
 <script async src="https://cdn.ampproject.org/amp-story-player-v0.js"></script>
-<link
-  href="https://cdn.ampproject.org/amp-story-player-v0.css"
-  rel="stylesheet"
-  type="text/css"
-/>
+<link href="https://cdn.ampproject.org/amp-story-player-v0.css" rel="stylesheet" type="text/css">
 ```
 
 Pierwszy skrypt importuje logikę odtwarzacza, a drugi ustawia domyślną stylizację.
@@ -93,13 +89,12 @@ Pierwszy skrypt importuje logikę odtwarzacza, a drugi ustawia domyślną styliz
 Umieść element `<amp-story-player>` w sekcji `body` dokumentu. Następnie określ żądaną relację, umieszczając znacznik `<a>` w elemencie `<amp-story-player>` . Skieruj odsyłacz `href` do lokalizacji relacji. Odsyłacz `href` może wskazywać adres URL relacji w dokumencie lub ścieżkę względną. Umieść tytuł relacji w znacznikach <code><a></code>.
 
 ```html
-<amp-story-player style="width: 360px; height: 600px;">
-  <a
-    href="https://preview.amp.dev/documentation/examples/introduction/stories_in_amp/"
-  >
-    Stories in AMP - Hello World
-  </a>
-</amp-story-player>
+ <amp-story-player style="width: 360px; height: 600px;">
+    <a
+      href="https://preview.amp.dev/documentation/examples/introduction/stories_in_amp/">
+      Stories in AMP - Hello World
+    </a>
+  </amp-story-player>
 ```
 
 ### Rozmiar odtwarzacza
@@ -108,11 +103,11 @@ Możesz określić właściwości `width`, `height` i inne style inline lub jak 
 
 ```html
 <body>
-  ...
+...
   <amp-story-player style="width: 360px; height: 600px;">
-    ...
+...
   </amp-story-player>
-  ...
+...
 </body>
 ```
 
@@ -123,7 +118,9 @@ Zalecamy zachowanie współczynnika proporcji 3:5, zapewniającej najlepsze wra�
 Responsywność odtwarzacza relacji działa tak jak każdy inny element bloku. Użyj CSS, aby zachować proporcje szerokości i wysokości, jak w przykładzie poniżej:
 
 ```html
-<amp-story-player style="width: 50vw; height: 83.35vw;"> ... </amp-story-player>
+<amp-story-player style="width: 50vw; height: 83.35vw;">
+  ...
+</amp-story-player>
 ```
 
 ### Podanie elementu zastępczego

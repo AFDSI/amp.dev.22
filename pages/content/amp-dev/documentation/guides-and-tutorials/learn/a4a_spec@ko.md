@@ -319,7 +319,7 @@ _예시:_ `<amp-lightbox>`는 아직 포함되지 않습니다. 그 이유는 �
 
 HTML5 네임스페이스에 SVG 태그가 포함되지 않으며 해당 태그들은 섹션 ID 없이 하단에 열거되어 있습니다.
 
-`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
+` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
 
 #### 4.9 태뷸러 데이터<a name="49-tabular-data"></a>
 

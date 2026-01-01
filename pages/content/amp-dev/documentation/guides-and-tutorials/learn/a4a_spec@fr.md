@@ -317,7 +317,7 @@ La plupart des omissions sont liées aux performances ou au fait que les balises
 
 Les balises SVG ne sont pas dans l'espace de noms HTML5. Ils sont répertoriés ci-dessous sans ID de section.
 
-`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
+` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
 
 #### 4.9 Données tabulaires <a name="49-tabular-data"></a>
 

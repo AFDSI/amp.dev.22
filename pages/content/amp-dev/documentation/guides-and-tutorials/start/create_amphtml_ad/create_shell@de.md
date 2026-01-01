@@ -9,7 +9,7 @@ Der [für eine AMPHTML Ad erforderliche HTML Code](../../../../documentation/gui
 Erstelle mit deinem bevorzugten Texteditor eine HTML Datei mit dem Namen **`my-amphtml-ad.html`**. Kopiere das folgende HTML Markup in diese Datei:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Jetzt können wir den HTML Code abändern und in eine AMPHTML Ad verwandeln.
 Füge im Tag `<html>` das Attribut `⚡4ads` hinzu, um das Dokument als AMPHTML Ad zu kennzeichnen. Alternativ kannst du das ebenfalls gültige Attribut `amp4ads` angeben.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ Um den Stil deiner AMPHTML Ad festzulegen, muss dein CSS mithilfe der Tags `<sty
 Nachfolgend findest du den vollständigen Code für deine HTML Datei:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

@@ -11,7 +11,7 @@ Strona AMP jest stroną HTML z pewnymi ograniczeniami, zapewniającymi jej nieza
 Podstawowa strona AMP wygląda tak:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html amp>
   <head>
     <meta charset="utf-8" />

@@ -1,622 +1,172 @@
 ---
 $title: Release Schedule
 ---
-
 {% do doc.styles.addCssFile('/css/components/organisms/release-schedule.css') %}
 {% do doc.styles.addCssFile('css/components/molecules/pixi-tooltip.css') %}
 
 <h2>Introduction</h2>
 
-<p>
-  This interactive calendar visualizes the process via which new code that is
-  merged into the
-  <a href="https://github.com/ampproject/amphtml">amphtml GitHub repository</a>
-  progresses through time to reach publishers, developers, and end-users.
-</p>
+<p>This interactive calendar visualizes the process via which new code that is merged into the <a href="https://github.com/ampproject/amphtml">amphtml GitHub repository</a> progresses through time to reach publishers, developers, and end-users.</p>
 <p></p>
 {% do doc.styles.addCssFile('css/components/molecules/tip.css') %}
 <div class="ap-m-tip">
   <div class="ap-a-ico ap-m-tip-icon">
     {% do doc.icons.useIcon('icons/bookmark.svg') %}
-    <svg>
-      <use
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xlink:href="#bookmark"
-      ></use>
-    </svg>
+    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bookmark"></use></svg>
   </div>
   <div class="ap-m-tip-content">
-    For a detailed description of the various release channels, see
-    <a
-      href="/content/amp-dev/documentation/guides-and-tutorials/learn/spec/release-schedule.md"
-      >AMP Release Schedule</a
-    >. There is also a
-    <a href="./release-schedule-accessible.html">screen-reader accessible</a>
-    version of this page.
+    For a detailed description of the various release channels, see <a href="/content/amp-dev/documentation/guides-and-tutorials/learn/spec/release-schedule.md">AMP Release Schedule</a>. There is also a <a href="./release-schedule-accessible.html">screen-reader accessible</a> version of this page.
   </div>
 </div>
 
-<h3>
-  Select a day to see when the code merged on that day will be available on each
-  release channel
-</h3>
+<h3>Select a day to see when the code merged on that day will be available on each release channel</h3>
 
-<amp-script
-  id="calendar-container"
-  layout="container"
-  script="calendar-script"
-  sandbox="allow-forms"
->
+
+<amp-script id="calendar-container" layout="container" script="calendar-script" sandbox="allow-forms">
   <div class="calendar">
     <div class="calendar-header">
       {% do doc.styles.addCssFile('css/components/atoms/button.css') %}
-      <button class="ap-a-btn calendar-button" data-week="1" data-day="sunday">
-        <span class="compressed">SUN</span><span class="full">SUNDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="1" data-day="monday">
-        <span class="compressed">MON</span><span class="full">MONDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="1" data-day="tuesday">
-        <span class="compressed">TUE</span><span class="full">TUESDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="1"
-        data-day="wednesday"
-      >
-        <span class="compressed">WED</span><span class="full">WEDNESDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="1"
-        data-day="thursday"
-      >
-        <span class="compressed">THU</span><span class="full">THURSDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="1" data-day="friday">
-        <span class="compressed">FRI</span><span class="full">FRIDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="1"
-        data-day="saturday"
-      >
-        <span class="compressed">SAT</span><span class="full">SATURDAY</span>
-      </button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="sunday"><span class="compressed">SUN</span><span class="full">SUNDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="monday"><span class="compressed">MON</span><span class="full">MONDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="tuesday"><span class="compressed">TUE</span><span class="full">TUESDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="wednesday"><span class="compressed">WED</span><span class="full">WEDNESDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="thursday"><span class="compressed">THU</span><span class="full">THURSDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="friday"><span class="compressed">FRI</span><span class="full">FRIDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="1" data-day="saturday"><span class="compressed">SAT</span><span class="full">SATURDAY</span></button>
     </div>
 
     <div class="calendar-output">
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N</div>
-        <div
-          class="calendar-day week-1 sunday"
-          data-week-label="Week N"
-          data-label="SUN"
-          data-week="1"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-1 monday"
-          data-label="MON"
-          data-week="1"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-1 tuesday"
-          data-label="TUE"
-          data-week="1"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-1 wednesday"
-          data-label="WED"
-          data-week="1"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-1 thursday"
-          data-label="THU"
-          data-week="1"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-1 friday"
-          data-label="FRI"
-          data-week="1"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-1 saturday"
-          data-label="SAT"
-          data-week="1"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-1 sunday" data-week-label="Week N" data-label="SUN" data-week="1" data-day="sunday"></div>
+        <div class="calendar-day week-1 monday" data-label="MON" data-week="1" data-day="monday"></div>
+        <div class="calendar-day week-1 tuesday" data-label="TUE" data-week="1" data-day="tuesday"></div>
+        <div class="calendar-day week-1 wednesday" data-label="WED" data-week="1" data-day="wednesday"></div>
+        <div class="calendar-day week-1 thursday" data-label="THU" data-week="1" data-day="thursday"></div>
+        <div class="calendar-day week-1 friday" data-label="FRI" data-week="1" data-day="friday"></div>
+        <div class="calendar-day week-1 saturday" data-label="SAT" data-week="1" data-day="saturday"></div>
       </div>
-
+      
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N+1</div>
-        <div
-          class="calendar-day week-2 sunday"
-          data-week-label="Week N+1"
-          data-label="SUN"
-          data-week="2"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-2 monday"
-          data-label="MON"
-          data-week="2"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-2 tuesday"
-          data-label="TUE"
-          data-week="2"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-2 wednesday"
-          data-label="WED"
-          data-week="2"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-2 thursday"
-          data-label="THU"
-          data-week="2"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-2 friday"
-          data-label="FRI"
-          data-week="2"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-2 saturday"
-          data-label="SAT"
-          data-week="2"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-2 sunday" data-week-label="Week N+1" data-label="SUN" data-week="2" data-day="sunday"></div>
+        <div class="calendar-day week-2 monday" data-label="MON" data-week="2" data-day="monday"></div>
+        <div class="calendar-day week-2 tuesday" data-label="TUE" data-week="2" data-day="tuesday"></div>
+        <div class="calendar-day week-2 wednesday" data-label="WED" data-week="2" data-day="wednesday"></div>
+        <div class="calendar-day week-2 thursday" data-label="THU" data-week="2" data-day="thursday"></div>
+        <div class="calendar-day week-2 friday" data-label="FRI" data-week="2" data-day="friday"></div>
+        <div class="calendar-day week-2 saturday" data-label="SAT" data-week="2" data-day="saturday"></div>
       </div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N+2</div>
-        <div
-          class="calendar-day week-3 sunday"
-          data-week-label="Week N+2"
-          data-label="SUN"
-          data-week="3"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-3 monday"
-          data-label="MON"
-          data-week="3"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-3 tuesday"
-          data-label="TUE"
-          data-week="3"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-3 wednesday"
-          data-label="WED"
-          data-week="3"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-3 thursday"
-          data-label="THU"
-          data-week="3"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-3 friday"
-          data-label="FRI"
-          data-week="3"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-3 saturday"
-          data-label="SAT"
-          data-week="3"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-3 sunday" data-week-label="Week N+2" data-label="SUN" data-week="3" data-day="sunday"></div>
+        <div class="calendar-day week-3 monday" data-label="MON" data-week="3" data-day="monday"></div>
+        <div class="calendar-day week-3 tuesday" data-label="TUE" data-week="3" data-day="tuesday"></div>
+        <div class="calendar-day week-3 wednesday" data-label="WED" data-week="3" data-day="wednesday"></div>
+        <div class="calendar-day week-3 thursday" data-label="THU" data-week="3" data-day="thursday"></div>
+        <div class="calendar-day week-3 friday" data-label="FRI" data-week="3" data-day="friday"></div>
+        <div class="calendar-day week-3 saturday" data-label="SAT" data-week="3" data-day="saturday"></div>
       </div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">2nd week of the next month</div>
-        <div
-          class="calendar-day week-4 sunday"
-          data-week-label="Week N+3"
-          data-label="SUN"
-          data-week="4"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-4 monday"
-          data-label="MON"
-          data-week="4"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-4 tuesday"
-          data-label="TUE"
-          data-week="4"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-4 wednesday"
-          data-label="WED"
-          data-week="4"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-4 thursday"
-          data-label="THU"
-          data-week="4"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-4 friday"
-          data-label="FRI"
-          data-week="4"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-4 saturday"
-          data-label="SAT"
-          data-week="4"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-4 sunday" data-week-label="Week N+3" data-label="SUN" data-week="4" data-day="sunday"></div>
+        <div class="calendar-day week-4 monday" data-label="MON" data-week="4" data-day="monday"></div>
+        <div class="calendar-day week-4 tuesday" data-label="TUE" data-week="4" data-day="tuesday"></div>
+        <div class="calendar-day week-4 wednesday" data-label="WED" data-week="4" data-day="wednesday"></div>
+        <div class="calendar-day week-4 thursday" data-label="THU" data-week="4" data-day="thursday"></div>
+        <div class="calendar-day week-4 friday" data-label="FRI" data-week="4" data-day="friday"></div>
+        <div class="calendar-day week-4 saturday" data-label="SAT" data-week="4" data-day="saturday"></div>
       </div>
 
-      <div class="ellipsis">
-        <span class="mobile">⋮</span><span class="desktop">…</span>
-      </div>
+      <div class="ellipsis"><span class="mobile">⋮</span><span class="desktop">…</span></div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">2nd week of the next month</div>
-        <div
-          class="calendar-day week-5 sunday"
-          data-week-label="2nd week of the next month"
-          data-label="SUN"
-          data-week="5"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-5 monday"
-          data-label="MON"
-          data-week="5"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-5 tuesday"
-          data-label="TUE"
-          data-week="5"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-5 wednesday"
-          data-label="WED"
-          data-week="5"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-5 thursday"
-          data-label="THU"
-          data-week="5"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-5 friday"
-          data-label="FRI"
-          data-week="5"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-5 saturday"
-          data-label="SAT"
-          data-week="5"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-5 sunday" data-week-label="2nd week of the next month" data-label="SUN" data-week="5" data-day="sunday"></div>
+        <div class="calendar-day week-5 monday" data-label="MON" data-week="5" data-day="monday"></div>
+        <div class="calendar-day week-5 tuesday" data-label="TUE" data-week="5" data-day="tuesday"></div>
+        <div class="calendar-day week-5 wednesday" data-label="WED" data-week="5" data-day="wednesday"></div>
+        <div class="calendar-day week-5 thursday" data-label="THU" data-week="5" data-day="thursday"></div>
+        <div class="calendar-day week-5 friday" data-label="FRI" data-week="5" data-day="friday"></div>
+        <div class="calendar-day week-5 saturday" data-label="SAT" data-week="5" data-day="saturday"></div>
       </div>
     </div>
   </div>
 </amp-script>
 
-<h3>
-  Select a day to see when the latest code merge occurred so as to be included
-  in each release channel
-</h3>
+<h3>Select a day to see when the latest code merge occurred so as to be included in each release channel</h3>
 
-<amp-script
-  id="calendar-container"
-  layout="container"
-  script="calendar-script"
-  sandbox="allow-forms"
->
+<amp-script id="calendar-container" layout="container" script="calendar-script" sandbox="allow-forms">
   <div class="calendar desktop">
     <div class="calendar-header">
       {% do doc.styles.addCssFile('css/components/atoms/button.css') %}
-      <button class="ap-a-btn calendar-button" data-week="5" data-day="sunday">
-        <span class="compressed">SUN</span><span class="full">SUNDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="5" data-day="monday">
-        <span class="compressed">MON</span><span class="full">MONDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="5" data-day="tuesday">
-        <span class="compressed">TUE</span><span class="full">TUESDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="5"
-        data-day="wednesday"
-      >
-        <span class="compressed">WED</span><span class="full">WEDNESDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="5"
-        data-day="thursday"
-      >
-        <span class="compressed">THU</span><span class="full">THURSDAY</span>
-      </button>
-      <button class="ap-a-btn calendar-button" data-week="5" data-day="friday">
-        <span class="compressed">FRI</span><span class="full">FRIDAY</span>
-      </button>
-      <button
-        class="ap-a-btn calendar-button"
-        data-week="5"
-        data-day="saturday"
-      >
-        <span class="compressed">SAT</span><span class="full">SATURDAY</span>
-      </button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="sunday"><span class="compressed">SUN</span><span class="full">SUNDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="monday"><span class="compressed">MON</span><span class="full">MONDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="tuesday"><span class="compressed">TUE</span><span class="full">TUESDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="wednesday"><span class="compressed">WED</span><span class="full">WEDNESDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="thursday"><span class="compressed">THU</span><span class="full">THURSDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="friday"><span class="compressed">FRI</span><span class="full">FRIDAY</span></button>
+      <button class="ap-a-btn calendar-button" data-week="5" data-day="saturday"><span class="compressed">SAT</span><span class="full">SATURDAY</span></button>
     </div>
 
     <div class="calendar-output">
       <div class="calendar-week">
-        <div class="calendar-week-label mobile">
-          Last week of previous month
-        </div>
-        <div
-          class="calendar-day week-1 sunday"
-          data-week-label="Last week of previous month"
-          data-label="SUN"
-          data-week="1"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-1 monday"
-          data-label="MON"
-          data-week="1"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-1 tuesday"
-          data-label="TUE"
-          data-week="1"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-1 wednesday"
-          data-label="WED"
-          data-week="1"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-1 thursday"
-          data-label="THU"
-          data-week="1"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-1 friday"
-          data-label="FRI"
-          data-week="1"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-1 saturday"
-          data-label="SAT"
-          data-week="1"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-week-label mobile">Last week of previous month</div>
+        <div class="calendar-day week-1 sunday" data-week-label="Last week of previous month" data-label="SUN" data-week="1" data-day="sunday"></div>
+        <div class="calendar-day week-1 monday" data-label="MON" data-week="1" data-day="monday"></div>
+        <div class="calendar-day week-1 tuesday" data-label="TUE" data-week="1" data-day="tuesday"></div>
+        <div class="calendar-day week-1 wednesday" data-label="WED" data-week="1" data-day="wednesday"></div>
+        <div class="calendar-day week-1 thursday" data-label="THU" data-week="1" data-day="thursday"></div>
+        <div class="calendar-day week-1 friday" data-label="FRI" data-week="1" data-day="friday"></div>
+        <div class="calendar-day week-1 saturday" data-label="SAT" data-week="1" data-day="saturday"></div>
       </div>
 
-      <div class="ellipsis">
-        <span class="mobile">⋮</span><span class="desktop">…</span>
-      </div>
-
+      <div class="ellipsis"><span class="mobile">⋮</span><span class="desktop">…</span></div>
+      
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N-3</div>
-        <div
-          class="calendar-day week-2 sunday"
-          data-week-label="Week N-3"
-          data-label="SUN"
-          data-week="2"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-2 monday"
-          data-label="MON"
-          data-week="2"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-2 tuesday"
-          data-label="TUE"
-          data-week="2"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-2 wednesday"
-          data-label="WED"
-          data-week="2"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-2 thursday"
-          data-label="THU"
-          data-week="2"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-2 friday"
-          data-label="FRI"
-          data-week="2"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-2 saturday"
-          data-label="SAT"
-          data-week="2"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-2 sunday" data-week-label="Week N-3" data-label="SUN" data-week="2" data-day="sunday"></div>
+        <div class="calendar-day week-2 monday" data-label="MON" data-week="2" data-day="monday"></div>
+        <div class="calendar-day week-2 tuesday" data-label="TUE" data-week="2" data-day="tuesday"></div>
+        <div class="calendar-day week-2 wednesday" data-label="WED" data-week="2" data-day="wednesday"></div>
+        <div class="calendar-day week-2 thursday" data-label="THU" data-week="2" data-day="thursday"></div>
+        <div class="calendar-day week-2 friday" data-label="FRI" data-week="2" data-day="friday"></div>
+        <div class="calendar-day week-2 saturday" data-label="SAT" data-week="2" data-day="saturday"></div>
       </div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N-2</div>
-        <div
-          class="calendar-day week-3 sunday"
-          data-week-label="Week N-2"
-          data-label="SUN"
-          data-week="3"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-3 monday"
-          data-label="MON"
-          data-week="3"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-3 tuesday"
-          data-label="TUE"
-          data-week="3"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-3 wednesday"
-          data-label="WED"
-          data-week="3"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-3 thursday"
-          data-label="THU"
-          data-week="3"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-3 friday"
-          data-label="FRI"
-          data-week="3"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-3 saturday"
-          data-label="SAT"
-          data-week="3"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-3 sunday" data-week-label="Week N-2" data-label="SUN" data-week="3" data-day="sunday"></div>
+        <div class="calendar-day week-3 monday" data-label="MON" data-week="3" data-day="monday"></div>
+        <div class="calendar-day week-3 tuesday" data-label="TUE" data-week="3" data-day="tuesday"></div>
+        <div class="calendar-day week-3 wednesday" data-label="WED" data-week="3" data-day="wednesday"></div>
+        <div class="calendar-day week-3 thursday" data-label="THU" data-week="3" data-day="thursday"></div>
+        <div class="calendar-day week-3 friday" data-label="FRI" data-week="3" data-day="friday"></div>
+        <div class="calendar-day week-3 saturday" data-label="SAT" data-week="3" data-day="saturday"></div>
       </div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N-1</div>
-        <div
-          class="calendar-day week-4 sunday"
-          data-week-label="Week N-1"
-          data-label="SUN"
-          data-week="4"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-4 monday"
-          data-label="MON"
-          data-week="4"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-4 tuesday"
-          data-label="TUE"
-          data-week="4"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-4 wednesday"
-          data-label="WED"
-          data-week="4"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-4 thursday"
-          data-label="THU"
-          data-week="4"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-4 friday"
-          data-label="FRI"
-          data-week="4"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-4 saturday"
-          data-label="SAT"
-          data-week="4"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-4 sunday" data-week-label="Week N-1" data-label="SUN" data-week="4" data-day="sunday"></div>
+        <div class="calendar-day week-4 monday" data-label="MON" data-week="4" data-day="monday"></div>
+        <div class="calendar-day week-4 tuesday" data-label="TUE" data-week="4" data-day="tuesday"></div>
+        <div class="calendar-day week-4 wednesday" data-label="WED" data-week="4" data-day="wednesday"></div>
+        <div class="calendar-day week-4 thursday" data-label="THU" data-week="4" data-day="thursday"></div>
+        <div class="calendar-day week-4 friday" data-label="FRI" data-week="4" data-day="friday"></div>
+        <div class="calendar-day week-4 saturday" data-label="SAT" data-week="4" data-day="saturday"></div>
       </div>
 
       <div class="calendar-week">
         <div class="calendar-week-label mobile">Week N</div>
-        <div
-          class="calendar-day week-5 sunday"
-          data-week-label="Week N"
-          data-label="SUN"
-          data-week="5"
-          data-day="sunday"
-        ></div>
-        <div
-          class="calendar-day week-5 monday"
-          data-label="MON"
-          data-week="5"
-          data-day="monday"
-        ></div>
-        <div
-          class="calendar-day week-5 tuesday"
-          data-label="TUE"
-          data-week="5"
-          data-day="tuesday"
-        ></div>
-        <div
-          class="calendar-day week-5 wednesday"
-          data-label="WED"
-          data-week="5"
-          data-day="wednesday"
-        ></div>
-        <div
-          class="calendar-day week-5 thursday"
-          data-label="THU"
-          data-week="5"
-          data-day="thursday"
-        ></div>
-        <div
-          class="calendar-day week-5 friday"
-          data-label="FRI"
-          data-week="5"
-          data-day="friday"
-        ></div>
-        <div
-          class="calendar-day week-5 saturday"
-          data-label="SAT"
-          data-week="5"
-          data-day="saturday"
-        ></div>
+        <div class="calendar-day week-5 sunday" data-week-label="Week N" data-label="SUN" data-week="5" data-day="sunday"></div>
+        <div class="calendar-day week-5 monday" data-label="MON" data-week="5" data-day="monday"></div>
+        <div class="calendar-day week-5 tuesday" data-label="TUE" data-week="5" data-day="tuesday"></div>
+        <div class="calendar-day week-5 wednesday" data-label="WED" data-week="5" data-day="wednesday"></div>
+        <div class="calendar-day week-5 thursday" data-label="THU" data-week="5" data-day="thursday"></div>
+        <div class="calendar-day week-5 friday" data-label="FRI" data-week="5" data-day="friday"></div>
+        <div class="calendar-day week-5 saturday" data-label="SAT" data-week="5" data-day="saturday"></div>
       </div>
     </div>
   </div>
@@ -793,7 +343,7 @@ $title: Release Schedule
     tooltip.classList.add('ap-m-tooltip');
     const tooltipChannel = `tooltip-${channel}`;
     tooltip.id = tooltipChannel;
-
+    
     const buttonOpen = document.createElement('button');
     buttonOpen.classList.add('ap-m-tooltip-toggle');
     buttonOpen.id = `${tooltipChannel}-open`;
@@ -881,7 +431,7 @@ $title: Release Schedule
         selectedElm.classList.add('merge');
         const mergeId = `merge-week-${selectedWeek}`;
         selectedElm.appendChild(createWrapper([
-          createLabel(descriptions[selectedWeek]['merged'].label),
+          createLabel(descriptions[selectedWeek]['merged'].label), 
           createToolTip(mergeId, descriptions[selectedWeek]['merged'].description),
           createToolTipBackground(mergeId)
         ]));

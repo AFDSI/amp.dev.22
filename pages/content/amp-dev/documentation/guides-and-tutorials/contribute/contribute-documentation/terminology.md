@@ -1,5 +1,5 @@
 ---
-$title: AMP terminology
+$title: AMP terminology 
 $order: 2
 description: 'AMP terminology guidelines'
 formats:

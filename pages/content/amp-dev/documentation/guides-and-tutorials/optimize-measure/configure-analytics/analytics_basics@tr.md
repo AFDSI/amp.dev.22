@@ -1,5 +1,5 @@
 ---
-$title: 'Analytics: Temel Bilgiler'
+$title: "Analytics: Temel Bilgiler"
 ---
 
 AMP analitik hakkında temel bilgileri öğrenmek için buraya tıklayın.
@@ -80,11 +80,7 @@ ilk önce bu `custom-element` bildirimini
 [Bileşen ekleme bildirimi](../../../../documentation/components/index.html)):
 
 ```html
-<script
-  async
-  custom-element="amp-analytics"
-  src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
-></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 ```
 
 Aşağıdaki örnek [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md) ile benzerdir.
@@ -94,19 +90,19 @@ sayfa görüntüleme verilerini rastgele bir ID ile birlikte tanımlı URL›ye 
 
 ```html
 <amp-analytics>
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://foo.com/pixel?RANDOM"
-      },
-      "triggers": {
-        "trackPageview": {
-          "on": "visible",
-          "request": "pageview"
-        }
-      }
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://foo.com/pixel?RANDOM",
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
     }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 
@@ -130,9 +126,7 @@ mevcut AMP belgelerinin standart URL›si, başlığı ve bir
 [istemci kimliği](analytics_basics.md) ile birlikte URL›ye gönderilir:
 
 ```html
-<amp-pixel
-  src="https://example.com/analytics?url=${canonicalUrl}&title=${title}&clientId=${clientId(site-user-id)}"
-></amp-pixel>
+<amp-pixel src="https://example.com/analytics?url=${canonicalUrl}&title=${title}&clientId=${clientId(site-user-id)}"></amp-pixel>
 ```
 
 Basitliği nedeniyle, [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md) etiketi yalnızca platform tarafından tanımlanan veya AMP çalışma zamanının AMP sayfasından ayrıştırabileceği değişkenleri içerebilir. Yukarıdaki örnekte, platform hem
@@ -141,7 +135,7 @@ Basitliği nedeniyle, [`amp-pixel`](../../../../documentation/components/referen
 aynı zamanda etiket yapılandırması içerisinde özel olarak tanımlanan değişkenleri içerebilir.
 
 `${varName}` formatını bir sayfa
-ya da platform tanımlı değişken için bir istek dizesi içinde kullanın.
+ ya da platform tanımlı değişken için bir istek dizesi içinde kullanın.
 [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md) etiketi, şablonu
 analitik isteğinin oluşturulduğu zamandaki gerçek değeri ile değiştirecektir (ayrıca bkz.
 [Amp-analitik içinde desteklenen değişkenler](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/analytics-vars.md)).
@@ -155,25 +149,25 @@ URL›ye gönderilir:
 
 ```html
 <amp-analytics>
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(site-user-id)}"
-      },
+<script type="application/json">
+{
+  "requests": {
+    "pageview":"https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(site-user-id)}",
+  },
+  "vars": {
+    "account": "ABC123",
+  },
+  "triggers": {
+    "someEvent": {
+      "on": "visible",
+      "request": "pageview",
       "vars": {
-        "account": "ABC123"
-      },
-      "triggers": {
-        "someEvent": {
-          "on": "visible",
-          "request": "pageview",
-          "vars": {
-            "title": "My homepage"
-          }
-        }
+        "title": "My homepage",
       }
     }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 
@@ -210,7 +204,7 @@ kullanıcı tekrar ziyaret ettiğinde aynı kalır.
 AMP tüm durumlarda istemci kimliğinin okunmasını ve yazılmasını yönetir.
 Bu özellikle, bir sayfa
 önbellekle sağlandığında geçerlidir, aksi halde yayıncının orijinal sitesinin görüntüleme bağlamının
-dışında gösterilir.
+ dışında gösterilir.
 Bu durumda, yayıncının internet sitesinin çerezlerine erişilemez.
 
 AMP sayfası bir yayıncı internet sitesinden sağlandığında,
@@ -226,9 +220,7 @@ Format
 Örneğin;
 
 ```html
-<amp-pixel
-  src="https://foo.com/pixel?cid=CLIENT_ID(site-user-id-cookie-fallback-name)"
-></amp-pixel>
+<amp-pixel src="https://foo.com/pixel?cid=CLIENT_ID(site-user-id-cookie-fallback-name)"></amp-pixel>
 ```
 
 AMP tarafından bu çerezin ayarlandığı bulunursa,

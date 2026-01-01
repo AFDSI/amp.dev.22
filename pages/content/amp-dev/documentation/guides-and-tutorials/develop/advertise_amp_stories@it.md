@@ -44,7 +44,6 @@ Le storie Web non possono supportare un elemento [`amp-ad`](../../../documentati
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
-
 <script type="application/json">
 {
 "ad-attributes": {
@@ -70,8 +69,6 @@ Server di annunci che attualmente supportano gli annunci nelle storie web:
   - [Annunci a vendita diretta](https://support.google.com/admanager/answer/9038178)
   - [Annunci programmati](https://support.google.com/admanager/answer/9416436)
 - Google AdSense (presto disponibile)
-- MGID
-  - [Annunci a vendita diretta](https://help.mgid.com/generate-revenue-with-amp-web-stories)
 - Si possono integrare anche altre piattaforme pubblicitarie (contattaci per i [dettagli tramite Github](https://github.com/ampproject/amphtml/issues/30769))
 
 Se sei un inserzionista interessato a pubblicare i tuoi annunci all'interno di storie web, ti preghiamo di [contattarci](mailto:story-ads-wg@google.com) per ulteriori informazioni.

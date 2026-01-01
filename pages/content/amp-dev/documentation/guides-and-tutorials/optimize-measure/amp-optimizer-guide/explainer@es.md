@@ -35,7 +35,7 @@ Durante la renderización del lado del servidor se llevan a cabo tres cosas:
 <style amp-runtime i-amphtml-version="011905222334000">html{overflow-x:hidden!important}html.i-amphtml-...</style>
 ```
 
-⁣\*_3. Los diseños de AMP se renderizan del lado del servidor: _ en cada elemento que utiliza un diseño de AMP se introducen elementos que seleccionan el tamaño específico del diseño
+⁣**3. Los diseños de AMP se renderizan del lado del servidor: * en cada elemento que utiliza un diseño de AMP se introducen elementos que seleccionan el tamaño específico del diseño
 
 ```
 <amp-img src="image.jpg" width="1080" height="610" layout="responsive"

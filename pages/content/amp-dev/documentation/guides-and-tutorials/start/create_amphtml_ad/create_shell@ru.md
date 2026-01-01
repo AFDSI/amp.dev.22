@@ -9,7 +9,7 @@ description: '"Используя свой любимый текстовый р�
 Используя свой любимый текстовый редактор, создайте HTML-файл с именем **`my-amphtml-ad.html`**. Скопируйте в этот файл следующую разметку HTML:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ description: '"Используя свой любимый текстовый р�
 В `<html>` добавьте атрибут `⚡4ads`, который определяет документ как AMPHTML-рекламу. Также можно использовать альтернативный атрибут `amp4ads`.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ AMPHTML-рекламе требуется собственная версия с
 Вот полный код вашего HTML-файла:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

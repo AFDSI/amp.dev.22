@@ -21,7 +21,7 @@ author: CrystalOnScript
 Песочница AMP поддерживает формат AMP для писем, что позволяет вам разрабатывать, тестировать и проверять свои AMP-письма. Откройте [Песочницу AMP](https://playground.amp.dev/?runtime=amp4email) и убедитесь, что в верхнем левом углу выбран формат `AMP for Email`. Вы должны увидеть следующий код:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

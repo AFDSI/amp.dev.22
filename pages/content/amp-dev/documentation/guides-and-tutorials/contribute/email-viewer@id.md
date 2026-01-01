@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Aktifkan pencegatan XHR dengan memilih penampil ke dalam kemampuan xhrInterceptor pada saat inisialisasi. Silakan lihat contoh penampil tentang cara melakukan ini dan contoh tentang pencegatan XHR. Dokumen AMP harus menerima untuk mengizinkan pencegatan XHR. Dokumen menerima dengan menambahkan atribut `allow-xhr-interception` ke tag `<html amp4email>`. Klien email harus memasang atribut ini pada dokumen AMP sebelum merendernya karena ini adalah atribut yang diniatkan invalid dan akan ditandai demikian dalam validasi dokumen AMP.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

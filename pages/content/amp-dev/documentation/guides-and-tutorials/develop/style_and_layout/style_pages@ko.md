@@ -1,17 +1,17 @@
 ---
-'$title': Supported CSS
+"$title": Supported CSS
 description: 모든 웹페이지와 마찬가지로 AMP 페이지는 CSS로 스타일이 지정되지만 사용자 지정 글꼴을 제외한 외부 스타일시트는 참조할 수 없습니다. 또한 특정 스타일은 허용되지 않습니다...
 formats:
-  - websites
-  - email
-  - ads
-  - stories
+- websites
+- email
+- ads
+- stories
 author: Meggin
 contributors:
-  - pbakaus
-  - CrystalOnScript
-  - bpaduch
-  - choumx
+- pbakaus
+- CrystalOnScript
+- bpaduch
+- choumx
 ---
 
 모든 웹페이지와 마찬가지로 AMP 페이지는 CSS로 스타일이 지정되지만 [맞춤 글꼴](#the-custom-fonts-exception) 외 외부 스타일시트는 참조할 수 없습니다. 또한 특정 스타일은 성능상의 이유로 허용되지 않습니다. 인라인 스타일 속성도 허용되지 않습니다.

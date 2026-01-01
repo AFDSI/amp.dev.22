@@ -14,7 +14,7 @@ description: В директории проекта есть файл article.ht
 Содержимое вашего файла `article.amp.html` должно выглядеть следующим образом:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>News Article</title>

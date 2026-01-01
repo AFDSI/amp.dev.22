@@ -298,7 +298,7 @@ La mayoría de las omisiones se deben al rendimiento o porque las etiquetas no s
 
 Las etiquetas de los SVG no están en el espacio de nombres de HTML5. Se detallan a continuación sin un ID de sección.
 
-`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
+` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
 
 #### 4.9 Tabla de datos <a name="49-tabular-data"></a>
 

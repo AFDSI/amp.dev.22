@@ -56,17 +56,17 @@ Voici la liste complète des valeurs autorisées pour l'attribut de mise en page
 
 Parfois, si `width` ou `height` ne sont pas spécifiés, l'exécution AMP peut utiliser les valeurs par défaut suivantes :
 
-- [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md): la largeur et la hauteur par défaut sont de 0.
-- [`amp-audio`](../../../../documentation/components/reference/amp-audio.md): la largeur et la hauteur par défaut proviennent du navigateur.
+* [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md): la largeur et la hauteur par défaut sont de 0.
+* [`amp-audio`](../../../../documentation/components/reference/amp-audio.md): la largeur et la hauteur par défaut proviennent du navigateur.
 
 ### Que se passe-t-il si l'attribut de mise en page n'est pas défini ? <a name="what-if-the-layout-attribute-isnt-specified"></a>
 
 Le comportement de la mise en page est déterminé comme suit :
 
-- Si `height` est présent et `width` est absent ou égal à `auto`, la mise en page `fixed-height` est utilisée.
-- Si les attributs `width` ou `height` sont présents, ainsi que l'attribut `sizes`, la mise en page `responsive` est utilisée.
-- Si les attributs `width` ou `height` sont présents, la mise en page `fixed` est utilisée.
-- En l'absence de `width` et de `height`, la mise en page `container` est utilisée.
+* Si `height` est présent et `width` est absent ou égal à `auto`, la mise en page `fixed-height` est utilisée.
+* Si les attributs `width` ou `height` sont présents, ainsi que l'attribut `sizes`, la mise en page `responsive` est utilisée.
+* Si les attributs `width` ou `height` sont présents, la mise en page `fixed` est utilisée.
+* En l'absence de `width` et de `height`, la mise en page `container` est utilisée.
 
 ## Utiliser les attributs "@media" et "media"
 
@@ -114,9 +114,9 @@ Le descripteur `w` indique au navigateur la largeur de chaque image de la liste�
 
 [sourcecode:html]
 <amp-img
-src="wide.jpg"
-srcset="wide.jpg" 640w,
-"narrow.jpg" 320w >
+    src="wide.jpg"
+    srcset="wide.jpg" 640w,
+           "narrow.jpg" 320w >
 </amp-img>
 [/sourcecode]
 
@@ -132,10 +132,10 @@ Prenons l'exemple suivant :
 
 [sourcecode:html]
 <amp-img
-src="wide.jpg"
-srcset="wide.jpg" 640w,
-"narrow.jpg" 320w
-sizes="(min-width: 650px) 50vw, 100vw" >
+    src="wide.jpg"
+    srcset="wide.jpg" 640w,
+           "narrow.jpg" 320w
+    sizes="(min-width: 650px) 50vw, 100vw" >
 </amp-img>
 [/sourcecode]
 
@@ -156,7 +156,7 @@ L'élément `placeholder`, s'il est indiqué, doit être un enfant direct de l'�
 
 [sourcecode:html]
 <amp-anim src="animated.gif" width=466 height=355 layout="responsive" >
-<amp-img placeholder src="preview.png" layout="fill"></amp-img>
+    <amp-img placeholder src="preview.png" layout="fill"></amp-img>
 </amp-anim>
 [/sourcecode]
 
@@ -173,7 +173,6 @@ Par exemple, utilisez l'attribut `fallback` pour indiquer à l'utilisateur que l
 [sourcecode:html]
 <amp-video width=400 height=300 src="https://yourhost.com/videos/myvideo.mp4"
     poster="myvideo-poster.jpg" >
-
   <div fallback>
         <p>Your browser doesn’t support HTML5 video.</p>
   </div>

@@ -17,6 +17,10 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
+
+
+
+
 ## Overview <a name="overview"></a>
 
 The main goal of the layout system is to ensure that AMP elements can express their layout
@@ -62,8 +66,8 @@ Depending on the value of the `layout` attribute, AMP component elements must ha
 
 In a few cases, if `width` or `height` are not specified, the AMP runtime can default these values as follows:
 
-- `amp-pixel`: Both `width` and `height` are defaulted to 0.
-- `amp-audio`: The default `width` and `height` are inferred from browser.
+-   `amp-pixel`: Both `width` and `height` are defaulted to 0.
+-   `amp-audio`: The default `width` and `height` are inferred from browser.
 
 ### `layout` <a name="layout"></a>
 
@@ -73,14 +77,13 @@ AMP provides a set of layouts that specify how an AMP component behaves in the d
 
 [sourcecode:html]
 <amp-img
-src="/img/amp.jpg"
-width="1080"
-height="610"
-layout="responsive"
-alt="an image"
-
-> </amp-img>
-> [/sourcecode]
+  src="/img/amp.jpg"
+  width="1080"
+  height="610"
+  layout="responsive"
+  alt="an image"
+></amp-img>
+[/sourcecode]
 
 Supported values for the `layout` attribute:
 
@@ -151,14 +154,14 @@ In the following example, if the viewport is wider than `320px`, the image will 
 
 [sourcecode:html]
 <amp-img
-src="https://acme.org/image1.png"
-width="400"
-height="300"
-layout="responsive"
-sizes="(min-width: 320px) 320px, 100vw"
-
-> </amp-img>
-> [/sourcecode]
+  src="https://acme.org/image1.png"
+  width="400"
+  height="300"
+  layout="responsive"
+  sizes="(min-width: 320px) 320px, 100vw"
+>
+</amp-img>
+[/sourcecode]
 
 ### `disable-inline-width` <a name="disable-inline-width"></a>
 
@@ -170,15 +173,15 @@ In the following example, the width of the `<amp-img>` element is unaffected, an
 
 [sourcecode:html]
 <amp-img
-src="https://acme.org/image1.png"
-width="400"
-height="300"
-layout="responsive"
-sizes="(min-width: 320px) 320px, 100vw"
-disable-inline-width
-
-> </amp-img>
-> [/sourcecode]
+  src="https://acme.org/image1.png"
+  width="400"
+  height="300"
+  layout="responsive"
+  sizes="(min-width: 320px) 320px, 100vw"
+  disable-inline-width
+>
+</amp-img>
+[/sourcecode]
 
 ### `heights` <a name="heights"></a>
 
@@ -197,13 +200,13 @@ In the following example, the height of the image will default to 80% of the wid
 
 [sourcecode:html]
 <amp-img
-src="https://acme.org/image1.png"
-width="320"
-height="256"
-heights="(min-width:500px) 200px, 80%"
-
-> </amp-img>
-> [/sourcecode]
+  src="https://acme.org/image1.png"
+  width="320"
+  height="256"
+  heights="(min-width:500px) 200px, 80%"
+>
+</amp-img>
+[/sourcecode]
 
 ### `media` <a name="media"></a>
 
@@ -215,21 +218,20 @@ In the following example, we have 2 images with mutually exclusive media queries
 
 [sourcecode:html]
 <amp-img
-media="(min-width: 650px)"
-src="wide.jpg"
-width="466"
-height="355"
-layout="responsive"
-
-> </amp-img>
-> <amp-img
->   media="(max-width: 649px)"
->   src="narrow.jpg"
->   width="527"
->   height="193"
->   layout="responsive"
-> </amp-img>
-> [/sourcecode]
+  media="(min-width: 650px)"
+  src="wide.jpg"
+  width="466"
+  height="355"
+  layout="responsive"
+></amp-img>
+<amp-img
+  media="(max-width: 649px)"
+  src="narrow.jpg"
+  width="527"
+  height="193"
+  layout="responsive"
+></amp-img>
+[/sourcecode]
 
 ### `placeholder` <a name="placeholder"></a>
 
@@ -237,7 +239,7 @@ The `placeholder` attribute can be set on any HTML element, not just AMP element
 
 [sourcecode:html]
 <amp-anim src="animated.gif" width="466" height="355" layout="responsive">
-<amp-img placeholder src="preview.png" layout="fill"></amp-img>
+  <amp-img placeholder src="preview.png" layout="fill"></amp-img>
 </amp-anim>
 [/sourcecode]
 
@@ -247,7 +249,6 @@ The `fallback` attribute can be set on any HTML element, not just AMP elements. 
 
 [sourcecode:html]
 <amp-anim src="animated.gif" width="466" height="355" layout="responsive">
-
   <div fallback>Cannot play animated images on this device.</div>
 </amp-anim>
 [/sourcecode]

@@ -3,7 +3,7 @@ $title: Stosowanie niestandardowego kodu JavaScript na stronach AMP
 $order: 7
 author: CrystalOnScript
 contributors:
-  - fstanis
+- fstanis
 description: Dla materiałów internetowych wymagających znacznego dostosowania w AMP stworzono składnik amp-script, pozwalający na użycie dowolnego kodu JavaScript na stronie AMP bez wpływu na jej ogólną wydajność.
 ---
 
@@ -63,7 +63,7 @@ Na przykład, jeśli zaczyna się od poniższego kodu:
 Model DOM procesu Worker zezwala na drobne zmiany w strukturze, ale nie zawartości:
 
 ```html
-<text>Hello </text><text>world</text>
+ <text>Hello </text><text>world</text>
 ```
 
 ## Manipulacja modelem DOM
@@ -92,7 +92,8 @@ Jeśliby wywołać funkcję `document.body.appendChild(document.createElement('s
 <body>
   <p>Hello!</p>
   <div>
-    <amp-script layout="container" src="customjs.js"> </amp-script>
+    <amp-script layout="container" src="customjs.js">
+    </amp-script>
   </div>
 </body>
 ```

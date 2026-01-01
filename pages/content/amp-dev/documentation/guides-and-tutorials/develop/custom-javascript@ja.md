@@ -3,7 +3,7 @@ $title: AMP ページでのカスタム JavaScript の使用
 $order: 7
 author: CrystalOnScript
 contributors:
-  - fstanis
+- fstanis
 description: 大量のカスタマイズが必要なウェブエクスペリエンスのために、AMP は、ページの全体的なパフォーマンスを劣化させることなく任意の JavaScript を AMP ページで利用できるようにする amp-script コンポーネントを作成しました。
 ---
 
@@ -63,7 +63,7 @@ Web Worker 内の JavaScript は、読み込み時に DOM に最小限の変更�
 Worker DOM は、構造へのわずかな変更を許可しますが、コンテンツへの変更は許可しません。
 
 ```html
-<text>Hello </text><text>world</text>
+ <text>Hello </text><text>world</text>
 ```
 
 ## DOM マニピュレーション
@@ -92,7 +92,8 @@ AMP は、各ページのカスタム JavaSciprt を 150 キロバイトに制�
 <body>
   <p>Hello!</p>
   <div>
-    <amp-script layout="container" src="customjs.js"> </amp-script>
+    <amp-script layout="container" src="customjs.js">
+    </amp-script>
   </div>
 </body>
 ```

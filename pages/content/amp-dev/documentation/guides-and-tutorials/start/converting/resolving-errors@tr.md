@@ -302,7 +302,7 @@ Voila! Resmimiz doğru en boy oranında ve ekran genişliğini duyarlı bir şek
 Artık AMP belgeniz şunun gibi görünmelidir:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

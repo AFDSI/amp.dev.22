@@ -6,26 +6,26 @@ Este documento lista os fornecedores de análise que têm configurações integr
 
 Para enviar dados de análise a um fornecedor terceirizado:
 
-1. Na tag [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md), adicione o atributo `type` e defina o valor do fornecedor especificado conforme descrito na seção [_Fornecedores_](#vendors) abaixo.
+1. Na tag [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md), adicione o atributo `type` e defina o valor do fornecedor especificado conforme descrito na seção [*Fornecedores*](#vendors) abaixo.
 2. Determine quais dados você quer coletar e rastrear e especifique esses detalhes nos dados de configuração. Consulte a documentação do fornecedor para ver instruções sobre como coletar os dados de análise.
 
 No exemplo a seguir, enviamos dados de page view para o [Google Analytics](#google-analytics), um fornecedor de análise terceirizado com uma configuração integrada para análise de AMP:
 
 ```html
 <amp-analytics type="googleanalytics" id="analytics1">
-  <script type="application/json">
-    {
-      "vars": {
-        "account": "UA-XXXXX-Y"
-      },
-      "triggers": {
-        "trackPageview": {
-          "on": "visible",
-          "request": "pageview"
-        }
-      }
+<script type="application/json">
+{
+  "vars": {
+    "account": "UA-XXXXX-Y"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
     }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 
@@ -103,25 +103,25 @@ Adiciona compatibilidade com o Clicky Web Analytics. Veja mais detalhes sobre co
 
 Valor do atributo de tipo: `comscore`
 
-Adiciona compatibilidade com as análises de page view do comScore Unified Digital Measurement™. Exige a definição da _var_ `c2` com o _c2 id_ fornecido pela comScore. Veja mais informações em [comscore.com](http://www.comscore.com) (em inglês).
+Adiciona compatibilidade com as análises de page view do comScore Unified Digital Measurement™. Exige a definição da *var* `c2` com o *c2 id* fornecido pela comScore. Veja mais informações em [comscore.com](http://www.comscore.com) (em inglês).
 
 ### Cxense
 
 Valor do atributo de tipo: `cxense`
 
-Adiciona compatibilidade com a análise do Cxense Insight. Exige definição da _var_ `siteId` com _siteId_ fornecido pela Cxense. Veja mais detalhes em [wiki.cxense.com](https://wiki.cxense.com/display/cust/Accelerated+Mobile+Pages+%28AMP%29+integration) (em inglês).
+Adiciona compatibilidade com a análise do Cxense Insight. Exige definição da *var* `siteId` com *siteId* fornecido pela Cxense. Veja mais detalhes em [wiki.cxense.com](https://wiki.cxense.com/display/cust/Accelerated+Mobile+Pages+%28AMP%29+integration) (em inglês).
 
 ### Dynatrace
 
 Valor do atributo de tipo: `dynatrace`
 
-Adiciona compatibilidade com o monitoramento de usuários reais da Dynatrace. Exige a definição da _var_ `app` com o _código do aplicativo_ fornecido pela Dynatrace e da _var_ `tenant` com um _identificador de ambiente_ fornecido pela Dynatrace. Veja mais detalhes sobre como adicionar o monitoramento de usuários reais da Dynatrace em [dynatrace.com](https://www.dynatrace.com/technologies/web/amp-monitoring/) (em inglês).
+Adiciona compatibilidade com o monitoramento de usuários reais da Dynatrace. Exige a definição da *var* `app` com o *código do aplicativo* fornecido pela Dynatrace e da *var* `tenant` com um *identificador de ambiente* fornecido pela Dynatrace. Veja mais detalhes sobre como adicionar o monitoramento de usuários reais da Dynatrace em [dynatrace.com](https://www.dynatrace.com/technologies/web/amp-monitoring/) (em inglês).
 
 ### Eulerian Analytics
 
 Valor do atributo de tipo: `euleriananalytics`
 
-Adiciona compatibilidade com a Eulerian Technologies Analytics. Exige a definição da _var_ `analyticsHost` com o domínio delegado da Eulerian. Veja mais detalhes em [eulerian.wiki](https://eulerian.wiki) (em inglês).
+Adiciona compatibilidade com a Eulerian Technologies Analytics. Exige a definição da *var* `analyticsHost` com o domínio delegado da Eulerian. Veja mais detalhes em [eulerian.wiki](https://eulerian.wiki) (em inglês).
 
 ### Facebook Pixel
 
@@ -155,10 +155,10 @@ Adiciona compatibilidade com o [INFOnline](https://www.infonline.de) / [IVW](htt
 
 Além disso, as seguintes variáveis precisam ser definidas:
 
-- `st`: Angebotskennung
-- `co`: comentário
-- `cp`: código
-- `url`: localização HTTPS de `amp-analytics-infonline.html`
+* `st`: Angebotskennung
+* `co`: comentário
+* `cp`: código
+* `url`: localização HTTPS de `amp-analytics-infonline.html`
 
 Veja mais detalhes sobre como adicionar compatibilidade com o INFOnline / IVW em [www.infonline.de](https://www.infonline.de/downloads/web-mew-und-ctv/) (indisponível em português).
 
@@ -166,7 +166,7 @@ Veja mais detalhes sobre como adicionar compatibilidade com o INFOnline / IVW em
 
 Valor do atributo de tipo: `krux`
 
-Adiciona compatibilidade com o Krux. Veja mais detalhes sobre a configuração em [help.krux.com](https://konsole.zendesk.com/hc/en-us/articles/216596608) (indisponível em português).
+Adiciona compatibilidade com o Krux.  Veja mais detalhes sobre a configuração em [help.krux.com](https://konsole.zendesk.com/hc/en-us/articles/216596608) (indisponível em português).
 
 ### Linkpulse
 
@@ -178,13 +178,13 @@ Adiciona compatibilidade com o Linkpulse. Veja mais detalhes sobre a configuraç
 
 Valor do atributo de tipo: `lotame`
 
-Adiciona compatibilidade com o Lotame. Veja mais informações e detalhes de configuração em [mylotame.force.com](https://mylotame.force.com/s/article/Google-AMP) (em inglês).
+Adiciona compatibilidade com o Lotame.  Veja mais informações e detalhes de configuração em [mylotame.force.com](https://mylotame.force.com/s/article/Google-AMP) (em inglês).
 
 ### Médiamétrie
 
 Valor do atributo de tipo: `mediametrie`
 
-Adiciona compatibilidade com as páginas de rastreamento da Médiamétrie. Exige a definição da _var_ `serial`. As variáveis de `level1` a `level4` são opcionais. Veja mais informações em [mediametrie.com](http://www.mediametrie.com/) (indisponível em português).
+Adiciona compatibilidade com as páginas de rastreamento da Médiamétrie. Exige a definição da *var* `serial`. As variáveis de `level1` a `level4` são opcionais.  Veja mais informações em [mediametrie.com](http://www.mediametrie.com/) (indisponível em português).
 
 ### mediarithmics
 
@@ -235,7 +235,7 @@ Na seção `requests`:
 
 [tip type="note"]
 
-Há uma variação chamada `oewadirect` que não usa a solução iframe-ping e tem uma melhor detecção de cliente com o uso de `AMP CLIENT_ID`. No momento, esse recurso é EXPERIMENTAL e proibido pela OEWA, porque não usa `oewa2.js`.
+Há uma variação chamada `oewadirect` que não usa a solução iframe-ping e tem uma melhor detecção de cliente com o uso de `AMP CLIENT_ID`.  No momento, esse recurso é EXPERIMENTAL e proibido pela OEWA, porque não usa `oewa2.js`.
 
 [/tip]
 
@@ -249,7 +249,7 @@ Adiciona compatibilidade com o Parsely. Veja mais detalhes sobre a configuraçã
 
 Valor do atributo de tipo: `piano`
 
-Adiciona compatibilidade com o Piano. Veja mais detalhes sobre a configuração em [vx.piano.io](http://vx.piano.io/javascript-tracking-amp) (em inglês).
+Adiciona compatibilidade com o Piano.  Veja mais detalhes sobre a configuração em [vx.piano.io](http://vx.piano.io/javascript-tracking-amp) (em inglês).
 
 ### Quantcast Measurement
 
@@ -316,4 +316,4 @@ Adiciona compatibilidade com o Webtrekk. Veja mais detalhes sobre a configuraç�
 
 Valor do atributo de tipo: `metrika`
 
-Adiciona compatibilidade com a Yandex Metrica. Veja mais detalhes sobre a configuração no [suporte da Yandex](https://yandex.com/support/metrica/code/install-counter-amp.xml) (em inglês).
+Adiciona compatibilidade com a Yandex Metrica.  Veja mais detalhes sobre a configuração no [suporte da Yandex](https://yandex.com/support/metrica/code/install-counter-amp.xml) (em inglês).

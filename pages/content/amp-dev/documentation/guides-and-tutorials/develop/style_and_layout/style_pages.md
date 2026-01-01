@@ -15,16 +15,13 @@ contributors:
 ---
 
 [filter formats="email"]
-Warning: AMP for Email specifies additional CSS constraints which are described in
+Note: AMP for Email specifies additional CSS constraints which are described in
 [AMP for Email Supported CSS](../../../../documentation/guides-and-tutorials/learn/email-spec/amp-email-css.md).
 [/filter]
 
-[filter formats="websites, ads, stories"]
-Like all web pages, AMP pages are styled with CSS, but you can’t reference external stylesheets (with the exception of [custom fonts](#the-custom-fonts-exception)).
-[/filter]
-[filter formats="email"]
-Like all web pages, AMP pages are styled with CSS, but you can’t reference external stylesheets.
-[/filter]
+Like all web pages, AMP pages are styled with CSS,
+but you can’t reference external stylesheets
+(with the exception of [custom fonts](#the-custom-fonts-exception)).
 Also certain styles are disallowed due to performance implications.
 
 Styles may live in the head of the document or as inline `style` attributes
@@ -39,8 +36,6 @@ to better manage your content.
 ## Disallowed styles
 
 The following styles aren’t allowed in AMP pages:
-
-[filter formats="websites, ads, stories"]
 
 <table>
   <thead>
@@ -65,38 +60,10 @@ The following styles aren’t allowed in AMP pages:
     </tr>
   </tbody>
 </table>
-[/filter]
-[filter formats="email"]
-<table>
-  <thead>
-    <tr>
-      <th class="col-thirty" data-th="Banned style">Banned style</th>
-      <th data-th="Description">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-th="Banned style"><code>!important</code> qualifier </td>
-      <td data-th="Description">Use and reference to <code>!important</code> is not allowed.
-      This is a necessary requirement to enable AMP to enforce its element sizing rules.</td>
-    </tr>
-    <tr>
-      <td data-th="Banned style"><code>&lt;link rel=”stylesheet”&gt;</code></td>
-      <td data-th="Description">Disallowed.</td>
-    </tr>
-    <tr>
-      <td data-th="Banned style"><code>i-amphtml-</code> class and <code>i-amphtml-</code> tag names.</td>
-      <td data-th="Description">The validator disallows class and tags names with the following regex `(^|\W)i-amphtml-`. These are reserved for internal use by the AMP framework. It follows, that the user's stylesheet may not reference CSS selectors for <code>i-amphtml-</code> classes and tags.</td>
-    </tr>
-  </tbody>
-</table>
-[/filter]
 
 ## Performance recommendations
 
 These allowed styles should restrict values to the following for an optimal performance:
-
-[filter formats="websites, ads, stories"]
 
 <table>
   <thead>
@@ -172,23 +139,3 @@ so that many pages across the site can include embedded youtube videos.
 To see how the above translates into formatted AMP HTML,
 view the source for any page in [amp.dev](https://amp.dev/).
 (In Chrome, right-click and `View Page Source`.)
-
-[/filter]
-
-[filter formats="email"]
-
-<table>
-  <thead>
-    <tr>
-      <th class="col-thirty" data-th="Banned style">Restricted style</th>
-      <th data-th="Description">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-th="Restricted style"><code>transition</code> property</td>
-      <td data-th="Description">Only GPU-accelerated properties (currently <code>opacity</code>, <code>transform</code> and <code>-vendorPrefix-transform</code>).</td>
-    </tr>
-  </tbody>
-</table>
-[/filter]

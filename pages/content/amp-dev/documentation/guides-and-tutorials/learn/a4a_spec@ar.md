@@ -313,7 +313,7 @@ _مثال:_ لم يتم تضمين `<amp-lightbox>` إلى الأن لأنه ح�
 
 لا تقع علامات SVG في مساحة اسم HTML5. إذ تم إدراجها في أدناه من دون معرِّفات القسم.
 
-`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<svg> <g> <path> <glyph> <glyphref> <marker> <view> <circle> <line> <polygon> <polyline> <rect> <text> <textpath> <tref> <tspan> <clippath> <filter> <lineargradient> <radialgradient> <mask> <pattern> <vkern> <hkern> <defs> <use> <symbol> <desc> <title>`
+` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<svg> <g> <path> <glyph> <glyphref> <marker> <view> <circle> <line> <polygon> <polyline> <rect> <text> <textpath> <tref> <tspan> <clippath> <filter> <lineargradient> <radialgradient> <mask> <pattern> <vkern> <hkern> <defs> <use> <symbol> <desc> <title> `
 
 #### 4.9 البيانات المجدولة <a name="49-tabular-data"></a>
 

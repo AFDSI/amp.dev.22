@@ -14,7 +14,7 @@ Di direktori project, Anda akan menemukan berkas bernama [`article.html`](https:
 Berkas `article.amp.html` Anda akan terlihat seperti yang berikut ini:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>News Article</title>

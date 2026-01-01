@@ -17,15 +17,11 @@ fallback 是一种惯例，可让相应元素告知读者，浏览器不支持�
 
 ```html
 <amp-img src="invalid.jpg" height="400" width="300" layout="responsive">
-  <div
-    fallback
-    style="background-color: #ccc; display: flex; justify-content: center; align-items: center;"
-  >
+  <div fallback style="background-color: #ccc; display: flex; justify-content: center; align-items: center;">
     Could not load image
   </div>
 </amp-img>
 ```
-
 有关详情，请参阅[占位符和备用行为](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md)。
 
 ## heights

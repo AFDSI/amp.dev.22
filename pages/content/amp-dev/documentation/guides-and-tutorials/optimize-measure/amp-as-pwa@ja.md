@@ -21,33 +21,32 @@ AMP ページに[ウェブアプリ マニフェスト](https://developers.googl
 
 [sourcecode:json]
 {
-"short_name": "ABE",
-"name": "AMPByExample",
-"icons": [
-{
-"src": "launcher-icon-1x.png",
-"type": "image/png",
-"sizes": "48x48"
-},
-{
-"src": "launcher-icon-2x.png",
-"type": "image/png",
-"sizes": "96x96"
-},
-{
-"src": "launcher-icon-4x.png",
-"type": "image/png",
-"sizes": "192x192"
-}
-],
-"start_url": "index.html?launcher=true"
+  "short_name": "ABE",
+  "name": "AMPByExample",
+  "icons": [
+    {
+      "src": "launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?launcher=true"
 }
 [/sourcecode]
 
 次に、この作成したマニフェストに、AMP ページの `<head>` からリンクします。
 
 [sourcecode:html]
-
 <link rel="manifest" href="/manifest.json">
 [/sourcecode]
 
@@ -64,10 +63,8 @@ Service Worker は、ブラウザで見つけて実行できるように、特�
 登録するには、まず [`amp-install-serviceworker`](../../../documentation/components/reference/amp-install-serviceworker.md) コンポーネントを、そのスクリプトを使ってページの `<head>` に含めます。
 
 [sourcecode:html]
-
 <script async custom-element="amp-install-serviceworker"
   src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-
 [/sourcecode]
 
 次に、下記のコードを `<body>` 内に追加します（実際にお使いの Service Worker に変更してください）。
@@ -87,13 +84,13 @@ Service Worker は、ブラウザで見つけて実行できるように、特�
 
 [sourcecode:js]
 self.addEventListener('fetch', function(event) {
-event.respondWith(
-caches.open('mysite').then(function(cache) {
-return cache.match(event.request).then(function(response) {
-var fetchPromise = fetch(event.request).then(function(networkResponse) {
-cache.put(event.request, networkResponse.clone());
-return networkResponse;
-})
+  event.respondWith(
+    caches.open('mysite').then(function(cache) {
+      return cache.match(event.request).then(function(response) {
+        var fetchPromise = fetch(event.request).then(function(networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        })
 
         // 応答が返される前にここで編集する
         ...
@@ -101,13 +98,12 @@ return networkResponse;
         return response || fetchPromise;
       })
     })
-
-);
+  );
 });
 [/sourcecode]
 
 この方法を使うと、AMP ページを修正して、あらゆる追加機能について
 [AMP の検証](../../../documentation/guides-and-tutorials/learn/validation-workflow/validate_amp.md) に失敗するのを防ぐことができます。たとえば次のような機能です。
 
-- カスタム JS を必要とする動的な機能
-- サイト向けにカスタマイズされたコンポーネントやサイトにのみ関連するコンポーネント
+* カスタム JS を必要とする動的な機能
+* サイト向けにカスタマイズされたコンポーネントやサイトにのみ関連するコンポーネント

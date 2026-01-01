@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 ビューアの初期化時に xhrInterceptor 機能にオプトインすることにより、xhr インターセプトを有効にします。このやり方と xhr インターセプトの例については、ビューアの例を参照してください。xhr インターセプトを有効化した後で、XHR インターセプトを実行できるように、AMP ドキュメントをオプトインします。`<html amp4email>` タグに `allow-xhr-interception` 属性を追加すると、ドキュメントがオプトインされます。この属性は意図的に無効な属性にされており、AMP ドキュメントの検証中に無効であるフラグが立てられるため、メールクライアントは AMP ドキュメントを表示する前にこの属性を設定しておく必要があります。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

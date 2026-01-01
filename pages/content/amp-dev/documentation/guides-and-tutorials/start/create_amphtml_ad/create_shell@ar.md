@@ -9,7 +9,7 @@ description: '"باستخدام محرر النصوص المفضل لديك، ق
 باستخدام محرر النصوص المفضل لديك، قم بإنشاء ملف HTML باسم my-amphtml-ad.html. وانسخ لغة ترميز HTML التالية إلى ذلك الملف:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ description: '"باستخدام محرر النصوص المفضل لديك، ق
 في العلامة `<html>`، أضف السمة `⚡4ads`، التي تحدد المستند كإعلان AMPHTML. بدلًا عن ذلك، يمكنك تحديد السمة `amp4ads`، التي تعد صالحة أيضًا.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ description: '"باستخدام محرر النصوص المفضل لديك، ق
 إليك الكود الكامل لملف HTML الخاص بك:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

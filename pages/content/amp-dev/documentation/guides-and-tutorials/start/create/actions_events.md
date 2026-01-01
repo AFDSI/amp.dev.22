@@ -12,28 +12,30 @@ AMP uses the `on` attribute to install event handlers on elements. Like attribut
 Add a button to your page, and give it the `on` attribute:
 
 ```html
-<button on="">Goodbye AMPHTML World!</button>
+<button on="">
+    Goodbye AMPHTML World!
+</button>
 ```
 
 The first thing we’ll define in the `on` attribute’s value is the event we’re listening for. For a user’s click via mouse on desktop or mobile touch, AMP uses the event type `tap`.
 
 ```html
-<button on="tap"></button>
+<button on="tap">
 ```
 
 Then, we add a colon character, then define the `id` of the target we want our action to have an effect on. We’ll hide our `<h1 id="hello">` element, so let's add “hello” after the colon character.
 
 ```html
-<button on="tap:hello"></button>
+<button on="tap:hello">
 ```
 
 Finally, we add a period, then define the action. In this case, it’s `hide`.
 
 ```html
-<button on="tap:hello.hide"></button>
+<button on="tap:hello.hide">
 ```
 
-Now, if we click our button the `<h1>` element is hidden!
+Now, if we click our button the `<h1>` element is hidden! 
 
 ## Interactivity options
 

@@ -1,17 +1,17 @@
 ---
-'$title': Supported CSS
+"$title": Supported CSS
 description: Wie alle Webseiten werden auch AMP Seiten mit CSS gestaltet. Du kannst jedoch nicht auf externe Stylesheets verweisen (mit Ausnahme von benutzerdefinierten Schriftarten …
 formats:
-  - websites
-  - email
-  - ads
-  - stories
+- websites
+- email
+- ads
+- stories
 author: Meggin
 contributors:
-  - pbakaus
-  - CrystalOnScript
-  - bpaduch
-  - choumx
+- pbakaus
+- CrystalOnScript
+- bpaduch
+- choumx
 ---
 
 [filter formats="email"] Hinweis: AMP für E-Mail wendet zusätzliche CSS Einschränkungen an, die unter [AMP für E-Mail: Unterstütztes CSS](../../../../documentation/guides-and-tutorials/learn/email-spec/amp-email-css.md) beschrieben sind. [/filter]
@@ -20,7 +20,7 @@ Like all web pages, AMP pages are styled with CSS, but you can’t reference ext
 
 Styles können entweder im Header des Dokuments oder inline als `style` Attribute angegeben werden (siehe [Füge Styles zu einer Seite hinzu](index.md#add-styles-to-a-page)). Du kannst jedoch CSS Präprozessoren und Vorlagen verwenden, um statische Seiten zu erstellen und deine Inhalte besser zu verwalten.
 
-[tip type="note"] **HINWEIS:** AMP Komponenten werden mit Standardstyles bereitgestellt, um das Erstellen responsiver Seiten relativ einfach zu gestalten. Diese Styles werden in [`amp.css`](https://github.com/ampproject/amphtml/blob/main/css/amp.css) definiert. [/tip]
+[tip type="note"] **HINWEIS:** AMP Komponenten werden mit Standardstyles bereitgestellt, um das Erstellen responsiver Seiten relativ einfach zu gestalten. Diese Styles werden  in [`amp.css`](https://github.com/ampproject/amphtml/blob/main/css/amp.css) definiert. [/tip]
 
 ## Unzulässige Styles
 

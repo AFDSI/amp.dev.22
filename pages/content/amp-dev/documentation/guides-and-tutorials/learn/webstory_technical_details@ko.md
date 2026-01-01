@@ -26,7 +26,7 @@ author: CrystalOnScript
 AMP 웹 페이지 및 AMP로 작성된 웹 스토리의 차이점은 [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories) 컴포넌트입니다. 이 컴포넌트는 문서 `<body>`의 유일한 하위 요소이며 `standalone` 속성을 포함해야 합니다. 모든 웹 스토리 페이지, 레이어 및 요소는 `<amp-story>` 태그에 정의됩니다.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

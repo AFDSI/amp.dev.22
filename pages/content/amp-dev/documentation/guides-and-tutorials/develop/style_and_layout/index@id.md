@@ -17,7 +17,6 @@ Namun, AMP membatasi beberapa penggunaan CSS untuk alasan performa dan kegunaan,
 Tambahkan semua CSS di dalam `<style amp-custom>` tag pada bagian atas dokumen. Misalnya:
 
 [sourcecode:html]
-
 <!doctype html>
 <head>
     ...
@@ -36,7 +35,6 @@ Tambahkan semua CSS di dalam `<style amp-custom>` tag pada bagian atas dokumen. 
       }
     </style>
     ...
-
 </head>
 [/sourcecode]
 
@@ -45,7 +43,6 @@ Penting: Pastikan hanya ada satu `<style amp-custom>` tag di halaman Anda, karen
 Tentukan gaya komponen dengan pemilih elemen atau kelas menggunakan properti CSS umum. Misalnya:
 
 [sourcecode:html]
-
 <body>
   <p>Hello, Kitty.</p>
   <amp-img

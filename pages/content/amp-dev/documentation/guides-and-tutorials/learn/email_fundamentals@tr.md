@@ -14,7 +14,7 @@ AMP'ye aşinaysanız, harika haberlerimiz var! E-postalar için AMP, AMP HTML ki
 AMP E-postaları klasik HTML e-postaları gibi görünür, ancak birkaç farklılık vardır. Bir e-postayı geçerli bir AMP e-postası yapmak için gereken minimum işaretleme (markup) miktarı aşağıda verilmiştir.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

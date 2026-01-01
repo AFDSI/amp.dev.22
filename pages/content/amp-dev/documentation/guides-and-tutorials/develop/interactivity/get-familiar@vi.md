@@ -11,7 +11,7 @@ Một trang AMP là một trang HTML với một số hạn chế để đảm b
 Một trang AMP rất cơ bản trông như thế này:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html amp>
   <head>
     <meta charset="utf-8" />

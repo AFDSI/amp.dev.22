@@ -44,7 +44,6 @@ Web Stories no puede admitir un [`amp-ad`](../../../documentation/components/ref
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
-
 <script type="application/json">
 {
 "ad-attributes": {
@@ -70,8 +69,6 @@ Plataformas publicitarias que actualmente admiten anuncios de historias web:
   - [Anuncios de venta directa](https://support.google.com/admanager/answer/9038178)
   - [Anuncios programáticos](https://support.google.com/admanager/answer/9416436)
 - Google AdSense próximamente
-- MGID
-  - [Anuncios de venta directa](https://help.mgid.com/generate-revenue-with-amp-web-stories)
 - Se pueden integrar otras plataformas publicitarias (contáctenos para [obtener más detalles a través de Github](https://github.com/ampproject/amphtml/issues/30769) )
 
 Si usted es un anunciante a publicar sus anuncios dentro Historias web, por favor [extender la mano](mailto:story-ads-wg@google.com) para obtener más información.

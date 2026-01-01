@@ -302,7 +302,7 @@ Voila! Nasz obraz jest wyświetlany w prawidłowych proporcjach i responsywnie w
 Teraz dokument AMP powinien wyglądać tak:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

@@ -12,44 +12,41 @@ formats:
 本指南的其余部分会使用此配置示例来跟踪网页浏览量和用户点击链接的次数，并将分析数据发送给第三方提供商 [Google Analytics（分析）](https://developers.google.com/analytics/devguides/collection/amp-analytics/)：
 
 ```html
-<amp-analytics
-  type="googleanalytics"
-  config="https://example.com/analytics.account.config.json"
->
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}",
-        "event": "https://example.com/analytics?eid=${eventId}&elab=${eventLabel}&acct=${account}"
-      },
+<amp-analytics type="googleanalytics" config="https://example.com/analytics.account.config.json">
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}",
+    "event": "https://example.com/analytics?eid=${eventId}&elab=${eventLabel}&acct=${account}"
+  },
+  "vars": {
+    "account": "ABC123"
+  },
+  "extraUrlParams": {
+    "cd1": "AMP"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
+    },
+    "trackAnchorClicks": {
+      "on": "click",
+      "selector": "a",
+      "request": "event",
       "vars": {
-        "account": "ABC123"
-      },
-      "extraUrlParams": {
-        "cd1": "AMP"
-      },
-      "triggers": {
-        "trackPageview": {
-          "on": "visible",
-          "request": "pageview"
-        },
-        "trackAnchorClicks": {
-          "on": "click",
-          "selector": "a",
-          "request": "event",
-          "vars": {
-            "eventId": "42",
-            "eventLabel": "clicked on a link"
-          }
-        }
-      },
-      "transport": {
-        "beacon": false,
-        "xhrpost": false,
-        "image": true
+        "eventId": "42",
+        "eventLabel": "clicked on a link"
       }
     }
-  </script>
+  },
+  'transport': {
+    'beacon': false,
+    'xhrpost': false,
+    'image': true
+  }
+}
+</script>
 </amp-analytics>
 ```
 
@@ -79,9 +76,7 @@ AMP 支持两种常见的数据收集模式：
 加载远程配置的第一步是向 <a><code>amp-analytics</code></a> 标记添加 config 属性：
 
 ```html
-<amp-analytics
-  config="https://example.com/analytics.account.config.json"
-></amp-analytics>
+<amp-analytics config="https://example.com/analytics.account.config.json">
 ```
 
 下一步是创建位于远程网址上的 JSON 内容。在这个简单的示例中，JSON 对象中包含的配置仅仅是分析工具帐号的变量值。
@@ -263,26 +258,26 @@ AMP 按照以下优先级顺序使用值填充变量：
 
 ```html
 <amp-analytics config="http://example.com/config.json">
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(cid-scope)}",
-      },
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(cid-scope)}",
+  },
+  "vars": {
+    "account": "ABC123",
+    "title": "Homepage"
+  },
+  "triggers": {
+    "some-event": {
+      "on": "visible",
+      "request": "pageview",
       "vars": {
-        "account": "ABC123",
-        "title": "Homepage"
-      },
-      "triggers": {
-        "some-event": {
-          "on": "visible",
-          "request": "pageview",
-          "vars": {
-            "title": "My homepage",
-            "clientId": "my user"
-          }
+        "title": "My homepage",
+        "clientId": "my user"
       }
-    }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 

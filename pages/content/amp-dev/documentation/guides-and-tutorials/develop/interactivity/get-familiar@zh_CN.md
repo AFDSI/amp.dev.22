@@ -11,7 +11,7 @@ AMP 网页是一种为实现可靠性能而设置了某些限制的 HTML 网页�
 AMP 网页的基本框架如下所示：
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html amp>
   <head>
     <meta charset="utf-8" />

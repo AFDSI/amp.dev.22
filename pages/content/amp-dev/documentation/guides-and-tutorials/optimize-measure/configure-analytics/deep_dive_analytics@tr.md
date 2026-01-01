@@ -8,48 +8,45 @@ Bu kılavuz
 
 Kılavuzun kalan kısmında bu yapılandırma örneği kullanılarak,
 sayfa görünümeleri ve kullanıcının bağlantı tıklamaları izlenir
-ve analitik veriler üçüncü şahıs sağlayıcıya,
+ ve analitik veriler üçüncü şahıs sağlayıcıya,
 [Google Analytics](https://developers.google.com/analytics/devguides/collection/amp-analytics/) gönderilir:
 
 ```html
-<amp-analytics
-  type="googleanalytics"
-  config="https://example.com/analytics.account.config.json"
->
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}",
-        "event": "https://example.com/analytics?eid=${eventId}&elab=${eventLabel}&acct=${account}"
-      },
+<amp-analytics type="googleanalytics" config="https://example.com/analytics.account.config.json">
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}",
+    "event": "https://example.com/analytics?eid=${eventId}&elab=${eventLabel}&acct=${account}"
+  },
+  "vars": {
+    "account": "ABC123"
+  },
+  "extraUrlParams": {
+    "cd1": "AMP"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
+    },
+    "trackAnchorClicks": {
+      "on": "click",
+      "selector": "a",
+      "request": "event",
       "vars": {
-        "account": "ABC123"
-      },
-      "extraUrlParams": {
-        "cd1": "AMP"
-      },
-      "triggers": {
-        "trackPageview": {
-          "on": "visible",
-          "request": "pageview"
-        },
-        "trackAnchorClicks": {
-          "on": "click",
-          "selector": "a",
-          "request": "event",
-          "vars": {
-            "eventId": "42",
-            "eventLabel": "clicked on a link"
-          }
-        }
-      },
-      "transport": {
-        "beacon": false,
-        "xhrpost": false,
-        "image": true
+        "eventId": "42",
+        "eventLabel": "clicked on a link"
       }
     }
-  </script>
+  },
+  'transport': {
+    'beacon': false,
+    'xhrpost': false,
+    'image': true
+  }
+}
+</script>
 </amp-analytics>
 ```
 
@@ -59,9 +56,9 @@ ve analitik veriler üçüncü şahıs sağlayıcıya,
 
 AMP, iki yaygın veri toplama şeklini destekleyecek şekilde tasarlanmıştır:
 
-- Kurum içi analitik sistemler için yayıncıya ait son nokta ile alınım.
-- Bir satıcı çözümü ile birlikte işlerlik için satıcıya ait bir son nokta ile alınım
-  (örneğin, [Adobe Analytics](https://helpx.adobe.com/marketing-cloud/analytics.html), [Chartbeat](http://support.chartbeat.com/docs/), [Google Analytics](https://developers.google.com/analytics/devguides/collection/amp-analytics/)).
+* Kurum içi analitik sistemler için yayıncıya ait son nokta ile alınım.
+* Bir satıcı çözümü ile birlikte işlerlik için satıcıya ait bir son nokta ile alınım
+(örneğin, [Adobe Analytics](https://helpx.adobe.com/marketing-cloud/analytics.html), [Chartbeat](http://support.chartbeat.com/docs/), [Google Analytics](https://developers.google.com/analytics/devguides/collection/amp-analytics/)).
 
 Analitik verileri bir analitik sağlayıcıya göndermek için,
 [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md) etiketine `type` özelliği ekleyin ve
@@ -105,9 +102,7 @@ Uzaktan yapılandırmaları yüklemenin ilk adımı
 [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md) etiketine yapılandırma özelliğinin eklenmesidir:
 
 ```html
-<amp-analytics
-  config="https://example.com/analytics.account.config.json"
-></amp-analytics>
+<amp-analytics config="https://example.com/analytics.account.config.json">
 ```
 
 Bir sonraki adım, uzaktan URL içerisinde yer alan JSON içeriğinin oluşturulmasıdır.
@@ -125,7 +120,7 @@ JSON nesnesi içerisinde yer alan yapılandırma, analitik hesabının yalnızca
 ```
 
 Son adım, uzaktan dosya içindekilerin
-[`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md) yapılandırmasında uygun yerlere çekilmesidir.
+ [`amp-analytics`](../../../../documentation/components/reference/amp-analytics.md) yapılandırmasında uygun yerlere çekilmesidir.
 Buradaki hem `pageview` hem de `event` isteklerinde,
 `account` değişken değeri
 uzaktan URL (`"account": "UA-XXXXX-Y"`) içindeki hesap değerine otomatik olarak ayarlanır:
@@ -174,10 +169,10 @@ diğer istek veya değişkenlere referans verebilen yer tutucu işaretlerini iç
 ```
 
 Bazı analitik sağlayıcıları (Google Analytics dahil)
-halihazırda `type` özelliği aracılığıyla
+ halihazırda `type` özelliği aracılığıyla
 kullandığınız yapılandırma sağlamıştır.
 Bir analitik sağlayıcı kullanıyorsanız,
-`requests` bilgilerini eklemeniz gerekli olmayabilir.
+ `requests` bilgilerini eklemeniz gerekli olmayabilir.
 
 `requests` yapılandırması gerekli olup olmadığını ve nasıl yapılacağını öğrenmek için satıcı belgelerine başvurun.
 
@@ -333,26 +328,26 @@ değişkenler en üst seviyede, tetiklemelerde ve platform seviyesinde tanımlan
 
 ```html
 <amp-analytics config="http://example.com/config.json">
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(cid-scope)}",
-      },
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://example.com/analytics?url=${canonicalUrl}&title=${title}&acct=${account}&clientId=${clientId(cid-scope)}",
+  },
+  "vars": {
+    "account": "ABC123",
+    "title": "Homepage"
+  },
+  "triggers": {
+    "some-event": {
+      "on": "visible",
+      "request": "pageview",
       "vars": {
-        "account": "ABC123",
-        "title": "Homepage"
-      },
-      "triggers": {
-        "some-event": {
-          "on": "visible",
-          "request": "pageview",
-          "vars": {
-            "title": "My homepage",
-            "clientId": "my user"
-          }
+        "title": "My homepage",
+        "clientId": "my user"
       }
-    }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 

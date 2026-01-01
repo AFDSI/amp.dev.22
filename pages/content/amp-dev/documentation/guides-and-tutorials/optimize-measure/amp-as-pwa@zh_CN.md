@@ -21,33 +21,32 @@ Service Worker 无法与网页的 AMP 缓存版本互动。请在用户进入您
 
 [sourcecode:json]
 {
-"short_name": "ABE",
-"name": "AMPByExample",
-"icons": [
-{
-"src": "launcher-icon-1x.png",
-"type": "image/png",
-"sizes": "48x48"
-},
-{
-"src": "launcher-icon-2x.png",
-"type": "image/png",
-"sizes": "96x96"
-},
-{
-"src": "launcher-icon-4x.png",
-"type": "image/png",
-"sizes": "192x192"
-}
-],
-"start_url": "index.html?launcher=true"
+  "short_name": "ABE",
+  "name": "AMPByExample",
+  "icons": [
+    {
+      "src": "launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?launcher=true"
 }
 [/sourcecode]
 
 然后，从您 AMP 网页的 `<head>` 链接到该清单。
 
 [sourcecode:html]
-
 <link rel="manifest" href="/manifest.json">
 [/sourcecode]
 
@@ -64,10 +63,8 @@ Service Worker 是您的网页与服务器之间的客户端代理，可用于�
 为此，请先通过 [`amp-install-serviceworker`](../../../documentation/components/reference/amp-install-serviceworker.md) 组件的脚本在您网页的 `<head>`中添加该组件：
 
 [sourcecode:html]
-
 <script async custom-element="amp-install-serviceworker"
   src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-
 [/sourcecode]
 
 然后，在您 `<body>` 中的某个位置添加以下内容（请酌情进行修改以使其指向您的实际 Service Worker）：
@@ -87,13 +84,13 @@ Service Worker 是您的网页与服务器之间的客户端代理，可用于�
 
 [sourcecode:js]
 self.addEventListener('fetch', function(event) {
-event.respondWith(
-caches.open('mysite').then(function(cache) {
-return cache.match(event.request).then(function(response) {
-var fetchPromise = fetch(event.request).then(function(networkResponse) {
-cache.put(event.request, networkResponse.clone());
-return networkResponse;
-})
+  event.respondWith(
+    caches.open('mysite').then(function(cache) {
+      return cache.match(event.request).then(function(response) {
+        var fetchPromise = fetch(event.request).then(function(networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        })
 
         // Modify the response here before it goes out..
         ...
@@ -101,13 +98,12 @@ return networkResponse;
         return response || fetchPromise;
       })
     })
-
-);
+  );
 });
 [/sourcecode]
 
 通过这种方法，您可以修改您的 AMP 网页以及相关的各种附加功能
 （如果不修改，则会无法顺利通过 [AMP 验证](../../../documentation/guides-and-tutorials/learn/validation-workflow/validate_amp.md)），例如：
 
-- 需要使用自定义 JS 的动态功能。
-- 专为您的网站定制/仅与您的网站相关的组件。
+* 需要使用自定义 JS 的动态功能。
+* 专为您的网站定制/仅与您的网站相关的组件。

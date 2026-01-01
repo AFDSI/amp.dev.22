@@ -14,7 +14,7 @@ Jika Anda akrab dengan AMP, ada kabar baik! AMP untuk Email hanyalah sebagian ke
 Email AMP terlihat seperti email HTML klasik, tetapi dengan sedikit perbedaan. Di bawah ini adalah jumlah penambahan minimum yang diperlukan untuk membuat sebuah email menjadi email AMP yang valid.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

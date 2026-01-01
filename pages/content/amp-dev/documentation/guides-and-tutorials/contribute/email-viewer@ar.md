@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 مكِّن اعتراض xhr عن طريق قبول العارض في إمكانية xhrInterceptor عند التهيئة. ويرجى الاطلاع على مثال العارض حول طريقة القيام بذلك ومثال على اعتراض xhr. كما يجب اختيار قبول مستند AMP للسماح باعتراض XHR. إذ تُقبَل المستندات عن طريق إضافة السمة `allow-xhr-interception` إلى العلامة `<html amp4email>`. ويجب على عميل البريد الإلكتروني تعيين هذه السمة في مستند AMP قبل عرضها لأنها سمة غير صالحة عن قصد وسيتم وضع علامة عليها على هذا النحو أثناء التحقق من صحة مستند AMP.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

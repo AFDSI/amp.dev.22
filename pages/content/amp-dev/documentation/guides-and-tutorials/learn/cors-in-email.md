@@ -2,7 +2,7 @@
 $title: CORS in AMP for Email
 description: 'Ensure you set the correct HTTP headers on your server-side'
 formats:
-  - email
+    - email
 author: fstanis
 ---
 
@@ -14,11 +14,11 @@ There are currently two versions of this mechanism. For the time being, it's rec
 
 When an email makes a request via `amp-form`, `amp-list` or any other XHR-based mechanism, the email client includes the following HTTP header:
 
-- `AMP-Email-Sender`, set to the email address of the sender of the email.
+*   `AMP-Email-Sender`, set to the email address of the sender of the email.
 
 It expects that the HTTP response contains the following header in return:
 
-- `AMP-Email-Allow-Sender` with either the same value as `AMP-Email-Sender` in the request, or `*` indicating all sender emails are allowed.
+*   `AMP-Email-Allow-Sender` with either the same value as `AMP-Email-Sender` in the request, or `*` indicating all sender emails are allowed.
 
 ## Example
 
@@ -44,15 +44,15 @@ In version 1, the email client uses a query string parameter instead of an HTTP 
 
 When an email makes a request via `amp-form`, `amp-list` or any other XHR-based mechanism, the email client includes the following HTTP header:
 
-- `Origin` with the value of the origin of the page used to display the email.
+*   `Origin` with the value of the origin of the page used to display the email.
 
 The URL also always has a query string with the `__amp_source_origin` parameter set to the email address of the sender of the email.
 
 It expects that the HTTP response contains the following headers:
 
-- `Access-Control-Allow-Origin` with the same value as `Origin` in the request
-- `AMP-Access-Control-Allow-Source-Origin` with the same value as the `__amp_source_origin` query string parameter in the request.
-- `Access-Control-Expose-Headers` set to `AMP-Access-Control-Allow-Source-Origin`
+*   `Access-Control-Allow-Origin` with the same value as `Origin` in the request
+*   `AMP-Access-Control-Allow-Source-Origin` with the same value as the `__amp_source_origin` query string parameter in the request.
+*   `Access-Control-Expose-Headers` set to `AMP-Access-Control-Allow-Source-Origin`
 
 ### Example
 
@@ -81,10 +81,17 @@ These are the recommended steps to take on the server-side to implement CORS tha
 When you receive an HTTP request, check if the `Origin` and `AMP-Email-Sender` HTTP headers are set.
 
 1. If the `AMP-Email-Sender` header is set:
-   1. Let _senderEmail_ be the value of the `AMP-Email-Sender` header.
-   2. Check if _senderEmail_ is an email address owned by you or one that you trust. If not, reject the request.
-   3. Set the response header `AMP-Email-Allow-Sender` to _senderEmail_.
-2. If the `Origin` header is set, but `AMP-Email-Sender` is not set: 4. Let _requestOrigin_ be the value of the `Origin` header. 5. Set the response header `Access-Control-Allow-Origin` to _requestOrigin_. 6. Check if the URL contains the `__amp_source_origin` query string parameter. If not reject the request. 7. Let _senderEmail_ be the value of the `__amp_source_origin` query string parameter. 8. Check if _senderEmail_ is an email address owned by you or one that you trust. If not, reject the request. 9. Set the response header `AMP-Access-Control-Allow-Source-Origin` to _senderEmail_. 10. Set the response header `Access-Control-Expose-Headers` to `AMP-Access-Control-Allow-Source-Origin`.
+    1. Let _senderEmail_ be the value of the `AMP-Email-Sender` header.
+    2. Check if _senderEmail_ is an email address owned by you or one that you trust. If not, reject the request.
+    3. Set the response header `AMP-Email-Allow-Sender` to _senderEmail_.
+2. If the `Origin` header is set, but `AMP-Email-Sender` is not set:
+    4. Let _requestOrigin_ be the value of the `Origin` header.
+    5. Set the response header `Access-Control-Allow-Origin` to _requestOrigin_.
+    6. Check if the URL contains the `__amp_source_origin` query string parameter. If not reject the request.
+    7. Let _senderEmail_ be the value of the `__amp_source_origin` query string parameter.
+    8. Check if _senderEmail_ is an email address owned by you or one that you trust. If not, reject the request.
+    9. Set the response header `AMP-Access-Control-Allow-Source-Origin` to _senderEmail_.
+    10. Set the response header `Access-Control-Expose-Headers` to `AMP-Access-Control-Allow-Source-Origin`.
 3. If neither `Origin` nor `AMP-Email-Sender` are set, reject the request.
 
 ## Example 1
@@ -204,7 +211,6 @@ elif request.META.HTTP_ORIGIN:
 else
     raise PermissionDenied
 ```
-
 ## SSJS
 
 ```
@@ -241,7 +247,6 @@ if (Platform.Request.GetRequestHeader("AMP-Email-Sender")) {
 }
 </script>
 ```
-
 Visit [Salesforce Developer Documentation](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-programmatic-content.meta/mc-programmatic-content/ssjs_serverSideJavaScript.htm) to learn more about SSJS.
 
 ## Node.js

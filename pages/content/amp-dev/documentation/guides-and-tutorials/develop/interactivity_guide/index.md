@@ -19,14 +19,12 @@ There are several levels of interactivity in AMP. You can apply one, multiple, a
 This guide outlines the built-in interactivity AMP provides. It explains how to easily implement common primitives, such as hiding and showing elements.
 
 [example preview="inline" playground="true"]
-
 ```html
-<h1 id="hello">Hello World!</h1>
-<button on="tap:hello.hide">Hide</button>
-<button on="tap:hello.show">Show</button>
-<button on="tap:hello.toggleVisibility">Toggle</button>
+  <h1 id="hello">Hello World!</h1>
+  <button on="tap:hello.hide">Hide</button>
+  <button on="tap:hello.show">Show</button>
+  <button on="tap:hello.toggleVisibility">Toggle</button>
 ```
-
 [/example]
 
 [Start here](foundations.md) to learn foundations that you can build and combine with other interactive possibilities.
@@ -36,41 +34,29 @@ This guide outlines the built-in interactivity AMP provides. It explains how to 
 One of AMP’s greatest strengths is its extensive library of ready-to-go components. Many of them are interactive elements that you can customize and combine to build unique experiences!
 
 [example preview="top-frame" playground="true" orientation="portrait" imports="amp-sidebar, amp-accordion"]
-
 ```html
-<amp-sidebar
-  id="sidebar"
-  class="sample-sidebar"
-  layout="nodisplay"
-  side="right"
->
-  <h3>Sidebar</h3>
-  <amp-accordion id="my-accordion" disable-session-states>
-    <section>
-      <h2>Section 1</h2>
-      <p>Content in section 1.</p>
-    </section>
-    <section>
-      <h2>Section 2</h2>
-      <div>Content in section 2.</div>
-    </section>
-    <section expanded>
-      <h2>Section 3</h2>
-      <amp-img
-        src="/static/inline-examples/images/squirrel.jpg"
-        width="320"
-        height="256"
-        alt="Photo of a squirrel"
-      ></amp-img>
-    </section>
-  </amp-accordion>
-  <button on="tap:sidebar.close">Close sidebar</button>
+  <amp-sidebar id="sidebar" class="sample-sidebar" layout="nodisplay" side="right">
+    <h3>Sidebar</h3>
+    <amp-accordion id="my-accordion" disable-session-states>
+      <section>
+        <h2>Section 1</h2>
+        <p>Content in section 1.</p>
+      </section>
+      <section>
+        <h2>Section 2</h2>
+        <div>Content in section 2.</div>
+      </section>
+      <section expanded>
+        <h2>Section 3</h2>
+        <amp-img src="/static/inline-examples/images/squirrel.jpg" width="320" height="256" alt="Photo of a squirrel"></amp-img>
+      </section>
+    </amp-accordion>
+    <button on="tap:sidebar.close">Close sidebar</button>
+    <button on="tap:sidebar.toggle">Toggle sidebar</button>
+  </amp-sidebar>
   <button on="tap:sidebar.toggle">Toggle sidebar</button>
-</amp-sidebar>
-<button on="tap:sidebar.toggle">Toggle sidebar</button>
-<button on="tap:sidebar.open">Open sidebar</button>
+  <button on="tap:sidebar.open">Open sidebar</button>
 ```
-
 [/example]
 
 [This guide](ready_made.md) introduces the most common interactive components and outlines implementation patterns.
@@ -80,7 +66,6 @@ One of AMP’s greatest strengths is its extensive library of ready-to-go compon
 While AMP provides solutions to common web widgets and interactivity, each website has its own needs. AMP embraces highly personalized experiences with three components: [`amp-selector`](../../../components/reference/amp-selector.md), [`amp-bind`](../../../components/reference/amp-bind.md), and [`amp-script`](../../../components/reference/amp-bind.md). These three components don't have a default UI. Instead, they're used to create selection-based interfaces and build dynamic pages that respond to user interaction.
 
 [example preview="top-frame" playground="true" imports="amp-bind"]
-
 ```html
 <head>
   <meta
@@ -94,24 +79,18 @@ While AMP provides solutions to common web widgets and interactivity, each websi
   </style>
 </head>
 <body>
-  <amp-script
-    width="200"
-    height="100"
-    script="hello-world"
-    [class]="scriptStyle"
-  >
-    <button>Hello amp-script!</button>
-  </amp-script>
-  <script id="hello-world" type="text/plain" target="amp-script">
-    const btn = document.querySelector('button');
-    btn.addEventListener('click', () => {
-      document.body.textContent = 'Hello World!';
-      AMP.setState({ scriptStyle: "clickedButton" })
-    });
-  </script>
+<amp-script width="200" height="100" script="hello-world" [class]="scriptStyle">
+  <button>Hello amp-script!</button>
+</amp-script>
+<script id="hello-world" type="text/plain" target="amp-script">
+  const btn = document.querySelector('button');
+  btn.addEventListener('click', () => {
+    document.body.textContent = 'Hello World!';
+    AMP.setState({ scriptStyle: "clickedButton" })
+  });
+</script>
 </body>
 ```
-
 [/example]
 
 Use [this guide](personalized_experiences.md) as an introduction to the differences between the three, learn if and how to combine them with each other and use with page elements.

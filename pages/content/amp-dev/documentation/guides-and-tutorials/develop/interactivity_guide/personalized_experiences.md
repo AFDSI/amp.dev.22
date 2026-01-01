@@ -9,7 +9,7 @@ contributors:
   - sbenz
 ---
 
-This guide outlines highly personalized interactivity options to integrate into AMP pages. Like snowflakes and variable names, each website is unique and AMP's ready-made component library may not meet all your needs. Instead, AMP provides adaptable components that enable personalized solutions to complex interactivity needs. Use these components to build selection interfaces, display widgets, and process custom logic.
+This guide outlines highly personalized interactivity options to integrate into AMP pages.  Like snowflakes and variable names, each website is unique and AMP's ready-made component library may not meet all your needs. Instead, AMP provides adaptable components that enable personalized solutions to complex interactivity needs. Use these components to build selection interfaces, display widgets, and process custom logic.
 
 # Selection state management with amp-selector
 
@@ -23,70 +23,53 @@ amp-selector offers two core features:
 Define how elements behave when users make selections by allowing single or multi selection options. You can disable or highlight selector options based on user interactions and it exposes selection events enabling interaction with other AMP components.
 
 [example preview="top-frame" playground="true" imports="amp-selector, amp-carousel"]
-
 ```html
-<amp-selector layout="container" class="sample-selector" multiple>
-  <amp-img
-    src="/static/samples/img/landscape_sea_300x199.jpg"
+<amp-selector layout="container"
+  class="sample-selector"
+  multiple>
+  <amp-img src="/static/samples/img/landscape_sea_300x199.jpg"
     width="90"
     height="60"
     option="1"
-    alt="Photo of a sea landscape"
-  ></amp-img>
-  <amp-img
-    src="/static/samples/img/landscape_desert_300x200.jpg"
+    alt="Photo of a sea landscape"></amp-img>
+  <amp-img src="/static/samples/img/landscape_desert_300x200.jpg"
     width="90"
     height="60"
     option="2"
     selected
-    alt="Photo of a desert landscape"
-  ></amp-img>
-  <amp-img
-    src="/static/samples/img/landscape_ship_300x200.jpg"
+    alt="Photo of a desert landscape"></amp-img>
+  <amp-img src="/static/samples/img/landscape_ship_300x200.jpg"
     width="90"
     height="60"
     option="3"
-    alt="Photo of a water landscape with ship"
-  ></amp-img>
-  <amp-img
-    src="/static/samples/img/landscape_village_300x200.jpg"
+    alt="Photo of a water landscape with ship"></amp-img>
+  <amp-img src="/static/samples/img/landscape_village_300x200.jpg"
     width="90"
     height="60"
     option="4"
     disabled
-    alt="Photo of a village landscape"
-  ></amp-img>
+    alt="Photo of a village landscape"></amp-img>
 </amp-selector>
 ```
-
 [/example]
 
 Here is an example in which we combine `amp-selector` with an SVG to create an interactive chart.
 
 [example preview="top-frame" playground="true" imports="amp-selector"]
-
 ```html
 <head>
   <style amp-custom>
     .bar[option][selected] {
-      fill: red;
+  	  fill: red;
       outline: none;
     }
   </style>
 </head>
 <body>
   <amp-selector>
-    <svg
-      class="chart"
-      width="420"
-      height="150"
-      aria-labelledby="title desc"
-      role="img"
-    >
+    <svg class="chart" width="420" height="150" aria-labelledby="title desc" role="img">
       <title id="title">A bar chart showing information</title>
-      <desc id="desc">
-        4 apples; 8 bananas; 15 kiwis; 16 oranges; 23 lemons
-      </desc>
+      <desc id="desc">4 apples; 8 bananas; 15 kiwis; 16 oranges; 23 lemons</desc>
       <g class="bar" option>
         <rect width="40" height="19"></rect>
         <text x="45" y="9.5" dy=".35em">4 apples</text>
@@ -111,7 +94,6 @@ Here is an example in which we combine `amp-selector` with an SVG to create an i
   </amp-selector>
 </body>
 ```
-
 [/example]
 
 # Simple interactivity and data binding with amp-bind
@@ -119,19 +101,18 @@ Here is an example in which we combine `amp-selector` with an SVG to create an i
 Users expect the modern web to react to their interactions and reflect changes they've made. The `amp-bind` component enables state setting, reading, UI changes, and can process user inputs and simple logic.
 
 [example preview="top-frame" playground="true" imports="amp-bind"]
-
 ```html
 <amp-state id="foo">
   <script type="application/json">
     {
-      "bar": "State is set."
+        "bar": "State is set."
     }
   </script>
 </amp-state>
 <p [text]="foo.bar">No state is set</p>
 <button on="tap:AMP.setState({})">Set State</button>
-```
 
+```
 [/example]
 
 The `amp-bind` component performs no evaluations on page load, with the exception of combining with amp-list.
@@ -155,39 +136,29 @@ Read more about [bindings here](../../../components/reference/amp-bind.md#bindin
 Each AMP page that uses `amp-bind` has its own scoped, mutable JSON data with a size limit of 100kb. This data is the state.
 
 [example preview="top-frame" playground="true" imports="amp-bind, amp-list" template="amp-mustache"]
-
 ```html
 <amp-state id="todos">
-  <script type="application/json">
-    ["Learn AMP"]
-  </script>
-</amp-state>
-
-<input
-  id="todoInput"
-  type="text"
-  on="input-throttled:AMP.setState({
+    <script type="application/json">
+      [
+        "Learn AMP"
+      ]
+    </script>
+  </amp-state>
+  
+  <input id="todoInput" type="text" on="input-throttled:AMP.setState({
                            newTodo: event.value
-                         })"
-/>
-<button
-  on="tap:AMP.setState({
+                         })">
+  <button on="tap:AMP.setState({
                 todos: todos.concat(newTodo)
-              })"
->
-  Add Todo
-</button>
-<amp-list
-  [src]="todos"
-  src="amp-state:todos"
-  height="20"
-  items="."
-  [is-layout-container]="true"
->
-  {% raw %}<template type="amp-mustache"> <li>{{.}}</li> </template>{% endraw %}
-</amp-list>
+              })">
+    Add Todo
+  </button>
+ <amp-list [src]="todos" src="amp-state:todos" height="20" items="." [is-layout-container]=true>
+      {% raw %}<template type="amp-mustache">
+      <li>{{.}}</li>
+    </template>{% endraw %}
+  </amp-list>
 ```
-
 [/example]
 
 `amp-bind` supports predefined states, state initialization after user interaction, and updates to states. You may reference, add, or change any variables defined as key value pairs by using expressions, bindings, actions and events.
@@ -199,7 +170,6 @@ There are multiple ways to declare and use state. Read more on state in the [amp
 The `amp-bind` component uses JavaScript-like expressions to perform operations on data from user input and state variables.
 
 [example preview="top-frame" playground="true" imports="amp-bind"]
-
 ```html
 <p [text]="myExpressionsState.foo"></p>
 <!-- 1 + '1'; // 11 -->
@@ -223,7 +193,6 @@ The `amp-bind` component uses JavaScript-like expressions to perform operations 
   [1, 2, 3].map(x => x + 1)
 </button>
 ```
-
 [/example]
 
 These expressions have an [allowlist of supported functions](../../../components/reference/amp-bind.md#allowed-listed-functions) with slight [differences and limitations](../../../components/reference/amp-bind.md#differences-from-javascript) from classic JavaScript. Read more on [expressions here](../../../components/reference/amp-bind.md#expressions).
@@ -237,14 +206,15 @@ Expressions can become hard to maintain quickly. Make sure to keep it simple and
 You may reuse an amp-bind expression fragment by defining an [amp-bind-macro](../../../components/reference/amp-bind.md#defining-macros-with-amp-bind-macro). The `amp-bind-macro` element allows an expression that takes zero or more arguments and references the current state. Invoke `amp-bind-macro` like a function, referencing the `id` attribute value from anywhere in the document.
 
 [example preview="top-frame" playground="true" imports="amp-bind"]
-
 ```html
 <amp-bind-macro
   id="circleArea"
   arguments="radius"
   expression="3.14 * radius * radius"
 ></amp-bind-macro>
-<p>Input a radius value</p>
+<p>
+  Input a radius value
+</p>
 <input
   type="number"
   min="0"
@@ -257,7 +227,6 @@ You may reuse an amp-bind expression fragment by defining an [amp-bind-macro](..
   <span [text]="circleArea(myCircle.radius)">0</span>.
 </p>
 ```
-
 [/example]
 
 A macro can also call other macros defined before itself. A macro cannot call itself recursively.
@@ -284,10 +253,9 @@ While this solution gives you absolute control over the page, it does remove som
 
 ### Combine amp-script and amp-bind
 
-The amp-script components lets you implement complex domain logic that would cause amp-bind expressions to become too complicated. Instead of wrapping the entire page in `<amp-script>` tags, offload the logic to amp-script and use `amp-bind` to update the page state with the results. There is one caveat, user’s must interact with an element that triggers the calculation. However, once the information is processed, `amp-script` can update the page’s state on it’s own by calling [`AMP.setState`](<../../../components/reference/amp-bind.md#updating-state-variables-with-amp.setstate()>). The powers of `amp-bind` will handle the rest to update the DOM.
+The amp-script components lets you implement complex domain logic that would cause amp-bind expressions to become too complicated. Instead of wrapping the entire page in `<amp-script>` tags, offload the logic to amp-script and use `amp-bind` to update the page state with the results. There is one caveat, user’s must interact with an element that triggers the calculation. However, once the information is processed, `amp-script` can update the page’s state on it’s own by calling [`AMP.setState`](../../../components/reference/amp-bind.md#updating-state-variables-with-amp.setstate()). The powers of `amp-bind` will handle the rest to update the DOM.
 
 [example preview="top-frame" playground="true" imports="amp-bind, amp-script"]
-
 ```html
 <head>
   <meta
@@ -301,12 +269,7 @@ The amp-script components lets you implement complex domain logic that would cau
   </style>
 </head>
 <body>
-  <amp-script
-    width="200"
-    height="100"
-    script="hello-world"
-    [class]="scriptStyle"
-  >
+  <amp-script width="200" height="100" script="hello-world" [class]="scriptStyle">
     <button>Hello amp-script!</button>
   </amp-script>
   <script id="hello-world" type="text/plain" target="amp-script">
@@ -318,5 +281,4 @@ The amp-script components lets you implement complex domain logic that would cau
   </script>
 </body>
 ```
-
 [/example]

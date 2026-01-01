@@ -7,7 +7,7 @@ description: En este tutorial, aprenderá cómo crear un anuncio AMP HTML desde 
 
 En este tutorial, aprenderá cómo crear un [anuncio AMP HTML](../../../../documentation/guides-and-tutorials/learn/intro-to-amphtml-ads.md) desde cero, que pueda publicarse en las páginas AMP y sin AMP. El formato para los anuncios que se utiliza en este tutorial es para un anuncio con imágenes simples.
 
-Los anuncios AMPHTML son parecidos a los anuncios HTML tradicionales, pero en vez de codificarlos con el HTML tradicional, se codifican en AMPHTML, según las [especificaciones para los anuncios AMPHTML](../../../../documentation/guides-and-tutorials/learn/a4a_spec.md). Cuando los anuncios se crean en AMPHTML, estos aprovechan las mismas optimizaciones y el mismo rendimiento que están disponibles en las páginas de AMP, lo cual los convierte en una forma más rápida, ligera y segura de anunciarse en la web. Además, la mayoría de estos anuncios pueden colocarse en cualquier lugar de la web, _no solo en las páginas de AMP_.
+Los anuncios AMPHTML son parecidos a los anuncios HTML tradicionales, pero en vez de codificarlos con el HTML tradicional, se codifican en AMPHTML, según las [especificaciones para los anuncios AMPHTML](../../../../documentation/guides-and-tutorials/learn/a4a_spec.md). Cuando los anuncios se crean en AMPHTML, estos aprovechan las mismas optimizaciones y el mismo rendimiento que están disponibles en las páginas de AMP, lo cual los convierte en una forma más rápida, ligera y segura de anunciarse en la web. Además, la mayoría de estos anuncios pueden colocarse en cualquier lugar de la web, *no solo en las páginas de AMP*.
 
 ## En este tutorial aprenderá a:
 
@@ -20,8 +20,8 @@ Los anuncios AMPHTML son parecidos a los anuncios HTML tradicionales, pero en ve
 - Conocimientos básicos sobre HTML, CSS y JavaScript
 - Un navegador y el editor de texto que prefiera
 
-[tip] _¿No desea crear un anuncio desde cero?_ Utilice alguna de las siguientes herramientas para crear su anuncio AMPHTML:
+[tip] *¿No desea crear un anuncio desde cero?* Utilice alguna de las siguientes herramientas para crear su anuncio AMPHTML:
 
 - [El creador de anuncios de Celtra](http://www.prnewswire.com/news-releases/celtra-partners-with-the-amp-project-showcases-amp-ad-creation-at-google-io-event-300459514.html)
 - [Google Web Designer](https://support.google.com/webdesigner/answer/7529856)
-- Adobe Animate (_próximamente_) [/tip]
+- Adobe Animate (*próximamente*) [/tip]

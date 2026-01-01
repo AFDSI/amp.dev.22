@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 초기화 시 뷰어의 xhrInterceptor 옵션을 사용 설정하면 XHR 인터셉션이 허용됩니다. 작동 방식 및 XHR 인터셉션 사례를 확인하려면 뷰어 예제를 참조하세요. AMP 문서는 XHR 인터셉션 허용으로 설정되어야 합니다. `allow-xhr-interception` 속성을 `<html amp4email>` 태그에 추가하여 문서 허용을 설정할 수 있습니다. 이는 의도적으로 잘못된 속성이며 AMP 문서 유효성 검사 시 그렇게 표시될 것이므로 이메일 클라이언트는 렌더링 전 AMP 문서에 해당 속성을 설정해야 합니다.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

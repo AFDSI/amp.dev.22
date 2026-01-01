@@ -11,7 +11,7 @@ AMP-страница — это HTML-страница, имеющая некот
 Простейшая AMP-страница выглядит так:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html amp>
   <head>
     <meta charset="utf-8" />

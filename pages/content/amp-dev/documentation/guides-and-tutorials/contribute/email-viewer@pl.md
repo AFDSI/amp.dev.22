@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Włączyć przechwytywanie xhr, wybierając przy inicjowaniu przeglądarki funkcję xhrInterceptor. Zobacz przykład wykonywania tego w przeglądarce i przykład przechwytywania xhr. Następnie dokument AMP musi wybrać opcję zezwolenia na przechwytywanie XHR. Dokumenty włączają ją poprzez dodanie atrybutu `allow-xhr-interception` do znacznika `<html amp4email>`. Program pocztowy musi ustawić ten atrybut w dokumencie AMP przed jego wyrenderowaniem, ponieważ jest to celowo nieprawidłowy atrybut i zostanie on oflagowany jak podczas walidacji dokumentu AMP.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

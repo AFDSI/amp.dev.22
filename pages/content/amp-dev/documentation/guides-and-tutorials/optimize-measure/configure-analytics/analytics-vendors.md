@@ -25,6 +25,8 @@ have a look and request a pull request there.
   (Some are intentionally commented-out and should be kept for the CI check.)
 -->
 
+
+
 This document lists analytics vendors that have built-in configurations for use with the [`amp-analytics`](https://amp.dev/documentation/components/amp-analytics/) component.
 
 Vendors that wish to integrate their service with [`<amp-analytics>`](https://amp.dev/documentation/components/amp-analytics/) should refer to the details in [Integrate your analytics tools with AMP](https://amp.dev/documentation/guides-and-tutorials/contribute/integrate-your-analytics-tools).
@@ -39,7 +41,7 @@ Type attribute value: `_fake_`
 
 Type attribute value: `acquialift`
 
-Adds support for Acquia Lift. The `decisionApiUrl`, `accountId` and `siteId` must be specified. More information about Acquia Lift can be found at [https://app.lift.acquia.com/](https://app.lift.acquia.com/).
+Adds support for Acquia Lift. The `decisionApiUrl`, `accountId` and `siteId` must be specified. More information about Acquia Lift can be found at [https://docs.acquia.com/lift](https://docs.acquia.com/lift).
 
 ### Adobe Analytics <a name="adobe-analytics"></a>
 
@@ -93,7 +95,7 @@ Adds support for AppsFlyer. More details for adding AppsFlyer support can be fou
 
 Type attribute value: `atinternet`
 
-Adds support for AT Internet. More details for adding AT Internet support can be found at [developers.atinternet-solutions.com](https://developers.atinternet-solutions.com/as2-tagging-en/javascript-en/advanced-features-javascript-en/accelerated-mobile-pages-amp-javascript-en/index.html).
+Adds support for AT Internet. More details for adding AT Internet support can be found at [developers.atinternet-solutions.com](http://developers.atinternet-solutions.com/javascript-en/advanced-features-javascript-en/accelerated-mobile-pages-amp-javascript-en/).
 
 ### Baidu Analytics <a name="baidu-analytics"></a>
 
@@ -191,11 +193,18 @@ Adds support for Cxense Insight analytics. Requires defining _var_ `siteId` with
 
 Type attribute value: `deepbi`
 
+### Dynatrace <a name="dynatrace"></a>
+
+Type attribute value: `dynatrace`
+
+Adds support for Dynatrace real user monitoring. Requires defining _var_ `app` with a Dynatrace provided _application id_ and _var_ `tenant` with a Dynatrace provided _environment identifier_. More details for adding Dynatrace real user monitoring can be found at [dynatrace.com](https://www.dynatrace.com/technologies/web/amp-monitoring/).
+
 ### EPICA <a name="epica"></a>
 
 Type attribute value: `epica`
 
 Adds support for EPICA page views and events.
+More details can be found at [EPICA docs](https://www.epica.ai).
 
 ### Eulerian Analytics <a name="eulerian-analytics"></a>
 
@@ -248,7 +257,7 @@ Unlike other analytics vendors, Google Tag Manager is a tag management service, 
 
 Type attribute value: `ibeatanalytics`
 
-Adds support for Ibeat Analytics.
+Adds support for Ibeat Analytics. More details for adding Ibeat support can be found at [Ibeat Integration Support](https://ibeat.indiatimes.com/support.html#h.a5rit14mwie1).
 
 <!-- markdown-link-check-disable -->
 
@@ -262,10 +271,10 @@ Adds support for [INFOnline](https://www.infonline.de) / [IVW](http://www.ivw.de
 
 Additionally, the following variables must be defined:
 
-- `st`: offer ID
-- `co`: comment
-- `cp`: code
-- `url`: HTTPS location of `amp-analytics-infonline.html`
+-   `st`: offer ID
+-   `co`: comment
+-   `cp`: code
+-   `url`: HTTPS location of `amp-analytics-infonline.html`
 
 More details for adding INFOnline / IVW support can be found at [www.infonline.de](https://www.infonline.de/).
 
@@ -277,11 +286,11 @@ Adds support for the [anonymous INFOnline](https://www.infonline.de). Requires a
 
 Additionally, the following variables must be defined:
 
-- `st`: offer ID
-- `co`: comment
-- `cp`: code
-- `url`: HTTPS location of `infonline-anonymous.html`
-- `dn`: The relay domain name
+-   `st`: offer ID
+-   `co`: comment
+-   `cp`: code
+-   `url`: HTTPS location of `infonline-anonymous.html`
+-   `dn`: The relay domain name
 
 More details for adding INFOnline anonymous support can be found at [www.infonline.de](https://www.infonline.de/).
 
@@ -291,11 +300,11 @@ Type attribute value: `infonline_base`
 
 Additionally, the following variables must be defined:
 
-- `st`: offer ID
-- `co`: comment
-- `cp`: code
-- `url`: HTTPS location of `amp.html` on the service platform or sub domain
-- `dn`: The relay domain name
+-   `st`: offer ID
+-   `co`: comment
+-   `cp`: code
+-   `url`: HTTPS location of `amp.html` on the service platform or sub domain
+-   `dn`: The relay domain name
 
 More details for adding INFOnline anonymous support can be found at [www.infonline.de](https://www.infonline.de/).
 
@@ -309,8 +318,8 @@ Type attribute value: `keen`
 
 Adds support for Keen. Additionally, the following `vars` must be defined:
 
-- `projectId`: your project id
-- `writeKey`: your write key
+-   `projectId`: your project id
+-   `writeKey`: your write key
 
 Use `extraUrlParams` to add more data. Configuration details can be found at [keen.io/docs/api](https://keen.io/docs/api/).
 
@@ -338,19 +347,19 @@ Adds support for Krux. Configuration details can be found at [help.krux.com](htt
 
 Type attribute value: `linkpulse`
 
-Adds support for Linkpulse. Configuration details can be found at [docs.linkpulse.com](https://www.kilkaya.com/).
+Adds support for Linkpulse. Configuration details can be found at [docs.linkpulse.com](http://docs.linkpulse.com).
 
 ### Lotame <a name="lotame"></a>
 
 Type attribute value: `lotame`
 
-Adds support for Lotame. More information and configuration details can be found at [my.lotame.com](https://my.lotame.com/).
+Adds support for Lotame. More information and configuration details can be found at [my.lotame.com](https://my.lotame.com/t/83h37h9/overview-1st-party-data-collection-in-google-amp).
 
 ### Mapp Intelligence <a name="mapp-intelligence"></a>
 
 Type attribute value: `mapp_intelligence`
 
-Adds support for Mapp Intelligence tracking. More information and configuration details can be found at [docs.mapp.com](https://docs.mapp.com/v1/docs/en/accelerated-mobile-pages-amp).
+Adds support for Mapp Intelligence tracking. More information and configuration details can be found at [docs.mapp.com](https://docs.mapp.com/pages/viewpage.action?pageId=10027966).
 
 ### Marin Software <a name="marin-software"></a>
 
@@ -386,7 +395,7 @@ Adds support for Yandex Metrica. Configuration details can be found at [Yandex S
 
 Type attribute value: `moat`
 
-Adds support for Moat. Please contact your Moat representative for configuration details. More information on Moat can be found at [https://docs.oracle.com/en/cloud/saas/data-cloud-moat/about_moat/moat_analytics_how_it_works.html](https://docs.oracle.com/en/cloud/saas/data-cloud-moat/about_moat/moat_analytics_how_it_works.html).
+Adds support for Moat. Please contact your Moat representative for configuration details. More information on Moat can be found at [moat.com/analytics](https://moat.com/analytics).
 
 ### Mobify <a name="mobify"></a>
 
@@ -418,12 +427,6 @@ Adds support for [SOASTA mPulse](https://www.soasta.com/mPulse). Configuration d
 
 Type attribute value: `navegg`
 
-### Neodata <a name="neodata"></a>
-
-Type attribute value: `neodata`
-
-Adds support for Neodata Audience Platform. Please contact our support team to get set up with your `sysId`, `tagId` and `advId` parameters in the `vars` section.
-
 ### New Relic <a name="new-relic"></a>
 
 Type attribute value: `newrelic`
@@ -440,7 +443,7 @@ Adds support for Nielsen DCR. Please contact your Nielsen representative to get 
 
 Type attribute value: `nielsen-marketing-cloud`
 
-Adds support for Nielsen Marketing Cloud. More details can be found at [Nielsen Marketing Cloud](https://www.nielsen.com/solutions/media-planning/marketing-cloud/).
+Adds support for Nielsen Marketing Cloud. More details can be found at [Nielsen Marketing Cloud](http://www.nielsen.com/us/en/solutions/capabilities/nielsen-marketing-cloud.html).
 
 ### OEWA <a name="oewa"></a>
 
@@ -456,12 +459,12 @@ Additionally, the following variables must be defined:
 
 In the `vars` section:
 
-- `s`: offer
-- `cp`: category path
+-   `s`: offer
+-   `cp`: category path
 
 In the `requests` section:
 
-- `url`: HTTPS location of `amp-analytics-oewa.html`
+-   `url`: HTTPS location of `amp-analytics-oewa.html`
 
 ### oewadirect <a name="oewadirect"></a>
 
@@ -489,11 +492,11 @@ Type attribute value: `permutive`
 
 Adds support for Permutive event collection. Additionally, the following `vars` must be defined:
 
-- `namespace`: your Permutive AMP namespace
-- `key`: your Permutive public API key
-  <!-- markdown-link-check-disable -->
-  Use `extraUrlParams` to add additional event properties. Full configuration details can be found at [support.permutive.com](https://support.permutive.com/hc/en-us).
-  <!-- markdown-link-check-enable -->
+-   `namespace`: your Permutive AMP namespace
+-   `key`: your Permutive public API key
+    <!-- markdown-link-check-disable -->
+    Use `extraUrlParams` to add additional event properties. Full configuration details can be found at [support.permutive.com](https://support.permutive.com/hc/en-us).
+    <!-- markdown-link-check-enable -->
 
 ### Permutive-ampscript <a name="permutive-ampscript"></a>
 
@@ -577,13 +580,13 @@ Find out more on the implementation check our documentation at [docs.rudderstack
 Type attribute value: `segment`
 
 Adds support for segment page views and events.
-To see the full list of fields that you can send, see [Segment Spec](https://segment.com/docs/connections/spec/).
+To see the full list of fields that you can send, see [Segment Spec](https://segment.com/docs/spec/).
 
 ### SensorsData <a name="sensorsdata"></a>
 
 Type attribute value: `sensorsanalytics`
 
-Adds support for Sensors Data. More details for adding Sensors Data support can be found at [sensorsdata.com](https://manual.sensorsdata.cn/).
+Adds support for Sensors Data. More details for adding Sensors Data support can be found at [sensorsdata.com](https://manual.sensorsdata.cn/sa/latest/web-js-sdk-7548149.html).
 
 ### ShinyStat <a name="shinystat"></a>
 
@@ -646,10 +649,6 @@ Adds support for Top.Mail.Ru. Configuration details can be found at [Top.Mail.Ru
 Type attribute value: `treasuredata`
 
 Adds support for Treasure Data. Configuration details can be found at [docs.treasuredata.com](https://docs.treasuredata.com/display/public/INT/Google+Accelerated+Mobile+Pages+AMP).
-
-### Triboo Data Analytics <a name="triboo-data-analytics"></a>
-
-Type attribute value: `tribooanalytics`
 
 ### Umeng+ Analytics <a name="umeng-analytics"></a>
 

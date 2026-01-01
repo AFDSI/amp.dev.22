@@ -164,6 +164,7 @@ With AMP there are a few things that you can do to optimize your font loading ([
 
 Last but not least, try to minimize the number of custom fonts that you use on your page. If you can, use the system fonts instead of custom fonts because system fonts make your website match the user's operating system, and it helps to avoid loading more resources.
 
+
 ### Basic optimizations <a name="basic-optimizations"></a>
 
 Of course, all the basics of web performance optimizations also apply to AMP pages:

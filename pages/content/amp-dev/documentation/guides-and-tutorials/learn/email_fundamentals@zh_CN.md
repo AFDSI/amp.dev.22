@@ -14,7 +14,7 @@ formats:
 AMP 电子邮件与传统 HTML 电子邮件看起来很像，但存在几点区别。以下列出了在让电子邮件成为有效的 AMP 电子邮件时所需的最少量标记。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

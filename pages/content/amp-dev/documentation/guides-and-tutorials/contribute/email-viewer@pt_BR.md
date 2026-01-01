@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Habilite a intercepção do xhr configurando o visualizador para a capacidade xhrInterceptor durante a inicialização. Veja o exemplo do visualizador sobre como isto é feito e também para um exemplo de intercepção xhr. O documento AMP deve então ser configurado para permitir a intercepção XHR. Os documentos são configurados adicionando o atributo `allow-xhr-interception` à tag `<html amp4email>`. O cliente de e-mail deve configurar este atributo no documento AMP antes de renderizá-lo já que é intencionalmente um atributo inválido e será sinalizado como tal durante a validação do documento AMP.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

@@ -16,6 +16,8 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
+
+
 ## Why is my doc broken on an AMP cache? <a name="why-is-my-doc-broken-on-an-amp-cache"></a>
 
 Valid AMP documents typically appear and behave the same on AMP Caches as they

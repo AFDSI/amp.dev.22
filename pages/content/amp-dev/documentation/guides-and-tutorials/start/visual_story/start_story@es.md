@@ -13,11 +13,8 @@ Para ello, **abra** el archivo `pets.html` que se encuentra en su editor de text
 
 ```html
 <head>
-  <script
-    async
-    custom-element="amp-story"
-    src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-  ></script>
+<script async custom-element="amp-story"
+        src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
 </head>
 ```
 
@@ -25,7 +22,8 @@ Posteriormente, **agregue** el elemento `<amp-story>` en el `<body>` de su docum
 
 ```html
 <body>
-  <amp-story standalone> </amp-story>
+  <amp-story standalone>
+  </amp-story>
 </body>
 ```
 
@@ -43,13 +41,11 @@ Para que las historias sean localizables en la web, se necesitan ciertos metadat
 Ahora, agreguemos estos atributos a nuestra etiqueta [`amp-story`](../../../../documentation/components/reference/amp-story.md):
 
 ```html
-<amp-story
-  standalone
-  title="Joy of Pets"
-  publisher="AMP tutorials"
-  publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
-  poster-portrait-src="assets/cover.jpg"
-></amp-story>
+<amp-story standalone
+    title="Joy of Pets"
+    publisher="AMP tutorials"
+    publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
+    poster-portrait-src="assets/cover.jpg">
 ```
 
 Además de estos atributos necesarios, también pueden implementarse otros atributos. Para obtener más información, consulte la sección [atributos](../../../../documentation/components/reference/amp-story.md#attributes) que se encuentra en los documentos de referencia de [`amp-story`](../../../../documentation/components/reference/amp-story.md).

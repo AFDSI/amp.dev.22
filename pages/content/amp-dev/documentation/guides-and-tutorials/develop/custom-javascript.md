@@ -15,6 +15,7 @@ description: A guide to using amp-script, an AMP component that allows you to wr
 
 This guide provides background on this component and best practices for its use.
 
+
 ## Web workers
 
 Excessive JavaScript can make websites slow and unresponsive. In order to control what JavaScript AMP pages load and when it executes, AMP's validation rules forbid developers from running JavaScript in a webpage via a `<script>` tag.
@@ -25,15 +26,17 @@ Workers don't come with access to the DOM. To fill this gap, the AMP team create
 
 `amp-script` is a wrapper around WorkerDOM that makes WorkerDOM usable in AMP, providing connections to AMP features, establishing the developer API, and introducing restrictions that protect the user experience. WorkerDOM provides the core of `amp-script`'s functionality.
 
+
 ## Overview of `amp-script`
 
 The JavaScript language is the same in a worker as it is elsewhere in the browser. Thus, in `amp-script`, you can use all the usual constructs that JavaScript provides. WorkerDOM also recreates many commonly used DOM APIs and makes them available for your use. It supports common Web APIs like `Fetch` and `Canvas`, and it gives you to selected global objects like `navigator` and `localStorage`. You can assign handlers for browser events in the usual way.
 
 However, `amp-script` does not support the entire DOM API or Web API, as this would make its own JavaScript too large and cumbersome. See [the documentation](../../../documentation/components/reference/amp-script.md#supported-apis) for details, and refer to [these samples](https://amp.dev/documentation/examples/components/amp-script/) to see `amp-script` in use.
 
-`amp-script` replaces a handful of synchronous DOM API methods with alternatives that return a Promise. For example, instead of `getBoundingClientRect()`, you use `getBoundingClientRectAsync()`. Sometimes this is necessary for DOM APIs that provide synchronous access to computed layout, and sometimes so that `amp-script` can call the native browser method and await a response.
+`amp-script` replaces a handful of synchronous DOM API methods with alternatives that return a Promise.   For example, instead of `getBoundingClientRect()`, you use `getBoundingClientRectAsync()`. Sometimes this is necessary for DOM APIs that provide synchronous access to computed layout, and sometimes so that `amp-script` can call the native browser method and await a response.
 
 To maintain AMP's guarantees of performance and layout stability, `amp-script` comes with some restrictions. If the size of the `amp-script` container is not fixed, your code can only make a mutation if triggered by a user interaction. You can't add stylesheets or additional scripts to the DOM, and [`importScripts()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) is not supported. See [the documentation](../../../documentation/components/reference/amp-script.md#user-gestures) for details.
+
 
 ## Using JavaScript frameworks
 
@@ -41,7 +44,7 @@ Since the DOM API is not fully supported, how is it best to approach manipulatin
 
 **1) Know what's supported.** Get to know [the rich set of supported APIs](https://github.com/ampproject/worker-dom/blob/main/web_compat_table.md). You need to think about the DOM API differently - less as a large set of properties and methods that's developed over many years, and more as a concise set of tools.
 
-**2) Use Preact.** Not only is [React](https://reactjs.org/) a popular way to build websites, but it mutates the DOM using a subset of the DOM API. `amp-script` can includes full support for this portion of the API, and thus full support for React. That said, React bundles often exceed `amp-script`'s [150K limit](../../../documentation/components/reference/amp-script.md#size-of-javascript-code). So it's recommended that you use [Preact](https://preactjs.com/), a lightweight alternative to React. Preact is designed for straightforward migration from React. With Preact, you should be able to build elaborate interactions with much less worry about what's supported.
+**2) Use Preact.** Not only is [React](https://reactjs.org/) a popular way to build websites, but it mutates the DOM using a subset of the DOM API. `amp-script` can includes full support for this portion of the API, and thus full support for React. That said, React bundles often exceed `amp-script`'s [150K limit](../../../documentation/components/reference/amp-script.md#size-of-javascript-code). So it's recommended that you use [Preact](https://preactjs.com/), a lightweight alternative to React. Preact is designed for straightforward migration from React. With Preact, you should be able to build elaborate interactions with much less worry about what's supported. 
 
 The team has tested `amp-script` with frameworks like [Vue](https://vuejs.org/), [Angular](https://angularjs.org/), [Aurelia](https://aurelia.io/), and [lit-html](https://lit-html.polymer-project.org/), but less extensively. If you find a gap, please [file an issue](https://github.com/ampproject/worker-dom/issues) - or, better still, [submit a pull request](https://github.com/ampproject/worker-dom/pulls).
 
@@ -97,10 +100,12 @@ Similarly, when using an API whose output you control, you may be able to implem
 `amp-bind` also provides a straightforward mechanism to communicate between AMP components. In this example, tapping on an image in an `<amp-selector>` sets the state variable `selectedSlide` to `0`, which in turn makes an `<amp-carousel>` move to its first slide.
 
 ```html
-<amp-carousel slide="selectedSlide"> ... </amp-carousel>
+<amp-carousel slide="selectedSlide">
+...
+</amp-carousel>
 
 <amp-selector>
-  <amp-img on="tap:AMP.setState({selectedSlide: 0})" />
+  <amp-img on="tap:AMP.setState({selectedSlide: 0})"/>
 </amp-selector>
 ```
 
@@ -132,6 +137,7 @@ This demo was created before `amp-script` was released. But this sort of logic w
 In many cases, you'll want to use both `amp-script` and `amp-bind` on the same page. Deploy `amp-bind` for simpler interactions, turning to `amp-script` when you need more logic or structure. Furthermore, although `amp-script` can only make mutations to its DOM chilrden, [as noted above](#enhance-amp-components), it can affect the rest of the page by mutating state variables. `amp-bind` does the rest, as in [this example](https://amp.dev/documentation/examples/components/amp-script/#interacting-with-%3Camp-state%3E).
 
 Although WorkerDOM will change the real DOM when your code changes the virtual DOM to which it has access, no mechanism exists to synchronize in the reverse direction. Thus it's not advisable to use `amp-bind` or other means to modify the children of your `<amp-script>`. Reserve that area of the page for your `amp-script` JavaScript.
+
 
 ## Contribute to `amp-script`
 

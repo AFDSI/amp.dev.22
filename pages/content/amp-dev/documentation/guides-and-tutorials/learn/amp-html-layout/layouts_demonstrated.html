@@ -8,7 +8,7 @@ formats:
   - ads
   - stories
 components:
-  - selector
+    - selector
 ---
 
 <style amp-custom>
@@ -103,30 +103,19 @@ components:
 </style>
 
 <div class="ap--content layouts">
-  <p>
-    This page demonstrates the different
-    <a href="index.md#layout">layouts in AMP</a>, and how they work when a
-    screen is resized.
-  </p>
+
+  <p>This page demonstrates the different <a href="index.md#layout">layouts in AMP</a>, and how they work when a screen is resized.</p>
 
   <div class="layout-items">
     <!-- fill -->
 
     <div class="layout-item">
       <h2 id="fill">fill</h2>
-      <p class="description">
-        With a <code>fill</code> layout, the element takes the space available
-        to it—both width and height. In other words, the layout and size of a
-        fill element matches its parent.
-      </p>
+      <p class="description">With a <code>fill</code> layout, the element takes the space available to it—both width and height. In other words, the layout and size of a fill element matches its parent.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="fill"
-              src="/static/img/docs/layouts/blue.jpg"
-              alt=""
-            ></amp-img>
+              <amp-img layout="fill" src="/static/img/docs/layouts/blue.jpg" alt=""></amp-img>
           </div>
         </div>
       </div>
@@ -136,21 +125,14 @@ components:
 
     <div class="layout-item">
       <h2 id="fixed">fixed</h2>
-      <p class="description">
-        With a <code>fixed</code> layout, the element retains its fixed
-        dimensions based on the element's width and height attributes (no
-        responsiveness).
-      </p>
+      <p class="description">With a <code>fixed</code> layout, the element retains its fixed dimensions based on the element's width and height attributes (no responsiveness).</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="fixed"
+            <amp-img layout="fixed"
               src="/static/img/docs/layouts/blue.jpg"
-              width="200"
-              height="150"
-              alt=""
-            >
+              width="200" height="150"
+              alt="">
             </amp-img>
           </div>
         </div>
@@ -161,21 +143,13 @@ components:
 
     <div class="layout-item">
       <h2 id="fixed-height">fixed-height</h2>
-      <p class="description">
-        With a <code>fixed-height</code> layout, the element takes the space
-        available to it but keeps the height unchanged. This layout works well
-        for elements that need to position content horizontally (e.g.,
-        <code>amp-carousel</code>).
-      </p>
+      <p class="description">With a <code>fixed-height</code> layout, the element takes the space available to it but keeps the height unchanged. This layout works well for elements that need to position content horizontally (e.g., <code>amp-carousel</code>).</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="fixed-height"
-              src="/static/img/docs/layouts/blue.jpg"
-              height="150"
-              alt=""
-            >
+            <amp-img layout="fixed-height"
+              src="/static/img/docs/layouts/blue.jpg" height="150"
+              alt="">
             </amp-img>
           </div>
         </div>
@@ -186,29 +160,14 @@ components:
 
     <div class="layout-item">
       <h2 id="flex-item">flex-item</h2>
-      <p class="description">
-        With a <code>flex-item</code> layout, the element and other elements in
-        its parent will take the available space based on the flexbox model.
-      </p>
+      <p class="description">With a <code>flex-item</code> layout, the element and other elements in its parent will take the available space based on the flexbox model.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
             <div class="flex-container">
-              <amp-img
-                src="/static/img/docs/layouts/blue.jpg"
-                layout="flex-item"
-                alt=""
-              ></amp-img>
-              <amp-img
-                src="/static/img/docs/layouts/red.jpg"
-                layout="flex-item"
-                alt=""
-              ></amp-img>
-              <amp-img
-                src="/static/img/docs/layouts/green.jpg"
-                layout="flex-item"
-                alt=""
-              ></amp-img>
+              <amp-img src="/static/img/docs/layouts/blue.jpg" layout="flex-item" alt=""></amp-img>
+              <amp-img src="/static/img/docs/layouts/red.jpg" layout="flex-item" alt=""></amp-img>
+              <amp-img src="/static/img/docs/layouts/green.jpg" layout="flex-item" alt=""></amp-img>
             </div>
           </div>
         </div>
@@ -219,21 +178,14 @@ components:
 
     <div class="layout-item">
       <h2 id="responsive">responsive</h2>
-      <p class="description">
-        With a <code>responsive</code> layout, the element takes the space
-        available to it and resizes its height automatically to the aspect ratio
-        specified by the element's width and height attributes.
-      </p>
+      <p class="description">With a <code>responsive</code> layout, the element takes the space available to it and resizes its height automatically to the aspect ratio specified by the element's width and height attributes.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="responsive"
+            <amp-img layout="responsive"
               src="/static/img/docs/layouts/blue.jpg"
-              width="200"
-              height="150"
-              alt=""
-            >
+              width="200" height="150"
+              alt="">
             </amp-img>
           </div>
         </div>
@@ -244,22 +196,14 @@ components:
 
     <div class="layout-item">
       <h2 id="intrinsic">intrinsic</h2>
-      <p class="description">
-        With an <code>intrinsic</code> layout, the element takes the space
-        available to and resizes its height automatically to the aspect ratio
-        given by the width and height attributes <em>until</em> it reaches the
-        element's natural size or reaches a CSS constraint.
-      </p>
+      <p class="description">With an <code>intrinsic</code> layout, the element takes the space available to and resizes its height automatically to the aspect ratio given by the width and height attributes <em>until</em> it reaches the element's natural size or reaches a CSS constraint.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="intrinsic"
+            <amp-img layout="intrinsic"
               src="/static/img/docs/layouts/blue.jpg"
-              width="250"
-              height="150"
-              alt=""
-            >
+              width="250" height="150"
+              alt="">
             </amp-img>
           </div>
         </div>
@@ -270,37 +214,14 @@ components:
 
     <div class="layout-item">
       <h2 id="container">container</h2>
-      <p class="description">
-        With a <code>container</code> layout, the element lets its children
-        define its size, much like a normal HTML <code>div</code> tag. The
-        element is assumed to not have specific layout itself but only acts as a
-        container.
-      </p>
+      <p class="description">With a <code>container</code> layout, the element lets its children define its size, much like a normal HTML <code>div</code> tag. The element is assumed to not have specific layout itself but only acts as a container.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
             <amp-selector layout="container">
-              <amp-img
-                src="/static/img/docs/layouts/green.jpg"
-                width="80"
-                height="80"
-                option="a"
-                alt=""
-              ></amp-img>
-              <amp-img
-                src="/static/img/docs/layouts/red.jpg"
-                width="80"
-                height="80"
-                option="b"
-                alt=""
-              ></amp-img>
-              <amp-img
-                src="/static/img/docs/layouts/yellow.jpg"
-                width="80"
-                height="80"
-                option="c"
-                alt=""
-              ></amp-img>
+                <amp-img src="/static/img/docs/layouts/green.jpg" width="80" height="80" option="a" alt=""></amp-img>
+                <amp-img src="/static/img/docs/layouts/red.jpg" width="80" height="80" option="b" alt=""></amp-img>
+                <amp-img src="/static/img/docs/layouts/yellow.jpg" width="80" height="80" option="c" alt=""></amp-img>
             </amp-selector>
           </div>
         </div>
@@ -311,21 +232,14 @@ components:
 
     <div class="layout-item">
       <h2 id="nodisplay">nodisplay</h2>
-      <p class="description">
-        With a <code>nodisplay</code> layout, the element isn't displayed. The
-        element takes up zero space on the screen as if its display style was
-        <code>none</code>.
-      </p>
+      <p class="description">With a <code>nodisplay</code> layout, the element isn't displayed. The element takes up zero space on the screen as if its display style was <code>none</code>.</p>
       <div class="fixed-container">
         <div class="parent">
           <div class="wrapper">
-            <amp-img
-              layout="nodisplay"
+            <amp-img layout="nodisplay"
               src="/static/img/docs/layouts/blue.jpg"
-              width="200"
-              height="150"
-              alt=""
-            >
+              width="200" height="150"
+              alt="">
             </amp-img>
           </div>
         </div>

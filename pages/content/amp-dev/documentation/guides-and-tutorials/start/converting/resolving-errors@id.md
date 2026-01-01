@@ -324,7 +324,7 @@ Bagus! Gambar kita memiliki aspek rasio yang benar dan secara responsif memenuhi
 Sekarang dokumen AMP Anda akan terlihat seperti berikut ini:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

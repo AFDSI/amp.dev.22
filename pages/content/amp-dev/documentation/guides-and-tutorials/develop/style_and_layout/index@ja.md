@@ -15,7 +15,6 @@ AMP HTML のスタイルとレイアウトには、通常の HTML と同じよ�
 すべての CSS は、ドキュメントの `<head>` の `<style amp-custom>` タグ内に追加します。次の例をご覧ください。
 
 [sourcecode:html]
-
 <!doctype html>
 <head>
 ...
@@ -33,7 +32,6 @@ background-color: grey;
 }
 </style>
 ...
-
 </head>
 [/sourcecode]
 
@@ -42,7 +40,6 @@ background-color: grey;
 一般的な CSS プロパティを使用し、クラスセレクタまたは要素セレクタでコンポーネントのスタイルを定義します。次に例を示します。
 
 [sourcecode:html]
-
 <body>
 <p>Hello, Kitty.</p>
 <amp-img

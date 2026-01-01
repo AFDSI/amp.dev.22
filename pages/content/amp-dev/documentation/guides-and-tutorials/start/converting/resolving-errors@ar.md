@@ -302,7 +302,7 @@ use of external JavaScript files.
 الآن يجب أن يبدو مستند AMP على النحو التالي:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

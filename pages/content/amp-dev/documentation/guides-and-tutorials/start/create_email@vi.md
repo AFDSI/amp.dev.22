@@ -21,7 +21,7 @@ Làm theo bài thực hành này để xây dựng và gửi cho chúng tôi ema
 Sân thực hành AMP hỗ trợ định dạng AMP cho Email, cho phép bạn phát triển, kiểm tra và xác thực các Email AMP của mình. Mở [Sân thực hành AMP](https://playground.amp.dev/?runtime=amp4email) và đảm bảo rằng định dạng được thiết lập thành `AMP cho Email` ở góc trên bên trái. Bạn sẽ thấy đoạn code sau:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

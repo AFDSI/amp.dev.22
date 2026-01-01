@@ -1,6 +1,6 @@
 ---
-$title: 'ウェブページへのストーリーの埋め込み'
-description: 'AMP ストーリープレーヤーを使うと、ウェブウェブページ内でユーザーがタップやクリックできるストーリーを埋め込むには AMP ストーリープレーヤーを使用できます。このステップバイステップガイドでは、その方法を学習します。'
+$title: "ウェブページへのストーリーの埋め込み"
+description: "AMP ストーリープレーヤーを使うと、ウェブウェブページ内でユーザーがタップやクリックできるストーリーを埋め込むには AMP ストーリープレーヤーを使用できます。このステップバイステップガイドでは、その方法を学習します。"
 ---
 
 ストーリーは、全画面の没入型エクスペリエンスです。独自の URL を持つオープンウェブにホストされているため、簡単に共有することができます。しかし、ブログ、製品説明、またはニュース記事などのストーリーを独自のサイトに統合する場合はどうすればよいのでしょうか。
@@ -78,11 +78,7 @@ AMP 非対応ページで AMP ストーリーを表示するには、[`amp-story
 
 ```html
 <script async src="https://cdn.ampproject.org/amp-story-player-v0.js"></script>
-<link
-  href="https://cdn.ampproject.org/amp-story-player-v0.css"
-  rel="stylesheet"
-  type="text/css"
-/>
+<link href="https://cdn.ampproject.org/amp-story-player-v0.css" rel="stylesheet" type="text/css">
 ```
 
 最初のスクリプトはプレーヤーのロジックをインポートし、2 つ目のスクリプトはデフォルトのスタイルをインポートします。
@@ -92,13 +88,12 @@ AMP 非対応ページで AMP ストーリーを表示するには、[`amp-story
 ドキュメントの `body` に `<amp-story-player>` 要素を含め、`<amp-story-player>` 要素内に `<a>` タグを配置して対象のストーリーを指定します。`href` をストーリの場所にポイントしてください。`href` には、ホストされるストーリーの URL または相対パスを使用できます。ストーリーのタイトルは、`<a>` タグ内に指定します。
 
 ```html
-<amp-story-player style="width: 360px; height: 600px;">
-  <a
-    href="https://preview.amp.dev/documentation/examples/introduction/stories_in_amp/"
-  >
-    Stories in AMP - Hello World
-  </a>
-</amp-story-player>
+ <amp-story-player style="width: 360px; height: 600px;">
+    <a
+      href="https://preview.amp.dev/documentation/examples/introduction/stories_in_amp/">
+      Stories in AMP - Hello World
+    </a>
+  </amp-story-player>
 ```
 
 ### プレーヤーのサイズを設定する
@@ -107,11 +102,11 @@ AMP 非対応ページで AMP ストーリーを表示するには、[`amp-story
 
 ```html
 <body>
-  ...
+...
   <amp-story-player style="width: 360px; height: 600px;">
-    ...
+...
   </amp-story-player>
-  ...
+...
 </body>
 ```
 
@@ -122,7 +117,9 @@ AMP 非対応ページで AMP ストーリーを表示するには、[`amp-story
 ストーリープレーヤーのレスポンシブはほかのブロック要素と同様に機能します。以下の例のように、CSS を使って幅と高さの比率を維持することができます。
 
 ```html
-<amp-story-player style="width: 50vw; height: 83.35vw;"> ... </amp-story-player>
+<amp-story-player style="width: 50vw; height: 83.35vw;">
+  ...
+</amp-story-player>
 ```
 
 ### プレースホルダーを使用する

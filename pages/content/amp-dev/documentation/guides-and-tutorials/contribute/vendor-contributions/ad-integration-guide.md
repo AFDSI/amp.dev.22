@@ -17,6 +17,8 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
+
+
 If you are an ad technology provider looking to integrate with AMP HTML, please see the guidelines below.
 To ensure minimum latency and quality, please follow the instructions listed [here](https://github.com/ampproject/amphtml/blob/master/ads/../3p/README.md#ads) before submitting a pull request to the AMP open-source project. For general guidance on how to get started with contributing to AMP, please see [docs/contributing.md](https://github.com/ampproject/amphtml/blob/master/ads/../docs/contributing.md).
 
@@ -32,15 +34,15 @@ For example : Amazon A9 server can be invoked by using following syntax:
 
 [sourcecode:html]
 <amp-ad
-width="300"
-height="250"
-type="a9"
-data-aax_size="300x250"
-data-aax_pubname="test123"
-data-aax_src="302"
-
-> </amp-ad>
-> [/sourcecode]
+  width="300"
+  height="250"
+  type="a9"
+  data-aax_size="300x250"
+  data-aax_pubname="test123"
+  data-aax_src="302"
+>
+</amp-ad>
+[/sourcecode]
 
 Note that each of the attributes that follow `type` are dependent on the parameters that the Amazon’s A9 server expects in order to deliver an ad. The [a9.js](https://github.com/ampproject/amphtml/blob/master/ads/./a9.js) file shows you how the parameters are mapped to making a JavaScript call which invokes the A9 server via the `https://c.amazon-adsystem.com/aax2/assoc.js` URL. The corresponding parameters passed by the AMP ad tag are appended to the URL to return an ad.
 
@@ -74,15 +76,15 @@ A Brightcove player can be invoked by the following:
 
 [sourcecode:html]
 <amp-brightcove
-data-account="1290862519001"
-data-video-id="ref:amp-docs-sample"
-data-player="S1Tt8cgaM"
-layout="responsive"
-width="480"
-height="270"
-
-> </amp-brightcove>
-> [/sourcecode]
+  data-account="1290862519001"
+  data-video-id="ref:amp-docs-sample"
+  data-player="S1Tt8cgaM"
+  layout="responsive"
+  width="480"
+  height="270"
+>
+</amp-brightcove>
+[/sourcecode]
 
 For instructions on how to develop an amp tag like Brightcove, see [this pull request](https://github.com/ampproject/amphtml/pull/1052).
 
@@ -92,8 +94,8 @@ _Examples : Tremor, Brightroll_
 
 If you are a video ad network, please work with your publisher to ensure that:
 
-- All video assets are served over HTTPS
-- The publisher’s video player has AMP support
+-   All video assets are served over HTTPS
+-   The publisher’s video player has AMP support
 
 ## Data Management Platform (DMP) <a name="data-management-platform-dmp"></a>
 

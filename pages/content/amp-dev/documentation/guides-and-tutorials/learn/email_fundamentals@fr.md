@@ -14,7 +14,7 @@ Bonne nouvelle pour les habitués d'AMP! AMP pour e-mail n'est qu'un sous-ensemb
 Les e-mails AMP ressemblent aux e-mails HTML classiques, mais contiennent quelques différences. Vous trouverez ci-dessous le nombre minimum de balises requis pour transformer un e-mail en e-mail AMP valide.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

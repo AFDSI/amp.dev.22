@@ -67,17 +67,20 @@ La cosa buona è che `link rel=preload` supporta anche le media query. Quindi po
 
 [sourcecode:html]
 
+
 <link rel="preload" as="image" href="/images/elephants_narrow.png" media="(max-width: 415px)"> <link rel="preload" as="image" href="/images/elephants_wide.jpg" media="(min-width: 416px)"> [/sourcecode]
 
 Lo stesso approccio funziona anche per le immagini dei poster in [`amp-video`](../../../documentation/components/reference/amp-video.md):
 
 [sourcecode:html]
 
+
 <link rel="preload" href="/images/poster.jpg" as="image"> ...  {amp-video1}      ... {/amp-video1} [/sourcecode]
 
-Occorre essere sicuri di inserire le istruzioni di precaricamento _dopo_ la dichiarazione della finestra di visualizzazione perché il browser necessita delle dimensioni della finestra per determinare la larghezza dello schermo:
+Occorre essere sicuri di inserire le istruzioni di precaricamento *dopo* la dichiarazione della finestra di visualizzazione perché il browser necessita delle dimensioni della finestra per determinare la larghezza dello schermo:
 
 [sourcecode:html]
+
 
 <meta name="viewport" content="width=device-width">(max-width: 415px)" ...=""> [/sourcecode]
 
@@ -92,7 +95,7 @@ Esistono due diverse architetture di rete che funzioneranno per navigazioni rapi
 - Per applicazioni a pagina singola: il modello App Shell (che nel contesto AMP è detto [AMP-in-PWA](../../../documentation/guides-and-tutorials/integrate/amp-in-pwa.md)). Questo modello richiede che un processo di lavoro dei servizi trasformi un documento AMP in una PWA basata su app shell.
 - Per applicazioni multi-pagina: [streaming di risorse composte](https://developers.google.com/web/fundamentals/primers/service-workers/high-performance-loading#streaming_composite_responses). Un processo di lavoro dei servizi memorizza nella cache l'intestazione e il piè di pagina statici e utilizza lo streaming per restituire immediatamente una risposta parziale memorizzata nella cache durante il caricamento del contenuto.
 
-Se nessuno di questi modelli viene utilizzato e non è possibile memorizzare nella cache l'intero sito (il che può avvenire solo per siti molto piccoli), il processo di lavoro dei servizi potrebbe avere un [impatto negativo sulle prestazioni](https://developers.google.com/web/updates/2017/02/navigation-preload). La cosa migliore in questo caso è **non** utilizzarne.
+Se nessuno di questi modelli viene utilizzato e non è possibile memorizzare nella cache l'intero sito (il che può avvenire solo per siti molto piccoli), il processo di lavoro dei servizi potrebbe avere un [impatto negativo sulle prestazioni](https://developers.google.com/web/updates/2017/02/navigation-preload). La cosa migliore in questo caso è  **non** utilizzarne.
 
 Tuttavia, se occorre che il sito web sia [installabile dalla schermata iniziale](https://developers.google.com/web/fundamentals/app-install-banners/) o per offrire un'esperienza offline, l'uso di un processo di lavoro dei servizi sarà necessario. In questo caso, è importante utilizzare il [precaricamento di navigazione](https://www.google.com/url?q=https://developers.google.com/web/updates/2017/02/navigation-preload%23the-problem&sa=D&ust=1529662115405000&usg=AFQjCNHHInHtSdsMeZdYG92rXMaZkkAtZw) per ridurre il potenziale rallentamento (Nota: attualmente, il precaricamento di navigazione è supportato solo in Chrome).
 
@@ -123,6 +126,7 @@ In AMP ci sono alcuni modi per ottimizzare il caricamento dei caratteri (la [mag
 - Se possibile, utilizzare la direttiva [}font-display: optional](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display): essa userà i caratteri solo se sono già nella cache e tornerà ai caratteri di sistema se quelli personalizzati non sono stati ancora caricati.
 - Ottimizzare i caratteri web (ad esempio, fornire caratteri personalizzati usando WOFF2).
 - Pre-caricare i caratteri personalizzati: [sourcecode:html]
+
 
 <link rel="preload" as="font" href="/bundles/app/fonts/helveticaneue-roman-webfont.woff2">[/sourcecode] -Se si usano caratteri Google o di qualsiasi altro fornitore con URL di caratteri sconosciuto, occorre precollegare il rispettivo server: [sourcecode:html]  <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin> [/sourcecode]
 

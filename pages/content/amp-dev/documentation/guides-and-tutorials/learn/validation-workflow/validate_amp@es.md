@@ -4,7 +4,7 @@ $title: Validar páginas AMP
 
 [video src='https://www.youtube.com/watch?v=npum8JsITQE' caption='Mira nuestro vídeo sobre las diversas opciones de validación.']
 
-La ventaja principal de AMP no es solo que aumenta la velocidad de tus páginas, sino que las hace rápidas de una forma que se puede _validar_. De este modo, las plataformas de terceros, como Twitter, Instagram o la Búsqueda de Google, pueden mostrar más predisposición a la hora de ofrecer páginas AMP a los lectores de formas cada vez más interesantes.
+La ventaja principal de AMP no es solo que aumenta la velocidad de tus páginas, sino que las hace rápidas de una forma que se puede *validar*. De este modo, las plataformas de terceros, como Twitter, Instagram o la Búsqueda de Google, pueden mostrar más predisposición a la hora de ofrecer páginas AMP a los lectores de formas cada vez más interesantes.
 
 ## ¿Cómo compruebo si mi página AMP es válida?
 
@@ -18,9 +18,9 @@ Además de la validación de AMP, también es posible que quieras confirmar que 
 
 El validador de AMP viene con la biblioteca AMP JS, por lo que está disponible en todas las páginas AMP desde el primer momento. Para llevar a cabo la validación, sigue estos pasos:
 
-1. Abre la página AMP en el navegador.
-2. Añade "`#development=1`" a la URL, por ejemplo, `http://localhost:8000/released.amp.html#development=1`.
-3. Abre la [consola DevTools de Chrome](https://developers.google.com/web/tools/chrome-devtools/debug/console/) y comprueba si hay errores de validación.
+  1. Abre la página AMP en el navegador.
+  2. Añade "`#development=1`" a la URL, por ejemplo, `http://localhost:8000/released.amp.html#development=1`.
+  3. Abre la [consola DevTools de Chrome](https://developers.google.com/web/tools/chrome-devtools/debug/console/) y comprueba si hay errores de validación.
 
 Los errores se mostrarán en Developers Console de una forma similar a esta:
 
@@ -91,11 +91,11 @@ Extensión del validador de AMP para
 
 ### Paquetes de NPM para CI
 
-Como parte de tus flujos de procesamiento de compilación y prueba, puedes integrar la validación de AMP mediante los paquetes de NPM del validador de AMP: [amphtml-validator](https://www.npmjs.com/package/amphtml-validator) o [gulp-amphtml-validator](https://www.npmjs.com/package/gulp-amphtml-validator) (un complemento de gulp). Por ejemplo, puedes usar el paquete de NPM del validador de AMP para realizar pruebas de integración o en una tarea programada con el objetivo de verificar la producción de páginas AMP.
+Como parte de tus flujos de procesamiento de compilación y prueba, puedes integrar la validación de AMP mediante los paquetes de NPM del validador de AMP: [amphtml-validator](https://www.npmjs.com/package/amphtml-validator) o [gulp-amphtml-validator](https://www.npmjs.com/package/gulp-amphtml-validator) (un complemento de gulp).  Por ejemplo, puedes usar el paquete de NPM del validador de AMP para realizar pruebas de integración o en una tarea programada con el objetivo de verificar la producción de páginas AMP.
 
 ##### Ejemplo: Validar un archivo AMP HTML
 
-En este ejemplo, validamos un archivo AMP HTML mediante el paquete de NPM [amphtml-validator](https://www.npmjs.com/package/amphtml-validator). El estado de validación se canaliza a la consola.
+En este ejemplo, validamos un archivo AMP HTML mediante el paquete de NPM [amphtml-validator](https://www.npmjs.com/package/amphtml-validator).  El estado de validación se canaliza a la consola.
 
 ```javascript
 'use strict';
@@ -105,40 +105,39 @@ var fs = require('fs');
 amphtmlValidator.getInstance().then(function (validator) {
   var input = fs.readFileSync('index.html', 'utf8');
   var result = validator.validateString(input);
-  (result.status === 'PASS' ? console.log : console.error)(result.status);
+  ((result.status === 'PASS') ? console.log : console.error)(result.status);
   for (var ii = 0; ii < result.errors.length; ii++) {
     var error = result.errors[ii];
-    var msg =
-      'line ' + error.line + ', col ' + error.col + ': ' + error.message;
+    var msg = 'line ' + error.line + ', col ' + error.col + ': ' + error.message;
     if (error.specUrl !== null) {
       msg += ' (see ' + error.specUrl + ')';
     }
-    (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+    ((error.severity === 'ERROR') ? console.error : console.warn)(msg);
   }
 });
 ```
 
 ##### Ejemplo: Usar una tarea de gulp para validar AMP HTML
 
-En este ejemplo, tenemos una tarea de gulp que valida todos los archivos AMP HTML. Si se produce un error de validación de AMP, la tarea se cierra con un código de error (1).
+En este ejemplo, tenemos una tarea de gulp que valida todos los archivos AMP HTML.  Si se produce un error de validación de AMP, la tarea se cierra con un código de error (1).
 
 ```javascript
 const gulp = require('gulp');
 const gulpAmpValidator = require('gulp-amphtml-validator');
 
 const paths = {
-  src: 'src/*.html',
+  src: 'src/*.html'
 };
 
 gulp.task('amphtml:validate', () => {
-  return gulp
-    .src(paths.src)
+  return gulp.src(paths.src)
     .pipe(gulpAmpValidator.validate())
     .pipe(gulpAmpValidator.format())
     .pipe(gulpAmpValidator.failAfterError());
 });
 
-gulp.task('default', ['amphtml:validate'], function () {});
+gulp.task('default', ['amphtml:validate'], function () {
+});
 ```
 
 ### Herramienta de línea de comandos
@@ -148,7 +147,7 @@ Puedes validar archivos AMP HTML con la [herramienta de línea de comandos del v
 Cómo empezar:
 
 1.  Asegúrate de tener [Node.js con su administrador de paquetes
-    'npm'](https://docs.npmjs.com/getting-started/installing-node) en el sistema.
+'npm'](https://docs.npmjs.com/getting-started/installing-node) en el sistema.
 2.  Instala la [herramienta de línea de comandos del validador de AMP HTML](https://www.npmjs.com/package/amphtml-validator) ejecutando el comando siguiente: `npm install -g amphtml-validator`.
 
 A continuación, vamos a validar una página AMP HTML real:
@@ -189,12 +188,12 @@ validador de JavaScript (de forma predeterminada, se ejecuta la última secuenci
 [sourcecode:console]
 $ amphtml-validator --help
 
-Usage: index [options] <fileOrUrlOrMinus...>
+  Usage: index [options] <fileOrUrlOrMinus...>
 
-Validates the files or urls provided as arguments. If "-" is
-specified, reads from stdin instead.
+  Validates the files or urls provided as arguments. If "-" is
+  specified, reads from stdin instead.
 
-Options:
+  Options:
 
     -h, --help                  output usage information
     -V, --version               output the version number
@@ -209,7 +208,6 @@ Options:
               supporting color).
       "json"  emits json corresponding to the ValidationResult
               message in validator.proto.
-
 [/sourcecode]
 
 ## ¿Qué ocurre si mi página no es válida?
@@ -228,37 +226,37 @@ La mayoría de los errores de validación son fáciles de abordar y solucionar. 
 
 Esta etiqueta genera el error de validación de AMP que se muestra en estas diferentes herramientas:
 
-- Developers Console para el navegador
-  <amp-img src="/static/img/docs/validator_console_imgerror.png"
-           width="696" height="30" layout="responsive"
-           alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
-           &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
-  </amp-img>
+* Developers Console para el navegador
+<amp-img src="/static/img/docs/validator_console_imgerror.png"
+         width="696" height="30" layout="responsive"
+         alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
+         &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
+</amp-img>
 
-- Interfaz web
-  <amp-img src="/static/img/docs/validator_webui_imgerror.png"
-           width="676" height="58" layout="responsive"
-           alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
-           &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
-  </amp-img>
+* Interfaz web
+<amp-img src="/static/img/docs/validator_webui_imgerror.png"
+         width="676" height="58" layout="responsive"
+         alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
+         &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
+</amp-img>
 
-- Extensión del navegador
-  <amp-img src="/static/img/docs/validator_extension_imgerror.png"
-           width="724" height="108" layout="responsive"
-           alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
-           &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
-  </amp-img>
+* Extensión del navegador
+<amp-img src="/static/img/docs/validator_extension_imgerror.png"
+         width="724" height="108" layout="responsive"
+         alt="Error de AMP: La etiqueta &quot;img&quot; solo puede depender de la etiqueta
+         &quot;noscript&quot;. ¿Querías decir &quot;amp-img&quot;? línea 11, columna 2">
+</amp-img>
 
 Cada herramienta ofrece varios fragmentos de información:
 
-1. Ubicación (línea y columna) en el documento HTML en el que ha ocurrido
-   el error; es posible hacer clic en algunas interfaces para resaltar esa ubicación. En este
-   caso, el problema se produce en la línea 11, columna 2.
-2. Línea de texto en la que se describe el error. En este caso, en el texto se indica que
-   usamos una etiqueta `<img>`, cuando deberíamos haber utilizado una etiqueta [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
-3. Enlace a un documento relevante relativo al error. En este caso, la
-   documentación para la etiqueta [`<amp-img>`](../../../../documentation/components/reference/amp-img.md). No todos los errores generan
-   enlaces de documentación.
+  1. Ubicación (línea y columna) en el documento HTML en el que ha ocurrido
+     el error; es posible hacer clic en algunas interfaces para resaltar esa ubicación. En este
+     caso, el problema se produce en la línea 11, columna 2.
+  2. Línea de texto en la que se describe el error. En este caso, en el texto se indica que
+     usamos una etiqueta `<img>`, cuando deberíamos haber utilizado una etiqueta [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
+  3. Enlace a un documento relevante relativo al error. En este caso, la
+     documentación para la etiqueta [`<amp-img>`](../../../../documentation/components/reference/amp-img.md). No todos los errores generan
+     enlaces de documentación.
 
 Al leer de nuevo la [especificación](../../../../documentation/guides-and-tutorials/learn/spec/amphtml.md) atentamente, nos damos cuenta de que utilizamos una etiqueta `<img>`, cuando deberíamos haber utilizado una etiqueta [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
 

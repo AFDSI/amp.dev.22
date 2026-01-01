@@ -11,14 +11,12 @@ $title: Как сообщать о наличии AMP-версии страни�
 На обычную страницу следует добавить следующий код:
 
 [sourcecode:html]
-
 <link rel="amphtml" href="https://www.example.com/url/to/amp/document.html">
 [/sourcecode]
 
 На AMP-странице нужно разместить такой код:
 
 [sourcecode:html]
-
 <link rel="canonical" href="https://www.example.com/url/to/full/document.html">
 [/sourcecode]
 
@@ -27,7 +25,6 @@ $title: Как сообщать о наличии AMP-версии страни�
 Добавьте на нее каноническую ссылку, которая будет вести на эту же страницу:
 
 [sourcecode:html]
-
 <link rel="canonical" href="https://www.example.com/url/to/amp/document.html">
 [/sourcecode]
 
@@ -44,7 +41,6 @@ $title: Как сообщать о наличии AMP-версии страни�
 Пример:
 
 [sourcecode:html]
-
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -76,7 +72,6 @@ $title: Как сообщать о наличии AMP-версии страни�
     }
   }
 </script>
-
 [/sourcecode]
 
 Ознакомьтесь с [примерами метаданных, а также альтернативным синтаксисом атрибутов HTML](https://github.com/ampproject/amphtml/tree/main/examples/metadata-examples).

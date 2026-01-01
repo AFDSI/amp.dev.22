@@ -21,7 +21,7 @@ AMP for Email には既存のメールとの互換性があります。AMP バ�
 AMP Playground では、AMP for Email 形式がサポートされているため、AMP メールの開発、テスト、および検証を実施することができます。[AMP Playground](https://playground.amp.dev/?runtime=amp4email) を開き、左上で形式が `AMP for Email` に設定されていることを確認してください。以下のコードが表示されます。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

@@ -4,7 +4,7 @@ $title: Atributos comuns
 
 [TOC]
 
-A tecnologia AMP oferece um conjunto de atributos comuns estendidos a diversos componentes AMP (e elementos HTML). Este documento descreve cada um dos atributos comuns.
+A tecnologia AMP oferece um conjunto de atributos comuns estendidos a diversos componentes AMP (e elementos HTML).  Este documento descreve cada um dos atributos comuns.
 
 ## substituto
 
@@ -16,7 +16,6 @@ Por exemplo:
 
 [sourcecode:html]
 <amp-anim src="animated.gif" width="466" height="355" layout="responsive" >
-
   <div fallback>Não é possível reproduzir imagens animadas neste dispositivo.</div>
 </amp-anim>
 [/sourcecode]
@@ -26,6 +25,7 @@ Para saber mais, consulte [Marcadores e substitutos](../../../documentation/guid
 ## alturas
 
 Todos os elementos AMP compatíveis com o layout `responsive` também oferecem compatibilidade com o atributo `heights`. O valor desse atributo é uma expressão de tamanhos baseada em expressões de mídia, semelhantes ao [atributo "sizes" em tags `img`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/img), mas com duas diferenças fundamentais:
+
 
 1. O valor se aplica à altura, e não à largura do elemento.
 2. São permitidos valores percentuais. Esses valores indicam a porcentagem da altura em relação à largura do elemento. Por exemplo, um valor de `80%` indica que a altura do elemento será 80% da largura dele.
@@ -115,7 +115,7 @@ Por exemplo:
 [sourcecode:html]
 <button on="tap:my-lightbox">Abrir lightbox</button>
 <amp-lightbox id="my-lightbox" layout="nodisplay">
-…
+  …
 </amp-lightbox>
 [/sourcecode]
 
@@ -131,7 +131,7 @@ Por exemplo:
 
 [sourcecode:html]
 <amp-anim src="animated.gif" width="466" height="355" layout="responsive">
-<amp-img placeholder src="preview.png" layout="fill"></amp-img>
+  <amp-img placeholder src="preview.png" layout="fill"></amp-img>
 </amp-anim>
 [/sourcecode]
 

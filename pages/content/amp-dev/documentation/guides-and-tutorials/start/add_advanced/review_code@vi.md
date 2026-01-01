@@ -7,7 +7,7 @@ description: 'Trước khi chúng ta bắt đầu thêm mã, hãy cùng xem lạ
 Trước khi chúng ta bắt đầu thêm mã, hãy cùng xem lại trang mẫu [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html), có nội dung như sau:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

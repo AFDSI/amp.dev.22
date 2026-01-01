@@ -105,6 +105,9 @@ Niektóre dokumenty mogą dotyczyć wielu formatów AMP, natomiast niektóre for
 
 [filter formats="stories"] Widoczna tylko w przypadku [relacji](?format=stories). [/filter]
 
+
+
+
 ## Porady
 
 Możesz dodawać porady i objaśnienia, opakowując tekst w następujący szortkod:
@@ -119,6 +122,9 @@ Możesz dodawać porady i objaśnienia, opakowując tekst w następujący szortk
 
 [tip type="read-on"] Czytaj dalej [/tip]
 
+
+
+
 ## Fragmenty kodu
 
 Umieść fragmenty kodu wewnątrz zestawów złożonych z trzech odwróconych apostrofów, określ język na końcu pierwszego zestawu odwróconych apostrofów.
@@ -132,8 +138,12 @@ Umieść fragmenty kodu wewnątrz zestawów złożonych z trzech odwróconych ap
 ```
 
 ```js
-// code sample
+  // code sample
 ```
+
+
+
+
 
 Jeśli Twój kod zawiera podwójne nawiasy klamrowe, co jest częste, gdy używasz szablonów [`amp-mustache`](../../../../documentation/components/reference/amp-mustache.md?format=websites), musisz opakować część z kodem:
 
@@ -230,11 +240,7 @@ Wygląda to tak:
 
 ```html
 <head>
-  <script
-    async
-    custom-element="amp-youtube"
-    src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
-  ></script>
+  <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
   <style amp-custom>
     body {
       background: red;
@@ -243,12 +249,10 @@ Wygląda to tak:
 </head>
 <body>
   <h1>Hello AMP</h1>
-  <amp-youtube
-    width="480"
+  <amp-youtube width="480"
     height="270"
     layout="responsive"
-    data-videoid="lBTCB7yLs8Y"
-  >
+    data-videoid="lBTCB7yLs8Y">
   </amp-youtube>
 </body>
 ```
@@ -302,37 +306,34 @@ Wygląda to tak:
 [example preview="top-frame" orientation="portrait" playground="true"]
 
 ```html
-<head>
-  <script
-    async
-    custom-element="amp-story"
-    src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-  ></script>
-  <style amp-custom>
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-    amp-story-page {
-      background: white;
-    }
-  </style>
-</head>
-<body>
-  <amp-story standalone>
-    <amp-story-page id="cover">
-      <amp-story-grid-layer template="vertical">
-        <h1>Hello World</h1>
-        <p>This is the cover page of this story.</p>
-      </amp-story-grid-layer>
-    </amp-story-page>
-    <amp-story-page id="page-1">
-      <amp-story-grid-layer template="vertical">
-        <h1>First Page</h1>
-        <p>This is the first page of this story.</p>
-      </amp-story-grid-layer>
-    </amp-story-page>
-  </amp-story>
-</body>
+  <head>
+    <script async custom-element="amp-story"
+        src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <style amp-custom>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      amp-story-page {
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <amp-story standalone>
+      <amp-story-page id="cover">
+        <amp-story-grid-layer template="vertical">
+          <h1>Hello World</h1>
+          <p>This is the cover page of this story.</p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page-1">
+        <amp-story-grid-layer template="vertical">
+          <h1>First Page</h1>
+          <p>This is the first page of this story.</p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+    </amp-story>
+  </body>
 ```
 
 [/example]
@@ -351,13 +352,11 @@ Wygląda to tak:
 
 ```html
 <div class="resp-img">
-  <amp-img
-    alt="flowers"
+  <amp-img alt="flowers"
     src="{{server_for_email}}/static/inline-examples/images/flowers.jpg"
     layout="responsive"
     width="640"
-    height="427"
-  ></amp-img>
+    height="427"></amp-img>
 </div>
 ```
 
@@ -376,14 +375,9 @@ Wygląda to tak:
 [example preview="top-frame" playground="true" imports="amp-list:0.1" template="amp-mustache:0.2"]
 
 ```html
-<amp-list
-  width="auto"
-  height="100"
-  layout="fixed-height"
-  src="{{server_for_email}}/static/inline-examples/data/amp-list-urls.json"
->
-  <template type="amp-mustache"
-    >{% raw %}
+<amp-list width="auto" height="100" layout="fixed-height"
+  src="{{server_for_email}}/static/inline-examples/data/amp-list-urls.json">
+  <template type="amp-mustache">{% raw %}
     <div class="url-entry">
       <a href="{{url}}">{{title}}</a>
     </div>
@@ -399,7 +393,7 @@ Wygląda to tak:
 Możesz wstawiać linki do innych stron za pomocą standardowej składni linków języka Markdown:
 
 ```md
-[link](../../../courses/beginning-course/index.md)
+ [link](../../../courses/beginning-course/index.md)
 ```
 
 W przypadku umieszczenia linku do innej strony na amp.dev odnośnikiem będzie ścieżka względna do pliku docelowego.
@@ -429,7 +423,7 @@ W razie tworzenia kotwicy, która zostanie użyta w linku z innej strony należy
 Dokumentacja składników, przewodniki i tutoriale oraz przykłady można filtrować przy użyciu formatu AMP, takiego jak witryny internetowe AMP lub relacje AMP. Podczas wstawiania linku do takiej strony należy jawnie określić format, który jest obsługiwany przez cel, dołączając do linku parametr formatu:
 
 ```md
-[link](../../learn/amp-actions-and-events.md?format=websites)
+ [link](../../learn/amp-actions-and-events.md?format=websites)
 ```
 
 Parametr można pominąć tylko mając pewność, że cel obsługuje **&nbsp;wszystkie** formaty, które obsługuje Twoja strona.
@@ -439,8 +433,8 @@ Parametr można pominąć tylko mając pewność, że cel obsługuje **&nbsp;wsz
 Jeśli w linku pominiesz część dotyczącą wersji, link do dokumentacji referencyjnej składnika będzie automatycznie wskazywać na najnowszą wersję. Aby jawnie wskazać wersję, podaj jej pełną nazwę:
 
 ```md
-[latest version](../../../components/reference/amp-carousel.md?format=websites)
-[explicit version](../../../components/reference/amp-carousel-v0.2.md?format=websites)
+ [latest version](../../../components/reference/amp-carousel.md?format=websites)
+ [explicit version](../../../components/reference/amp-carousel-v0.2.md?format=websites)
 ```
 
 ## Struktura dokumentów

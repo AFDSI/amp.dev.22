@@ -26,7 +26,7 @@ Eine Web Story ist technisch gesehen eine einzelne Webseite, die mit AMP erstell
 Der Unterschied zwischen einer AMP Webseite und einer mit AMP erstellten Web Story liegt in der Komponente [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). Das ist das einzige direkt untergeordnete Element des Elements `<body>` des Dokuments und muss das Attribut `standalone` enthalten. Alle Seiten, Ebenen und Elemente der Web Story werden innerhalb der Tags `<amp-story>` definiert.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

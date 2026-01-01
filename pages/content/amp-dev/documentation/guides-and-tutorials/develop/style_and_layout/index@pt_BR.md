@@ -15,7 +15,6 @@ Dica: É muito fácil tornar os elementos responsivos nas AMP. Simplesmente colo
 Adicione todos os CSS dentro de uma tag `<style amp-custom>` no cabeçalho do documento. Por exemplo:
 
 [sourcecode:html]
-
 <!doctype html>
 <head>
   ...
@@ -32,7 +31,6 @@ Adicione todos os CSS dentro de uma tag `<style amp-custom>` no cabeçalho do do
     amp-img.grey-placeholder {
       background-color: grey;
     }
-
   </style>
   ...
 </head>
@@ -43,7 +41,6 @@ Importante: Sua página pode ter somente uma tag `<style amp-custom>`, pois não
 Defina os estilos de componentes com seletores de classe ou elemento usando propriedades CSS comuns. Por exemplo:
 
 [sourcecode:html]
-
 <body>
   <p>Hello, Kitty.</p>
   <amp-img

@@ -7,7 +7,7 @@ description: 'Sebelum mulai menambahkan kode, mari kita tinjau contoh halaman '
 Sebelum mulai menambahkan kode, mari kita tinjau contoh halaman [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html), yang terlihat seperti berikut ini:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

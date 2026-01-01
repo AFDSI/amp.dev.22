@@ -9,7 +9,7 @@ description: 使用您常用的文本编辑器，创建一个名为 my-amphtml-a
 使用您常用的文本编辑器，创建一个名为 **`my-amphtml-ad.html`** 的 HTML 文件。将以下 HTML 标记复制到该文件中：
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ description: 使用您常用的文本编辑器，创建一个名为 my-amphtml-a
 在 `<html>` 标记中添加 `⚡4ads` 属性，该属性可将文档标识为 AMPHTML 广告。或者，您也可以指定 `amp4ads` 属性，同样有效。
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ AMPHTML 广告素材需要采用与 AMP 网页不同且更简单的[样板](../.
 以下为 HTML 文件的完整代码：
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

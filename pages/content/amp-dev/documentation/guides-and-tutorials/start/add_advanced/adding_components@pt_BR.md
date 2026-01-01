@@ -4,13 +4,13 @@ $title: Adicionar componentes estendidos de AMP
 
 Com o sistema de componentes AMP, é fácil e rápido criar recursos eficientes e responsivos nos seus artigos. A biblioteca de HTML para AMP tem três classificações de componentes AMP:
 
-- **Incorporados**: são os componentes incluídos na biblioteca JavaScript para AMP de base (especificados na tag `<head>`), como [`amp-img`](../../../../documentation/components/reference/amp-img.md) e [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md). Esses componentes podem ser usados imediatamente em documentos AMP.
+- **Incorporados**: são os componentes incluídos na biblioteca JavaScript para AMP de base (especificados na tag `<head>`), como [`amp-img`](../../../../documentation/components/reference/amp-img.md) e [`amp-pixel`](../../../../documentation/components/reference/amp-pixel.md).  Esses componentes podem ser usados imediatamente em documentos AMP.
 
-- **Estendidos**: são as extensões da biblioteca de base que precisam ser incluídas explicitamente no documento como elementos personalizados. Os elementos personalizados exigem a inclusão de scripts específicos na seção `<head>`, por exemplo, `<script async custom-element="amp-video" ...`).
+- **Estendidos**: são as extensões da biblioteca de base que precisam ser incluídas explicitamente no documento como elementos personalizados.  Os elementos personalizados exigem a inclusão de scripts específicos na seção `<head>`, por exemplo, `<script async custom-element="amp-video" ...`).
 
-- **Experimentais**: são componentes que foram lançados, mas não estão prontos para uso geral. Os desenvolvedores podem optar por usar esses recursos antes que eles estejam totalmente disponíveis para o público. Saiba mais em [Recursos experimentais](../../../../documentation/guides-and-tutorials/learn/experimental.md).
+- **Experimentais**: são componentes que foram lançados, mas não estão prontos para uso geral. Os desenvolvedores podem optar por usar esses recursos antes que eles estejam totalmente disponíveis para o público.  Saiba mais em [Recursos experimentais](../../../../documentation/guides-and-tutorials/learn/experimental.md).
 
-Nosso exemplo já usa um componente incorporado, [`amp-img`](../../../../documentation/components/reference/amp-img.md). Agora, adicione alguns componentes AMP **estendidos** de uso comum ao artigo de notícias.
+Nosso exemplo já usa um componente incorporado, [`amp-img`](../../../../documentation/components/reference/amp-img.md).  Agora, adicione alguns componentes AMP **estendidos** de uso comum ao artigo de notícias.
 
 ## Gerar receita com anúncios
 
@@ -23,8 +23,7 @@ Veja este exemplo de um anúncio da **DoubleClick**:
   width="300"
   height="250"
   type="doubleclick"
-  data-slot="/35096353/amptesting/image/static"
->
+  data-slot="/35096353/amptesting/image/static">
 </amp-ad>
 ```
 
@@ -39,8 +38,7 @@ O atributo `data-slot` é mais exclusivo. No [`amp-ad`](../../../../documentatio
   type="a9"
   data-aax_size="300x250"
   data-aax_pubname="test123"
-  data-aax_src="302"
->
+  data-aax_src="302">
 </amp-ad>
 ```
 
@@ -50,15 +48,14 @@ Tente **adicionar** ambos os exemplos acima ao artigo logo após a tag `<header>
 
 Importante: Pode haver alguns erros no console de desenvolvimento, como `Mixed Content` ou `XMLHttpRequest cannot load`. É provável que esse último erro seja relacionado à publicidade da A9, porque nem todo conteúdo carregado por ela é seguro. Esse é um requisito importante para todos os anúncios veiculados nas AMP.
 
-Os dois [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) a seguir são um exemplo da compatibilidade flexível do componente [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) com recursos de plataformas de anúncios. Nesse caso, dois anúncios de teste da DoubleClick foram configurados (usando o painel da DoubleClick) para serem exibidos somente em alguns países. O primeiro será exibido só no Reino Unido, e o segundo, só nos EUA. Tente **adicionar** essas duas configurações de segmentação geográfica ao documento AMP abaixo dos anúncios adicionados anteriormente:
+Os dois [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) a seguir são um exemplo da compatibilidade flexível do componente [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) com recursos de plataformas de anúncios.  Nesse caso, dois anúncios de teste da DoubleClick foram configurados (usando o painel da DoubleClick) para serem exibidos somente em alguns países. O primeiro será exibido só no Reino Unido, e o segundo, só nos EUA.  Tente **adicionar** essas duas configurações de segmentação geográfica ao documento AMP abaixo dos anúncios adicionados anteriormente:
 
 ```html
 <amp-ad
   width="300"
   height="250"
   type="doubleclick"
-  data-slot="/35096353/amptesting/geo/uk"
->
+  data-slot="/35096353/amptesting/geo/uk">
   <div fallback>No ad appeared because you're not browsing from the UK!</div>
 </amp-ad>
 
@@ -66,8 +63,7 @@ Os dois [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) a s
   width="300"
   height="250"
   type="doubleclick"
-  data-slot="/35096353/amptesting/geo/us"
->
+  data-slot="/35096353/amptesting/geo/us">
   <div fallback>No ad appeared because you're not browsing from the US!</div>
 </amp-ad>
 ```
@@ -91,7 +87,6 @@ Para criar um documento AMP completo, inclua recursos da Web mais avançados que
 - citações de artigos
 
 ## Incorporar um vídeo do YouTube
-
 Tente incorporar um vídeo do YouTube ao documento. **Adicione** o código a seguir logo após `<header>` no documento AMP, acima dos [`amp-ad`](../../../../documentation/components/reference/amp-ad.md) que você acabou de adicionar:
 
 ```html
@@ -99,15 +94,14 @@ Tente incorporar um vídeo do YouTube ao documento. **Adicione** o código a seg
   data-videoid="npum8JsITQE"
   layout="responsive"
   width="480"
-  height="270"
->
+  height="270">
   <div fallback>
     <p>The video could not be loaded.</p>
   </div>
 </amp-youtube>
 ```
 
-**Atualize** a página. Em vez do vídeo, você verá este texto: _"Não foi possível carregar o vídeo"._
+**Atualize** a página. Em vez do vídeo, você verá este texto: *"Não foi possível carregar o vídeo".*
 
 Mesmo que seu navegador possa mostrar vídeos do YouTube sem problemas, esse erro ainda será exibido. Por quê? Na verdade, não foi o carregamento do vídeo que falhou, mas o próprio componente.
 
@@ -118,11 +112,7 @@ Observação: Se o console de desenvolvimento ainda estiver aberto e o URL tiver
 **Adicione** o script a seguir à tag `<head>`:
 
 ```html
-<script
-  async
-  custom-element="amp-youtube"
-  src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
-></script>
+<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
 ```
 
 **Atualize** a página e veja o vídeo do YouTube:
@@ -136,17 +126,12 @@ Para saber mais sobre a incorporação de vídeos do YouTube, leia a documentaç
 Dica: Use o atributo [`fallback`](../../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md#fallbacks) para informar os usuários caso haja uma falha no carregamento do componente ou ele não seja compatível com o navegador.
 
 ## Mostrar um tweet
-
 Incorporar tweets pré-formatados do Twitter é um recurso comum em artigos de notícias. O componente [`amp-twitter`](../../../../documentation/components/reference/amp-twitter.md) é uma maneira fácil de incluir esse conteúdo.
 
 Para começar, adicione a solicitação JavaScript a seguir à tag `<head>` do documento:
 
 ```html
-<script
-  async
-  custom-element="amp-twitter"
-  src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"
-></script>
+<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
 ```
 
 Depois, **adicione** este código ao artigo para incorporar o tweet:
@@ -156,8 +141,7 @@ Depois, **adicione** este código ao artigo para incorporar o tweet:
   width="486"
   height="657"
   layout="responsive"
-  data-tweetid="638793490521001985"
->
+  data-tweetid="638793490521001985">
 </amp-twitter>
 ```
 
@@ -182,11 +166,7 @@ As AMP fornecem outro componente especificamente projetado para esse tipo de sit
 Vamos testar. Primeiro, **adicione** a biblioteca do componente à tag `<head>`:
 
 ```html
-<script
-  async
-  custom-element="amp-fit-text"
-  src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"
-></script>
+<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
 ```
 
 Adicione o seguinte à sua página:
@@ -211,11 +191,7 @@ E se a citação for mais longa?
 
 ```html
 <amp-fit-text width="400" height="75" layout="responsive" max-font-size="42">
-  And the Raven, never flitting, still is sitting, still is sitting. On the
-  pallid bust of Pallas just above my chamber door; And his eyes have all the
-  seeming of a demon’s that is dreaming, And the lamp-light o’er him streaming
-  throws his shadow on the floor; And my soul from out that shadow that lies
-  floating on the floor. Shall be lifted—nevermore!
+   And the Raven, never flitting, still is sitting, still is sitting. On the pallid bust of Pallas just above my chamber door; And his eyes have all the seeming of a demon’s that is dreaming, And the lamp-light o’er him streaming throws his shadow on the floor; And my soul from out that shadow that lies floating on the floor. Shall be lifted—nevermore!
 </amp-fit-text>
 ```
 

@@ -9,7 +9,7 @@ description: 'Dengan menggunakan editor teks favorit Anda, buat berkas HTML berj
 Dengan menggunakan editor teks favorit Anda, buat berkas HTML berjudul <code>my-amphtml-ad.html</code>. Salin markah HTML berikut ini ke dalam berkas tersebut:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Sekarang, mari kita modifikasi HTML untuk menjadikannya sebuah iklan HTML AMP.
 Di dalam tag `<html>`, tambahkan atribut `⚡4ads`, yang mengidentifikasi dokumen sebagai iklan HTML AMP. Atau, Anda dapat menentukan atribut `amp4ads`, dan ini juga valid.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ Untuk membuat iklan HTML AMP Anda bergaya, CSS Anda harus disematkan inline di d
 Berikut ini adalah kode lengkap untuk berkas HTML Anda:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

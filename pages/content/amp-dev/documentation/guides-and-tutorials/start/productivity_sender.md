@@ -4,9 +4,10 @@ $order: 1
 description: 'Information for senders focused on productivity'
 $category: Start
 formats:
-  - email
+    - email
 author: nainar
 ---
+
 
 # Why you should be sending AMP Emails
 
@@ -14,9 +15,9 @@ AMP Emails are:
 
 - Interactive: Offer new opportunities for readers to engage and take action directly in an email.
 - Versatile: Include multiple categories, links, and CTAs – which can lead to more user engagement.
-- Smarter: Reduce the number of clicks, increase adoptions, and improve down-funnel engagement.
+- Smarter: Reduce the number of clicks, increase adoptions, and improve down-funnel engagement. 
 
-With AMP For Email, you can make your users more productive and happier. You can allow them to do things in your app, without leaving the email.
+With AMP For Email, you can make your users more productive and happier. You can allow them to do things in your app, without leaving the email.  
 
 To learn more about AMP for EMail watch [this talk](https://www.youtube.com/watch?v=rhZIDT3ydKQ):
 
@@ -41,10 +42,8 @@ Follow [this tutorial](https://amp.dev/documentation/guides-and-tutorials/start/
 For a list of email platforms (ESPs), clients and providers that support AMP for Email, refer to [Supported Email Platforms](https://amp.dev/support/faq/email-support/) in the FAQ.
 
 # Report issues
-
-You can reach out to the wider AMP Email developer community on Slack ([signup](https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877)).
-You can file issues on the AMP Email Working Group on [GitHub](https://github.com/ampproject/wg-amp4email/issues/new).
+You can reach out to the wider AMP Email developer community on Slack ([signup](https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877)). 
+You can file issues on the AMP Email Working Group on [GitHub](https://github.com/ampproject/wg-amp4email/issues/new). 
 
 # Register to send AMP Emails
-
 Email clients require sender registration to display AMP emails to users. Follow [this guide](https://amp.dev/documentation/guides-and-tutorials/start/email_sender_distribution/?format=email) to get your sender address listed on supporting clients!

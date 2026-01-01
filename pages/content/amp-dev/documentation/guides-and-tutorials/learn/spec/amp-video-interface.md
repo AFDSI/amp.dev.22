@@ -18,6 +18,8 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
+
+
 Most video player components in AMP implement the [`VideoInterface`](https://github.com/ampproject/amphtml/blob/main/src/video-interface.js) API. This means
 that a set of features is available in all of these components, either completely
 or partially.
@@ -29,8 +31,8 @@ these players implement.
 
 ### Generic <a name="generic"></a>
 
-- [amp-video](https://amp.dev/documentation/components/amp-video)
-- [amp-video-iframe](https://amp.dev/documentation/components/amp-video-iframe)
+-   [amp-video](https://amp.dev/documentation/components/amp-video)
+-   [amp-video-iframe](https://amp.dev/documentation/components/amp-video-iframe)
 
 ### For 3rd party services <a name="for-3rd-party-services"></a>
 
@@ -44,23 +46,24 @@ these players implement.
 
 <!-- markdown-link-check-disable -->
 
-- [amp-3q-player](https://amp.dev/documentation/components/amp-3q-player)
-- [amp-brid-player](https://amp.dev/documentation/components/amp-brid-player)
-- [amp-brightcove](https://amp.dev/documentation/components/amp-brightcove)
-- [amp-dailymotion](https://amp.dev/documentation/components/amp-dailymotion)
-- [amp-delight-player](https://amp.dev/documentation/components/amp-delight-player)
-- [amp-gfycat](https://amp.dev/documentation/components/amp-gfycat)
-- [amp-ima-video](https://amp.dev/documentation/components/amp-ima-video)
-- [amp-jwplayer](https://amp.dev/documentation/components/amp-jwplayer)
-- [amp-minute-media-player](https://amp.dev/documentation/components/amp-minute-media-player)
-- [amp-mowplayer](https://amp.dev/documentation/components/amp-mowplayer)
-- [amp-nexxtv-player](https://amp.dev/documentation/components/amp-nexxtv-player)
-- [amp-ooyala-player](https://amp.dev/documentation/components/amp-ooyala-player)
-- [amp-powr-player](https://amp.dev/documentation/components/amp-powr-player)
-- [amp-vimeo](https://amp.dev/documentation/components/amp-vimeo)
-- [amp-viqeo-player](https://amp.dev/documentation/components/amp-viqeo-player)
-- [amp-wistia-player](https://amp.dev/documentation/components/amp-wistia-player)
-- [amp-youtube](https://amp.dev/documentation/components/amp-youtube)
+-   [amp-3q-player](https://amp.dev/documentation/components/amp-3q-player)
+-   [amp-brid-player](https://amp.dev/documentation/components/amp-brid-player)
+-   [amp-brightcove](https://amp.dev/documentation/components/amp-brightcove)
+-   [amp-dailymotion](https://amp.dev/documentation/components/amp-dailymotion)
+-   [amp-delight-player](https://amp.dev/documentation/components/amp-delight-player)
+-   [amp-gfycat](https://amp.dev/documentation/components/amp-gfycat)
+-   [amp-ima-video](https://amp.dev/documentation/components/amp-ima-video)
+-   [amp-jwplayer](https://amp.dev/documentation/components/amp-jwplayer)
+-   [amp-minute-media-player](https://amp.dev/documentation/components/amp-minute-media-player)
+-   [amp-mowplayer](https://amp.dev/documentation/components/amp-mowplayer)
+-   [amp-nexxtv-player](https://amp.dev/documentation/components/amp-nexxtv-player)
+-   [amp-ooyala-player](https://amp.dev/documentation/components/amp-ooyala-player)
+-   [amp-powr-player](https://amp.dev/documentation/components/amp-powr-player)
+-   [amp-redbull-player](https://amp.dev/documentation/components/amp-redbull-player)
+-   [amp-vimeo](https://amp.dev/documentation/components/amp-vimeo)
+-   [amp-viqeo-player](https://amp.dev/documentation/components/amp-viqeo-player)
+-   [amp-wistia-player](https://amp.dev/documentation/components/amp-wistia-player)
+-   [amp-youtube](https://amp.dev/documentation/components/amp-youtube)
 
 <!-- markdown-link-check-enable -->
 
@@ -78,11 +81,11 @@ attribute: **`autoplay`**
 
 If this attribute is present, and the browser supports autoplay:
 
-- the video is automatically muted before autoplay starts
-- when the video is scrolled out of view, the video is paused
-- when the video is scrolled into view, the video resumes playback
-- when the user taps the video, the video is unmuted
-- if the user has interacted with the video (e.g., mutes/unmutes, pauses/resumes, etc.), and the video is scrolled in or out of view, the state of the video remains as how the user left it. For example, if the user pauses the video, then scrolls the video out of view and returns to the video, the video is still paused.
+-   the video is automatically muted before autoplay starts
+-   when the video is scrolled out of view, the video is paused
+-   when the video is scrolled into view, the video resumes playback
+-   when the user taps the video, the video is unmuted
+-   if the user has interacted with the video (e.g., mutes/unmutes, pauses/resumes, etc.), and the video is scrolled in or out of view, the state of the video remains as how the user left it. For example, if the user pauses the video, then scrolls the video out of view and returns to the video, the video is still paused.
 
 For an example, visit [AMP By Example](https://amp.dev/documentation/examples/components/amp-video/#autoplay).
 
@@ -98,20 +101,18 @@ If this attribute is present and the video is playing manually, the video will
 be "minimized" and fixed to a corner when the user scrolls out of the video
 component's visual area.
 
-- The video can be dragged and repositioned by the user on a different corner.
-- Multiple videos on the same page can be docked.
+-   The video can be dragged and repositioned by the user on a different corner.
+-   Multiple videos on the same page can be docked.
 
 In order to use this attribute, the [`amp-video-docking`](https://amp.dev/documentation/components/amp-video-docking)
 extension script must be present:
 
 [sourcecode:html]
-
 <script
   async
   custom-element="amp-video-docking"
   src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"
 ></script>
-
 [/sourcecode]
 
 For more details, see [documentation on the docking extension itself.](https://amp.dev/documentation/components/amp-video-docking)

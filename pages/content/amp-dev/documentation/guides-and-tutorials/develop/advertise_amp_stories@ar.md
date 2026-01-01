@@ -44,7 +44,6 @@ author: CrystalOnScript
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
-
 <script type="application/json">
 {
 "ad-attributes": {
@@ -71,8 +70,6 @@ author: CrystalOnScript
   - [إعلانات Programmatic](https://support.google.com/admanager/answer/9416436)
 - Google AdSense ستنضم قريبًا
 - يمكن تكامل منصات إعلانات أخرى (توصل معنا [لمزيد من التفاصيل عبر Github](https://github.com/ampproject/amphtml/issues/30769))
-- MGID
-  - [إعلانات Direct sold](https://help.mgid.com/generate-revenue-with-amp-web-stories)
 
 إذا كنت معلنًا مهتمًا بعرض إعلاناتك داخل قصص الويب، فيرجى [التواصل معنا](mailto:story-ads-wg@google.com) لمزيد من المعلومات.
 

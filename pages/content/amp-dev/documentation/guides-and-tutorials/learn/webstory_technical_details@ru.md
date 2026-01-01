@@ -26,7 +26,7 @@ author: CrystalOnScript
 Разница между веб-страницей AMP и веб-историей, созданной с помощью AMP, заключается в наличии компонента [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). Это единственный непосредственный дочерний элемент тега `<body>`, и он должен содержать атрибут `standalone`. Определение всех страниц, слоев и элементов веб-историй размещается внутри тегов `<amp-story>`.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

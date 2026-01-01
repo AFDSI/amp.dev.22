@@ -17,15 +17,11 @@ Genellikle şunlarla kullanılır: resimler, animasyonlar, ses ve videolar
 
 ```html
 <amp-img src="invalid.jpg" height="400" width="300" layout="responsive">
-  <div
-    fallback
-    style="background-color: #ccc; display: flex; justify-content: center; align-items: center;"
-  >
+  <div fallback style="background-color: #ccc; display: flex; justify-content: center; align-items: center;">
     Could not load image
   </div>
 </amp-img>
 ```
-
 Daha fazla bilgi için, [Yer tutucular ve yedekler](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md) bölümüne bakın.
 
 ## heights

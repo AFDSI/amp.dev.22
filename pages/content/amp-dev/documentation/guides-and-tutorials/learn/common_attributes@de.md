@@ -17,15 +17,11 @@ Beispiel:
 
 ```html
 <amp-img src="invalid.jpg" height="400" width="300" layout="responsive">
-  <div
-    fallback
-    style="background-color: #ccc; display: flex; justify-content: center; align-items: center;"
-  >
+  <div fallback style="background-color: #ccc; display: flex; justify-content: center; align-items: center;">
     Could not load image
   </div>
 </amp-img>
 ```
-
 Weitere Informationen dazu findest du unter [Platzhalter und Fallbacks](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md).
 
 ## heights
