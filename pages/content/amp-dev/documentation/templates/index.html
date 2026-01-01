@@ -40,6 +40,7 @@ stage:
       type: mobile
       alt: image
 ---
+
 {% do doc.styles.addCssFile('css/components/templates/template.css') %}
 
 <main class="ap--main ap-t-template">
@@ -47,81 +48,96 @@ stage:
     {% do doc.styles.addCssFile('css/components/organisms/stage.css') %}
 
     <amp-state id="activeFilter">
-        <script type="application/json">
-          {
-            "chosenFilter": "none"
-          }
-        </script>
-      </amp-state>
+      <script type="application/json">
+        {
+          "chosenFilter": "none"
+        }
+      </script>
+    </amp-state>
 
     <div class="ap-o-stage ap-o-stage-websites {{doc.stage.layout}}">
       <div class="ap--container-fluid">
         <div class="ap-o-stage-content">
-            <h2 class="ap-o-stage-content-subline">{{ _('How to build AMP without knowing how to code?') }}</h2>
-            <h1 class="ap-o-stage-content-headline">{{ _('Easily build user first websites with our templates' )}}</h1>
+          <h2 class="ap-o-stage-content-subline">
+            {{ _('How to build AMP without knowing how to code?') }}
+          </h2>
+          <h1 class="ap-o-stage-content-headline">
+            {{ _('Easily build user first websites with our templates' )}}
+          </h1>
         </div>
       </div>
     </div>
 
-    {# ghost frame block #}
-    {% if doc.stage.devices %}
-      {% do doc.styles.addCssFile('css/components/organisms/ghost-frame-block.css') %}
-      <div class="ap-o-ghost-frame-block">
-        {% for device in doc.stage.devices %}
-          {% if device %}
-            {% do doc.styles.addCssFile('css/components/molecules/ghost-frame-desktop.css') %}
-            {% do doc.styles.addCssFile('css/components/molecules/ghost-frame-tablet.css') %}
-            {% do doc.styles.addCssFile('css/components/molecules/ghost-frame-mobile.css') %}
-            <div class="ap-m-ghost-frame-{{device.type}} {{device.direction}}">
-              {% if device.video_src %}
-              <amp-video
-                width="{{device.width}}"
-                height="{{device.height}}"
-                layout="responsive"
-                src="{{device.video_src}}"
-                poster="{{device.poster_src}}"
-                artwork="{{device.artwork_src}}"
-                title="{{device.video_title}}"
-                artist="{{device.video_artist}}"
-                album="{{device.video_album}}"
-                controls
-                autoplay
-                loop>
-              </amp-video>
-              {% else %}
-              <amp-img
-                alt="{{device.alt}}"
-                height="{{device.height}}"
-                layout="responsive"
-                src="{{device.image_src}}"
-                width="{{device.width}}">
-              </amp-img>
-              {% endif%}
-            </div>
-          {% endif %}
-        {% endfor %}
+    {# ghost frame block #} {% if doc.stage.devices %} {% do
+    doc.styles.addCssFile('css/components/organisms/ghost-frame-block.css') %}
+    <div class="ap-o-ghost-frame-block">
+      {% for device in doc.stage.devices %} {% if device %} {% do
+      doc.styles.addCssFile('css/components/molecules/ghost-frame-desktop.css')
+      %} {% do
+      doc.styles.addCssFile('css/components/molecules/ghost-frame-tablet.css')
+      %} {% do
+      doc.styles.addCssFile('css/components/molecules/ghost-frame-mobile.css')
+      %}
+      <div class="ap-m-ghost-frame-{{device.type}} {{device.direction}}">
+        {% if device.video_src %}
+        <amp-video
+          width="{{device.width}}"
+          height="{{device.height}}"
+          layout="responsive"
+          src="{{device.video_src}}"
+          poster="{{device.poster_src}}"
+          artwork="{{device.artwork_src}}"
+          title="{{device.video_title}}"
+          artist="{{device.video_artist}}"
+          album="{{device.video_album}}"
+          controls
+          autoplay
+          loop
+        >
+        </amp-video>
+        {% else %}
+        <amp-img
+          alt="{{device.alt}}"
+          height="{{device.height}}"
+          layout="responsive"
+          src="{{device.image_src}}"
+          width="{{device.width}}"
+        >
+        </amp-img>
+        {% endif%}
       </div>
+      {% endif %} {% endfor %}
+    </div>
     {% endif %}
   </section>
 
-  {% set categories = g.categories('/content/amp-dev/documentation/templates', locale=doc.locale) %}
+  {% set categories = g.categories('/content/amp-dev/documentation/templates',
+  locale=doc.locale) %}
   <section class="ap--intro ap--container">
     <div class="ap--content">
-      <p>{{ _('Get started quickly with a ready-made design. Templates designed to work with all devices - mobile, tablet and desktop.') }}</p>
+      <p>
+        {{ _('Get started quickly with a ready-made design. Templates designed
+        to work with all devices - mobile, tablet and desktop.') }}
+      </p>
     </div>
 
-    {% do doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
+    {% do
+    doc.styles.addCssFile('css/components/organisms/filter-bubbles-list.css') %}
     {% do doc.styles.addCssFile('css/components/atoms/pill.css', -100) %}
     <div class="ap-o-filter-bubbles-list">
-      <button class="ap-a-pill filtered"
+      <button
+        class="ap-a-pill filtered"
         [class]="activeFilter.chosenFilter == 'none' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-        on="tap:AMP.setState({ activeFilter: {chosenFilter: 'none' } })">
+        on="tap:AMP.setState({ activeFilter: {chosenFilter: 'none' } })"
+      >
         {{ _('All') }}
       </button>
       {% for category, stories in categories %}
-      <button class="ap-a-pill"
+      <button
+        class="ap-a-pill"
         [class]="activeFilter.chosenFilter == '{{ category|slug }}' && chosenFilter != 'none' ? 'ap-a-pill filtered' : 'ap-a-pill'"
-        on="tap:AMP.setState({ activeFilter: {chosenFilter: '{{ category|slug }}' } })">
+        on="tap:AMP.setState({ activeFilter: {chosenFilter: '{{ category|slug }}' } })"
+      >
         {{ _(category) }}
       </button>
       {% endfor %}
@@ -131,11 +147,8 @@ stage:
   <section class="ap--teaser-grid ap--container">
     <div class="ap-o-teaser-grid">
       <div class="ap-o-teaser-grid-list">
-        {% for category, stories in categories %}
-        {% for teaser_doc in stories %}
-        {% include '/views/partials/teaser.j2' %}
-        {% endfor %}
-        {% endfor %}
+        {% for category, stories in categories %} {% for teaser_doc in stories
+        %} {% include '/views/partials/teaser.j2' %} {% endfor %} {% endfor %}
       </div>
     </div>
   </section>

@@ -27,7 +27,11 @@
     width: 100%;
     border: none;
     background: color('white');
-    background: linear-gradient(180deg, transparentize(color('white'), 1) 0%, color('white') 40%);
+    background: linear-gradient(
+      180deg,
+      transparentize(color('white'), 1) 0%,
+      color('white') 40%
+    );
     cursor: pointer;
 
     &-icon {
@@ -39,7 +43,6 @@
     }
 
     &:hover {
-
       #{$root}-expand-icon {
         fill: color('blue-ribbon');
         transform: translate3d(0, -2px, 0);

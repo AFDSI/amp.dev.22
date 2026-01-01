@@ -21,7 +21,7 @@ AMP 电子邮件与现有电子邮件兼容。除了 HTML 和明文外，AMP 版
 AMP Playground 支持 AMP 电子邮件格式，允许您撰写、测试和验证 AMP 电子邮件。打开 [AMP Playground](https://playground.amp.dev/?runtime=amp4email) 并确保在左上角将格式设为 `AMP for Email`。您应当会看到以下代码：
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

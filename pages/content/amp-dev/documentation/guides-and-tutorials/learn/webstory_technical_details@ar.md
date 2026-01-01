@@ -27,7 +27,7 @@ author: CrystalOnScript
 يتمثل الاختلاف بين صفحة ويب AMP وقصة ويب تم إنشاؤها باستخدام AMP في المكوِّن [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). إذ إنه الفرع المباشر الوحيد لـ `<body>` الخاص بالمستند، ويجب أن يحتوي على السمة `standalone`. ويتم تحديد جميع صفحات قصة الويب وعناصرها وطبقاتها ضمن العلامات `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

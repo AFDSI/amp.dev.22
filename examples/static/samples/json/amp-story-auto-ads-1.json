@@ -1,10 +1,10 @@
 {
-  "templateId": "image-template",
-  "data": {
-    "imgSrc": "https://amp.dev/static/samples/img/ad-google-home.jpg"
-  },
-  "vars": {
-    "ctaType": "SHOP",
-    "ctaUrl": "https://amp.dev"
-  }
+	"templateId": "image-template",
+	"data": {
+		"imgSrc": "https://amp.dev/static/samples/img/ad-google-home.jpg"
+	},
+	"vars": {
+		"ctaType": "SHOP",
+		"ctaUrl": "https://amp.dev"
+	}
 }

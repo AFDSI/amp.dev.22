@@ -4,46 +4,46 @@
 
 1\. Install LTS version of [Node.js](https://nodejs.org). An easy way to do so is by using [nvm](https://github.com/nvm-sh/nvm).
 
-   ```sh
-   $ nvm install --lts
-   ```
+```sh
+$ nvm install --lts
+```
 
 2\. Install Python 3 and ensure pip is properly set up by adding _pip user base binary directory_ to `$PATH`.
 
-   **macOS**
+**macOS**
 
-   a. Install [Homebrew](https://brew.sh/).
-   b. Run following command to ensure everything is up to date. Xcode version 10.3 or most recent stable version is required.
-      ```sh
+a. Install [Homebrew](https://brew.sh/).
+b. Run following command to ensure everything is up to date. Xcode version 10.3 or most recent stable version is required.
+`sh
       $ brew doctor
-      ```
-   c. Run following command to install Python. Version 3.9 is required at latest.
-      ```sh
+      `
+c. Run following command to install Python. Version 3.9 is required at latest.
+`sh
       $ brew install python libyaml
-      ```
-   d. Run following command to add _pip user base binary directory_ to `$PATH`.
-      ```sh
+      `
+d. Run following command to add _pip user base binary directory_ to `$PATH`.
+`sh
       $ echo "export PATH=\"$(python -m site --user-base)/bin\":\$PATH" >> ~/.bash_profile
-      ```
-   e. Run following command for changes to take effect.
-      ```sh
+      `
+e. Run following command for changes to take effect.
+`sh
       $ source ~/.bash_profile
-      ```
+      `
 
-   **Linux** (Debian-based)
+**Linux** (Debian-based)
 
-   a. Run following command to add _pip user base binary directory_ to `$PATH`.
-      ```sh
+a. Run following command to add _pip user base binary directory_ to `$PATH`.
+`sh
       $ echo "export PATH=\"$(python -m site --user-base)/bin\":\$PATH" >> ~/.bashrc
-      ```
-   b. Run following command for changes to take effect.
-      ```sh
+      `
+b. Run following command for changes to take effect.
+`sh
       $ source ~/.bashrc
-      ```
-   c. Run following command to use a faster YAML parser.
-      ```sh
+      `
+c. Run following command to use a faster YAML parser.
+`sh
       $ sudo apt install -y python-yaml libyaml-dev
-      ```
+      `
 
 3\. Install [Grow](http://grow.io), static site generator used to build amp.dev. Do so by using `pip` instead of its installer. Using `pip` will enable importing from `grow` package in Python later on.
 
@@ -150,13 +150,15 @@ Site uses GitHub Actions for automated deployments to both staging and productio
 
 Deployments are triggered through GitHub Actions workflows:
 
-1\. **Staging Deployment**: 
-   - Triggered automatically on pushes to `main` branch
-   - Automatically builds and deploys to staging environment
+1\. **Staging Deployment**:
+
+- Triggered automatically on pushes to `main` branch
+- Automatically builds and deploys to staging environment
 
 2\. **Production Deployment**:
-   - **Manual deployment only** - no automatic triggers
-   - Must be manually triggered through GitHub Actions
+
+- **Manual deployment only** - no automatic triggers
+- Must be manually triggered through GitHub Actions
 
 ### Manual Deployment
 

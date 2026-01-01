@@ -44,6 +44,7 @@ Web Stories no puede admitir un [`amp-ad`](../../../documentation/components/ref
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

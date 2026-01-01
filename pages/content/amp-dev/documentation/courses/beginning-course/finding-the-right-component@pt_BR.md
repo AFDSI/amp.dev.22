@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Navegando na documentação dos componentes AMP
 
 Até agora, os componentes que usamos foram bastante simples. Para `<amp-img>` e `<amp-youtube>`, bastou visitar a documentação, olhar um exemplo e copiar para o nosso site. Para recursos mais avançados desses componentes, ou para componentes mais complicados, teremos que ler e absorver mais informações da documentação.
@@ -110,11 +111,11 @@ Esta é a aparência do código que você adicionou em seu projeto:
 
 [sourcecode:html]
 {% raw %}<amp-carousel layout="responsive" width="412" height="309" type="slides" loop>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheddar-chaser.jpg?1540228205366"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheddar-chaser.jpg?1540228205366"
              width="412" height="309" layout="responsive"></amp-img>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheese.jpg?1540228223785"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheese.jpg?1540228223785"
              width="412" height="309" layout="responsive"></amp-img>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fmouse.jpg?1540228223963"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fmouse.jpg?1540228223963"
              width="412" height="309" layout="responsive"></amp-img>
 </amp-carousel>
 {% endraw %}[/sourcecode]
@@ -163,10 +164,11 @@ Depois de concluir esta tarefa, sua página deve conter botões para o usuário 
 
 [sourcecode:html]
 {% raw %}<div class="social-bar">
-  <amp-social-share type="email" width="44" height="44"></amp-social-share>
-  <amp-social-share type="linkedin" width="44" height="44"></amp-social-share>
-  <amp-social-share type="tumblr" width="44" height="44"></amp-social-share>
-  <amp-social-share type="twitter" width="44" height="44"></amp-social-share>
+<amp-social-share type="email" width="44" height="44"></amp-social-share>
+<amp-social-share type="linkedin" width="44" height="44"></amp-social-share>
+<amp-social-share type="tumblr" width="44" height="44"></amp-social-share>
+<amp-social-share type="twitter" width="44" height="44"></amp-social-share>
+
 </div>
 {% endraw %}[/sourcecode]
 
@@ -175,9 +177,11 @@ Lembre-se de incluir o script `<amp-social-share>` no `<head>`:
 ```
 <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 ```
+
 [/filter]
 
 [filter level="advanced"]
+
 ## Navegando na documentação dos componentes AMP
 
 Em seguida, queremos adicionar uma coleção de imagens de produtos de bicicleta de queijo para nossos usuários rolarem. Para isso, usaremos um componente de carrossel de imagens. A implementação AMP de um carrossel é o componente: `<amp-carousel>`. Este componente não é padrão, então você precisará adicionar seu script no `<head>` da página.
@@ -279,11 +283,11 @@ Esta é a aparência do código que você adicionou em seu projeto:
 
 [sourcecode:html]
 {% raw %}<amp-carousel layout="responsive" width="412" height="309" type="slides" loop>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheddar-chaser.jpg?1540228205366"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheddar-chaser.jpg?1540228205366"
              width="412" height="309" layout="responsive"></amp-img>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheese.jpg?1540228223785"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fcheese.jpg?1540228223785"
              width="412" height="309" layout="responsive"></amp-img>
-    <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fmouse.jpg?1540228223963"
+<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fmouse.jpg?1540228223963"
              width="412" height="309" layout="responsive"></amp-img>
 </amp-carousel>
 {% endraw %}[/sourcecode]
@@ -323,10 +327,11 @@ Depois de concluir esta tarefa, sua página deve conter botões para o usuário 
 
 [sourcecode:html]
 {% raw %}<div class="social-bar">
-  <amp-social-share type="email" width="44" height="44"></amp-social-share>
-  <amp-social-share type="linkedin" width="44" height="44"></amp-social-share>
-  <amp-social-share type="tumblr" width="44" height="44"></amp-social-share>
-  <amp-social-share type="twitter" width="44" height="44"></amp-social-share>
+<amp-social-share type="email" width="44" height="44"></amp-social-share>
+<amp-social-share type="linkedin" width="44" height="44"></amp-social-share>
+<amp-social-share type="tumblr" width="44" height="44"></amp-social-share>
+<amp-social-share type="twitter" width="44" height="44"></amp-social-share>
+
 </div>
 {% endraw %}[/sourcecode]
 
@@ -335,4 +340,5 @@ Lembre-se de incluir o script `<amp-social-share>` no `<head>`:
 ```
 <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 ```
+
 [/filter]

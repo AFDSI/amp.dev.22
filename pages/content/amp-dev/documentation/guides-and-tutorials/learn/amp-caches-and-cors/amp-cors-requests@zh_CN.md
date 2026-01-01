@@ -26,28 +26,26 @@ AMP组件（例如amp-from，amp-list等等）在获取动态数据(例如JSON)�
 
 **好，那我该怎么做去处理这种情况？**
 
-1.  对于那些需要通过请求获取数据的AMP页面，请确认你已经对这些需要缓存的页面进行了测试。*不要仅仅在自己的域名上面测试* (请查看下面的[在AMP中测试CORS](#testing-cors-in-amp)进行了解)
+1.  对于那些需要通过请求获取数据的AMP页面，请确认你已经对这些需要缓存的页面进行了测试。_不要仅仅在自己的域名上面测试_ (请查看下面的[在AMP中测试CORS](#testing-cors-in-amp)进行了解)
 2.  根据下面的教程来处理CORS的请求和响应。
-
 
 ## 在CORS中使用cookie <a id="utilizing-cookies-for-cors-requests"></a>
 
 有很多AMP组件例如amp-list在使用CORS请求的时候会自动设置[credentials mode](https://fetch.spec.whatwg.org/#concept-request-credentials-mode)或者允许开发者自行设置。下面的例子中[`amp-list`](https://amp.dev/documentation/components/amp-list)组件通过使用CORS请求来获取远程服务器的数据，同时在请求时也设置了
 `credentials`属性。
 
-*例子： 通过amp-list的请求中携带cookie以方便进行用户个性化内容定制*
+_例子： 通过amp-list的请求中携带cookie以方便进行用户个性化内容定制_
 
 [sourcecode:html]
 <amp-list credentials="include"
     src="<%host%>/json/product.json?clientId=CLIENT_ID(myCookieId)">
-  <template type="amp-mustache">
-    Your personal offer: ${% raw %}{{price}}{% endraw %}
-  </template>
+<template type="amp-mustache">
+Your personal offer: ${% raw %}{{price}}{% endraw %}
+</template>
 </amp-list>
 [/sourcecode]
 
 设置了credentials mode以后，服务器可以在CORS请求中设置cookie作为响应。（但受到[第三方cookie的限制](#third-party-cookie-restrictions)）
-
 
 ### 第三方cookie的限制 <a name="third-party-cookie-restrictions"></a>
 
@@ -62,7 +60,6 @@ AMP组件（例如amp-from，amp-list等等）在获取动态数据(例如JSON)�
 
 如果你是使用Node作为后端的语言，你可以使用[AMP CORS middleware](https://www.npmjs.com/package/amp-toolbox-cors)这个中间件来处理上述的要求，这个中间件是[AMP Toolbox](https://github.com/ampproject/amp-toolbox)的其中一部分。
 
-
 ### 验证CORS请求 <a id="verify-cors-requests"></a>
 
 当你的服务器收到CORS请求的时候：
@@ -71,26 +68,28 @@ AMP组件（例如amp-from，amp-list等等）在获取动态数据(例如JSON)�
 2. [如果没有Origin字段，检查`AMP-Same-Origin`字段来确认是不是来自同源域名](#allow-same-origin-requests)。
 3. [如果是状态变更请求（即会修改你服务器数据库中的数据请求），例如POST请求，检查`__amp_source_origin`字段来确认是不是来自同源域名](#restrict-requests-to-source-origins)。
 
-
 #### 1) 允许来自指定域名的请求 <a name="1-allow-requests-for-specific-cors-origins"></a>
+
 <span id="verify-cors-header"></span>
 
 负责处理CORS请求的服务器可以通过请求头中`Origin`字段值来判断请求是否是在允许域名范围内，一般来说，服务器应该只允许以下来源的请求: (1)自身的域名 (2)在 <https://cdn.ampproject.org/caches.json> 中'cachedDomain'字段中的服务器域名。
 
 举个例子，服务器应该允许以下来源的请求：
-  *  Google AMP Cache 子域名: `https://<publisher's domain>.cdn.ampproject.org` <br>(例如, `https://nytimes-com.cdn.ampproject.org`)
-  *    *  Bing AMP Cache: `https://<publisher's domain>.bing-amp.com`
+
+- Google AMP Cache 子域名: `https://<publisher's domain>.cdn.ampproject.org` <br>(例如, `https://nytimes-com.cdn.ampproject.org`)
+- - Bing AMP Cache: `https://<publisher's domain>.bing-amp.com`
 
 [tip type="read-on"]
 
 想要了解AMP Cache服务器子域名的URL格式，通过以下资源进行了解:
+
 - [Google AMP Cache Overview](https://developers.google.com/amp/cache/overview)
 - [Bing AMP Cache](https://www.bing.com/webmaster/help/bing-amp-cache-bc1c884c)
 
 [/tip]
 
-
 #### 2) 允许同一来源(Same-Origin)的请求 <a id="2-allow-same-origin-requests"></a>
+
 <span id="allow-same-origin-requests"></span>
 
 如果请求时`Origin`字段在请求头中没有设置，那么AMP将会设置以下字段:
@@ -102,6 +101,7 @@ AMP-Same-Origin: true
 这个通过AMP自定义的请求头将会在XHR请求时携带告诉服务器是来自同一域名来源（例如，来自非AMP Cache服务器的数据或者文档）。
 
 #### 3) 限制请求的来源 <a name="3-restrict-requests-to-source-origins"></a>
+
 <span id="restrict-requests-to-source-origins"></span>
 
 在所有的请求中，AMP会将`"__amp_source_origin"`加入到URL的查询参数中，这个参数值会包含请求来源的地址。（例如，`"https://publisher1.com"`）
@@ -114,11 +114,10 @@ AMP-Same-Origin: true
 
 ##### Access-Control-Allow-Origin: &lt;origin&gt; <a name="access-control-allow-origin-ltorigingt"></a>
 
-
 这个响应头是<a href="https://www.w3.org/TR/cors/">W3 CORS Spec</a> 要求用来处理CORS响应的，可以允许请求的来源使用CORS请求头(例如，<code>"https://&lt;publisher's subdomain>.cdn.ampproject.org"</code>)
-尽管在W3 CORS Spec的文档中允许返回<code>*</code>作为响应，但是为了提高安全性，你应该
+尽管在W3 CORS Spec的文档中允许返回<code>\*</code>作为响应，但是为了提高安全性，你应该
 
-* 如果在请求头中带有Origin的字段，你应该验证这个字段的值并且返回这个字段的值作为响应头。
+- 如果在请求头中带有Origin的字段，你应该验证这个字段的值并且返回这个字段的值作为响应头。
 
 ### 处理状态变更的请求 <a id="processing-state-changing-requests"></a>
 
@@ -133,11 +132,12 @@ AMP-Same-Origin: true
 **如果设置了 `Origin` 请求头字段**:
 
 1.  如果Origin字段值不满足以下任意一个域名，停止处理请求并且返回错误相应:
+
     - `<你的域名>.cdn.ampproject.org`
     - `<你的域名>.amp.bing-amp.com`
     - 你的域名
 
-    这里如果使用`*`作为响应头的话代表的是通配符，意思是允许所有域名进行请求，而不是一个*号。
+    这里如果使用`*`作为响应头的话代表的是通配符，意思是允许所有域名进行请求，而不是一个\*号。
 
 2.  也可以选择检查`__amp_source_origin`请求参数，如果请求参数的值不是你的域名，停止处理请求并且返回错误相应。
 3.  如果两个请求符合验证的要求的话，那就可以正常处理请求了。
@@ -166,9 +166,9 @@ AMP-Same-Origin: true
 
 基于我们已经了解CORS和AMP的关系(通过上面的 [验证CORS请求](#verify-cors-requests))，我们将沿用`example.com`作为我们的例子，同时我们设置只允许来自以下域名的请求：
 
-* `example.com` ---  你的域名
-* `example-com.cdn.ampproject.org` --- Google AMP Cache服务器子域名
-* `example.com.bing-amp.com`--- Bing's AMP Cache服务器子域名
+- `example.com` --- 你的域名
+- `example-com.cdn.ampproject.org` --- Google AMP Cache服务器子域名
+- `example.com.bing-amp.com`--- Bing's AMP Cache服务器子域名
 
 ### 验证请求后的正确响应 <a name="response-headers-for-allowed-requests"></a>
 
@@ -193,15 +193,15 @@ Cache-Control: private, no-cache
 
 [sourcecode:text]
 IF CORS header present
-   IF origin IN allowed-origins AND sourceOrigin = publisher
-      allow request & send response
-   ELSE
-      deny request
+IF origin IN allowed-origins AND sourceOrigin = publisher
+allow request & send response
 ELSE
-   IF "AMP-Same-Origin: true"
-      allow request & send response
-   ELSE
-      deny request
+deny request
+ELSE
+IF "AMP-Same-Origin: true"
+allow request & send response
+ELSE
+deny request
 [/sourcecode]
 
 #### 处理CORS的示例代码 <a name="cors-sample-code"></a>
@@ -210,32 +210,31 @@ ELSE
 
 [sourcecode:javascript]
 function assertCors(req, res, opt_validMethods, opt_exposeHeaders) {
-  var unauthorized = 'Unauthorized Request';
-  var origin;
-  var allowedOrigins = [
-     "https://example.com",
-     "https://example-com.cdn.ampproject.org",
-     "https://example.com.bing-amp.com",
-     "https://cdn.ampproject.org" ];
-  var allowedSourceOrigin = "https://example.com";  //publisher's origin
-  var sourceOrigin = req.query.__amp_source_origin;
+var unauthorized = 'Unauthorized Request';
+var origin;
+var allowedOrigins = [
+"https://example.com",
+"https://example-com.cdn.ampproject.org",
+"https://example.com.bing-amp.com",
+"https://cdn.ampproject.org" ];
+var allowedSourceOrigin = "https://example.com"; //publisher's origin
+var sourceOrigin = req.query.\_\_amp_source_origin;
 
+// If same origin
+if (req.headers['amp-same-origin'] == 'true') {
+origin = sourceOrigin;
+// If allowed CORS origin & allowed source origin
+} else if (allowedOrigins.indexOf(req.headers.origin) != -1 &&
+sourceOrigin == allowedSourceOrigin) {
+origin = req.headers.origin;
+} else {
+res.statusCode = 401;
+res.end(JSON.stringify({message: unauthorized}));
+throw unauthorized;
+}
 
-  // If same origin
-  if (req.headers['amp-same-origin'] == 'true') {
-      origin = sourceOrigin;
-  // If allowed CORS origin & allowed source origin
-  } else if (allowedOrigins.indexOf(req.headers.origin) != -1 &&
-      sourceOrigin == allowedSourceOrigin) {
-      origin = req.headers.origin;
-  } else {
-      res.statusCode = 401;
-      res.end(JSON.stringify({message: unauthorized}));
-      throw unauthorized;
-  }
-
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', origin);
+res.setHeader('Access-Control-Allow-Credentials', 'true');
+res.setHeader('Access-Control-Allow-Origin', origin);
 }
 [/sourcecode]
 
@@ -243,7 +242,7 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders) {
 需要示例代码可以查看[app.js](https://github.com/ampproject/amphtml/blob/main/build-system/app.js#L1199).
 [/tip]
 
-### 场景1:  来自同源服务器上的AMP页面的请求 <a name="scenario-1--get-request-from-amp-page-on-same-origin"></a>
+### 场景1: 来自同源服务器上的AMP页面的请求 <a name="scenario-1--get-request-from-amp-page-on-same-origin"></a>
 
 在下面的图例中，`article-amp.html`页面请求了`data.json`，两者是来源于同一服务器。
 
@@ -270,7 +269,7 @@ Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: https://example.com
 [/sourcecode]
 
-### 场景2:  来自缓存（Cache）服务器页面的请求（例如AMP Cache服务器） <a name="scenario-2--get-request-from-cached-amp-page"></a>
+### 场景2: 来自缓存（Cache）服务器页面的请求（例如AMP Cache服务器） <a name="scenario-2--get-request-from-cached-amp-page"></a>
 
 在下图中，存放在Google AMP Cache服务器中的`article-amp.html`请求了`exmpale.com`域名下的`data.json`，这两者并不是来源于同一个域名。
 
@@ -305,14 +304,14 @@ Access-Control-Allow-Origin: https://example-com.cdn.ampproject.org
 
 ### 通过Cache URL来验证AMP页面 <a name="verify-the-page-via-the-cache-url"></a>
 
-
 为了确保你在AMP Cache服务器上缓存的页面能正确打开以及渲染：
 
 1.  通过浏览器打开AMP Cache服务器上可以访问到你的AMP页面的URL，你可以通过[tool on AMP By Example](https://amp.dev/documentation/examples/guides/using_the_google_amp_cache/)这个工具来确认你的AMP页面在AMP Cache服务器上的缓存URL。
 
     例如:
-    * AMP.dev网站的AMP页面URL: `https://amp.dev/documentation/guides-and-tutorials/start/create/`
-    * AMP Cache中缓存的URL: `https://www-ampproject-org.cdn.ampproject.org/c/s/www.ampproject.org/docs/tutorials/create.html`
+
+    - AMP.dev网站的AMP页面URL: `https://amp.dev/documentation/guides-and-tutorials/start/create/`
+    - AMP Cache中缓存的URL: `https://www-ampproject-org.cdn.ampproject.org/c/s/www.ampproject.org/docs/tutorials/create.html`
 
 2.  打开你的浏览器的开发者工具来验证页面中没有任何报错或者错误提示，同时确保所有的资源正确加载。
 
@@ -320,7 +319,7 @@ Access-Control-Allow-Origin: https://example-com.cdn.ampproject.org
 
 你可以使用`curl`命令来验证你的服务器是否返回了正确的响应。在`curl`命令中，你可以添加请求的URL以及任何你想要添加的自定义请求头。
 
-**语法**:  `curl <request-url> -H <custom-header> - I`
+**语法**: `curl <request-url> -H <custom-header> - I`
 
 模拟AMP使用CORS请求，可以通过添加`__amp_source_origin=`查询参数在请求URL的后面，这样可以模仿AMP在请求时自动添加`__amp_source_origin=`的行为。
 

@@ -26,7 +26,7 @@ Uma História Web é tecnicamente uma única página Web criada com o AMP e que 
 A diferença entre uma página Web do AMP e uma História Web criada com o AMP é o componente [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). É o único elemento-filho direto do documento `<body>` e deve conter o atributo `standalone`. Todas as páginas, camadas e elementos da História Web são definidos nas tags `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

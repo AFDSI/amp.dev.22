@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 L'intercettazione xhr può essere abilitata richiedendo il consenso all'attivazione della funzionalità xhrInterceptor in fase di inizializzazione del visualizzatore. Consultare l'esempio sul visualizzatore che esegue questa operazione e un'intercettazione xhr. Il documento AMP deve quindi consentire l'intercettazione XHR. I documenti offrono questa opzione aggiungendo l'attributo `allow-xhr-interception` al tag `<html amp4email>`. Il client di posta elettronica deve impostare questo attributo sul documento AMP prima del rendering, poiché esso è intenzionalmente definito un attributo non valido e verrà contrassegnato come tale dalla convalida del documento AMP.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

@@ -4,7 +4,6 @@ about: I want to add my third-party Story creation tool, CMS or platform to amp.
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 <!--
@@ -16,14 +15,14 @@ If our team has any feedback, it will be provided directly on the request issue.
 
 If your tool is already listed and you would like to change a description or image, please re-open the original issue created to list your resource on amp.dev.
 
-Please note that the criteria and process for being listed or remaining listed on amp.dev may change at any time. Tools that do not meet updated criteria over time may be removed. 
+Please note that the criteria and process for being listed or remaining listed on amp.dev may change at any time. Tools that do not meet updated criteria over time may be removed.
 
 ***Note:** Passing the AMP Linter tests ensures that your tool produces valid Web Stories, but it does not ensure that the story is of high quality and enjoyable for users. It is recommended that you build features and guardrails into your tools that help story creators adhere to the [Web Story Best Practices](https://amp.dev/documentation/guides-and-tutorials/start/create_successful_stories/).*
 
 Please fill in the template below.
 -->
 
-## 🛠️  Request to Add Third-Party Story Creation Tool/CMS/Platform
+## 🛠️ Request to Add Third-Party Story Creation Tool/CMS/Platform
 
 ### Story creation resource name
 
@@ -54,7 +53,7 @@ Use [x] to mark a selection:
 
 < Please list 10 Web Stories across a diverse set of topics/treatments that each meet the following criteria
 
-* Minimum of 7 pages
-* At least 4 images
-* At least 2 videos
-* At least four pages with some text >
+- Minimum of 7 pages
+- At least 4 images
+- At least 2 videos
+- At least four pages with some text >

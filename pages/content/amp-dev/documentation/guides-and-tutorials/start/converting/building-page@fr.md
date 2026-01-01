@@ -14,7 +14,7 @@ Dans le répertoire du projet, vous trouverez un fichier nommé [`article.html`]
 Votre fichier `article.amp.html` doit ressembler à ceci:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

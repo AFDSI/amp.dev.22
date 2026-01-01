@@ -23,17 +23,23 @@ contributors:
 `placeholder` 속성으로 표시된 요소는 상위 AMP 요소의 플레이스홀더 역할을 합니다. 지정된 경우 `placeholder` 요소는 AMP 요소의 직접 하위 요소여야 합니다. `placeholder`로 표시된 요소는 항상 상위 AMP 요소를 `fill`합니다.
 
 [example preview="inline" playground="true" imports="amp-anim:0.1"]
+
 ```html
-<amp-anim src="{{server_for_email}}/static/inline-examples/images/wavepool.gif"
+<amp-anim
+  src="{{server_for_email}}/static/inline-examples/images/wavepool.gif"
   layout="responsive"
   width="400"
-  height="300">
-  <amp-img placeholder
+  height="300"
+>
+  <amp-img
+    placeholder
     src="{{server_for_email}}/static/inline-examples/images/wavepool.png"
-    layout="fill">
+    layout="fill"
+  >
   </amp-img>
 </amp-anim>
 ```
+
 [/example]
 
 기본적으로 AMP 요소의 리소스가 다운로드되거나 초기화되지 않아도 플레이스홀더는 AMP 요소에 즉시 표시됩니다. 준비가 완료되면 AMP 요소는 일반적으로 플레이스홀더를 숨기고 콘텐츠를 표시합니다.
@@ -48,24 +54,35 @@ contributors:
 - 콘텐츠를 로드하지 못한 경우(예: 트윗이 삭제됨)
 - 이미지 유형이 지원되지 않는 경우(예: WebP는 모든 브라우저에서 지원되지 않음)
 
-`fallback` 속성은 AMP 요소뿐 아니라 *모든* HTML 요소에도 설정할 수 있습니다. 지정된 경우 `fallback` 요소는 AMP 요소의 직접 하위 요소여야 합니다.
+`fallback` 속성은 AMP 요소뿐 아니라 _모든_ HTML 요소에도 설정할 수 있습니다. 지정된 경우 `fallback` 요소는 AMP 요소의 직접 하위 요소여야 합니다.
 
 ##### 예: 지원되지 않는 기능
 
 다음 예시의 경우 `fallback` 속성을 지정하여 브라우저가 특정 기능을 지원하지 않는다는 사실을 사용자에게 알려줄 수 있습니다.
 
 [example preview="inline" playground="true" imports="amp-video:0.1"]
+
 ```html
-<amp-video {% if format=='stories'%}autoplay {% endif %}controls
+<amp-video
+  {%
+  if
+  format=""
+  ="stories"
+  %}autoplay
+  {%
+  endif
+  %}controls
   width="640"
   height="360"
   src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.mp4"
-  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png">
+  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png"
+>
   <div fallback>
     <p>This browser does not support the video element.</p>
   </div>
 </amp-video>
 ```
+
 [/example]
 
 ##### 예: 다른 이미지 형식 게재
@@ -73,20 +90,26 @@ contributors:
 다음 예시의 경우 `fallback` 속성을 사용하여 WebP 형식이 지원되지 않으면 JPEG 파일을 사용하라고 브라우저에 알립니다.
 
 [example preview="inline" playground="true"]
+
 ```html
-<amp-img alt="Mountains"
+<amp-img
+  alt="Mountains"
   width="550"
   height="368"
   layout="responsive"
-  src="{{server_for_email}}/static/inline-examples/images/mountains.webp">
-  <amp-img alt="Mountains"
+  src="{{server_for_email}}/static/inline-examples/images/mountains.webp"
+>
+  <amp-img
+    alt="Mountains"
     fallback
     width="550"
     height="368"
     layout="responsive"
-    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"></amp-img>
+    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"
+  ></amp-img>
 </amp-img>
 ```
+
 [/example]
 
 ## 플레이스홀더 및 대체 콘텐츠 상호작용

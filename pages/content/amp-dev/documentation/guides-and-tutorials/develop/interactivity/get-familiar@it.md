@@ -11,7 +11,7 @@ Una pagina AMP è una pagina HTML con alcune limitazioni per garantire prestazio
 Una pagina AMP essenziale ha il seguente aspetto:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

@@ -33,7 +33,7 @@ $borderSize: 5px;
     font-size: 1em;
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 500px;
     height: auto;
 
@@ -60,7 +60,7 @@ $borderSize: 5px;
       position: relative;
       display: flex;
 
-      input[type=checkbox]{
+      input[type='checkbox'] {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -82,7 +82,7 @@ $borderSize: 5px;
 
         div {
           flex: 0 0 45%;
-          transition: transform .2s cubic-bezier(0, 0, 0.27, 1);
+          transition: transform 0.2s cubic-bezier(0, 0, 0.27, 1);
         }
 
         .active {
@@ -93,14 +93,20 @@ $borderSize: 5px;
         }
       }
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         & + .toggle-button-switch {
-          .off.active { transform: translateX(100%); }
+          .off.active {
+            transform: translateX(100%);
+          }
         }
         &:checked + .toggle-button-switch {
           background-color: #0048c0;
-          .on.active { transform: translateX(-100%); }
-          .off.active { transform: translateX(0); }
+          .on.active {
+            transform: translateX(-100%);
+          }
+          .off.active {
+            transform: translateX(0);
+          }
         }
       }
 

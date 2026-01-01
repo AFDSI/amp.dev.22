@@ -26,7 +26,7 @@ author: CrystalOnScript
 AMP ウェブページと AMP を使って作成されたウェブストーリーの違いは、[`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories) コンポーネントにあります。これがドキュメントの `<body>` の直下にある唯一の子要素であり、`standalone` 属性を含める必要があります。すべてのウェブストーリー、レイヤー、および要素は、`<amp-story>` タグ内に定義されます。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

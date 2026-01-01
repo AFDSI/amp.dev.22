@@ -49,7 +49,7 @@
         display: inline-block;
 
         &:after {
-          content: "|";
+          content: '|';
           margin: 0 5px;
         }
       }
@@ -59,7 +59,7 @@
 
         &:after {
           display: block;
-          content: "";
+          content: '';
         }
       }
 
@@ -143,12 +143,12 @@
         fill: currentcolor;
       }
 
-      a[href^="http"] {
+      a[href^='http'] {
         font-weight: bold;
         color: color('blue-ribbon');
       }
 
-      a[href="#recommendations"] {
+      a[href='#recommendations'] {
         font-weight: bold;
         color: color('blue-ribbon');
 

@@ -21,9 +21,11 @@ Komponen [`amp-live-list`](../../../documentation/components/reference/amp-live-
 Kode awal untuk blog dapat terlihat seperti berikut:
 
 ```html
-<amp-live-list id="my-live-list"
-    data-poll-interval="15000"
-    data-max-items-per-page="5">
+<amp-live-list
+  id="my-live-list"
+  data-poll-interval="15000"
+  data-max-items-per-page="5"
+>
   <button update on="tap:my-live-list.update">Anda memiliki item baru</button>
   <div items></div>
 </amp-live-list>
@@ -31,7 +33,7 @@ Kode awal untuk blog dapat terlihat seperti berikut:
 
 Mari kita lihat kode ini:
 
-Setiap komponen [`amp-live-list`](../../../documentation/components/reference/amp-live-list.md) membutuhkan ID unik karena mungkin ada lebih dari satu ID pada halaman.  Dalam contoh ini, kami menetapkan `my-live-list` sebagai ID unik.
+Setiap komponen [`amp-live-list`](../../../documentation/components/reference/amp-live-list.md) membutuhkan ID unik karena mungkin ada lebih dari satu ID pada halaman. Dalam contoh ini, kami menetapkan `my-live-list` sebagai ID unik.
 
 Atribut `data-poll-interval` menentukan seberapa sering pemeriksaan akan terjadi; jika dokumen host diperbarui, item baru akan tersedia bagi pengguna setelah interval waktu berikutnya.
 
@@ -52,9 +54,11 @@ Blog yang panjang dapat menggunakan paginasi untuk meningkatkan performa dengan 
 Dengan paginasi, kode sederhana yang kami gunakan sebelumnya menjadi:
 
 ```html
-<amp-live-list id="my-live-list"
-    data-poll-interval="15000"
-    data-max-items-per-page="5">
+<amp-live-list
+  id="my-live-list"
+  data-poll-interval="15000"
+  data-max-items-per-page="5"
+>
   <button update on="tap:my-live-list.update">Anda memiliki item baru</button>
   <div items></div>
   <div pagination>
@@ -63,8 +67,8 @@ Dengan paginasi, kode sederhana yang kami gunakan sebelumnya menjadi:
         <li>1</li>
         <li>Berikutnya</li>
       </ul>
-     </nav>
-   </div>
+    </nav>
+  </div>
 </amp-live-list>
 ```
 

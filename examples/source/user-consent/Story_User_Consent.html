@@ -15,86 +15,163 @@ author: sebastianbenz
 <!-- -->
 <!doctype html>
 <html ⚡ lang="en">
-<head>
-  <meta charset="utf-8">
-  <link rel="canonical" href="<% canonical %>">
-  <meta name="viewport" content="width=device-width">
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <title>User Consent</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="<% canonical %>" />
+    <meta name="viewport" content="width=device-width" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>User Consent</title>
 
-  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-  <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
-  <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script
+      async
+      custom-template="amp-mustache"
+      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-video"
+      src="https://cdn.ampproject.org/v0/amp-video-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-list"
+      src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
+    ></script>
 
-  <!-- ## Setup -->
-  <!-- Import the `amp-story` extension for creating an AMP Story... -->
-  <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <!-- ## Setup -->
+    <!-- Import the `amp-story` extension for creating an AMP Story... -->
+    <script
+      async
+      custom-element="amp-story"
+      src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
+    ></script>
 
-  <!-- ... and the `amp-consent` extension. -->
-  <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <style amp-custom>
-    * {
-      box-sizing: border-box;
-    }
-    amp-story * {
-      font-family: 'Helvitica Nueve', sans-serif;
-      color: white;
-    }
-    amp-story-page {
-      background: white;
-    }
-    amp-story h1 {
-      font-size: 46px;
-    }
-    amp-story h2 {
-      font-size: 36px;
-    }
-    amp-story p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-    .bold {
-      font-weight: bold;
-    }
-    .bottom {
-      align-content: end;
-    }
-    .medium {
-      font-weight: 600;
-    }
-    .last {
-      padding-bottom: 65px;
-    }
-    .center {
-      text-align: center;
-    }
-    .icon {
-      background-image: url(<% hosts.platform %>/static/samples/img/AMP-Brand-White-Icon.svg);
-      background-repeat: no-repeat;
-      background-size: 50px 50px;
-      height: 50px;
-      object-fit: contain;
-      width: 50px;
-    }
-    .byline {
-      letter-spacing: 1.28px;
-      padding-bottom: 58px;
-    }
-  </style>
-</head>
+    <!-- ... and the `amp-consent` extension. -->
+    <script
+      async
+      custom-element="amp-consent"
+      src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"
+    ></script>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <style amp-custom>
+      * {
+        box-sizing: border-box;
+      }
+      amp-story * {
+        font-family: 'Helvitica Nueve', sans-serif;
+        color: white;
+      }
+      amp-story-page {
+        background: white;
+      }
+      amp-story h1 {
+        font-size: 46px;
+      }
+      amp-story h2 {
+        font-size: 36px;
+      }
+      amp-story p {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .bottom {
+        align-content: end;
+      }
+      .medium {
+        font-weight: 600;
+      }
+      .last {
+        padding-bottom: 65px;
+      }
+      .center {
+        text-align: center;
+      }
+      .icon {
+        background-image: url(<% hosts.platform %>/static/samples/img/AMP-Brand-White-Icon.svg);
+        background-repeat: no-repeat;
+        background-size: 50px 50px;
+        height: 50px;
+        object-fit: contain;
+        width: 50px;
+      }
+      .byline {
+        letter-spacing: 1.28px;
+        padding-bottom: 58px;
+      }
+    </style>
+  </head>
   <body>
-
     <!-- ## Implementing User Consent inside an AMP Story
 
    The `amp-consent` will display the logo specified by `publisher-logo-src` in the consent dialog.
     -->
-    <amp-story standalone
-               title="Story With User Consent"
-               publisher="Google"
-               poster-portrait-src="<% hosts.platform %>/img/story_video_dog_cover.jpg"
-               publisher-logo-src="<% hosts.platform %>/static/samples/img/amp_logo_pink.svg">
-
+    <amp-story
+      standalone
+      title="Story With User Consent"
+      publisher="Google"
+      poster-portrait-src="<% hosts.platform %>/img/story_video_dog_cover.jpg"
+      publisher-logo-src="<% hosts.platform %>/static/samples/img/amp_logo_pink.svg"
+    >
       <!--
       The `amp-consent` component supports specifying a CORS endpoint via the `checkConsentHref` attribute, which the component queries via a POST request to determine if the consent UI specified for it needs to be shown. The response should look like this:
       ```json
@@ -125,7 +202,18 @@ author: sebastianbenz
             {
               "title": "Headline",
               "message": "This is some more information about this choice. Here's a list of items related to this choice.",
-              "vendors": ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10"]
+              "vendors": [
+                "Item 1",
+                "Item 2",
+                "Item 3",
+                "Item 4",
+                "Item 5",
+                "Item 6",
+                "Item 7",
+                "Item 8",
+                "Item 9",
+                "Item 10"
+              ]
             }
           </script>
         </amp-story-consent>
@@ -133,12 +221,18 @@ author: sebastianbenz
 
       <amp-story-page id="page-1">
         <amp-story-grid-layer template="fill">
-          <amp-video autoplay loop
+          <amp-video
+            autoplay
+            loop
             width="400"
             height="750"
             poster="<% hosts.platform %>/static/samples/img/poster0.png"
-            layout="fill">
-            <source src="<% hosts.platform %>/static/samples/video/p1.mp4" type="video/mp4">
+            layout="fill"
+          >
+            <source
+              src="<% hosts.platform %>/static/samples/video/p1.mp4"
+              type="video/mp4"
+            />
           </amp-video>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="vertical" class="bottom">
@@ -150,20 +244,31 @@ author: sebastianbenz
 
       <amp-story-page id="page-2">
         <amp-story-grid-layer template="fill">
-          <amp-img width="400" height="750" layout="fill" src="<% hosts.platform %>/static/samples/img/overview.jpg"></amp-img>
+          <amp-img
+            width="400"
+            height="750"
+            layout="fill"
+            src="<% hosts.platform %>/static/samples/img/overview.jpg"
+          ></amp-img>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="vertical" class="bottom">
           <h2 class="bold">Overview</h2>
-          <p>We held the second AMP Conf to celebrate the breadth of the AMP
+          <p>
+            We held the second AMP Conf to celebrate the breadth of the AMP
             community and announce the latest AMP innovations. We engaged 400+
-            devs in-person over two days and thousands globally on live stream.</p>
-          <p class="last">Here are the key launches by the AMP team and others this year</p>
+            devs in-person over two days and thousands globally on live stream.
+          </p>
+          <p class="last">
+            Here are the key launches by the AMP team and others this year
+          </p>
         </amp-story-grid-layer>
       </amp-story-page>
 
-      <amp-story-bookend src="<% hosts.platform %>/static/samples/json/bookend.json" layout="nodisplay">
+      <amp-story-bookend
+        src="<% hosts.platform %>/static/samples/json/bookend.json"
+        layout="nodisplay"
+      >
       </amp-story-bookend>
-
     </amp-story>
 
     <!-- ## Demo: `amp-consent` inside an `amp-story`

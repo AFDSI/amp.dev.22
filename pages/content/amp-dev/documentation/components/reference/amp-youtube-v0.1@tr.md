@@ -5,8 +5,6 @@ teaser:
   text: Bir YouTube videosu görüntüler.
 ---
 
-
-
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,8 +20,6 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-
 
 Bir [YouTube](https://www.youtube.com/) videosu görüntüler.
 
@@ -53,22 +49,22 @@ Duyarlı düzenle, örnekteki genişlik ve yükseklik, 16:9 en boy oranlı video
     data-videoid="mGENRKrdoGY"
     layout="responsive"
     width="480" height="270"></amp-youtube>
-  [/sourcecode]
+[/sourcecode]
 
-  [sourcecode:html]
-  <amp-youtube
+[sourcecode:html]
+<amp-youtube
       id="myLiveChannel"
       data-live-channelid="UCB8Kb4pxYzsDsHxzBfnid4Q"
       width="358"
       height="204"
       layout="responsive">
-    <amp-img
+<amp-img
       src="https://i.ytimg.com/vi/Wm1fWz-7nLQ/hqdefault_live.jpg"
       placeholder
       layout="fill"
       />
-  </amp-youtube>
-  [/sourcecode]
+</amp-youtube>
+[/sourcecode]
 
 ## Özellikler <a name="attributes"></a>
 

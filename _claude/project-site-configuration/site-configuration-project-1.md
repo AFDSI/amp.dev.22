@@ -13,10 +13,10 @@ Add new site variables alongside existing ones:
   "gaTrackingId": "G-1HFVWLN28T",
   "thumbor": { ... },
   "baseUrls": { ... },
-  
+
   "site": {
     "name": "amp-new",
-    "shortName": "amp-new", 
+    "shortName": "amp-new",
     "title": "AMP",
     "description": "The AMP Project website."
   },
@@ -58,9 +58,11 @@ podspec['site'] = {
 // Social links
 podspec['social'] = {
   'twitter_handle': this.shared.social?.twitter?.handle || '@ampproject',
-  'twitter_url': this.shared.social?.twitter?.url || 'https://twitter.com/AMPhtml',
+  'twitter_url':
+    this.shared.social?.twitter?.url || 'https://twitter.com/AMPhtml',
   'youtube_url': this.shared.social?.youtube?.url || '',
-  'github_url': this.shared.social?.github?.url || 'https://github.com/ampproject',
+  'github_url':
+    this.shared.social?.github?.url || 'https://github.com/ampproject',
   'github_org': this.shared.social?.github?.org || 'ampproject',
 };
 ```
@@ -104,11 +106,13 @@ This file cannot use Jinja2 (static JSON). Two options:
 ### Step 2.2: `frontend/templates/views/partials/header.j2`
 
 **Current (line ~13):**
+
 ```html
 <span class="ap-o-header-home-title">AMP</span>
 ```
 
 **Updated:**
+
 ```html
 <span class="ap-o-header-home-title">{{ podspec.site.title }}</span>
 ```
@@ -120,17 +124,21 @@ This file cannot use Jinja2 (static JSON). Two options:
 ### Step 2.3: `frontend/templates/views/partials/footer.j2`
 
 **Current (approximate lines):**
+
 ```html
 <a href="https://twitter.com/AMPhtml" ...>
-<a href="https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw" ...>
-<a href="https://github.com/ampproject" ...>
+  <a href="https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw" ...>
+    <a href="https://github.com/ampproject" ...></a></a
+></a>
 ```
 
 **Updated:**
+
 ```html
 <a href="{{ podspec.social.twitter_url }}" ...>
-<a href="{{ podspec.social.youtube_url }}" ...>
-<a href="{{ podspec.social.github_url }}" ...>
+  <a href="{{ podspec.social.youtube_url }}" ...>
+    <a href="{{ podspec.social.github_url }}" ...></a></a
+></a>
 ```
 
 **Verify:** Footer links still work, point to correct URLs.
@@ -140,33 +148,39 @@ This file cannot use Jinja2 (static JSON). Two options:
 ### Step 2.4: `frontend/templates/views/partials/structured-data.j2`
 
 **Current (line ~63):**
+
 ```html
 - amp-new</title>
 ```
 
 **Updated:**
+
 ```html
 - {{ podspec.site.name }}</title>
 ```
 
 **Current (line ~74, ~85):**
+
 ```json
 "name": "amp-new"
 "name": "AMP Project"
 ```
 
 **Updated:**
+
 ```json
 "name": "{{ podspec.site.name }}"
 "name": "{{ podspec.site.title }} Project"
 ```
 
 **Current (line ~107-108):**
+
 ```json
 "@ampproject"
 ```
 
 **Updated:**
+
 ```json
 "{{ podspec.social.twitter_handle }}"
 ```
@@ -200,13 +214,17 @@ Check for hardcoded social links, update to use `podspec.social.*` variables.
 ### Step 3.1: `platform/lib/routers/search.js` (line 267)
 
 **Current:**
+
 ```javascript
 const searchScope = 'site:blog.amp.dev OR site:playground.amp.dev';
 ```
 
 **Updated:**
+
 ```javascript
-const playgroundHost = config.hosts.playground.base.replace('https://', '').replace('http://', '');
+const playgroundHost = config.hosts.playground.base
+  .replace('https://', '')
+  .replace('http://', '');
 const searchScope = `site:blog.amp.dev OR site:${playgroundHost}`;
 ```
 
@@ -217,13 +235,15 @@ const searchScope = `site:blog.amp.dev OR site:${playgroundHost}`;
 ### Step 3.2: `platform/lib/routers/search.js` (line 396)
 
 **Current:**
+
 ```javascript
-playgroundUrl: 'https://playground.amp.dev'
+playgroundUrl: 'https://playground.amp.dev';
 ```
 
 **Updated:**
+
 ```javascript
-playgroundUrl: config.hosts.playground.base
+playgroundUrl: config.hosts.playground.base;
 ```
 
 **Verify:** Search results with playground links point to correct host.
@@ -235,6 +255,7 @@ playgroundUrl: config.hosts.playground.base
 This runs in Netlify Functions context. Needs environment variable approach:
 
 **Add to function:**
+
 ```javascript
 const PLAYGROUND_HOST = process.env.PLAYGROUND_HOST || 'playground.amp.dev';
 ```
@@ -276,19 +297,22 @@ const replace = require('gulp-replace');
  */
 function replacePlaygroundUrls() {
   const env = config.environment;
-  
+
   // Skip for local development
   if (env === 'development' || env === 'local') {
     return Promise.resolve();
   }
-  
+
   const playgroundHost = config.hosts.playground.base
     .replace('https://', '')
     .replace('http://', '');
-  
-  console.log(`[Playground URLs] Replacing playground.amp.dev with ${playgroundHost}`);
-  
-  return gulp.src(['dist/**/*.html', 'dist/**/*.json'])
+
+  console.log(
+    `[Playground URLs] Replacing playground.amp.dev with ${playgroundHost}`
+  );
+
+  return gulp
+    .src(['dist/**/*.html', 'dist/**/*.json'])
     .pipe(replace(/playground\.amp\.dev/g, playgroundHost))
     .pipe(gulp.dest('dist'));
 }
@@ -309,13 +333,14 @@ In the build task sequence, add `replacePlaygroundUrls` as a late-stage step (af
 // In the build sequence
 gulp.series(
   // ... existing tasks
-  'buildPages',        // Grow builds HTML
-  'replacePlaygroundUrls',  // Replace playground URLs
+  'buildPages', // Grow builds HTML
+  'replacePlaygroundUrls' // Replace playground URLs
   // ... remaining tasks
-)
+);
 ```
 
-**Verify:** 
+**Verify:**
+
 1. `npm run build:local` - URLs unchanged (development mode)
 2. `npm run build` (production) - Check `dist/**/*.html` for replaced URLs
 
@@ -332,9 +357,10 @@ function generateManifest() {
     short_name: config.shared.site.shortName,
     // ... other manifest fields
   };
-  
-  return file('manifest.json', JSON.stringify(manifest, null, 2))
-    .pipe(gulp.dest('dist/static'));
+
+  return file('manifest.json', JSON.stringify(manifest, null, 2)).pipe(
+    gulp.dest('dist/static')
+  );
 }
 ```
 
@@ -377,6 +403,7 @@ Push to GitHub, verify Netlify build succeeds.
 ### Step 5.4: Thumbor Cleanup (Deferred)
 
 Review these files for dead code:
+
 - `platform/lib/utils/imageOptimizer.js`
 - `platform/lib/templates/ImportBlogFilter.js`
 
@@ -386,13 +413,12 @@ If thumbor isn't active, remove references.
 
 ## Summary: Execution Order
 
-| Step | Description | Risk Level |
-|------|-------------|------------|
-| 1.1 | Add to shared.json | Low |
-| 1.2 | Update config.js | Low |
-| 1.3 | Verify variables | Low |
-| 2.1-2.6 | Template updates (one at a time) | Medium |
-| 3.1-3.3 | Search configuration | Medium |
-| 4.1-4.4 | Gulp playground replacement | Medium |
-| 5.1-5.4 | Validation | Low |
-
+| Step    | Description                      | Risk Level |
+| ------- | -------------------------------- | ---------- |
+| 1.1     | Add to shared.json               | Low        |
+| 1.2     | Update config.js                 | Low        |
+| 1.3     | Verify variables                 | Low        |
+| 2.1-2.6 | Template updates (one at a time) | Medium     |
+| 3.1-3.3 | Search configuration             | Medium     |
+| 4.1-4.4 | Gulp playground replacement      | Medium     |
+| 5.1-5.4 | Validation                       | Low        |

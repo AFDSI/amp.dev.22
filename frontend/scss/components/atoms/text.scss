@@ -6,7 +6,6 @@
 @import '_text.scss';
 @import './_color';
 
-
 .#{utility('content')},
 .#{utility('section')} {
   .intro {
@@ -23,16 +22,17 @@
     @include txt-p;
     @include txt-1;
 
-  	small {
-  		@include txt-2;
-  	}
+    small {
+      @include txt-2;
+    }
   }
 
   code {
     @include txt-mono-inline;
   }
 
-  p, code {
+  p,
+  code {
     overflow-wrap: break-word;
   }
 

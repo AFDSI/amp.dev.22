@@ -15,7 +15,6 @@
 @import 'components/atoms/_icon.scss';
 @import 'components/atoms/_color.scss';
 
-
 .#{utility('preview-pane')} {
   display: flex;
   flex-direction: column;
@@ -42,12 +41,16 @@
 
     &-spacer {
       flex: 1 0 33.3333%;
-      @media (max-width: 767px) { display: none; }
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
 
     .#{molecule('device-toggle')} {
       flex: 0 0 180px;
-      @media (max-width: 767px) { display: none; }
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
 
     .#{molecule('experiments')} {
@@ -129,7 +132,6 @@
   }
 
   &-email {
-
     &-header {
       display: flex;
       margin: -5px;
@@ -152,7 +154,6 @@
     }
 
     &.#{organism('preview-pane')} {
-
       &-desktop {
         width: 800px;
         height: 600px;
@@ -161,7 +162,6 @@
   }
 
   &-ads {
-
     &.#{organism('preview-pane')} {
       margin-top: 20px;
     }

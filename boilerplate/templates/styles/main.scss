@@ -13,11 +13,12 @@
 
 .#{organism('header')} {
   &-home {
-      &-title, &-sub-title {
-        @media (max-width: 1023px) {
-          @include txt-1;
-        }
+    &-title,
+    &-sub-title {
+      @media (max-width: 1023px) {
+        @include txt-1;
       }
+    }
   }
 }
 
@@ -136,18 +137,19 @@ section {
     label {
       line-height: 32px;
     }
-    input[type=text] {
+    input[type='text'] {
       padding: 0 8px;
       border: none;
     }
-    input[type=checkbox] {
+    input[type='checkbox'] {
       margin-right: auto;
       margin-left: 1rem;
       margin-top: 0.3rem;
     }
   }
   input {
-    &[type=radio], &[type=checkbox] {
+    &[type='radio'],
+    &[type='checkbox'] {
       font-size: 100%;
       line-height: 1.5rem;
       border-radius: 0;
@@ -162,29 +164,29 @@ section {
       height: 20px;
       border: 1px solid color('blue-ribbon');
       vertical-align: middle;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
       text-align: center;
     }
-    &[type=radio]:after {
+    &[type='radio']:after {
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
-      content: " ";
+      content: ' ';
       line-height: 1.4rem;
       vertical-align: middle;
       text-align: center;
       background-color: #fff;
     }
-    &[type=checkbox] {
+    &[type='checkbox'] {
       &:after {
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
-        content: " ";
+        content: ' ';
         line-height: 1.4rem;
         vertical-align: middle;
         text-align: center;
@@ -196,14 +198,14 @@ section {
         text-align: center;
         background-color: color('blue-ribbon');
         color: #fff;
-        content: "✓";
+        content: '✓';
       }
     }
-    &[type=radio] {
+    &[type='radio'] {
       &:checked {
         background-color: #fff;
         &:after {
-          content: "";
+          content: '';
           font-size: 3rem;
           background-color: color('blue-ribbon');
         }
@@ -273,7 +275,9 @@ section {
   color: #fafafa;
   font-size: 14px;
   font-weight: 400;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 1px 1.5px 0 rgba(0, 0, 0, 0.12),
+    0 1px 1px 0 rgba(0, 0, 0, 0.24);
   height: 48px;
   padding: 0 20px;
   line-height: 48px;
@@ -286,7 +290,7 @@ section {
   right: 16px;
   position: fixed;
   text-transform: uppercase;
-  transform: scale(0.0);
+  transform: scale(0);
   @include txt-font-accent;
   @include txt-strong;
 }
@@ -352,12 +356,14 @@ a.anchor {
 /* Disable inputs while AMP Runtime is still loading */
 
 body {
-  &.amp-mode-mouse .fab, &.amp-mode-touch .fab {
-    animation: expand .25s ease-in-out .25s forwards;
+  &.amp-mode-mouse .fab,
+  &.amp-mode-touch .fab {
+    animation: expand 0.25s ease-in-out 0.25s forwards;
     pointer-events: auto;
   }
   &:not(.amp-mode-mouse):not(.amp-mode-touch) {
-    label, input {
+    label,
+    input {
       opacity: 0.3;
       pointer-events: none;
     }
@@ -373,7 +379,7 @@ body {
 
 @keyframes expand {
   0% {
-    transform: scale(0.0);
+    transform: scale(0);
   }
 
   100% {

@@ -11,10 +11,10 @@
   z-index: 1;
   opacity: 0;
   background: color('black');
-  transition: opacity .25s ease-in-out
+  transition: opacity 0.25s ease-in-out;
 }
 
 .fly-in--lightbox.active ~ #fly-in-background {
   pointer-events: all;
-  opacity: .6;
+  opacity: 0.6;
 }

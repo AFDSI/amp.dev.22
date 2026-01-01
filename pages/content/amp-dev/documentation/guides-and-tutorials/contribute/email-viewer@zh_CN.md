@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 初始化时在 xhrInterceptor 功能中选择查看工具来启用 XHR 拦截。请参见查看工具示例，了解如何完成此操作，以及查看 XHR 拦截的示例。之后，AMP 文档必须选择允许 XHR 拦截。通过向 `<html amp4email>` 标记添加 `allow-xhr-interception` 属性，文档可以选择加入。电子邮件客户端必须在呈现 AMP 文档之前设置此属性，因为它故意作为一个无效属性，并且在 AMP 文档验证期间也将如此标记。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

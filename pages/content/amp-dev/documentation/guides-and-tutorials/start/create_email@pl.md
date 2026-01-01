@@ -21,7 +21,7 @@ Postępuj zgodnie z tym samouczkiem, aby utworzyć i wysłać pierwszą dynamicz
 Plac zabaw AMP obsługuje format AMP dla poczty e-mail, umożliwiając tworzenie, testowanie i walidację wiadomości e-mail AMP. Otwórz [plac zabaw AMP](https://playground.amp.dev/?runtime=amp4email) i upewnij się w lewym górnym rogu, że ustawiony jest format `AMP for Email`. Wyświetlany powinien być następujący kod:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Cho phép tiếp quản XHR bằng cách bật chức năngxhrInterceptor của trình xem khi khởi động. Hãy xem ví dụ cho trình xem về cách thực hiện việc này và một ví dụ về tiếp quản XHR. Sau đó, tài liệu AMP cần được bật và cho phép tiếp quản XHR. Các tài liệu bật chức năng này bằng cách thêm thuộc tính `allow-xhr-interception` vào thẻ `<html amp4email>`. Trình khách email phải đặt thuộc tính này trên tài liệu AMP trước khi render bởi nó cố tình được đặt là một thuộc tính không hợp lệ và sẽ được gắn cờ như vậy trong quá trình xác thực tài liệu AMP.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

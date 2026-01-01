@@ -3,7 +3,7 @@ $title: AMP 페이지에서 사용자 지정 JavaScript 활용하기
 $order: 7
 author: CrystalOnScript
 contributors:
-- fstanis
+  - fstanis
 description: 다양한 사용자 지정 항목이 요구되는 웹 경험을 위해 AMP는 amp-script를 제작했습니다. 이 컴포넌트를 통해 AMP 페이지에서 페이지의 다른 성능에 영향을 미치지 않고도 임의의 JavaScript를 사용할 수 있습니다.
 ---
 
@@ -63,7 +63,7 @@ Web Worker 내부의 JavaScript는 로드 시 DOM 변경을 최소한으로 허�
 Worker DOM에서 사소한 구조 변경은 허용되지만 콘텐츠 변경은 허용되지 않습니다.
 
 ```html
- <text>Hello </text><text>world</text>
+<text>Hello </text><text>world</text>
 ```
 
 ## DOM 조작
@@ -92,8 +92,7 @@ AMP는 각 페이지의 사용자 지정 JavaScript 크기를 150kB로 제한합
 <body>
   <p>Hello!</p>
   <div>
-    <amp-script layout="container" src="customjs.js">
-    </amp-script>
+    <amp-script layout="container" src="customjs.js"> </amp-script>
   </div>
 </body>
 ```

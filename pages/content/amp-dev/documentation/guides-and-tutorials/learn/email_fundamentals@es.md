@@ -14,7 +14,7 @@ formats:
 Los correos electrónicos de AMP son parecidos a los correos electrónicos HTML clásicos, pero presentan algunas diferencias. A continuación se muestra la cantidad mínima de etiquetas necesarias para convertir un correo electrónico en un correo electrónico de AMP válido.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

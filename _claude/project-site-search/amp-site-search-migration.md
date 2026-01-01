@@ -1,4 +1,3 @@
-
 ## `amp.dev` Server Strategy
 
 - `amp.dev` has two server strategies: Node-based `express.js` and Netlify-based `functions`.
@@ -105,7 +104,6 @@ const {
   BUILT_IN_COMPONENTS,
   IMPORTANT_INCLUDED_ELEMENTS,
 } = require('./AmpConstants.js');
-
 ```
 
 - located here:
@@ -120,9 +118,7 @@ netlify/functions/search_autosuggest/component-versions.json
 - Express form uses `form action-xhr="https://amp.dev/documentation/examples/api/echo"`
 - Netlify alternative is `netlify/functions/examples_api_echo/examples_api_echo.js`
 
-
 - netlify/functions/examples_api_autosuggest_cities/examples_api_autosuggest_cities.js
-
 
 #### working example:
 
@@ -138,19 +134,51 @@ netlify/functions/search_autosuggest/component-versions.json
 - `src=""`
 
 ```html
-<form action-xhr="https://amp.dev/documentation/examples/api/echo" class="" id="searchForm" method="POST" on="submit:AMP.setState({ query: throttledValue }),searchResult.focus,searchList.changeToLayoutContainer" target="_top">
+<form
+  action-xhr="https://amp.dev/documentation/examples/api/echo"
+  class=""
+  id="searchForm"
+  method="POST"
+  on="submit:AMP.setState({ query: throttledValue }),searchResult.focus,searchList.changeToLayoutContainer"
+  target="_top"
+>
+  <amp-autocomplete
+    class=""
+    filter="substring"
+    min-characters="1"
+    on="select:AMP.setState({ query: event.value })"
+    submit-on-enter="false"
+    src="https://amp.dev/search/autosuggest"
+  >
+    <div class="">
+      <svg>
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#magnifier"
+        />
+      </svg>
+    </div>
 
-<amp-autocomplete class="" filter="substring" min-characters="1" on="select:AMP.setState({ query: event.value })" submit-on-enter="false" src="https://amp.dev/search/autosuggest">
+    <input
+      id="searchInput"
+      class=""
+      name="q"
+      placeholder="What are you looking for?"
+      on="input-throttled:AMP.setState({ throttledValue: event.value })"
+      [value]="query == null ? '' : query"
+      required
+    />
 
-<div class="">
-<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#magnifier"/></svg>
-</div>
-
-<input id="searchInput" class="" name="q" placeholder="What are you looking for?" on="input-throttled:AMP.setState({ throttledValue: event.value })" [value]="query == null ? '' : query" required>
-
-<button class="" type="submit" name="search-submit" disabled [disabled]="!throttledValue">Search</button>
-
-</amp-autocomplete>
+    <button
+      class=""
+      type="submit"
+      name="search-submit"
+      disabled
+      [disabled]="!throttledValue"
+    >
+      Search
+    </button>
+  </amp-autocomplete>
 </form>
 ```
 
@@ -168,13 +196,16 @@ const US_CAPITAL_CITIES = [
 ```
 
 Netlify uses:
+
 - netlify/functions/examples_api_autosuggest_cities/autosuggest.js
 - netlify/functions/examples_api_autosuggest_cities/examples_api_autosuggest_cities.js
 
 Express uses:
+
 - form action-xhr="https://amp.dev/documentation/examples/api/echo"
 
 Netlify uses:
+
 - netlify/functions/examples_api_echo/examples_api_echo.js depends on:
 
 ```javascript
@@ -190,33 +221,68 @@ const busboyLib = require('busboy');
 ## TO-BE
 
 ### Step 1
+
 - item
 
 ### Step 2
+
 - item
 
 ## TO-DO
 
 ### Step 1
+
 - update
 
 ```html
-<form action-xhr="https://amp.dev/documentation/examples/api/echo" class="" id="searchForm" method="POST" on="submit:AMP.setState({ query: throttledValue }),searchResult.focus,searchList.changeToLayoutContainer" target="_top">
+<form
+  action-xhr="https://amp.dev/documentation/examples/api/echo"
+  class=""
+  id="searchForm"
+  method="POST"
+  on="submit:AMP.setState({ query: throttledValue }),searchResult.focus,searchList.changeToLayoutContainer"
+  target="_top"
+>
+  <amp-autocomplete
+    class=""
+    filter="substring"
+    min-characters="1"
+    on="select:AMP.setState({ query: event.value })"
+    submit-on-enter="false"
+    src="https://amp.dev/search/autosuggest"
+  >
+    <div class="">
+      <svg>
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#magnifier"
+        />
+      </svg>
+    </div>
 
-<amp-autocomplete class="" filter="substring" min-characters="1" on="select:AMP.setState({ query: event.value })" submit-on-enter="false" src="https://amp.dev/search/autosuggest">
+    <input
+      id="searchInput"
+      class=""
+      name="q"
+      placeholder="What are you looking for?"
+      on="input-throttled:AMP.setState({ throttledValue: event.value })"
+      [value]="query == null ? '' : query"
+      required
+    />
 
-<div class="">
-<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#magnifier"/></svg>
-</div>
-
-<input id="searchInput" class="" name="q" placeholder="What are you looking for?" on="input-throttled:AMP.setState({ throttledValue: event.value })" [value]="query == null ? '' : query" required>
-
-<button class="" type="submit" name="search-submit" disabled [disabled]="!throttledValue">Search</button>
-
-</amp-autocomplete>
+    <button
+      class=""
+      type="submit"
+      name="search-submit"
+      disabled
+      [disabled]="!throttledValue"
+    >
+      Search
+    </button>
+  </amp-autocomplete>
 </form>
 ```
 
 ### Step 2
-- Test
 
+- Test

@@ -9,7 +9,6 @@ teaser:
   text: 扩大或缩小字体大小以适合给定空间内的内容。
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -26,8 +25,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
-
 ## 用法
 
 扩展或缩小其字体大小以适应所给空间内的内容。
@@ -39,6 +36,7 @@ limitations under the License.
 [example preview="inline" playground="true" imports="amp-fit-text"]
 
 [sourcecode:html]
+
 <div class="fixedblock">
   <amp-fit-text width="200" height="200" layout="responsive">
     Lorem ipsum dolor sit amet, has nisl nihil convenire et, vim at aeque
@@ -54,6 +52,7 @@ limitations under the License.
 [example preview="inline" playground="true" imports="amp-fit-text"]
 
 [sourcecode:html]
+
 <div class="fixedblock">
   <amp-fit-text width="200" height="200" layout="responsive" max-font-size="22">
     Lorem ipsum dolor sit amet, has nisl nihil convenire et, vim at aeque
@@ -73,6 +72,7 @@ limitations under the License.
 [example preview="inline" playground="true" imports="amp-fit-text"]
 
 [sourcecode:html]
+
 <div class="fixedblock">
   <amp-fit-text width="200" height="200" layout="responsive" min-font-size="40">
     Lorem ipsum dolor sit amet, has nisl nihil convenire et, vim at aeque

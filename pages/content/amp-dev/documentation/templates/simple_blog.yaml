@@ -15,7 +15,7 @@ teaser:
   download_url: '/static/files/templates/blog.zip'
   template_demo_home: 'websites/blog/templates/blog.amp.html'
   template_github_home: 'websites/blog'
- 
+
 document:
   pages: /content/amp-dev/documentation/templates/blog/pages
   description: Simple blog template.

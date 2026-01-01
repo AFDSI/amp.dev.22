@@ -19,7 +19,6 @@ teaser:
     alt: Times of India
   text: Times of India reports 1.5X more revenue yields, 3.6X faster load time with AMP
 
-
 stage:
   headline: Times of India reports 1.5X more revenue yields, 3.6X faster load time with AMP
   layout: mobile
@@ -42,7 +41,6 @@ kpis:
     text: Improved load time on slow networks
 
 contents:
-
   - layout: text
     text: Gurugram-based Times Internet is a leading Indian digital-products company and the digital venture of BCCL, the country’s largest media and entertainment group. Times Internet reaches over 400 million monthly unique visitors, totalling 130 billion minutes spent on the web and mobile.
     direction: left-flat
@@ -69,7 +67,7 @@ contents:
     direction: left-flat
 
   - layout: quote
-    quote: "Developing your page in AMP is fairly simple and easy, and there is a lot of active support from the AMP project team for any implementation challenges."
+    quote: 'Developing your page in AMP is fairly simple and easy, and there is a lot of active support from the AMP project team for any implementation challenges.'
     image_src: '/static/img/success-stories/times_of_india/toi_logo.png'
     width: 200
     height: 20

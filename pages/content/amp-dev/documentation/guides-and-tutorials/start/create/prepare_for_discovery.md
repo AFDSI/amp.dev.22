@@ -1,5 +1,5 @@
 ---
-$title: Plug and play components 
+$title: Plug and play components
 $order: 4
 description: 'AMP provides a huge library of components that create common widgets and unique web elements.'
 author: crystalonscript
@@ -18,15 +18,29 @@ You can find the import script for each component at the top of its reference do
 [/tip]
 
 ```html
-<script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+<script
+  async
+  custom-element="amp-base-carousel"
+  src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"
+></script>
 ```
 
 Next, include another `<amp-img>` element under the first one, then wrap both inside `<amp-base-carousel>` tags, like below:
 
 ```html
 <amp-base-carousel width="600" height="400" layout="responsive">
-  <amp-img src="https://source.unsplash.com/Ji_G7Bu1MoM/600x400" width="600" height="400" layout="responsive"></amp-img>
-  <amp-img src="https://source.unsplash.com/4yCXNMLP9g8/600x400" width="600" height="400" layout="responsive"></amp-img>
+  <amp-img
+    src="https://source.unsplash.com/Ji_G7Bu1MoM/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
+  <amp-img
+    src="https://source.unsplash.com/4yCXNMLP9g8/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
 </amp-base-carousel>
 ```
 
@@ -35,11 +49,31 @@ Next, include another `<amp-img>` element under the first one, then wrap both in
 You may notice we have familiar attributes, `width`, `height`, and `layout` defined. Like HTML, attributes are used everywhere in AMP. But, AMP uses additional attributes to customize components’ behavior. Some are [common element attributes](../../learn/common_attributes.md) and others are special to certain components. Let's add the `loop` attribute and set it to `true` and include more images:
 
 ```html
-<amp-base-carousel loop="true"  width="600" height="400" layout="responsive">
-  <amp-img src="https://source.unsplash.com/Ji_G7Bu1MoM/600x400" width="600" height="400" layout="responsive"></amp-img>
-  <amp-img src="https://source.unsplash.com/4yCXNMLP9g8/600x400" width="600" height="400" layout="responsive"></amp-img>
-  <amp-img src="https://source.unsplash.com/QrgRXH81DXk/600x400" width="600" height="400" layout="responsive"></amp-img>
-  <amp-img src="https://source.unsplash.com/8QJSi37vhms/600x400" width="600" height="400" layout="responsive"></amp-img>
+<amp-base-carousel loop="true" width="600" height="400" layout="responsive">
+  <amp-img
+    src="https://source.unsplash.com/Ji_G7Bu1MoM/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
+  <amp-img
+    src="https://source.unsplash.com/4yCXNMLP9g8/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
+  <amp-img
+    src="https://source.unsplash.com/QrgRXH81DXk/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
+  <amp-img
+    src="https://source.unsplash.com/8QJSi37vhms/600x400"
+    width="600"
+    height="400"
+    layout="responsive"
+  ></amp-img>
 </amp-base-carousel>
 ```
 

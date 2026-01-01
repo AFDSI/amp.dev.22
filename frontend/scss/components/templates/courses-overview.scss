@@ -40,8 +40,9 @@
       margin-bottom: 1.75em;
     }
 
-    h1, h2 {
-      margin-bottom: .5em;
+    h1,
+    h2 {
+      margin-bottom: 0.5em;
     }
 
     @media (min-width: 930px) {
@@ -83,9 +84,7 @@
   }
 
   .#{organism('teaser-grid')} {
-
     &-list {
-
       @media (min-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
       }
@@ -96,13 +95,16 @@
     }
 
     .#{molecule('teaser')} {
-
       & > a {
         height: auto;
       }
 
       &-icon {
-        background: linear-gradient(225deg, color('blue-ribbon') 0%, color('robins-egg') 75%);
+        background: linear-gradient(
+          225deg,
+          color('blue-ribbon') 0%,
+          color('robins-egg') 75%
+        );
       }
     }
   }
@@ -159,5 +161,4 @@
       margin-top: 10px;
     }
   }
-
 }

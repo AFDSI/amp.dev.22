@@ -38,9 +38,8 @@ kpis:
     text: Mobile speed increase
 
 contents:
-
   - layout: text
-    text: "“Green slip” is the generic term for compulsory third-party (CTP) vehicle insurance in New South Wales, Australia. On greenslips.com.au, vehicle owners can quickly find information and compare greenslip prices using a digital calculator. “For most people, this is a begrudge purchase. People leave it to the last minute and they are generally price sensitive. Our job is to make the process as simple and easy as possible. We need to give them a clear path to a simple calculator, so they can get the job done quickly and easily,” says greenslips.com.au founder Stephen Treacey. Now AMP helps them do it even quicker."
+    text: '“Green slip” is the generic term for compulsory third-party (CTP) vehicle insurance in New South Wales, Australia. On greenslips.com.au, vehicle owners can quickly find information and compare greenslip prices using a digital calculator. “For most people, this is a begrudge purchase. People leave it to the last minute and they are generally price sensitive. Our job is to make the process as simple and easy as possible. We need to give them a clear path to a simple calculator, so they can get the job done quickly and easily,” says greenslips.com.au founder Stephen Treacey. Now AMP helps them do it even quicker.'
     direction: left-flat
 
   - layout: text-media

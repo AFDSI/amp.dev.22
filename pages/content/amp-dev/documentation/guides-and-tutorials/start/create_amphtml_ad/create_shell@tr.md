@@ -9,7 +9,7 @@ description: 'Favori metin editörünüzü kullanarak my-amphtml-ad.html adında
 Favori metin editörünüzü kullanarak **`my-amphtml-ad.html`** adında bir HTML dosyası oluşturun. Aşağıdaki HTML biçimlendirmesini bu dosyaya kopyalayın:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Bu işaretleme, geçerli, temel bir HTML dosyası içindir. <a>Duyarlı bir gör
 `<html>` etiketine, belgeyi bir AMPHTML reklamı olarak tanımlayan `⚡4ads` özelliğini ekleyin. Alternatif olarak, yine geçerli olan `amp4ads` özelliğini de belirtebilirsiniz.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ AMPHTML reklamınızı biçimlendirmek için CSS'nizin `<head>` bölümündeki `
 HTML dosyanızın tam kodu aşağıdadır:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

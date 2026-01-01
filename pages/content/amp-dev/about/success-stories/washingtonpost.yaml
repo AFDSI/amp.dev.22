@@ -9,7 +9,7 @@ formats:
 teaser:
   image:
     src: '/static/img/success-stories/washington_post/teaser_washington_post.jpg'
-    width: 240 
+    width: 240
     height: 240
     alt: Washington Post
   logo:
@@ -18,7 +18,6 @@ teaser:
     height: 30
     alt: Washington Post
   text: AMP helps the Washington Post increase returning users from mobile search by 23%
-
 
 stage:
   headline: AMP helps the Washington Post increase returning users from mobile search by 23%
@@ -42,7 +41,6 @@ kpis:
     text: Articles the Washington Post publishes in AMP HTML daily
 
 contents:
-
   - layout: text-media
     image_src: '/static/img/success-stories/washington_post/amp_thewashingtonpost.jpg'
     width: 120

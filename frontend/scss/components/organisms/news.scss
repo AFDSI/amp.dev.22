@@ -69,7 +69,9 @@
     }
 
     .#{organism('news')}-card {
-      transition: box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition:
+        box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+        transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
       &:hover {
         transform: translateY(-0.125em);

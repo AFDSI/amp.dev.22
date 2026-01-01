@@ -14,7 +14,7 @@ Se você conhece o AMP, temos ótimas notícias! O AMP para e-mails é simplesme
 Os E-mails AMP parecem e-mails HTML clássicos, mas com algumas poucas diferenças. Abaixo está o código mínimo necessário para fazer com que um e-mail seja um e-mail AMP válido.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

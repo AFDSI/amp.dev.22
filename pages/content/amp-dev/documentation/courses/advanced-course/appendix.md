@@ -5,16 +5,17 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## What is JSON?
 
-`<amp-list>`, `<amp-bind>` and `<amp-state>` can read JSON data. JSON is short for JavaScript Object Notation. It is a "lightweight data-interchange format."  Even though it is based on a subset of JavaScript, it is language independent, which means that all languages can read and understand it. JSON data are represented, usually, in two ways: either as a collection of key (name) and value pairs, or as an ordered list of values (what we know as a list or array). The JSON syntax looks usually like this:
+`<amp-list>`, `<amp-bind>` and `<amp-state>` can read JSON data. JSON is short for JavaScript Object Notation. It is a "lightweight data-interchange format." Even though it is based on a subset of JavaScript, it is language independent, which means that all languages can read and understand it. JSON data are represented, usually, in two ways: either as a collection of key (name) and value pairs, or as an ordered list of values (what we know as a list or array). The JSON syntax looks usually like this:
 
 [sourcecode:json]
 {
-    "people": {
-        "number": 2,
-        "names": ["Alice", "Bob"]
-    }
+"people": {
+"number": 2,
+"names": ["Alice", "Bob"]
+}
 }
 [/sourcecode]
 
@@ -27,17 +28,17 @@ We explained that when `AMP.setState()` is called, `<amp-bind>` will "deep-merge
 [sourcecode:html]
 {% raw %}
 <button on="tap:AMP.setState({
-  employee: {
-    name: 'John Smith',
-    age: 47,
-    vehicle: 'Car'
-  }
+employee: {
+name: 'John Smith',
+age: 47,
+vehicle: 'Car'
+}
 })"...>
 </button>
 <button on="tap:AMP.setState({
-  employee: {
-    age: 64
-  }
+employee: {
+age: 64
+}
 })"...>
 </button>
 {% endraw %}
@@ -47,11 +48,11 @@ The result after the second button is pressed updates the age:
 
 [sourcecode:json]
 {
-    employee: {
-        name: 'John Smith',
-        age: 64,
-        vehicle: 'Car',
-    }
+employee: {
+name: 'John Smith',
+age: 64,
+vehicle: 'Car',
+}
 }
 [/sourcecode]
 
@@ -59,9 +60,9 @@ If amp-bind was applying a shallow merge, the result after the second button was
 
 [sourcecode:json]
 {
-    employee: {
-        age: 64,
-    }
+employee: {
+age: 64,
+}
 }
 [/sourcecode]
 
@@ -88,16 +89,17 @@ Open <a href="https://glitch.com/edit/#!/enshrined-eyebrow" target="_blank">this
 It’s not necessary to use Glitch to complete these trainings. However, some of the code required to complete the exercises is not discussed in these courses, but is contained in the Glitch samples. If you’d like to use another editor, you may still need to go into the Glitch samples to copy the CSS and server code into your local solution.
 [/filter]
 [filter level="advanced"]
+
 ## What is JSON?
 
-`<amp-list>`, `<amp-bind>` and `<amp-state>` can read JSON data. JSON is short for JavaScript Object Notation. It is a "lightweight data-interchange format."  Even though it is based on a subset of JavaScript, it is language independent, which means that all languages can read and understand it. JSON data are represented, usually, in two ways: either as a collection of key (name) and value pairs, or as an ordered list of values (what we know as a list or array). The JSON syntax looks usually like this:
+`<amp-list>`, `<amp-bind>` and `<amp-state>` can read JSON data. JSON is short for JavaScript Object Notation. It is a "lightweight data-interchange format." Even though it is based on a subset of JavaScript, it is language independent, which means that all languages can read and understand it. JSON data are represented, usually, in two ways: either as a collection of key (name) and value pairs, or as an ordered list of values (what we know as a list or array). The JSON syntax looks usually like this:
 
 [sourcecode:json]
 {
-    "people": {
-        "number": 2,
-        "names": ["Alice", "Bob"]
-    }
+"people": {
+"number": 2,
+"names": ["Alice", "Bob"]
+}
 }
 [/sourcecode]
 
@@ -116,11 +118,11 @@ The result after the second button is pressed updates the age:
 
 [sourcecode:json]
 {
-    employee: {
-        name: 'John Smith',
-        age: 64,
-        vehicle: 'Car',
-    }
+employee: {
+name: 'John Smith',
+age: 64,
+vehicle: 'Car',
+}
 }
 [/sourcecode]
 
@@ -128,9 +130,9 @@ If amp-bind was applying a shallow merge, the result after the second button was
 
 [sourcecode:json]
 {
-    employee: {
-        age: 64,
-    }
+employee: {
+age: 64,
+}
 }
 [/sourcecode]
 

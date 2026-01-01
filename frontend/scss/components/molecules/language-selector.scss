@@ -79,19 +79,19 @@
     }
   }
 
-    .ap-m-nav-link {
-      display: block;
-    }
+  .ap-m-nav-link {
+    display: block;
+  }
 
   /* For when the selector is active */
   &-toggle:hover ~ &-list,
   &-toggle:checked ~ &-list,
   &-list:hover {
-      display: block;
+    display: block;
   }
 
   &-list:focus-within {
-      display: block;
+    display: block;
   }
 
   .mainmenuopen & {

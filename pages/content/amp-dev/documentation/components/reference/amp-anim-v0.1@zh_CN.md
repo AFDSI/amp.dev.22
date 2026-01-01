@@ -8,7 +8,6 @@ teaser:
   text: '管理动画图像，通常是GIF。'
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -25,8 +24,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
-
 ## 用法
 
 `amp-anim` 组件显示具有优化CPU管理的GIF动画。
@@ -35,8 +32,8 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-anim width="400" height="300" src="my-gif.gif">
-  <amp-img placeholder width="400" height="300" src="my-gif-screencap.jpg">
-  </amp-img>
+<amp-img placeholder width="400" height="300" src="my-gif-screencap.jpg">
+</amp-img>
 </amp-anim>
 [/sourcecode]
 
@@ -85,11 +82,13 @@ limitations under the License.
 您可以直接使用CSS属性设置 `amp-img` 的样式。下面的示例设置一个灰色背景占位符：
 
 [sourcecode:html]
+
 <style amp-custom>
       .amp-anim {
           background-color: grey;
        }
 </style>
+
 [/sourcecode]
 
 ## 验证

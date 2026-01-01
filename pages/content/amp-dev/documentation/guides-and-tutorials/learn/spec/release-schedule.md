@@ -17,8 +17,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
 <!--
   (Do not remove or edit this comment.)
 
@@ -27,14 +25,14 @@ have a look and request a pull request there.
 -->
 
 - [Release Channels](#release-channels)
-    - [Nightly](#nightly)
-    - [Weekly](#weekly)
-        - [Beta and Experimental channels](#beta-and-experimental-channels)
-    - [Long-Term Stable (lts)](#long-term-stable-lts)
+  - [Nightly](#nightly)
+  - [Weekly](#weekly)
+    - [Beta and Experimental channels](#beta-and-experimental-channels)
+  - [Long-Term Stable (lts)](#long-term-stable-lts)
 - [Determining if your change is in a release](#determining-if-your-change-is-in-a-release)
 - [Release Cadence](#release-cadence)
-    - [Detailed schedule](#detailed-schedule)
-    - [Release Freezes](#release-freezes)
+  - [Detailed schedule](#detailed-schedule)
+  - [Release Freezes](#release-freezes)
 
 A new release of AMP is pushed to all AMP pages every week on Tuesday. **Once a change in AMP is merged into the main branch of the amphtml repository, it will typically take 1-2 weeks for the change to be live for all users.**
 

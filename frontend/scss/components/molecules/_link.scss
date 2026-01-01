@@ -18,9 +18,9 @@ none
 @import '../atoms/_color.scss';
 
 @mixin link {
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	padding: 0 0 1.5em;
-	margin: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 0 1.5em;
+  margin: 0;
 }

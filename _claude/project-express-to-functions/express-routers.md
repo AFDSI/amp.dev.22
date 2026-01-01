@@ -1,4 +1,5 @@
 # ROUTERS
+
 - note: all routers use Express
 
 ## Express
@@ -9,6 +10,7 @@
 - https://github.com/ampproject/amp.dev/blob/main/platform/lib/routers/example/static.js
 
 #### Snipet
+
 ```
 const staticRouter = express.Router();
 staticRouter.use('/static', express.static(project.paths.STATICS_DEST));
@@ -22,6 +24,7 @@ staticRouter.use(robots('disallow_all.txt'));
 - https://github.com/ampproject/amp.dev/blob/main/platform/lib/routers/static.js
 
 #### Snippet
+
 ```
 const express = require('express');
 const {setMaxAge} = require('@lib/utils/cacheHelpers');
@@ -46,6 +49,7 @@ staticRouter.get('/googlefc2a7cf70933ae03.html', (request, response)
 - https://github.com/ampproject/amp.dev/blob/main/platform/lib/routers/search.js
 
 #### Snipet
+
 ```
 const express = require('express');
 const path = require('path');

@@ -137,7 +137,13 @@ There are specific files for each format, to keep css rendering low.
 }
 
 @keyframes bounce {
-  0% { transform: translate(-1.5%, -3%); }
-  50% { transform: translate(1.5%, 3%); }
-  100% { transform: translate(-1.5%, -3%); }
+  0% {
+    transform: translate(-1.5%, -3%);
+  }
+  50% {
+    transform: translate(1.5%, 3%);
+  }
+  100% {
+    transform: translate(-1.5%, -3%);
+  }
 }

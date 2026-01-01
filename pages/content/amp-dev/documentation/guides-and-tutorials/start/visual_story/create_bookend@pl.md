@@ -9,7 +9,7 @@ Wszystkie strony zostały już dodane, spójrzmy więc na ostatni ekran relacji.
 
 Informacje na ekranie końcowym pochodzą z pliku JSON określonego w znaczniku `<amp-story-bookend>`. Do celów naszego samouczka mamy już przygotowany zawierający dane ekranu końcowego plik JSON ([bookend.json](https://github.com/ampproject/docs/blob/master/tutorial_source/amp-pets-story/bookend.json)).
 
-Znacznik `<amp-story-bookend>` musi znajdować się w ostatnim znaczniku w sekcji [`<amp-story>`](../../../../documentation/components/reference/amp-story.md). **Dodajmy** zatem znaczniki `<amp-story-bookend></amp-story-bookend>` tuż przed zamykającym znacznikiem [`</amp-story>`](../../../../documentation/components/reference/amp-story.md).  W znaczniku `amp-story-bookend` wskaż w atrybucie `src` plik `bookend.json` i ustaw atrybut `layout="nodisplay"`:
+Znacznik `<amp-story-bookend>` musi znajdować się w ostatnim znaczniku w sekcji [`<amp-story>`](../../../../documentation/components/reference/amp-story.md). **Dodajmy** zatem znaczniki `<amp-story-bookend></amp-story-bookend>` tuż przed zamykającym znacznikiem [`</amp-story>`](../../../../documentation/components/reference/amp-story.md). W znaczniku `amp-story-bookend` wskaż w atrybucie `src` plik `bookend.json` i ustaw atrybut `layout="nodisplay"`:
 
 ```html
   </amp-story-page>

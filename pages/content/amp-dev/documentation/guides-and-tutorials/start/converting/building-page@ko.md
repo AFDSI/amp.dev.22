@@ -14,7 +14,7 @@ description: 프로젝트 디렉토리에서 article.html라는 파일을 찾을
 `article.amp.html` 파일은 다음과 같이 표시되어야 합니다.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

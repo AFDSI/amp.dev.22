@@ -3,6 +3,7 @@ $title: Appendix
 $order: 6
 leveled: true
 ---
+
 ## What is Glitch?
 
 To complete the code examples included in these courses, we will be using <a href="https://glitch.com/" target="_blank">Glitch</a>. Glitch is an online code editor that allows you to create and view web sites and server APIs without having to install anything on your computer.

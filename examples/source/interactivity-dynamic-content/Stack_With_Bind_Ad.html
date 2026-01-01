@@ -14,13 +14,25 @@ author: alanorozco
 <!doctype html>
 <html amp4ads lang="en">
   <head>
-    <meta charset="utf-8">
-  <title>Stack With Bind Ad</title>
-    <meta name="viewport" content="width=device-width">
-    <script async custom-element="amp-bind" src="https://amp-ads.firebaseapp.com/dist/v0/amp-bind-0.1.max.js"></script>
-    <script async custom-element="amp-selector" src="https://amp-ads.firebaseapp.com/dist/v0/amp-selector-0.1.max.js"></script>
+    <meta charset="utf-8" />
+    <title>Stack With Bind Ad</title>
+    <meta name="viewport" content="width=device-width" />
+    <script
+      async
+      custom-element="amp-bind"
+      src="https://amp-ads.firebaseapp.com/dist/v0/amp-bind-0.1.max.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-selector"
+      src="https://amp-ads.firebaseapp.com/dist/v0/amp-selector-0.1.max.js"
+    ></script>
     <script async src="https://amp-ads.firebaseapp.com/dist/amp.js"></script>
-    <style amp4ads-boilerplate>body{visibility:hidden}</style>
+    <style amp4ads-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
     <!-- ## Summary-->
     <!--
     Sample AMPHTML ad using [amp-bind](/content/amp-dev/documentation/components/reference/amp-bind-v0.1.md), and [`amp-selector`](/content/amp-dev/documentation/components/reference/amp-selector-v0.1.md) to create an interactive "stack" ad.
@@ -127,7 +139,9 @@ author: alanorozco
         padding: 2px;
         position: absolute;
         box-sizing: border-box;
-        transition: 0.3s transform, 0.3s opacity;
+        transition:
+          0.3s transform,
+          0.3s opacity;
 
         /*
          * Translate the stack item horizontally when not topmost or second
@@ -196,11 +210,13 @@ author: alanorozco
     <div class="root-container">
       <div class="main-container">
         <div class="bg-img-container">
-          <amp-img src="/static/samples/img/car-front.jpg"
+          <amp-img
+            src="/static/samples/img/car-front.jpg"
             width="608"
             height="568"
             layout="responsive"
-            class="bg-img"></amp-img>
+            class="bg-img"
+          ></amp-img>
         </div>
         <!-- ## Stack -->
         <!--
@@ -210,66 +226,89 @@ author: alanorozco
 
         See [this document](/content/amp-dev/documentation/components/reference/amp-bind-v0.1.md) for specifics on the amp-bind expression syntax.
         -->
-        <div class="stack-container"
-            role="button"
-            on="tap:AMP.setState({selection: (selection + 1) % config.length})">
+        <div
+          class="stack-container"
+          role="button"
+          on="tap:AMP.setState({selection: (selection + 1) % config.length})"
+        >
           <div class="stack-bg-item"></div>
           <div class="stack-bg-item"></div>
           <div class="stack-bg-item"></div>
           <div class="stack-bg-item"></div>
           <div class="stack">
-            <div class="stack-item topmost"
-                [class]="'stack-item' +
+            <div
+              class="stack-item topmost"
+              [class]="'stack-item' +
                     (selection == 0 ? ' topmost' :
-                        (selection == config.length - 1 ? ' second-topmost' : ''))">
-              <amp-img src="/static/samples/img/car-sideview.jpg"
-                  width="226"
-                  height="126"
-                  layout="fixed"></amp-img>
+                        (selection == config.length - 1 ? ' second-topmost' : ''))"
+            >
+              <amp-img
+                src="/static/samples/img/car-sideview.jpg"
+                width="226"
+                height="126"
+                layout="fixed"
+              ></amp-img>
             </div>
-            <div class="stack-item second-topmost"
-                [class]="'stack-item' +
+            <div
+              class="stack-item second-topmost"
+              [class]="'stack-item' +
                     (selection == 1 ? ' topmost' :
-                        (selection == 0 ? ' second-topmost' : ''))">
-              <amp-img src="/static/samples/img/car-steeringwheel.jpg"
-                  width="226"
-                  height="126"
-                  layout="fixed"></amp-img>
+                        (selection == 0 ? ' second-topmost' : ''))"
+            >
+              <amp-img
+                src="/static/samples/img/car-steeringwheel.jpg"
+                width="226"
+                height="126"
+                layout="fixed"
+              ></amp-img>
             </div>
-            <div class="stack-item"
-                [class]="'stack-item' +
+            <div
+              class="stack-item"
+              [class]="'stack-item' +
                   (selection == 2 ? ' topmost' :
-                      (selection == 1 ? ' second-topmost' : ''))">
-              <amp-img src="/static/samples/img/car-seats.jpg"
-                  width="226"
-                  height="126"
-                  layout="fixed"></amp-img>
+                      (selection == 1 ? ' second-topmost' : ''))"
+            >
+              <amp-img
+                src="/static/samples/img/car-seats.jpg"
+                width="226"
+                height="126"
+                layout="fixed"
+              ></amp-img>
             </div>
-            <div class="stack-item"
-                [class]="'stack-item' +
+            <div
+              class="stack-item"
+              [class]="'stack-item' +
                   (selection == 3 ? ' topmost' :
-                      (selection == 2 ? ' second-topmost' : ''))">
-              <amp-img src="/static/samples/img/car-gauges.jpg"
-                  width="226"
-                  height="126"
-                  layout="fixed"></amp-img>
+                      (selection == 2 ? ' second-topmost' : ''))"
+            >
+              <amp-img
+                src="/static/samples/img/car-gauges.jpg"
+                width="226"
+                height="126"
+                layout="fixed"
+              ></amp-img>
             </div>
-            <div class="stack-item"
-                [class]="'stack-item' +
+            <div
+              class="stack-item"
+              [class]="'stack-item' +
                   (selection == 4 ? ' topmost' :
-                      (selection == 3 ? ' second-topmost' : ''))">
-              <amp-img src="/static/samples/img/car-engine.jpg"
-                  width="226"
-                  height="126"
-                  layout="fixed"></amp-img>
+                      (selection == 3 ? ' second-topmost' : ''))"
+            >
+              <amp-img
+                src="/static/samples/img/car-engine.jpg"
+                width="226"
+                height="126"
+                layout="fixed"
+              ></amp-img>
             </div>
           </div>
           <!-- We can use amp-selector to show indicator dots for our stack. The `[selected]` attribute is used to refer to an amp-bind state variable so that the indicators change accordingly. -->
           <amp-selector
-              layout="container"
-              class="dots"
-              disabled
-              [selected]="selection">
+            layout="container"
+            class="dots"
+            disabled
+            [selected]="selection"
+          >
             <div option="0" class="dots-item" selected></div>
             <div option="1" class="dots-item"></div>
             <div option="2" class="dots-item"></div>
@@ -280,14 +319,20 @@ author: alanorozco
       </div>
       <div class="footer">
         <div class="footer-logo">
-          <amp-img src="/static/samples/img/car-logo.png"
-              width="72"
-              height="32"
-              layout="fixed"
-              alt="Howdy"
-              class="logo-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-logo.png"
+            width="72"
+            height="32"
+            layout="fixed"
+            alt="Howdy"
+            class="logo-img"
+          ></amp-img>
         </div>
-        <a href="https://amp.dev/documentation/examples/" target="_blank" class="button">
+        <a
+          href="https://amp.dev/documentation/examples/"
+          target="_blank"
+          class="button"
+        >
           Learn More
         </a>
       </div>

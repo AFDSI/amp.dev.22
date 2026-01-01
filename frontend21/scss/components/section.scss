@@ -51,7 +51,9 @@
     }
   }
 
-  &.--col-left, &.--col-right, &.--offset {
+  &.--col-left,
+  &.--col-right,
+  &.--offset {
     grid-column: 2/24;
   }
 

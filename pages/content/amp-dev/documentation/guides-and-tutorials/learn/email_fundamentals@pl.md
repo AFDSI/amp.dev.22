@@ -14,7 +14,7 @@ Jeśli znasz AMP, to świetna wiadomość! AMP dla poczty e-mail jest po prostu 
 Wiadomości e-mail AMP wyglądają jak klasyczne wiadomości HTML, ale z kilkoma różnicami. Poniżej znajduje się minimalna ilość znaczników wymagana do tego, aby wiadomość e-mail była prawidłową wiadomością e-mail AMP.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

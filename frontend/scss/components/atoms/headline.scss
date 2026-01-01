@@ -10,35 +10,35 @@ h2,
 h3,
 h4,
 h5 {
-	@include hl;
+  @include hl;
 }
 
 h1 {
-	@include hl-h1;
+  @include hl-h1;
 
-	&:first-of-type {
-		section.#{utility('content')} & {
-			margin-top: 0;
+  &:first-of-type {
+    section.#{utility('content')} & {
+      margin-top: 0;
 
-			@media (min-width: 768px) {
-				margin-bottom: 2rem;
-			}
-		}
-	}
+      @media (min-width: 768px) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }
 
 h2 {
-	@include hl-h2;
+  @include hl-h2;
 }
 
 h3 {
-	@include hl-h3;
+  @include hl-h3;
 }
 
 h4 {
-	@include hl-h4;
+  @include hl-h4;
 }
 
 h5 {
-	@include hl-h5;
+  @include hl-h5;
 }

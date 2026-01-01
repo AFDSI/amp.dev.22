@@ -23,46 +23,57 @@ amp.dev.22/
 ## What to Put There
 
 ### 1. Feature Specifications (`features/01-gpse-migration.md`)
+
 ```markdown
 # Feature 1: GPSE Migration
 
 ## Source (amp.dev.20)
+
 - Files: gulpfile.js/googleSearch.js
 - Secrets: GOOGLE_CSE_API_KEY, GOOGLE_CSE_ID
 - Status: Working in production
 
 ## Target (amp.dev.22)
+
 - Current state: Partially implemented
 - Missing: [list gaps]
 
 ## Implementation Plan
+
 [Steps CCW should follow]
 
 ## Testing Criteria
+
 - [ ] Search box appears
 - [ ] Search executes without errors
 - [ ] Results display correctly
 
 ## Branch
+
 - Name: claude/restore-gpse-xxx
 - Status: In progress
 ```
 
 ### 2. Analysis Outputs (`analysis/gpse-diff.md`)
+
 ```markdown
 # GPSE Differences Between Repos
 
 ## Files in amp.dev.20 (working)
+
 [CCW pastes analysis here]
 
 ## Files in amp.dev.22 (missing/broken)
+
 [CCW pastes analysis here]
 
 ## Key Changes Needed
+
 [CCW lists what to migrate]
 ```
 
 ### 3. Decision Log (`decisions/2024-12-15-gpse.md`)
+
 ```markdown
 # Decision: GPSE Migration Approach
 
@@ -73,6 +84,7 @@ amp.dev.22/
 **Rationale:** .20 implementation already works in production
 
 **Alternatives Considered:**
+
 - Rewrite from scratch (rejected: too risky)
 - Use different search API (rejected: secrets already configured)
 ```
@@ -93,7 +105,7 @@ echo "_claude/scratch/" >> .gitignore
 ✅ **Progress tracking** - See what's done, what's pending  
 ✅ **Decision history** - Remember why you made choices  
 ✅ **Contractor onboarding** - Clear documentation of changes  
-✅ **Rollback info** - Know what was changed and why  
+✅ **Rollback info** - Know what was changed and why
 
 ## Create It Now
 
@@ -157,4 +169,3 @@ reference it later.
 ---
 
 **Yes, create `_claude/`!** It'll make the collaboration much smoother and preserve institutional knowledge. 📁✨
-

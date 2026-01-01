@@ -18,13 +18,11 @@ teaser:
     alt: plista
   text: plista grows publisher revenue & user engagement with AMP
 
-
 stage:
   headline: plista grows publisher revenue & user engagement with AMP
   layout: all
   subline: OCTOBER 7, 2016
   devices:
-
     - image_src: '/static/img/success-stories/plista/plista_graphic.png'
       width: 5
       height: 3
@@ -39,14 +37,13 @@ kpis:
     text: Average growth in CTRs
 
 contents:
-
   - layout: text
     text: As users increasingly turn to their mobile devices for information, Germany-based native advertising platform plista has seen its mobile revenue grow 10X over the last 3 years. As a content recommendation tool, plista is constantly tweaking its algorithm to help publishers meet their goals. plista offers publishers an all-in-one solution for content distribution using native advertising. With mobile users growing impatient with slow-loading sites, plista was naturally interested in the AMP project for the speed and performance offered by AMP pages.
     direction: left-flat
 
   - layout: text
-    headline: "Speed: A new key performance indicator"
-    text: "As a content recommendation tool, plista is constantly tweaking its algorithm to help publishers meet their goals. Through the integration with AMP, plista started tracking a new performance indicator: the load time for its mobile app widgets. Between March and July of 2016, plista conducted A/B tests with 10+ premium publishers, including n-tv.de, faz.net, abendzeitung.de, and golem.de to measure AMP’s impact on web app widget speed and profitability. The study focused on the correlation between speed and click-through rates (CTR) and cost-per-thousand-impressions (CPMs) for publishers."
+    headline: 'Speed: A new key performance indicator'
+    text: 'As a content recommendation tool, plista is constantly tweaking its algorithm to help publishers meet their goals. Through the integration with AMP, plista started tracking a new performance indicator: the load time for its mobile app widgets. Between March and July of 2016, plista conducted A/B tests with 10+ premium publishers, including n-tv.de, faz.net, abendzeitung.de, and golem.de to measure AMP’s impact on web app widget speed and profitability. The study focused on the correlation between speed and click-through rates (CTR) and cost-per-thousand-impressions (CPMs) for publishers.'
     direction: left-flat
 
   - layout: text-media

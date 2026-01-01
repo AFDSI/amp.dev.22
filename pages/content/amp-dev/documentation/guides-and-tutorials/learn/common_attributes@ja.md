@@ -17,11 +17,15 @@ AMP には、さまざまな AMP コンポーネント（および HTML 要素�
 
 ```html
 <amp-img src="invalid.jpg" height="400" width="300" layout="responsive">
-  <div fallback style="background-color: #ccc; display: flex; justify-content: center; align-items: center;">
+  <div
+    fallback
+    style="background-color: #ccc; display: flex; justify-content: center; align-items: center;"
+  >
     Could not load image
   </div>
 </amp-img>
 ```
+
 詳しくは、[プレースホルダとフォールバック](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md) をご覧ください。
 
 ## heights

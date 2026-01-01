@@ -7,7 +7,7 @@ description: 'Kod eklemeye başlamadan önce, aşağıdaki gibi olması gereken 
 Kod eklemeye başlamadan önce, aşağıdaki gibi olması gereken örnek [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html) sayfasını inceleyelim:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

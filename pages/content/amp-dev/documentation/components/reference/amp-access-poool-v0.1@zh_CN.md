@@ -6,7 +6,6 @@ teaser:
   text: 显示Poool付费专区。
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors.
 
@@ -22,8 +21,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
-
 
 ## 用法
 
@@ -55,6 +52,7 @@ limitations under the License.
 - Poool的Paywall容器，在尚未授予访问权限时显示 (使用 `amp-access="NOT error AND NOT access"`), 由Poool使用 `poool` id标识。
 
 [sourcecode:html]
+
 <section poool-access-preview amp-access="NOT access">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
@@ -87,6 +85,7 @@ limitations under the License.
 配置与AMP Access类似，除了不需要授权，pingback或登录URL。
 
 [sourcecode:html]
+
 <script id="amp-access" type="application/json">
   {
     "vendor": "poool",
@@ -97,11 +96,13 @@ limitations under the License.
     }
   }
 </script>
+
 [/sourcecode]
 
 **示例：在名为"amp-custom-segment"的自定义组/细分中为用户显示付费专区**
 
 [sourcecode:html]
+
 <script id="amp-access" type="application/json">
   {
     "vendor": "poool",
@@ -115,6 +116,7 @@ limitations under the License.
     }
   }
 </script>
+
 [/sourcecode]
 
 有关配置变量的更多信息，请查看 [SDK 文档](https://dev.poool.tech/doc/sdk#configuration).

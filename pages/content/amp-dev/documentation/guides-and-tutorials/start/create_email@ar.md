@@ -21,7 +21,7 @@ author: CrystalOnScript
 تدعم ساحة AMP تنسيق AMP للبريد الإلكتروني، الذي يسمح لك بتطوير رسائل AMP الإلكترونية الخاصة بك واختبارها والتحقق من صحتها. افتح [ساحة AMP](https://playground.amp.dev/?runtime=amp4email) وتأكد من أنه تم تعيين التنسيق على `AMP for Email` في الزاوية العلوية اليسرى. يجب أن تشاهد الرمز التالي:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

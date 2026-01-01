@@ -66,7 +66,7 @@
     padding: 0 15px;
     @media (min-width: 768px) {
       display: grid;
-      grid-template-columns: repeat(24,1fr);
+      grid-template-columns: repeat(24, 1fr);
       grid-gap: 30px;
       max-width: 1920px;
       margin: auto;
@@ -155,7 +155,7 @@
       line-height: 15px;
       border-radius: 2px;
       color: color('white');
-      box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
+      box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.12);
     }
 
     &-intro {
@@ -218,7 +218,7 @@
         &:hover {
           margin: 6.5px 0;
           padding: 0 23px;
-          box-shadow: 0 5px 15px -10px rgba(0,0,0,0.25);
+          box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.25);
           background-color: color('blue-ribbon');
 
           a {
@@ -252,18 +252,18 @@
         grid-column: 1/24;
         display: grid;
         grid-gap: 30px;
-        grid-template-columns: repeat(23,1fr);
+        grid-template-columns: repeat(23, 1fr);
         margin-bottom: 4em;
       }
 
       &-container {
         padding: 0 15px;
         background: color('white');
-        box-shadow: 0 25px 40px 0 rgba(0,0,0,.05);
+        box-shadow: 0 25px 40px 0 rgba(0, 0, 0, 0.05);
         @media (min-width: 1024px) {
           grid-column: 7/24;
           display: grid;
-          grid-template-columns: repeat(15,1fr);
+          grid-template-columns: repeat(15, 1fr);
           grid-gap: 30px;
           padding: 0;
         }
@@ -321,7 +321,9 @@
       padding: 1em;
       border-radius: 4px;
       background: color('iron');
-      transition: transform 0.2s cubic-bezier(.25,.1,.25,1), box-shadow 0.3s cubic-bezier(.25,.1,.25,1);
+      transition:
+        transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+        box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
       @media (min-width: 768px) {
         padding: 1.5em;
       }
@@ -376,7 +378,9 @@
       border-radius: 4px;
       margin-bottom: 1em;
       padding: 1em;
-      transition: transform 0.2s cubic-bezier(.25,.1,.25,1), box-shadow 0.3s cubic-bezier(.25,.1,.25,1);
+      transition:
+        transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+        box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
       @media (min-width: 768px) {
         width: 49%;
         margin-bottom: 2%;
@@ -385,7 +389,7 @@
 
       &:hover {
         transform: translateY(-1px);
-        box-shadow: 0 9px 10px -8px rgba(0, 0, 0, 0.30);
+        box-shadow: 0 9px 10px -8px rgba(0, 0, 0, 0.3);
       }
 
       &-img {

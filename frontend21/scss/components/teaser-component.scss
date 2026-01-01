@@ -6,7 +6,9 @@
   padding: 25px 25px 15px;
   box-shadow: 0 5px 15px 0 transparentize(color('black'), 0.85);
   color: color('river-bed');
-  transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 
   @include respond-to('medium') {
     grid-column: span 6;

@@ -27,36 +27,36 @@ shadow-static
 // TODO: make decissions about how to implement animated shadow modifier
 
 @mixin img {
-	position: relative;
+  position: relative;
 }
 
 @mixin img-pull-edge {
-	margin-right: -30px;
+  margin-right: -30px;
 
-	@media (min-width: 768px) {
-		margin-right: 0;
-	}
+  @media (min-width: 768px) {
+    margin-right: 0;
+  }
 }
 
 @mixin img-circle {
-	overflow: hidden;
-	border-radius: 50%;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 // Default image styling
 .#{atom('img')} {
-	@include img;
+  @include img;
 }
 
 .image-preview-1 {
-	.#{atom('img')} {
-		@include img-circle;
-	}
+  .#{atom('img')} {
+    @include img-circle;
+  }
 }
 
 .image-preview-2 {
-	.#{atom('img')} {
-		@include img-pull-edge;
-		@include drop-shadow;
-	}
+  .#{atom('img')} {
+    @include img-pull-edge;
+    @include drop-shadow;
+  }
 }

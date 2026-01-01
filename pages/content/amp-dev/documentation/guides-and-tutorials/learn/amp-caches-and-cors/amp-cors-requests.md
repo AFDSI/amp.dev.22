@@ -20,8 +20,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
 Many AMP components and extensions take advantage of remote endpoints by using
 Cross-Origin Resource Sharing (CORS) requests. This document explains the key
 aspects of using CORS in AMP. To learn about CORS itself, see the
@@ -29,17 +27,17 @@ aspects of using CORS in AMP. To learn about CORS itself, see the
 
 <div class="noshowtoc">
 
--   [Why do I need CORS for my own origin?](#why-do-i-need-cors-for-my-own-origin-)
--   [Utilizing cookies for CORS requests](#utilizing-cookies-for-cors-requests)
--   [CORS security in AMP](#cors-security-in-amp)
-    -   [Verify CORS requests](#verify-cors-requests)
-        -   [1) Allow requests for specific CORS origins](#1-allow-requests-for-specific-cors-origins)
-        -   [2) Allow same-origin requests](#2-allow-same-origin-requests)
-    *   [Send CORS response headers](#send-cors-response-headers)
-        -   [Access-Control-Allow-Origin: &lt;origin&gt;](#access-control-allow-origin-origin)
-    *   [Processing state changing requests](#processing-state-changing-requests)
-    -   [Example walkthrough: Handing CORS requests and responses](#example-walkthrough-handing-cors-requests-and-responses)
-    -   [Testing CORS in AMP](#testing-cors-in-amp)
+- [Why do I need CORS for my own origin?](#why-do-i-need-cors-for-my-own-origin-)
+- [Utilizing cookies for CORS requests](#utilizing-cookies-for-cors-requests)
+- [CORS security in AMP](#cors-security-in-amp)
+  - [Verify CORS requests](#verify-cors-requests)
+    - [1) Allow requests for specific CORS origins](#1-allow-requests-for-specific-cors-origins)
+    - [2) Allow same-origin requests](#2-allow-same-origin-requests)
+  * [Send CORS response headers](#send-cors-response-headers)
+    - [Access-Control-Allow-Origin: &lt;origin&gt;](#access-control-allow-origin-origin)
+  * [Processing state changing requests](#processing-state-changing-requests)
+  - [Example walkthrough: Handing CORS requests and responses](#example-walkthrough-handing-cors-requests-and-responses)
+  - [Testing CORS in AMP](#testing-cors-in-amp)
 
 </div>
 
@@ -99,11 +97,13 @@ _Example: Including personalized content in an amp-list via cookies_
 
 [sourcecode:html]
 <amp-list
-  credentials="include"
-  src="<%host%>/json/product.json?clientId=CLIENT_ID(myCookieId)"
->
-  <template type="amp-mustache">
+credentials="include"
+src="<%host%>/json/product.json?clientId=CLIENT_ID(myCookieId)"
+
+>   <template type="amp-mustache">
+
     Your personal offer: ${% raw %}{{price}}{% endraw %}
+
   </template>
 </amp-list>
 [/sourcecode]
@@ -148,13 +148,13 @@ Endpoints should only allow requests from: (1) the publisher's own origin; and
 
 For example, endpoints should allow requests from:
 
--   Google AMP Cache subdomain: `https://<publisher's domain>.cdn.ampproject.org` <br>(for example, `https://nytimes-com.cdn.ampproject.org`)
+- Google AMP Cache subdomain: `https://<publisher's domain>.cdn.ampproject.org` <br>(for example, `https://nytimes-com.cdn.ampproject.org`)
 
 [tip type="read-on"]
 For information on AMP Cache URL formats, see these resources:
 
--   [Google AMP Cache Overview](https://developers.google.com/amp/cache/overview)
-    [/tip]
+- [Google AMP Cache Overview](https://developers.google.com/amp/cache/overview)
+  [/tip]
 
 #### 2) Allow same-origin requests <a name="2-allow-same-origin-requests"></a>
 
@@ -181,7 +181,7 @@ This header is a <a href="https://www.w3.org/TR/cors/">W3 CORS Spec</a> requirem
 
 Although the W3 CORS spec allows the value of <code>\*</code> to be returned in the response, for improved security, you should:
 
--   If the `Origin` header is present, validate and echo the value of the <code>`Origin`</code> header.
+- If the `Origin` header is present, validate and echo the value of the <code>`Origin`</code> header.
 
 ### Processing state changing requests <a name="processing-state-changing-requests"></a>
 
@@ -198,8 +198,8 @@ following:
 1.  If the origin does not match one of the following values, stop and return an error
     response:
 
-    -   `<publisher's domain>.cdn.ampproject.org`
-    -   the publisher's origin (aka yours)
+    - `<publisher's domain>.cdn.ampproject.org`
+    - the publisher's origin (aka yours)
 
     where `*` represents a wildcard match, and not an actual asterisk ( \* ).
 
@@ -230,8 +230,8 @@ Let's walk though these scenarios with an example. In our example, we manage the
 
 Based on what we know about CORS and AMP (from [Verify CORS requests](#verify-cors-requests) above), for our example we will allow requests from the following domains:
 
--   `example.com` --- Publisher's domain
--   `example-com.cdn.ampproject.org` --- Google AMP Cache subdomain
+- `example.com` --- Publisher's domain
+- `example-com.cdn.ampproject.org` --- Google AMP Cache subdomain
 
 ### Response headers for allowed requests <a name="response-headers-for-allowed-requests"></a>
 
@@ -256,15 +256,15 @@ Our logic for handling CORS requests and responses can be simplified into the fo
 
 [sourcecode:text]
 IF CORS header present
-   IF origin IN allowed-origins
-      allow request & send response
-   ELSE
-      deny request
+IF origin IN allowed-origins
+allow request & send response
 ELSE
-   IF "AMP-Same-Origin: true"
-      allow request & send response
-   ELSE
-      deny request
+deny request
+ELSE
+IF "AMP-Same-Origin: true"
+allow request & send response
+ELSE
+deny request
 [/sourcecode]
 
 #### CORS sample code <a name="cors-sample-code"></a>
@@ -273,31 +273,31 @@ Here's a sample JavaScript function that we could use to handle CORS requests an
 
 [sourcecode:javascript]
 function assertCors(req, res, opt_validMethods, opt_exposeHeaders) {
-  var unauthorized = 'Unauthorized Request';
-  var origin;
-  var allowedOrigins = [
-    'https://example.com',
-    'https://example-com.cdn.ampproject.org',
-    'https://cdn.ampproject.org',
-  ];
-  var allowedSourceOrigin = 'https://example.com'; //publisher's origin
-  // If same origin
-  if (req.headers['amp-same-origin'] == 'true') {
-    origin = sourceOrigin;
-    // If allowed CORS origin & allowed source origin
-  } else if (
-    allowedOrigins.indexOf(req.headers.origin) != -1 &&
-    sourceOrigin == allowedSourceOrigin
-  ) {
-    origin = req.headers.origin;
-  } else {
-    res.statusCode = 403;
-    res.end(JSON.stringify({message: unauthorized}));
-    throw unauthorized;
-  }
+var unauthorized = 'Unauthorized Request';
+var origin;
+var allowedOrigins = [
+'https://example.com',
+'https://example-com.cdn.ampproject.org',
+'https://cdn.ampproject.org',
+];
+var allowedSourceOrigin = 'https://example.com'; //publisher's origin
+// If same origin
+if (req.headers['amp-same-origin'] == 'true') {
+origin = sourceOrigin;
+// If allowed CORS origin & allowed source origin
+} else if (
+allowedOrigins.indexOf(req.headers.origin) != -1 &&
+sourceOrigin == allowedSourceOrigin
+) {
+origin = req.headers.origin;
+} else {
+res.statusCode = 403;
+res.end(JSON.stringify({message: unauthorized}));
+throw unauthorized;
+}
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', origin);
+res.setHeader('Access-Control-Allow-Credentials', 'true');
+res.setHeader('Access-Control-Allow-Origin', origin);
 }
 [/sourcecode]
 
@@ -367,8 +367,8 @@ typically for fonts, by respecting the origin’s `Access-Control-Allow-Origin` 
 
 When an AMP page was loading `https://example.com/some/font.ttf` from `@font-face src` attribute, AMP Cache will cache the font file and serve the resource as below with having the wild card `Access-Control-Allow-Origin`.
 
--   URL `https://example-com.cdn.ampproject.org/r/s/example.com/some/font.tff`
--   Access-Control-Allow-Origin: \*
+- URL `https://example-com.cdn.ampproject.org/r/s/example.com/some/font.tff`
+- Access-Control-Allow-Origin: \*
 
 ### New behavior (October 2019 and after) <a name="new-behavior-october-2019-and-after"></a>
 
@@ -379,19 +379,19 @@ A sample implementation would be:
 
 [sourcecode:javascript]
 function assertFontCors(req, res, opt_validMethods, opt_exposeHeaders) {
-  var unauthorized = 'Unauthorized Request';
-  var allowedOrigins = [
-    'https://example.com',
-    'https://example-com.cdn.ampproject.org',
-  ];
-  // If allowed CORS origin
-  if (allowedOrigins.indexOf(req.headers.origin) != -1) {
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  } else {
-    res.statusCode = 403;
-    res.end(JSON.stringify({message: unauthorized}));
-    throw unauthorized;
-  }
+var unauthorized = 'Unauthorized Request';
+var allowedOrigins = [
+'https://example.com',
+'https://example-com.cdn.ampproject.org',
+];
+// If allowed CORS origin
+if (allowedOrigins.indexOf(req.headers.origin) != -1) {
+res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+} else {
+res.statusCode = 403;
+res.end(JSON.stringify({message: unauthorized}));
+throw unauthorized;
+}
 }
 [/sourcecode]
 
@@ -411,9 +411,9 @@ We are planning to make this change around mid October 2019 and would expect eve
 
 #### Roll out plan <a name="roll-out-plan"></a>
 
--   2019-09-30: release contains more precise control over which domains this change applies to. This build should roll out over the course of this week.
--   2019-10-07: test domains will be enabled for manual testing.
--   2019-10-14: (but depending on how testing goes): the feature will be rolled out generally.
+- 2019-09-30: release contains more precise control over which domains this change applies to. This build should roll out over the course of this week.
+- 2019-10-07: test domains will be enabled for manual testing.
+- 2019-10-14: (but depending on how testing goes): the feature will be rolled out generally.
 
 Follow the related [issue here.](https://github.com/ampproject/amphtml/issues/24834)
 
@@ -429,8 +429,8 @@ To ensure your cached AMP page renders and functions correctly:
 
     For example:
 
-    -   URL: `https://amp.dev/documentation/guides-and-tutorials/start/create/`
-    -   AMP Cache URL format: `https://www-ampproject-org.cdn.ampproject.org/c/s/www.ampproject.org/docs/tutorials/create.html`
+    - URL: `https://amp.dev/documentation/guides-and-tutorials/start/create/`
+    - AMP Cache URL format: `https://www-ampproject-org.cdn.ampproject.org/c/s/www.ampproject.org/docs/tutorials/create.html`
 
 1.  Open your browser's development tools and verify that there are no errors and that all resources loaded correctly.
 

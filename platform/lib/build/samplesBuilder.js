@@ -416,10 +416,8 @@ class SamplesBuilder {
     if (format !== FORMAT_WEBSITES) {
       transformed.extname = `.${format}.html`;
     }
-    const {
-      transformedContent,
-      validationResult,
-    } = this._formatTransform.transform(transformed.contents, format);
+    const {transformedContent, validationResult} =
+      this._formatTransform.transform(transformed.contents, format);
     if (validationResult && validationResult.status !== 'PASS') {
       return null;
     }
@@ -437,11 +435,9 @@ class SamplesBuilder {
     for (const format of parsedSample.document.formats()) {
       const formatCategories = this._sitemap[format] || {};
 
-      const category = require(path.join(
-        SAMPLE_SRC,
-        this._getCategory(sample, true),
-        'index.json'
-      ));
+      const category = require(
+        path.join(SAMPLE_SRC, this._getCategory(sample, true), 'index.json')
+      );
       const categorySamples = formatCategories[category.publicName] || {
         'name': category.publicName,
         'examples': [],
@@ -686,7 +682,8 @@ class SamplesBuilder {
    */
   _getUsedComponents(sample, parsedSample) {
     // Dirty RegEx to quickly parse component names from head
-    const COMPONENT_PATTERN = /<script[^>]*?custom-(?<type>[a-z]+)="(?<name>[^"]+)"[^>]*src="[^"]+-(?<version>\d+(\.\d+)*)\.js"[^>]*>\s*<\/script>/g;
+    const COMPONENT_PATTERN =
+      /<script[^>]*?custom-(?<type>[a-z]+)="(?<name>[^"]+)"[^>]*src="[^"]+-(?<version>\d+(\.\d+)*)\.js"[^>]*>\s*<\/script>/g;
 
     const usedComponents = {};
     parsedSample.document.head.replace(

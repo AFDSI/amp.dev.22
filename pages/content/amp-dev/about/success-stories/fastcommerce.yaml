@@ -24,7 +24,6 @@ stage:
   layout: mobile
   subline: JUNE 12, 2017
   devices:
-
     - image_src: '/static/img/success-stories/fastcommerce/amp_fastcomm_1.jpg'
       width: 3
       height: 5

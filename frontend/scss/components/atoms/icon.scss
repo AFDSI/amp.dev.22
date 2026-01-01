@@ -6,6 +6,6 @@
 @import '_icon.scss';
 
 .#{atom('ico')} {
-	@include ico;
-	@include ico-1;
+  @include ico;
+  @include ico-1;
 }

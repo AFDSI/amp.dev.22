@@ -1,4 +1,3 @@
-
 The `triggers` block is located inside your **Section 3** (the `config` object). It’s the largest part of that dictionary and sits right below the `requests` section.
 
 Here is exactly where to insert the new timer code. I've highlighted the "insertion point" for you:
@@ -9,7 +8,7 @@ Here is exactly where to insert the new timer code. I've highlighted the "insert
   'vars': { ... },
   'extraUrlParams': { ... },
   'requests': { ... },
-  
+
   'triggers': {
     {# --- INSERT THE NEW TIMERS HERE --- #}
     'timer30s': {
@@ -35,7 +34,7 @@ Here is exactly where to insert the new timer code. I've highlighted the "insert
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
-      'vars': { 'title': title | default('Untitled Page') } 
+      'vars': { 'title': title | default('Untitled Page') }
     },
     'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${' ~ 'cumulativeLayoutShift}' } },
     'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${' ~ 'largestContentfulPaint}' } },
@@ -51,6 +50,5 @@ The `triggers` dictionary in AMP acts like a "listener" list. By placing the tim
 
 ### What this does in GA4:
 
-* **timer30s**: Fires once after 30 seconds. In your reports, this counts as an **"Engaged Session"**.
-* **timer2m**: Fires once after 2 minutes. This identifies your "Power Users" who are likely actually implementing the code they see.
-
+- **timer30s**: Fires once after 30 seconds. In your reports, this counts as an **"Engaged Session"**.
+- **timer2m**: Fires once after 2 minutes. This identifies your "Power Users" who are likely actually implementing the code they see.

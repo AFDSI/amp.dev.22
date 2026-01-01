@@ -29,7 +29,6 @@
 @import '../templates/_default.scss';
 
 .#{template('what-is-amp')} {
-
   .#{utility('container')} {
     @include container;
   }
@@ -37,7 +36,6 @@
   .#{utility('container-fluid')} {
     @include container-fluid;
   }
-
 
   .#{utility('content')} {
     @include default-section-padding;
@@ -69,7 +67,6 @@
     }
 
     .#{organism('component-visual')} {
-
       &-link {
         margin-right: 15px;
       }
@@ -149,7 +146,12 @@
             bottom: 0;
             left: 0;
             opacity: 0.5;
-            background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(
+              270deg,
+              rgba(0, 0, 0, 0.5) 0%,
+              rgba(0, 0, 0, 0.2) 40%,
+              rgba(0, 0, 0, 1) 100%
+            );
             z-index: 1;
           }
         }
@@ -224,7 +226,6 @@
 
   .#{utility('stage')} {
     .#{organism('stage')} {
-
       &-content-button {
         margin-right: 0.5em;
       }
@@ -282,7 +283,7 @@
         align-items: flex-start;
       }
 
-      .#{molecule('teaser')}{
+      .#{molecule('teaser')} {
         margin: 0 20px;
 
         @media (min-width: 768px) {
@@ -303,7 +304,7 @@
     align-items: end;
 
     &-headline {
-      margin-bottom: -.688rem;
+      margin-bottom: -0.688rem;
     }
   }
 }

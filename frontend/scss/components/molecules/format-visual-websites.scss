@@ -41,7 +41,7 @@
       grid-row: 2 / 6;
       max-width: 5.625em;
       @include component-frame-websites;
-      box-shadow: 20px 40px 60px -5px rgba(0, 0, 0,0.25);
+      box-shadow: 20px 40px 60px -5px rgba(0, 0, 0, 0.25);
       animation: 10s ease-in-out 3.5s infinite both slide;
 
       @media (min-width: 768px) {
@@ -79,9 +79,15 @@
             color: #fff;
           }
 
-          &:nth-child(1) { animation: 10s ease-in-out 3.5s infinite both handleValueRight; }
-          &:nth-child(2) { animation: 10s ease-in-out 3.5s infinite both handleValueEmpty; }
-          &:nth-child(3) { animation: 10s ease-in-out 3.5s infinite both handleValueLeft; }
+          &:nth-child(1) {
+            animation: 10s ease-in-out 3.5s infinite both handleValueRight;
+          }
+          &:nth-child(2) {
+            animation: 10s ease-in-out 3.5s infinite both handleValueEmpty;
+          }
+          &:nth-child(3) {
+            animation: 10s ease-in-out 3.5s infinite both handleValueLeft;
+          }
         }
       }
     }
@@ -89,39 +95,112 @@
 }
 
 @keyframes slide {
-  0%, 9%, 18%, 36%, 90%, 100% { transform: translateX(0); }
-  45%, 54%, 63%, 72%, 81% { transform: translateX(-90%); }
+  0%,
+  9%,
+  18%,
+  36%,
+  90%,
+  100% {
+    transform: translateX(0);
+  }
+  45%,
+  54%,
+  63%,
+  72%,
+  81% {
+    transform: translateX(-90%);
+  }
 }
 
 @keyframes rotateShadow {
-  0%, 9%, 18%, 36%, 90%, 100% { transform: rotate(-5deg) scale(1, 1.1) skew(-25deg); }
-  45%, 54%, 63%, 72%, 81% { transform: rotate(-10deg) scale(1, 1.1) skew(-22deg); }
+  0%,
+  9%,
+  18%,
+  36%,
+  90%,
+  100% {
+    transform: rotate(-5deg) scale(1, 1.1) skew(-25deg);
+  }
+  45%,
+  54%,
+  63%,
+  72%,
+  81% {
+    transform: rotate(-10deg) scale(1, 1.1) skew(-22deg);
+  }
 }
 
 @keyframes handleValueRight {
-  0%, 18% { opacity: 1; }
-  18.01%, 81% { opacity: 0; }
-  81.01%, 100% { opacity: 1; }
+  0%,
+  18% {
+    opacity: 1;
+  }
+  18.01%,
+  81% {
+    opacity: 0;
+  }
+  81.01%,
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes handleValueEmpty {
-  0%, 18% { opacity: 0; }
-  18.01%, 36% { opacity: 1; }
-  36.01%, 72% { opacity: 0; }
-  72.01%, 81% { opacity: 1; }
-  81.01%, 100% { opacity: 0; }
+  0%,
+  18% {
+    opacity: 0;
+  }
+  18.01%,
+  36% {
+    opacity: 1;
+  }
+  36.01%,
+  72% {
+    opacity: 0;
+  }
+  72.01%,
+  81% {
+    opacity: 1;
+  }
+  81.01%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes handleValueLeft {
-  0%, 36% { opacity: 0; }
-  36.01%, 72% { opacity: 1; }
-  72.01%, 100% { opacity: 0; }
+  0%,
+  36% {
+    opacity: 0;
+  }
+  36.01%,
+  72% {
+    opacity: 1;
+  }
+  72.01%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes handleCodeMarker {
-  0% { opacity: 0; }
-  9%, 36% { opacity: 1; }
-  45%, 54% { opacity: 0; }
-  63%, 81% { opacity: 1; }
-  90%, 100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  9%,
+  36% {
+    opacity: 1;
+  }
+  45%,
+  54% {
+    opacity: 0;
+  }
+  63%,
+  81% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
 }

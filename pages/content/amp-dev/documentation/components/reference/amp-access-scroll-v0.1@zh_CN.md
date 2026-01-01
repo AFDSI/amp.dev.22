@@ -6,7 +6,6 @@ teaser:
   text: 与Scroll成员身份集成。
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -23,8 +22,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
-
 ## 用法
 
 让[Scroll](https://scroll.com)网络中的站点识别Scroll成员，以便为他们提供无广告的直接获利的体验。
@@ -34,12 +31,14 @@ limitations under the License.
 在 `<head>` 中, 添加
 
 [sourcecode:none]
+
 <script id="amp-access" type="application/json">
 {
   "vendor": "scroll",
   "namespace": "scroll"
 }
 </script>
+
 [/sourcecode]
 
 确保不要在名称空间行中添加尾随逗号，这会使它成为无效的JSON！
@@ -51,6 +50,7 @@ limitations under the License.
 `amp-access` 向每个广告容器添加属性。
 
 [sourcecode:none]
+
 <div class="amp-ad-container" amp-access="NOT scroll.scroll">
   <amp-ad... >
 </div>

@@ -94,7 +94,7 @@
     &-column {
       flex: 1 1 100%;
 
-      &:nth-child(2n+1) {
+      &:nth-child(2n + 1) {
         grid-column: span 3;
 
         @media (max-width: 1023px) {
@@ -102,7 +102,7 @@
         }
       }
 
-      &:nth-child(2n+2) {
+      &:nth-child(2n + 2) {
         grid-column: span 3;
 
         @media (max-width: 1023px) {
@@ -157,16 +157,16 @@
     }
   }
 
-    &-openjsf {
-      width: 50%;
-      max-width: 200px;
-      margin-bottom: 40px;
-      margin-right: auto;
+  &-openjsf {
+    width: 50%;
+    max-width: 200px;
+    margin-bottom: 40px;
+    margin-right: auto;
 
-      @media (min-width: 768px) {
-        margin-bottom: 0;
-      }
+    @media (min-width: 768px) {
+      margin-bottom: 0;
     }
+  }
 
   &-legal-nav {
     &-menu {

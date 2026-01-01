@@ -11,7 +11,7 @@ Halaman AMP adalah halaman HTML dengan beberapa batasan untuk menghasilkan kiner
 Halaman AMP dasar terlihat seperti berikut ini:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

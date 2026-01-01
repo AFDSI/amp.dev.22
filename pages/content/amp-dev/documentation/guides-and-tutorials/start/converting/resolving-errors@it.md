@@ -302,7 +302,7 @@ Ecco fatto! La nostra immagine ha le proporzioni corrette e riempie in modo dina
 Ora il tuo documento AMP dovrebbe assomigliare a questo:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

@@ -41,6 +41,7 @@ to better manage your content.
 The following styles aren’t allowed in AMP pages:
 
 [filter formats="websites, ads, stories"]
+
 <table>
   <thead>
     <tr>
@@ -175,6 +176,7 @@ view the source for any page in [amp.dev](https://amp.dev/).
 [/filter]
 
 [filter formats="email"]
+
 <table>
   <thead>
     <tr>

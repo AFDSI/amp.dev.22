@@ -23,7 +23,6 @@ stage:
   layout: mobile
   subline: DEC 20, 2017
   devices:
-
     - image_src: '/static/img/success-stories/event_ticket/amp_etc_1.jpg'
       width: 3
       height: 5

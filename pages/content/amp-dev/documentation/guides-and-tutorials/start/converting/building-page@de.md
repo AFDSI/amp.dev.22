@@ -14,7 +14,7 @@ Im Projektverzeichnis findest du die Datei [`article.html`](https://github.com/g
 Deine Datei `article.amp.html` sollte wie folgt aussehen:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

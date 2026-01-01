@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Adicionando recursos ao nosso site
 
 Até agora, convertemos nosso site HTML básico em um site AMP básico. Há apenas um erro de validação restante em nosso site, e vamos corrigi-lo usando um componente `<amp-img>` em vez de uma tag `<img>`. Conforme corrigimos esse último erro de validação, aprenderemos o que são os componentes de AMP, por que algumas tags HTML foram substituídas ou não permitidas em AMP e como adicionar componentes ao nosso site.
@@ -31,7 +32,7 @@ O sistema de componentes do AMP ajuda você a criar rapidamente recursos eficien
 
 Por exemplo, aqui estão três componentes AMP que podemos usar em nosso site:
 
-| componentes AMP                                                                            | Como ele é renderizado em nosso site                                        |
+| componentes AMP                                                                              | Como ele é renderizado em nosso site                              |
 | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>`             | {{ image('/static/img/courses/beginner/image14.png', 311, 550) }} |
 | `<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{ image('/static/img/courses/beginner/image19.png', 311, 550) }} |
@@ -156,7 +157,7 @@ O sistema de componentes do AMP ajuda você a criar rapidamente recursos eficien
 
 Por exemplo, aqui estão três componentes AMP que podemos usar em nosso site:
 
-| Componente AMP                                                                                 | Como ele é renderizado em nosso site                                        |
+| Componente AMP                                                                               | Como ele é renderizado em nosso site                              |
 | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>`             | {{ image('/static/img/courses/beginner/image14.png', 311, 550) }} |
 | `<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{ image('/static/img/courses/beginner/image19.png', 311, 550) }} |
@@ -228,7 +229,7 @@ Todos os layouts fornecidos pelo AMP podem ser implementados usando CSS simples,
 
 A seguir, vamos incorporar um vídeo do YouTube em nosso documento. Nossa equipe de marketing da Chico’s Bikes lançou [este](https://www.youtube.com/watch?v=BlpMQ7fMCzA) vídeo de uma de nossas bicicletas queijos sendo construídas.
 
-Use a documentação do [`<amp-youtube>`]({{g.doc('/content/amp-dev/documentation/components/reference/amp-youtube.md', locale=doc.locale).url.path}}) para incorporar este vídeo do YouTube no componente `<amp-img>` com as seguintes configurações: 
+Use a documentação do [`<amp-youtube>`]({{g.doc('/content/amp-dev/documentation/components/reference/amp-youtube.md', locale=doc.locale).url.path}}) para incorporar este vídeo do YouTube no componente `<amp-img>` com as seguintes configurações:
 
 - Defina a id do vídeo para `BlpMQ7fMCzA`.
 

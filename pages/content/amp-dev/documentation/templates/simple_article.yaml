@@ -15,7 +15,7 @@ teaser:
   download_url: '/static/files/templates/article.zip'
   template_demo_home: 'websites/article/templates/article.amp.html'
   template_github_home: 'websites/article'
- 
+
 document:
   pages: /content/amp-dev/documentation/templates/article/pages
   description: Simple article template.

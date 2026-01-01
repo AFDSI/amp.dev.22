@@ -19,13 +19,11 @@ teaser:
     alt: NoBroker
   text: India’s leading rental site improved owner-to-renter connections by 77% with AMP
 
-
 stage:
   headline: India’s leading rental site improved owner-to-renter connections by 77% with AMP
   layout: mobile
   subline: MARCH 27, 2017
   devices:
-
     - image_src: '/static/img/success-stories/nobroker/amp_nobroker_1.jpg'
       width: 3
       height: 5
@@ -46,7 +44,6 @@ kpis:
     text: Increase in pages per session
 
 contents:
-
   - layout: text
     text: 'An online-only operation, Bangalore-based NoBroker connects flat owners and tenants directly by eliminating the broker/agent from the transaction. Despite tremendous growth, NoBroker’s leadership team was grappling with unreliable cellular networks and an increasingly mobile audience. “We were seeing more than 50% of site traffic coming from mobile phones,” explains Akhil Gupta, one of NoBroker’s founders. “But because of flaky Indian cellular service—often switching between 2G and 4G—our pages were taking 12 - 15 seconds to load on slower networks. The challenge was clear: We needed our pages to load faster, even if the network was shoddy.”'
     direction: left-flat

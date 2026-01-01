@@ -246,7 +246,6 @@ Developers using image formats that are not widely supported, such as WebP, can 
 Accept: image/webp,image/apng,image/_,_/\*;q=0.8
 [/sourcecode]
 
-
 ##### Using nested image fallbacks
 
 In the following example, if the browser supports WebP, serve mountains.webp, otherwise serve mountains.jpg.
@@ -292,12 +291,12 @@ Here are some examples that we hope inspire you to create responsive AMP pages:
 
 #### Made by AMP
 
-
 [filter formats="websites, ads, stories"]
+
 - [Examples](../../../../documentation/examples/index.html)
 - [Templates](../../../../documentation/templates/index.html)
 - [AMP Conf Workshop Codelab: Making beautiful AMPs](https://codelabs.developers.google.com/codelabs/amp-beautiful-interactive-canonical)
-[/filter]
-[filter formats="email"]
+  [/filter]
+  [filter formats="email"]
 - [Examples](../../../../documentation/examples/index.html?format=email)
-[/filter]
+  [/filter]

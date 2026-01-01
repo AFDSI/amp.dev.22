@@ -5,34 +5,32 @@
 const $VERSION = '809e5a20179eb7c227733dacbcc8d2ab';
 const $DEBUG = false;
 const $Cache = {
-  "template": "/mnt/jenkins/workspace/webapp-build/webapp/webpack/plugins/lib/swTemplates/cache.js",
-  "precache": [
-    "https://s.pinimg.com/webapp/js/entryChunk-www-unauth-limited-home-page-e4e208da0fe295df98ed.js",
-    "https://s.pinimg.com/webapp/js/entryChunk-www-unauth-b999c6c81966c031fa7e.js",
-    "https://s.pinimg.com/webapp/js/entryChunk-www-e0f9e869fc4731d3ec04.js",
-    "https://s.pinimg.com/webapp/js/vendor-react-7fdb5b3574722ac4f287.js"
+  'template':
+    '/mnt/jenkins/workspace/webapp-build/webapp/webpack/plugins/lib/swTemplates/cache.js',
+  'precache': [
+    'https://s.pinimg.com/webapp/js/entryChunk-www-unauth-limited-home-page-e4e208da0fe295df98ed.js',
+    'https://s.pinimg.com/webapp/js/entryChunk-www-unauth-b999c6c81966c031fa7e.js',
+    'https://s.pinimg.com/webapp/js/entryChunk-www-e0f9e869fc4731d3ec04.js',
+    'https://s.pinimg.com/webapp/js/vendor-react-7fdb5b3574722ac4f287.js',
   ],
-  "strategy": [
+  'strategy': [
     {
-      "type": "prefer-cache",
-      "matches": [
-        "webapp/js/.*\\.js",
-        ".*\\.css"
-      ]
-    }
-  ]
+      'type': 'prefer-cache',
+      'matches': ['webapp/js/.*\\.js', '.*\\.css'],
+    },
+  ],
 };
 const $Notifications = {
-  "fallbackURL": "_/_/push/web_push_content/",
-  "default": {
-    "title": "Fresh Pins!",
-    "body": "You’ve got new Pins waiting for you on Pinterest.",
-    "icon": "https://s.pinimg.com/images/favicon_red_192.png",
-    "tag": "pinterest-push-notification-tag"
-  }
+  'fallbackURL': '_/_/push/web_push_content/',
+  'default': {
+    'title': 'Fresh Pins!',
+    'body': 'You’ve got new Pins waiting for you on Pinterest.',
+    'icon': 'https://s.pinimg.com/images/favicon_red_192.png',
+    'tag': 'pinterest-push-notification-tag',
+  },
 };
 const $Log = {
-  "notificationClicked": "_/_/push/web_push_click/"
+  'notificationClicked': '_/_/push/web_push_click/',
 };
 
 if (!$Cache) {
@@ -47,7 +45,7 @@ function print(fn) {
       if (group && logger.groups[group]) {
         logger.groups[group].push({
           fn: fn,
-          message: message
+          message: message,
         });
       } else {
         console[fn].call(console, message);
@@ -58,14 +56,14 @@ function print(fn) {
 
 const logger = {
   groups: {},
-  group: group => {
+  group: (group) => {
     logger.groups[group] = [];
   },
-  groupEnd: group => {
+  groupEnd: (group) => {
     const groupLogs = logger.groups[group];
     if (groupLogs && groupLogs.length > 0) {
       console.groupCollapsed(group);
-      groupLogs.forEach(log => {
+      groupLogs.forEach((log) => {
         console[log.fn].call(console, log.message);
       });
       console.groupEnd();
@@ -74,7 +72,7 @@ const logger = {
   },
   log: print('log'),
   warn: print('warn'),
-  error: print('error')
+  error: print('error'),
 };
 
 /* global $VERSION, $Cache, logger, caches, self, Request, Response, URL, fetch, location */
@@ -84,8 +82,11 @@ const logger = {
 const CURRENT_CACHE = `SW_CACHE:${$VERSION}`;
 const APP_SHELL_CACHE = 'SW_APP_SHELL';
 
-const isValidResponse = res => (res.ok || (res.status === 0 && res.type === 'opaque'));
-const isNavigation = req => req.mode === 'navigate' || (req.method === 'GET' && req.headers.get('accept').includes('text/html'));
+const isValidResponse = (res) =>
+  res.ok || (res.status === 0 && res.type === 'opaque');
+const isNavigation = (req) =>
+  req.mode === 'navigate' ||
+  (req.method === 'GET' && req.headers.get('accept').includes('text/html'));
 
 /*         -------- CACHE LISTENERS ---------         */
 
@@ -109,13 +110,15 @@ function handleActivate(event) {
   logger.log('Entering activate handler.');
   const cachesCleared = caches.keys().then((cacheNames) => {
     logger.group('cleanup');
-    return Promise.all(cacheNames.map((cacheName) => {
-      if (CURRENT_CACHE !== cacheName) {
-        logger.log(`Deleting cache key: ${cacheName}`, 'cleanup');
-        return caches.delete(cacheName);
-      }
-      return Promise.resolve();
-    })).then(() => logger.groupEnd('cleanup'));
+    return Promise.all(
+      cacheNames.map((cacheName) => {
+        if (CURRENT_CACHE !== cacheName) {
+          logger.log(`Deleting cache key: ${cacheName}`, 'cleanup');
+          return caches.delete(cacheName);
+        }
+        return Promise.resolve();
+      })
+    ).then(() => logger.groupEnd('cleanup'));
   });
   event.waitUntil(cachesCleared);
 }
@@ -135,10 +138,12 @@ function handleFetch(event) {
       logger.group(event.request.url);
       logger.log(`Using strategy ${strategy.type}.`, event.request.url);
       event.respondWith(
-        applyEventStrategy(strategy, event).then((response) => {
-          logger.groupEnd(event.request.url);
-          return response;
-        }).catch(() => undefined)
+        applyEventStrategy(strategy, event)
+          .then((response) => {
+            logger.groupEnd(event.request.url);
+            return response;
+          })
+          .catch(() => undefined)
       );
     }
   }
@@ -164,8 +169,9 @@ function applyEventStrategy(strategy, event) {
 
 function insertInCache(request, response) {
   logger.log('Inserting in cache.', request.url);
-  return caches.open(CURRENT_CACHE)
-    .then(cache => cache.put(request, response));
+  return caches
+    .open(CURRENT_CACHE)
+    .then((cache) => cache.put(request, response));
 }
 
 function getFromCache(request) {
@@ -228,57 +234,58 @@ function fallbackToCache(request) {
 }
 
 function getFromFastest(request, strategy) {
-  return () => new Promise((resolve, reject) => {
-    var errors = 0;
+  return () =>
+    new Promise((resolve, reject) => {
+      var errors = 0;
 
-    function raceReject() {
-      errors += 1;
-      if (errors === 2) {
-        reject(new Error('Network and cache both failed.'));
+      function raceReject() {
+        errors += 1;
+        if (errors === 2) {
+          reject(new Error('Network and cache both failed.'));
+        }
       }
-    }
 
-    function raceResolve(response) {
-      if (response instanceof Response) {
-        resolve(response);
-      } else {
-        raceReject();
+      function raceResolve(response) {
+        if (response instanceof Response) {
+          resolve(response);
+        } else {
+          raceReject();
+        }
       }
-    }
 
-    getFromCache(request)()
-      .then(raceResolve)
-      .catch(raceReject);
+      getFromCache(request)().then(raceResolve).catch(raceReject);
 
-    fetchAndCache(request, strategy)()
-      .then(raceResolve)
-      .catch(raceReject);
-  });
+      fetchAndCache(request, strategy)().then(raceResolve).catch(raceReject);
+    });
 }
 
 function precache() {
   logger.group('precaching');
-  return caches.open(CURRENT_CACHE).then((cache) => {
-    return Promise.all(
-      $Cache.precache.map((urlToPrefetch) => {
-        logger.log(urlToPrefetch, 'precaching');
-        const cacheBustedUrl = new URL(urlToPrefetch, location.href);
-        cacheBustedUrl.search += (cacheBustedUrl.search ? '&' : '?') + `cache-bust=${Date.now()}`;
+  return caches
+    .open(CURRENT_CACHE)
+    .then((cache) => {
+      return Promise.all(
+        $Cache.precache.map((urlToPrefetch) => {
+          logger.log(urlToPrefetch, 'precaching');
+          const cacheBustedUrl = new URL(urlToPrefetch, location.href);
+          cacheBustedUrl.search +=
+            (cacheBustedUrl.search ? '&' : '?') + `cache-bust=${Date.now()}`;
 
-        const request = new Request(cacheBustedUrl, { mode: 'cors' });
-        return fetch(request).then((response) => {
-          if (!isValidResponse(response)) {
-            logger.error(`Failed for ${urlToPrefetch}.`, 'precaching');
-            return undefined;
-          }
-          return cache.put(urlToPrefetch, response);
-        });
-      })
-    );
-  }).then(() => logger.groupEnd('precaching'));
+          const request = new Request(cacheBustedUrl, {mode: 'cors'});
+          return fetch(request).then((response) => {
+            if (!isValidResponse(response)) {
+              logger.error(`Failed for ${urlToPrefetch}.`, 'precaching');
+              return undefined;
+            }
+            return cache.put(urlToPrefetch, response);
+          });
+        })
+      );
+    })
+    .then(() => logger.groupEnd('precaching'));
 }
 
-'use strict';
+('use strict');
 
 /*         -------- NOTIFICATIONS ---------         */
 
@@ -299,7 +306,8 @@ function handleNotificationPush(event) {
     event.waitUntil(showNotification(event.data));
   } else if ($Notifications.fallbackURL) {
     event.waitUntil(
-      self.registration.pushManager.getSubscription()
+      self.registration.pushManager
+        .getSubscription()
         .then(fetchNotification)
         .then(convertResponseToJson)
         .then(showNotification)
@@ -327,7 +335,10 @@ function handleNotificationClick(event) {
     const url = event.notification.tag.split(':')[2] || '/';
     event.waitUntil(openWindow(url));
   } else {
-    logger.warn('Cannot route click with no data.url property. Using "/".', event.notification.tag);
+    logger.warn(
+      'Cannot route click with no data.url property. Using "/".',
+      event.notification.tag
+    );
     event.waitUntil(openWindow('/'));
   }
 
@@ -356,10 +367,10 @@ function fetchNotification(subscription) {
   }
   logger.log('Fetching remote notification data.');
   const queries = {
-    endpoint: subscription.endpoint
+    endpoint: subscription.endpoint,
   };
   const url = formatUrl($Notifications.fallbackURL, queries);
-  return fetch(url, { credentials: 'include' });
+  return fetch(url, {credentials: 'include'});
 }
 
 function convertResponseToJson(response) {
@@ -371,14 +382,13 @@ function convertResponseToJson(response) {
 
 function delayDismissNotification() {
   setTimeout(function serviceWorkerDismissNotification() {
-    self.registration.getNotifications()
-      .then(notifications => {
-        notifications.forEach(notification => {
-          notification.close();
-          logger.log('Dismissing notification.', notification.tag);
-          logger.groupEnd(notification.tag);
-        });
+    self.registration.getNotifications().then((notifications) => {
+      notifications.forEach((notification) => {
+        notification.close();
+        logger.log('Dismissing notification.', notification.tag);
+        logger.groupEnd(notification.tag);
       });
+    });
   }, $Notifications.duration || 5000);
 }
 
@@ -399,19 +409,23 @@ function logNotificationClick(event) {
 
 function logAction(notification, url) {
   logger.log(`Send log event to ${url}.`, notification.tag);
-  return self.registration.pushManager.getSubscription().then((subscription) => {
-    const query = {
-      endpoint: subscription.endpoint,
-      tag: notification.tag
-    };
-    return fetch(formatUrl(url, query), { credentials: 'include' });
-  });
+  return self.registration.pushManager
+    .getSubscription()
+    .then((subscription) => {
+      const query = {
+        endpoint: subscription.endpoint,
+        tag: notification.tag,
+      };
+      return fetch(formatUrl(url, query), {credentials: 'include'});
+    });
 }
 
 function formatUrl(url, queries) {
   const prefix = url.includes('?') ? '&' : '?';
-  const query = Object.keys(queries).map(function (key) {
-    return `${key}=${queries[key]}`;
-  }).join('&');
+  const query = Object.keys(queries)
+    .map(function (key) {
+      return `${key}=${queries[key]}`;
+    })
+    .join('&');
   return url + prefix + query;
 }

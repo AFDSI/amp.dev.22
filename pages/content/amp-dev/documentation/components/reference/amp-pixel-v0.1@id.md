@@ -5,8 +5,6 @@ teaser:
   text: A tracking pixel to count page views.
 ---
 
-
-
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,9 +20,6 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-
-
 
 <table>
   <tr>
@@ -48,12 +43,11 @@ Komponen `amp-pixel` berperilaku seperti piksel pelacakan sederhana, `img`. Komp
 Dalam contoh dasar ini, `amp-pixel` mengeluarkan permintaan GET sederhana ke URL yang diberikan dan mengabaikan hasilnya.
 
 ```html
-<amp-pixel src="https://foo.com/tracker/foo"
-    layout="nodisplay"></amp-pixel>
+<amp-pixel src="https://foo.com/tracker/foo" layout="nodisplay"></amp-pixel>
 ```
 
-  [tip type="note"]Saat memproses URL AMP di header perujuk permintaan analisis, hapus atau abaikan parameter `usqp`. Parameter ini digunakan oleh Google untuk memicu eksperimen Cache AMP Google.
-  [/tip]
+[tip type="note"]Saat memproses URL AMP di header perujuk permintaan analisis, hapus atau abaikan parameter `usqp`. Parameter ini digunakan oleh Google untuk memicu eksperimen Cache AMP Google.
+[/tip]
 
 ## Atribut <a name="attributes"></a>
 
@@ -66,9 +60,11 @@ URL sederhana ke endpoint jarak jauh yang harus berupa protokol `https`.
 Atribut ini mirip dengan atribut `referrerpolicy` pada `<img>`, tetapi hanya menerima nilai `no-referrer`. Jika `referrerpolicy=no-referrer` ditentukan, header `referrer` akan dihapus dari permintaan HTTP.
 
 ```html
-<amp-pixel src="https://foo.com/tracker/foo"
-    layout="nodisplay"
-    referrerpolicy="no-referrer"></amp-pixel>
+<amp-pixel
+  src="https://foo.com/tracker/foo"
+  layout="nodisplay"
+  referrerpolicy="no-referrer"
+></amp-pixel>
 ```
 
 ##### allow-ssr-img (opsional) <a name="allow-ssr-img-optional"></a>
@@ -88,8 +84,7 @@ Lihat [Panduan Substitusi](https://github.com/ampproject/amphtml/blob/main/exten
 Pada contoh berikut, permintaan dapat dibuat untuk sesuatu seperti `https://foo.com/pixel?0.8390278471201` di mana nilai RANDOM dibuat secara acak pada setiap tayangan.
 
 ```html
-<amp-pixel src="https://foo.com/pixel?RANDOM"
-    layout="nodisplay"></amp-pixel>
+<amp-pixel src="https://foo.com/pixel?RANDOM" layout="nodisplay"></amp-pixel>
 ```
 
 ## Penataan gaya <a name="styling"></a>

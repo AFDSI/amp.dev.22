@@ -7,7 +7,7 @@ description: 'Antes de empezar a agregar el código, revisemos la página de eje
 Antes de comenzar a agregar código, revisemos la página de ejemplo [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html), que debería ser la siguiente:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

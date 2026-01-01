@@ -18,7 +18,6 @@
 @import 'components/templates/_default.scss';
 
 .#{template('examples-manual')} {
-
   .#{utility('container')} {
     @include container;
     @include container-nogap;
@@ -41,26 +40,26 @@
     }
   }
 
-    .#{utility('ctas')} {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 60px;
+  .#{utility('ctas')} {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+
+    @media (min-width: 768px) {
+      flex-wrap: nowrap;
+    }
+
+    .#{atom('btn')} {
+      flex: 1 0 auto;
+      margin-right: 10px;
+      margin-bottom: 10px;
 
       @media (min-width: 768px) {
-        flex-wrap: nowrap;
-      }
-
-      .#{atom('btn')} {
-        flex: 1 0 auto;
-        margin-right: 10px;
-        margin-bottom: 10px;
-
-        @media (min-width: 768px) {
-          flex: 1 0 50%;
-          max-width: 250px;
-        }
+        flex: 1 0 50%;
+        max-width: 250px;
       }
     }
+  }
 
   .#{utility('playground-link')} {
     @media (max-width: 767px) {
@@ -88,23 +87,31 @@
   }
 
   .#{utility('content')} {
-    h1 {@include hl-h2;}
-    h2 {@include hl-h3;}
-    h3 {@include hl-h4;}
-    h4 {@include hl-h5;}
+    h1 {
+      @include hl-h2;
+    }
+    h2 {
+      @include hl-h3;
+    }
+    h3 {
+      @include hl-h4;
+    }
+    h4 {
+      @include hl-h5;
+    }
   }
 
-    .#{utility('title')} {
-      margin-top: 20px;
-    }
+  .#{utility('title')} {
+    margin-top: 20px;
+  }
 
-    .#{utility('format-tags')} {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+  .#{utility('format-tags')} {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    .#{molecule('code-snippet')} {
-      max-height: 500px;
-    }
+  .#{molecule('code-snippet')} {
+    max-height: 500px;
+  }
 }

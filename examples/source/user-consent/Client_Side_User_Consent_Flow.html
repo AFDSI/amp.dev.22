@@ -17,68 +17,139 @@ teaserImage: '/static/samples/img/teaser/basic_user_consent_flow.jpg'
 <!-- -->
 <!doctype html>
 <html ⚡ lang="en">
-<head>
-  <meta charset="utf-8">
-  <link rel="canonical" href="<% canonical %>">
-  <meta name="viewport" content="width=device-width">
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <title>Client Side User Consent Flow</title>
-  <!-- ## Setup -->
-  <!-- Import the consent component in the header. -->
-  <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
-  <!-- for this example we use `amp-ad` as well as... -->
-  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-  <!-- ... `amp-list` together with... -->
-  <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-  <!-- ... `amp-mustache`. -->
-  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <style amp-custom>
-    :root {
-      --space-2: 1rem;   /* 16px */
-      --space-3: 1.5rem; /* 24px */
-    }
-    .consentPopup {
-      padding: var(--space-3);
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 5px;
-      position: relative;
-      max-width: 700px;
-      width: 95%;
-    }
-    .consentPopup > h2, /* overwrite ABE style */
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="<% canonical %>" />
+    <meta name="viewport" content="width=device-width" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Client Side User Consent Flow</title>
+    <!-- ## Setup -->
+    <!-- Import the consent component in the header. -->
+    <script
+      async
+      custom-element="amp-consent"
+      src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"
+    ></script>
+    <!-- for this example we use `amp-ad` as well as... -->
+    <script
+      async
+      custom-element="amp-ad"
+      src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
+    ></script>
+    <!-- ... `amp-list` together with... -->
+    <script
+      async
+      custom-element="amp-list"
+      src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
+    ></script>
+    <!-- ... `amp-mustache`. -->
+    <script
+      async
+      custom-template="amp-mustache"
+      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+    ></script>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <style amp-custom>
+      :root {
+        --space-2: 1rem; /* 16px */
+        --space-3: 1.5rem; /* 24px */
+      }
+      .consentPopup {
+        padding: var(--space-3);
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 5px;
+        position: relative;
+        max-width: 700px;
+        width: 95%;
+      }
+      .consentPopup > h2, /* overwrite ABE style */
     .consentPopup > * {
-      margin: 0;
-      margin-bottom: var(--space-2);
-    }
-    .consentPopup > button {
-      margin-right: var(--space-2);
-    }
-    .popupOverlay {
-      height: 100vh;
-      width: 100vw;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 5% 0;
-    }
-    .dismiss-button {
-      position: absolute;
-      right: var(--space-3);
-      top: var(--space-2);
-      cursor: pointer;
-    }
-    #post-consent-ui {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: var(--space-3);
-    }
-  </style>
-</head>
-<body>
-
-
-  <!--
+        margin: 0;
+        margin-bottom: var(--space-2);
+      }
+      .consentPopup > button {
+        margin-right: var(--space-2);
+      }
+      .popupOverlay {
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 5% 0;
+      }
+      .dismiss-button {
+        position: absolute;
+        right: var(--space-3);
+        top: var(--space-2);
+        cursor: pointer;
+      }
+      #post-consent-ui {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-3);
+      }
+    </style>
+  </head>
+  <body>
+    <!--
   ## Basic usage
 
   The [`amp-consent`](/content/amp-dev/documentation/components/reference/amp-consent.md) component allows to specify the required user consent for this page using the required 'consentRequired' flag. A CORS endpoints can be specified via the `checkConsentHref` attribute. The `amp-consent` component then will check via a POST request if the consent UI needs to be shown. The response should look like this:
@@ -96,58 +167,77 @@ teaserImage: '/static/samples/img/teaser/basic_user_consent_flow.jpg'
   
   If `consentRequired` was set to `true` in the incline script config, then `amp-consent` will first check localstorage for an existing consent decision and use it if present. Otherwise it will show the promptUi (if configured). If `consentRequired` was set to false, `amp-consent` will immediately unblock all elements. 
   -->
-  <amp-consent id="myUserConsent" layout="nodisplay">
-    <script type="application/json">{
-      "consentInstanceId": "consent-id",
-      "consentRequired": true,
-      "promptUI": "consentDialog",
-      "postPromptUI": "post-consent-ui"
-    }</script>
-    <div class="popupOverlay" id="consentDialog">
-      <div class="consentPopup">
-        <div class="dismiss-button" role="button" tabindex="0" on="tap:myUserConsent.dismiss">X</div>
-        <h2>Headline</h2>
-        <p>This is an important message requiring you to make a choice.</p>
-        <p>This is some more information about this choice. Here's a list of items related to this choice.</p>
-        <amp-list height="132"
-                  layout="fixed-height"
-                  src="/static/samples/json/consent-items.json"
-                  binding="no">
-          <template type="amp-mustache">
-            <li>{{.}}</li>
-          </template>
-        </amp-list>
-        <button on="tap:myUserConsent.accept">Accept</button>
-        <button on="tap:myUserConsent.reject">Reject</button>
+    <amp-consent id="myUserConsent" layout="nodisplay">
+      <script type="application/json">
+        {
+          "consentInstanceId": "consent-id",
+          "consentRequired": true,
+          "promptUI": "consentDialog",
+          "postPromptUI": "post-consent-ui"
+        }
+      </script>
+      <div class="popupOverlay" id="consentDialog">
+        <div class="consentPopup">
+          <div
+            class="dismiss-button"
+            role="button"
+            tabindex="0"
+            on="tap:myUserConsent.dismiss"
+          >
+            X
+          </div>
+          <h2>Headline</h2>
+          <p>This is an important message requiring you to make a choice.</p>
+          <p>
+            This is some more information about this choice. Here's a list of
+            items related to this choice.
+          </p>
+          <amp-list
+            height="132"
+            layout="fixed-height"
+            src="/static/samples/json/consent-items.json"
+            binding="no"
+          >
+            <template type="amp-mustache">
+              <li>{{.}}</li>
+            </template>
+          </amp-list>
+          <button on="tap:myUserConsent.accept">Accept</button>
+          <button on="tap:myUserConsent.reject">Reject</button>
+        </div>
       </div>
-    </div>
-    <div id="post-consent-ui">
-      <button on="tap:myUserConsent.prompt()">Update Consent</button>
-    </div>
-  </amp-consent>
+      <div id="post-consent-ui">
+        <button on="tap:myUserConsent.prompt()">Update Consent</button>
+      </div>
+    </amp-consent>
 
-  <!--
+    <!--
     Use `data-block-on-consent` attribute to block AMP components until consent is given.
     Individual AMP components can override  blocking behavior and implement blocking logic themselves.
 
     Here is an image which is blocked until consent is given:
   -->
-  <amp-img data-block-on-consent src="/static/samples/img/landscape_lake_300x201.jpg" width="300" height="201">
-  </amp-img>
+    <amp-img
+      data-block-on-consent
+      src="/static/samples/img/landscape_lake_300x201.jpg"
+      width="300"
+      height="201"
+    >
+    </amp-img>
 
-  <!--
+    <!--
   Ads can also be blocked until consent is given, but ad networks can implement own behavior
   (e.g. default to non-personalized ads without consent, as seen <a href="https://support.google.com/dfp_premium/answer/7678538#amp-pages" target="_blank">
   documented here</a> for Doubleclick). Note that you may see the same ad when accepting or rejecting consent for this specific example and that's because the example doesn't use personalized information even when accepting consent.<br/>
   Here is an example of `amp-ad` depending on `amp-consent`:
  -->
- <amp-ad data-block-on-consent
-         data-slot="/30497360/a4a/a4a_native"
-         height="250"
-         type="doubleclick"
-         width="300">
-  </amp-ad>
-
-
-</body>
+    <amp-ad
+      data-block-on-consent
+      data-slot="/30497360/a4a/a4a_native"
+      height="250"
+      type="doubleclick"
+      width="300"
+    >
+    </amp-ad>
+  </body>
 </html>

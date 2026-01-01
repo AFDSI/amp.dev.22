@@ -14,7 +14,7 @@ AMP에 익숙하시다면 좋은 소식이 있습니다! 이메일용 AMP는 AMP
 AMP 이메일은 전형적인 HTML 이메일과 유사하게 보이지만 몇 가지 차이점이 있습니다. 아래에서 올바른 AMP 이메일 작성에 필요한 최소한의 마크업을 확인해 보세요.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

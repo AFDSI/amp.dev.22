@@ -72,20 +72,17 @@ Dobrze, że instrukcja `link rel=preload` obsługuje również zapytania o media
 
 [sourcecode:html]
 
-
 <link rel="preload" as="image" href="/images/elephants_narrow.png" media="(max-width: 415px)"> <link rel="preload" as="image" href="/images/elephants_wide.jpg" media="(min-width: 416px)"> [/sourcecode]
 
 Przy okazji, to samo podejście działa w przypadku obrazów plakatów składnika [`amp-video`](../../../documentation/components/reference/amp-video.md):
 
 [sourcecode:html]
 
-
 <link rel="preload" href="/images/poster.jpg" as="image"> ...  {amp-video1}      ... {/amp-video1} [/sourcecode]
 
-Upewnij się tylko, że instrukcje preload są umieszczone *za* deklaracją okienka na ekranie, ponieważ przeglądarka wymaga wymiarów okienka na ekranie do określenia szerokości ekranu:
+Upewnij się tylko, że instrukcje preload są umieszczone _za_ deklaracją okienka na ekranie, ponieważ przeglądarka wymaga wymiarów okienka na ekranie do określenia szerokości ekranu:
 
 [sourcecode:html]
-
 
 <meta name="viewport" content="width=device-width">(max-width: 415px)" ...=""> [/sourcecode]
 
@@ -131,7 +128,6 @@ W przypadku AMP można zoptymalizować ładowanie czcionek na kilka sposóbów (
 - Jeśli to możliwe, używaj deklaracji [font-display: optional](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display): dzięki temu czcionka zostanie użyta tylko wtedy, gdy jest już w pamięci podręcznej, a jeśli nie została jeszcze załadowana, użyta zostanie czcionka systemowa.
 - Zoptymalizuj swoje czcionki internetowe (na przykład serwuj czcionki niestandardowe za pomocą WOFF2).
 - Wstępniee ładuj czcionki niestandardowe: [sourcecode:html]
-
 
 <link rel="preload" as="font" href="/bundles/app/fonts/helveticaneue-roman-webfont.woff2">[/sourcecode] - Jeśli używasz czcionek Google lub innego dostawcy czcionek z nieznanymi adresami URL czcionek, łącz się z wyprzedzeniem z odpowiednim serwerem czcionek: [sourcecode:html]  <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin> [/sourcecode]
 

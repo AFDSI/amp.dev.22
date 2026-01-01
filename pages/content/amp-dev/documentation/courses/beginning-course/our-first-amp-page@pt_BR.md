@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Iniciando nossa jornada
 
 É o primeiro dia da nossa equipe construindo o site da Chico's Cheese Bike. Até agora, o site é uma página HTML básica, com um cabeçalho contendo o título do nosso site, uma imagem de uma de nossas bicicletas e algum texto de marketing.
@@ -15,6 +16,7 @@ Em seu projeto Glitch, abra index.html e verifique se o HTML se parece com isto:
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -114,7 +116,7 @@ A próxima etapa é corrigir esses erros de validação. Para fazer isso, precis
 
 ## A anatomia de uma página AMP
 
-Toda página AMP começa com o mesmo modelo básico. Em seguida, personalizamos e construímos a página a partir daí. Às vezes, esse modelo inicial é chamado de padrão AMP. O boilerplate é uma combinação de tags que configuram o AMP runtime  e ajudam as páginas AMP a funcionar sem problemas.
+Toda página AMP começa com o mesmo modelo básico. Em seguida, personalizamos e construímos a página a partir daí. Às vezes, esse modelo inicial é chamado de padrão AMP. O boilerplate é uma combinação de tags que configuram o AMP runtime e ajudam as páginas AMP a funcionar sem problemas.
 
 Nesta seção, vamos explicar um pouco sobre cada parte do padrão AMP. No entanto, você não precisa se lembrar de adicionar essas tags em todas as páginas que você criar com AMP. Você pode simplesmente iniciar suas futuras páginas AMP com [esse](../../../documentation/guides-and-tutorials/start/create/basic_markup.md) boilerplate.
 
@@ -134,13 +136,15 @@ As regras a seguir são especificamente para configurar o AMP runtime. As págin
 
 - Conter a tag`<script async src="https://cdn.ampproject.org/v0.js"></script>` dentro da tag `<head>`. Isso carrega a biblioteca JavaScript AMP. **Nota**: Como prática recomendada, você deve incluir o script no`<head>`.
 
-- Conter uma tag `<link rel="canonical" href="$SOME_URL">` dentro de seu `<head>`.  Isso aponta para a versão HTML normal do seu site, se houver, ou aponta para si mesmo, se não houver uma versão não AMP do site. **Nota**: Você deve substituir `$SOME_URL` no atributo` href` acima pelo URL real de sua página.
+- Conter uma tag `<link rel="canonical" href="$SOME_URL">` dentro de seu `<head>`. Isso aponta para a versão HTML normal do seu site, se houver, ou aponta para si mesmo, se não houver uma versão não AMP do site. **Nota**: Você deve substituir `$SOME_URL` no atributo` href` acima pelo URL real de sua página.
 
 - Conter o código padrão de estilo AMP na tag `<head>`. Este CSS oculta o conteúdo da página até que a biblioteca AMP termine de carregar. O boilerplate de estilo AMP é o seguinte snippet:
 
 [sourcecode:html]
 {% raw %}
+
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
 {% endraw %}[/sourcecode]
 
 [tip type="note"]
@@ -166,14 +170,14 @@ Para praticar a adição de estilos personalizados à sua página AMP, adicione 
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -195,6 +199,7 @@ A solução pode ser encontrada nesse <a href="https://glitch.com/~hungry-modem"
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>
@@ -232,6 +237,7 @@ Este é um erro importante de entender. Algumas tags HTML não são permitidas e
 [/tip]
 [/filter]
 [filter level="advanced"]
+
 ## Iniciando nossa jornada
 
 É o primeiro dia da nossa equipe construindo o site da Chico's Cheese Bike. Até agora, o site é uma página HTML básica, com um cabeçalho contendo o título do nosso site, uma imagem de uma de nossas bicicletas e algum texto de marketing. Nosso objetivo é converter esta página em AMP!
@@ -242,6 +248,7 @@ Em <a href="https://glitch.com/edit/#!/nosy-leech" target="_blank"> seu </a> pro
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -275,7 +282,7 @@ Em <a href="https://glitch.com/edit/#!/nosy-leech" target="_blank"> seu </a> pro
 
 Para transformar isso em uma página AMP, primeiro precisamos dizer ao mundo que é AMP. Para fazer isso, vamos adicionar alguma decoração à nossa tag `<html>`. Se a tag `<html>` contiver um símbolo `⚡` ou a palavra amp, ferramentas como o validador de AMP e o cache de AMP tratarão nosso site como um site de AMP.
 
-Em seu projeto Glitch, adicione o símbolo `⚡` à tag` <html> `, como este:
+Em seu projeto Glitch, adicione o símbolo `⚡` à tag`<html>`, como este:
 
 [sourcecode:html]
 {% raw %}<html ⚡ lang="en">{% endraw %}[/sourcecode]
@@ -338,7 +345,7 @@ A próxima etapa é corrigir esses erros de validação. Para fazer isso, precis
 
 ## A anatomia de uma página AMP
 
-Toda página AMP começa com o mesmo modelo básico. Em seguida, personalizamos e construímos a página a partir daí. Às vezes, esse modelo inicial é chamado de padrão AMP. O boilerplate é uma combinação de tags que configuram o AMP runtime  e ajudam as páginas AMP a funcionar sem problemas.
+Toda página AMP começa com o mesmo modelo básico. Em seguida, personalizamos e construímos a página a partir daí. Às vezes, esse modelo inicial é chamado de padrão AMP. O boilerplate é uma combinação de tags que configuram o AMP runtime e ajudam as páginas AMP a funcionar sem problemas.
 
 Nesta seção, vamos explicar um pouco sobre cada parte do padrão AMP. No entanto, você não precisa se lembrar de adicionar essas tags em todas as páginas que você criar com AMP. Você pode simplesmente iniciar suas futuras páginas AMP com [esse](../../../documentation/guides-and-tutorials/start/create/basic_markup.md) boilerplate.
 
@@ -358,7 +365,7 @@ As regras a seguir são especificamente para configurar o AMP runtime. As págin
 
 - Conter a tag`<script async src="https://cdn.ampproject.org/v0.js"></script>` dentro da tag `<head>`. Isso carrega a biblioteca JavaScript AMP. **Nota**: Como prática recomendada, você deve incluir o script no`<head>`.
 
-- Conter uma tag `<link rel="canonical" href="$SOME_URL">` dentro de seu `<head>`.  Isso aponta para a versão HTML normal do seu site, se houver, ou aponta para si mesmo, se não houver uma versão não AMP do site. **Nota**: Você deve substituir `$SOME_URL` no atributo` href` acima pelo URL real de sua página.
+- Conter uma tag `<link rel="canonical" href="$SOME_URL">` dentro de seu `<head>`. Isso aponta para a versão HTML normal do seu site, se houver, ou aponta para si mesmo, se não houver uma versão não AMP do site. **Nota**: Você deve substituir `$SOME_URL` no atributo` href` acima pelo URL real de sua página.
 
 - Conter o código padrão de estilo AMP na tag `<head>`. Este CSS oculta o conteúdo da página até que a biblioteca AMP termine de carregar. O boilerplate de estilo AMP é o seguinte snippet:
 
@@ -392,14 +399,14 @@ Para garantir um bom desempenho e permitir que a AMP faça o que é necessário,
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -419,6 +426,7 @@ A solução pode ser encontrada nesse <a href="https://glitch.com/~hungry-modem"
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>

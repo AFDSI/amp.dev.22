@@ -14,7 +14,6 @@
 @import 'components/atoms/_color.scss';
 @import 'components/atoms/_text';
 
-
 $borderSize: 5px;
 
 %pseudo-base {
@@ -24,13 +23,13 @@ $borderSize: 5px;
   position: absolute;
 }
 
-
 .#{molecule('info-button')} {
   &:focus {
     outline: none;
   }
 
-  &-on, &-off {
+  &-on,
+  &-off {
     position: absolute;
     top: 0;
     right: 0;
@@ -47,13 +46,14 @@ $borderSize: 5px;
     &:focus + div {
       z-index: 10;
     }
-    &:focus ~ .#{molecule('tip')}, &:hover ~ .#{molecule('tip')} {
+    &:focus ~ .#{molecule('tip')},
+    &:hover ~ .#{molecule('tip')} {
       display: block;
     }
   }
   &-off {
     z-index: 0;
-    &:focus  ~ .#{molecule('tip')} {
+    &:focus ~ .#{molecule('tip')} {
       display: none;
     }
   }
@@ -94,7 +94,7 @@ $borderSize: 5px;
     border-right: none;
     border-radius: 0 $borderSize $borderSize 0;
     word-break: break-word;
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       border-right: $borderSize solid color('japan-laurel');
       border-bottom: none;
     }
@@ -121,7 +121,7 @@ $borderSize: 5px;
     }
   }
 
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     top: 5px;
     left: 99%;
     width: 50%;
@@ -131,7 +131,7 @@ $borderSize: 5px;
     }
   }
 
-  @media(min-width: 1440px) {
+  @media (min-width: 1440px) {
     width: 70%;
   }
 }

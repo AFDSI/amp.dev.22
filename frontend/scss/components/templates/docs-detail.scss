@@ -24,7 +24,6 @@ body {
 }
 
 .#{template('docs-detail')} {
-
   .#{utility('container')} {
     @include container;
     @include container-nogap;
@@ -70,13 +69,11 @@ body {
   }
 
   .#{utility('content')} {
-
     amp-anim {
       @include box-shadow;
     }
 
     figure {
-
       @media screen and (max-width: 575px) {
         min-width: 50vw;
       }
@@ -85,9 +82,15 @@ body {
         margin-top: 1.6rem;
       }
 
-      &.left { text-align: left; }
-      &.center { text-align: center; }
-      &.right { text-align: right; }
+      &.left {
+        text-align: left;
+      }
+      &.center {
+        text-align: center;
+      }
+      &.right {
+        text-align: right;
+      }
 
       &.half {
         amp-img {
@@ -132,7 +135,6 @@ body {
     }
 
     .#{utility('previous')} {
-
       .#{molecule('lnk')} {
         &-icon {
           transform: scaleX(-1);

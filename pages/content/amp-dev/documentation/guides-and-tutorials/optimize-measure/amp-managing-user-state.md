@@ -14,8 +14,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
 **Table of contents**
 
 <!--
@@ -28,19 +26,19 @@ have a look and request a pull request there.
 <!-- {"maxdepth": 2} -->
 
 - [Background](#background)
-    - [Display contexts for AMP pages](#display-contexts-for-amp-pages)
-    - [Multiple contexts means multiple state management](#multiple-contexts-means-multiple-state-management)
+  - [Display contexts for AMP pages](#display-contexts-for-amp-pages)
+  - [Multiple contexts means multiple state management](#multiple-contexts-means-multiple-state-management)
 - [Implementation guide](#implementation-guide)
-    - [Before getting started](#before-getting-started)
-    - [Task 1: For non-AMP pages on the publisher origin, set up an identifier and send analytics pings](#task-1-for-non-amp-pages-on-the-publisher-origin-set-up-an-identifier-and-send-analytics-pings)
-    - [Task 2: For AMP pages, set up an identifier and send analytics pings by including Client ID replacement in amp-analytics pings](#task-2-for-amp-pages-set-up-an-identifier-and-send-analytics-pings-by-including-client-id-replacement-in-amp-analytics-pings)
-    - [Task 3: Process analytics pings from pages on the publisher origin](#task-3-process-analytics-pings-from-pages-on-the-publisher-origin)
-    - [Task 4: Process analytics pings from AMP cache or AMP viewer display contexts and establish identifier mappings (if needed)](#task-4-process-analytics-pings-from-amp-cache-or-amp-viewer-display-contexts-and-establish-identifier-mappings-if-needed)
-    - [Task 5: Using Client ID in linking and form submission](#task-5-using-client-id-in-linking-and-form-submission)
+  - [Before getting started](#before-getting-started)
+  - [Task 1: For non-AMP pages on the publisher origin, set up an identifier and send analytics pings](#task-1-for-non-amp-pages-on-the-publisher-origin-set-up-an-identifier-and-send-analytics-pings)
+  - [Task 2: For AMP pages, set up an identifier and send analytics pings by including Client ID replacement in amp-analytics pings](#task-2-for-amp-pages-set-up-an-identifier-and-send-analytics-pings-by-including-client-id-replacement-in-amp-analytics-pings)
+  - [Task 3: Process analytics pings from pages on the publisher origin](#task-3-process-analytics-pings-from-pages-on-the-publisher-origin)
+  - [Task 4: Process analytics pings from AMP cache or AMP viewer display contexts and establish identifier mappings (if needed)](#task-4-process-analytics-pings-from-amp-cache-or-amp-viewer-display-contexts-and-establish-identifier-mappings-if-needed)
+  - [Task 5: Using Client ID in linking and form submission](#task-5-using-client-id-in-linking-and-form-submission)
 - [Strongly recommended practices](#strongly-recommended-practices)
-    - [Keep just one association](#keep-just-one-association)
-    - [Respect cookie and local storage deletions](#respect-cookie-and-local-storage-deletions)
-    - [Comply with local laws and regulations](#comply-with-local-laws-and-regulations)
+  - [Keep just one association](#keep-just-one-association)
+  - [Respect cookie and local storage deletions](#respect-cookie-and-local-storage-deletions)
+  - [Comply with local laws and regulations](#comply-with-local-laws-and-regulations)
 
 User state is an important concept on today’s web. Consider the following use cases that are enabled by managing user state:
 
@@ -186,23 +184,26 @@ This means there are two cases for the state of non-AMP pages on the publisher o
 **Case #1: Initial visit.** Upon first landing on the non-AMP page, there will be no cookie. If you checked for the cookie before one was set, you’d see no values set in the cookie corresponding to the `uid`:
 
 [sourcecode:bash]
+
 > document.cookie
-  ""
-[/sourcecode]
+> ""
+> [/sourcecode]
 
 Sometime in the initial load, the cookie should be set, so that if you do this once the page is loaded, you will see a value has been set:
 
 [sourcecode:bash]
+
 > document.cookie
-  "uid=$publisher_origin_identifier"
-[/sourcecode]
+> "uid=$publisher_origin_identifier"
+> [/sourcecode]
 
 **Case #2: Non-initial visit.** There will be a cookie set. Thus, if you open the developer console on the page, you’d see:
 
 [sourcecode:bash]
+
 > document.cookie
-  "uid=$publisher_origin_identifier"
-[/sourcecode]
+> "uid=$publisher_origin_identifier"
+> [/sourcecode]
 
 ##### Send analytics pings <a name="send-analytics-pings"></a>
 
@@ -394,30 +395,33 @@ Our approach will take advantage of two types of [AMP variable substitutions](ht
 
 [sourcecode:html]
 <a
-  href="https://example.com/step2.html?ref_id=CLIENT_ID(uid)"
-  data-amp-replace="CLIENT_ID"
-></a>
-[/sourcecode]
+href="https://example.com/step2.html?ref_id=CLIENT_ID(uid)"
+data-amp-replace="CLIENT_ID"
+
+> </a>
+> [/sourcecode]
 
 **Alternative solution for passing Client ID to the outgoing links:** Define the new query parameter `ref_id` as part of the data attribute `data-amp-addparams` and for queries that needs parameter substitution provide those details as part of `data-amp-replace`. With this approach the URL would look clean and the parameters specified on `data-amp-addparams` will be dynamically added
 
 [sourcecode:html]
 <a
-  href="https://example.com/step2.html"
-  data-amp-addparams="ref_id=CLIENT_ID(uid)"
-  data-amp-replace="CLIENT_ID"
-></a>
-[/sourcecode]
+href="https://example.com/step2.html"
+data-amp-addparams="ref_id=CLIENT_ID(uid)"
+data-amp-replace="CLIENT_ID"
+
+> </a>
+> [/sourcecode]
 
 For passing multiple query parameters through `data-amp-addparams` have those `&` separated like
 
 [sourcecode:html]
 <a
-  href="https://example.com/step2.html"
-  data-amp-addparams="ref_id=CLIENT_ID(uid)&pageid=p123"
-  data-amp-replace="CLIENT_ID"
-></a>
-[/sourcecode]
+href="https://example.com/step2.html"
+data-amp-addparams="ref_id=CLIENT_ID(uid)&pageid=p123"
+data-amp-replace="CLIENT_ID"
+
+> </a>
+> [/sourcecode]
 
 **To update form inputs to use a Client ID substitution:** Define a name for the input field, such as `orig_user_id`. Specify the `default-value` of the form field to be the value of AMP’s Client ID substitution:
 

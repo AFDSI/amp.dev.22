@@ -45,7 +45,6 @@ The page with all AMP tools.
       @include hl-xxlrg;
     }
   }
-
 }
 
 .#{utility('container')} {
@@ -75,9 +74,16 @@ section.#{utility('tools')} {
       margin-top: 4em;
     }
 
-    &-title { grid-column: 1 / -1; }
-    &-title > h2 { opacity: 0.35; }
-    &-title > .show ~ .hide ~ h2, .show + h2 { opacity: 1; }
+    &-title {
+      grid-column: 1 / -1;
+    }
+    &-title > h2 {
+      opacity: 0.35;
+    }
+    &-title > .show ~ .hide ~ h2,
+    .show + h2 {
+      opacity: 1;
+    }
   }
 
   .#{organism('tool-format-filter-container')} {
@@ -111,16 +117,28 @@ section.#{utility('tools')} {
     color: color('iron');
     background: color('white');
     transition: 200ms;
-    box-shadow: 0 5px 25px 0px rgba(0,0,0,0.25);
+    box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.25);
 
     &:hover {
-      box-shadow: 0 15px 35px 0px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 35px 0px rgba(0, 0, 0, 0.15);
     }
 
-    &.websites .#{atom('ico')} { fill: #CCC; font-size: 21px; }
-    &.ads .#{atom('ico')} { fill: #CCC; font-size: 19px; }
-    &.stories .#{atom('ico')} { fill: #CCC; font-size: 19px; }
-    &.email .#{atom('ico')} { fill: #CCC; font-size: 19px; }
+    &.websites .#{atom('ico')} {
+      fill: #ccc;
+      font-size: 21px;
+    }
+    &.ads .#{atom('ico')} {
+      fill: #ccc;
+      font-size: 19px;
+    }
+    &.stories .#{atom('ico')} {
+      fill: #ccc;
+      font-size: 19px;
+    }
+    &.email .#{atom('ico')} {
+      fill: #ccc;
+      font-size: 19px;
+    }
 
     &.chosen {
       padding-left: 12px;
@@ -206,7 +224,8 @@ section.#{utility('tools')} {
     }
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     @include hl;
     @include hl-h1;
     margin-top: 0;

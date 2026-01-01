@@ -315,7 +315,7 @@ Den meisten Auslassungen liegt entweder der Gedanke der Leistungssteigerung oder
 
 SVG Tags befinden sich nicht im HTML5 Namespace. Sie sind unten ohne Sektions-IDs aufgeführt.
 
-` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
+`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
 
 #### 4.9 Tabellendaten <a name="49-tabular-data"></a>
 

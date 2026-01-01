@@ -26,7 +26,7 @@ Techniquement, une story Web est une page Web unique créée avec AMP et conform
 La différence entre une page Web AMP et une story Web créée avec AMP est le composant [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). C'est le seul enfant direct du `<body>` du document et doit contenir l'attribut `standalone`. Toutes les pages, couches et éléments de la story Web sont définis dans les balises `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

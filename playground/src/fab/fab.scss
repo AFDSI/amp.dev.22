@@ -10,8 +10,13 @@
     position: fixed;
     border-radius: 50%;
     margin: auto;
-    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    transition:
+      box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 18px 0px rgba(0, 0, 0, 0.12);
     z-index: 10000;
     height: 56px;
     width: 56px;
@@ -21,7 +26,7 @@
     background-color: color('blue-ribbon');
     color: color('white');
     border: none;
-    transform: scale(0.0);
+    transform: scale(0);
     pointer-events: none;
     user-select: none;
     cursor: pointer;
@@ -32,7 +37,8 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    &:before, &::after {
+    &:before,
+    &::after {
       background-color: rgba(255, 255, 255, 0.16);
       position: absolute;
       top: calc(50% - 100%);
@@ -44,10 +50,13 @@
       border-radius: 50%;
       opacity: 0;
       pointer-events: none;
-      content: "";
+      content: '';
     }
     &:active {
-      box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+        0px 12px 17px 2px rgba(0, 0, 0, 0.14),
+        0px 5px 22px 4px rgba(0, 0, 0, 0.12);
     }
     &:focus {
       outline: none;
@@ -62,13 +71,13 @@
     }
 
     100% {
-      transform: scale(0.0);
+      transform: scale(0);
     }
   }
 
   @keyframes expand {
     0% {
-      transform: scale(0.0);
+      transform: scale(0);
     }
 
     100% {
@@ -78,11 +87,11 @@
 
   .fab {
     &.show {
-      animation: expand .25s ease-in-out .25s forwards;
+      animation: expand 0.25s ease-in-out 0.25s forwards;
       pointer-events: auto;
     }
     &.hide {
-      animation: collapse .25s ease-in-out forwards;
+      animation: collapse 0.25s ease-in-out forwards;
     }
   }
 }

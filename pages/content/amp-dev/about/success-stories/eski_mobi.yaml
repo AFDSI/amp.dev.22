@@ -23,7 +23,6 @@ stage:
   layout: mobile
   subline: JAN 23, 2018
   devices:
-
     - image_src: '/static/img/success-stories/eski/amp_eski_1.jpg'
       width: 3
       height: 5

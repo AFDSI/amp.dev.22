@@ -302,7 +302,7 @@ Hoan hô! Ảnh của chúng ta có tỷ lệ khung hình chính xác và lấp 
 Bây giờ tài liệu AMP của bạn sẽ có dạng như sau:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

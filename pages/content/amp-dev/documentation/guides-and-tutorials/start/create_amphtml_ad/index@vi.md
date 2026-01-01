@@ -1,8 +1,8 @@
 ---
-"$title": Tạo một quảng cáo AMPHTML
+'$title': Tạo một quảng cáo AMPHTML
 description: Trong bài thực hành này, bạn sẽ học cách để tạo một quảng cáo AMPHTML từ đầu, có thể được phục vụ trên cả các trang AMP lẫn không phải AMP.
 formats:
-- ads
+  - ads
 ---
 
 {{ image('/static/img/docs/ads/amp-ad-framed-final.png', 597, 1240, align='right third', caption='Completed AMPHTML image ad') }}
@@ -22,8 +22,8 @@ Các quảng cáo AMPHTML cũng giống như quảng cáo HTML truyền thống,
 - Kiến thức cơ bản về HTML, CSS và JavaScript
 - Một trình duyệt và trình soạn văn bản tùy theo bạn chọn
 
-[tip] *Bạn không muốn tạo một quảng cáo từ đầu?* Sử dụng một trong các công cụ sau đây để tạo quảng cáo AMPHTML của bạn:
+[tip] _Bạn không muốn tạo một quảng cáo từ đầu?_ Sử dụng một trong các công cụ sau đây để tạo quảng cáo AMPHTML của bạn:
 
 - [Celtra's Ad Creator](http://www.prnewswire.com/news-releases/celtra-partners-with-the-amp-project-showcases-amp-ad-creation-at-google-io-event-300459514.html)
 - [Google Web Designer](https://support.google.com/webdesigner/answer/7529856)
-- Adobe Animate (*sắp có*) [/tip]
+- Adobe Animate (_sắp có_) [/tip]

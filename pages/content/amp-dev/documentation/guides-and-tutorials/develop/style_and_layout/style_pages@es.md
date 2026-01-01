@@ -1,17 +1,17 @@
 ---
-"$title": Supported CSS
+'$title': Supported CSS
 description: Al igual que el resto de las páginas web, las páginas AMP extraen su estilo de un elemento CSS, pero en ellas no se puede hacer referencia a hojas de estilo externasб salvo en el caso de las fuentes personalizadas. Además, algunos estilos no están permitidos ...
 formats:
-- websites
-- email
-- ads
-- stories
+  - websites
+  - email
+  - ads
+  - stories
 author: Meggin
 contributors:
-- pbakaus
-- CrystalOnScript
-- bpaduch
-- choumx
+  - pbakaus
+  - CrystalOnScript
+  - bpaduch
+  - choumx
 ---
 
 [filter format = "email"] Nota: AMP para correo electrónico especifica restricciones de CSS adicionales que se describen en <a class="" href="https://gitlocalize.com/repo/4863/es/pages/content/amp-dev/documentation/guides-and-tutorials/learn/email-spec/amp-email-css.md">AMP para CSS compatible con correo electrónico</a>. [/filter]

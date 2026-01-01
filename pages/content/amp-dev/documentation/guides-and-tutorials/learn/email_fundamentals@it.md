@@ -14,7 +14,7 @@ Se sei pratico di contenuti AMP, abbiamo ottime notizie per te! AMP per E-mail Ã
 Le e-mail AMP assomigliano alle e-mail HTML classiche, ma presentano alcune differenze. Lo schema seguente mostra la minima struttura di markup richiesti per realizzare un'e-mail AMP valida.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html âš¡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

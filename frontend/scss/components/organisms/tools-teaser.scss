@@ -40,16 +40,20 @@ section.#{utility('tools')} {
         grid-gap: 30px;
       }
 
-      .#{molecule('teaser-card')}{
+      .#{molecule('teaser-card')} {
         display: flex;
         flex-direction: column;
         width: 100%;
         margin: 0;
         border-radius: 4px;
-        box-shadow: inset 0 0 0 1px color('athens-gray'), 0 30px 75px -13px rgba(0,0,0,.25);
+        box-shadow:
+          inset 0 0 0 1px color('athens-gray'),
+          0 30px 75px -13px rgba(0, 0, 0, 0.25);
 
         &:hover {
-          box-shadow: inset 0 0 0 1px color('athens-gray'), 0 40px 100px -13px rgba(0,0,0,0.15);
+          box-shadow:
+            inset 0 0 0 1px color('athens-gray'),
+            0 40px 100px -13px rgba(0, 0, 0, 0.15);
         }
 
         & > div:last-child {
@@ -66,7 +70,7 @@ section.#{utility('tools')} {
         padding-right: 15px;
       }
 
-      .#{molecule('teaser-tag')}{
+      .#{molecule('teaser-tag')} {
         right: 13px;
         top: auto;
         bottom: 10px;
@@ -84,7 +88,9 @@ section.#{utility('tools')} {
             transform: translateY(-2px);
 
             & > .#{molecule('teaser-card')} {
-              box-shadow: inset 0 0 0 1px color('athens-gray'), 0 25px 60px 0px rgba(0,0,0,0.1);
+              box-shadow:
+                inset 0 0 0 1px color('athens-gray'),
+                0 25px 60px 0px rgba(0, 0, 0, 0.1);
             }
           }
         }
@@ -119,7 +125,7 @@ section.#{utility('tools')} {
         }
       }
 
-      .#{molecule('teaser-logo')}{
+      .#{molecule('teaser-logo')} {
         position: absolute;
         left: 30px;
         bottom: 100%;
@@ -145,7 +151,7 @@ section.#{utility('tools')} {
         }
       }
 
-      .#{molecule('teaser-image')}{
+      .#{molecule('teaser-image')} {
         &.contain {
           amp-img {
             margin: 0 10px;
@@ -161,8 +167,8 @@ section.#{utility('tools')} {
         }
       }
 
-      .#{molecule('teaser-card-essential')}{
-        .#{molecule('teaser-card')}{
+      .#{molecule('teaser-card-essential')} {
+        .#{molecule('teaser-card')} {
           background-color: color('charade');
 
           .#{molecule('teaser-content')} > * {
@@ -180,7 +186,7 @@ section.#{utility('tools')} {
         }
       }
 
-      .#{molecule('teaser-type')}{
+      .#{molecule('teaser-type')} {
         display: flex;
         align-items: center;
         height: 55px;
@@ -194,7 +200,7 @@ section.#{utility('tools')} {
         }
       }
 
-      .#{molecule('teaser')}{
+      .#{molecule('teaser')} {
         grid-column: 1;
         margin: 0;
         display: flex;
@@ -225,7 +231,7 @@ section.#{utility('tools')} {
         }
 
         p {
-          color: #20202A;
+          color: #20202a;
           font-weight: normal;
           font-size: 0.8em;
           margin-bottom: 0;

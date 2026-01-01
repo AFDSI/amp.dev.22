@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Who is this course for?
 
 This course is designed for aspiring first-time web developers and current developers looking to build performant websites. Throughout this and the following courses, you will:
@@ -60,6 +61,7 @@ You can click on <a href="https://nice-consonant.glitch.me/" target="_blank">thi
 We chose Chico’s site as our model because it offers a collection of features we commonly see on popular websites today. It was built entirely using AMP. Over the course of these lessons, you’re going to build this site from scratch.
 [/filter]
 [filter level="advanced"]
+
 ## Who is this course for?
 
 This course is designed for developers who want to build performant websites or simply understand AMP. All three courses assume you know HTML and CSS, and the intermediate and advanced courses presume some experience with JavaScript.

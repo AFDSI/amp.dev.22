@@ -5,7 +5,7 @@ description: A Web Story is a full-screen visual storytelling experience that co
 author: bpaduch
 ---
 
-A Web Story is a full-screen visual storytelling experience that conveys information with images, videos, graphics, audio, and more. It's perfect for users who want bite-sized, visually-rich content.  
+A Web Story is a full-screen visual storytelling experience that conveys information with images, videos, graphics, audio, and more. It's perfect for users who want bite-sized, visually-rich content.
 
 The basic ingredients that go into a Web Story are individual **pages**. These pages, in turn, are composed of individual **layers** that contain basic HTML and AMP **elements**.
 

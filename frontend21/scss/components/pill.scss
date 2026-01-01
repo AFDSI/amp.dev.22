@@ -10,7 +10,10 @@
   color: safeColor('light-gray');
   font-family: 'Noto Sans', sans-serif;
   box-shadow: 0 10px 25px 0 transparentize(color('black'), 0.85);
-  transition: background-color .2s ease-in, color .2s ease-in, box-shadow .25s ease-in;
+  transition:
+    background-color 0.2s ease-in,
+    color 0.2s ease-in,
+    box-shadow 0.25s ease-in;
   cursor: pointer;
 
   @include respond-to('min') {
@@ -22,7 +25,8 @@
     padding: 5px 20px;
   }
 
-  &:hover, &.--selected {
+  &:hover,
+  &.--selected {
     background: safeColor('blue');
     color: safeColor('white');
     box-shadow: 0 2px 5px 0 transparentize(color('black'), 0.85);

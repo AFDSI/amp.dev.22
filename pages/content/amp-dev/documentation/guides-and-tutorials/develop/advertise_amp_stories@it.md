@@ -44,6 +44,7 @@ Le storie Web non possono supportare un elemento [`amp-ad`](../../../documentati
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

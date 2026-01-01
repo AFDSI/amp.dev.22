@@ -50,7 +50,9 @@
     background-color: safeColor('white');
     pointer-events: none;
     visibility: hidden;
-    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.3s ease-in-out;
 
     @media (min-width: 768px) {
       left: 0;

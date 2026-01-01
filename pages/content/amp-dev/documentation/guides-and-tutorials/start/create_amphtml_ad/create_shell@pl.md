@@ -9,7 +9,7 @@ description: Za pomocą swojego ulubionego edytora tekstów utwórz plik HTML o 
 Za pomocą swojego ulubionego edytora tekstów utwórz plik HTML o nazwie **`my-amphtml-ad.html`**. Skopiuj do tego pliku następujący znacznik HTML:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Zmodyfikujmy teraz kod HTML, aby uczynić z niego reklamę AMPHTML.
 W sekcji `<html> `dodaj atrybut `⚡4ads`, który identyfikuje dokument jako reklamę AMPHTML. Można też określić atrybut `amp4ads`, który jest również prawidłowy.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ Aby nadać styl reklamie AMPHTML, kod CSS musi być osadzony w dokumencie AMPHTM
 Oto kompletny kod Twojego pliku HTML:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

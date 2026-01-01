@@ -5,8 +5,6 @@ teaser:
   text: Pixel de suivi permettant de comptabiliser les pages vues.
 ---
 
-
-
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,9 +20,6 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-
-
 
 <table>
   <tr>
@@ -48,8 +43,7 @@ Le composant `amp-pixel` se comporte comme un pixel de suivi simple `img`. Il ut
 Dans cet exemple de base, le composant `amp-pixel` envoie une requête GET simple à l'URL indiquée et ignore le résultat.
 
 ```html
-<amp-pixel src="https://foo.com/tracker/foo"
-    layout="nodisplay"></amp-pixel>
+<amp-pixel src="https://foo.com/tracker/foo" layout="nodisplay"></amp-pixel>
 ```
 
 [tip type="note"]
@@ -67,9 +61,11 @@ URL simple vers un point de terminaison distant qui doit utiliser le protocole `
 Cet attribut est semblable à l'attribut `referrerpolicy` sur la balise `<img>`. Cependant, `no-referrer` est la seule valeur acceptée. Si `referrerpolicy=no-referrer` est spécifié, l'en-tête `referrer` est supprimé de la requête HTTP.
 
 ```html
-<amp-pixel src="https://foo.com/tracker/foo"
-    layout="nodisplay"
-    referrerpolicy="no-referrer"></amp-pixel>
+<amp-pixel
+  src="https://foo.com/tracker/foo"
+  layout="nodisplay"
+  referrerpolicy="no-referrer"
+></amp-pixel>
 ```
 
 ##### allow-ssr-img (facultatif) <a name="allow-ssr-img-optional"></a>
@@ -89,8 +85,7 @@ Pour plus d'informations, consultez le [Guide des substitutions](https://github.
 Dans l'exemple suivant, une requête peut être envoyée à une adresse semblable à `https://foo.com/pixel?0.8390278471201`, où la valeur RANDOM est générée de manière aléatoire lors de chaque impression.
 
 ```html
-<amp-pixel src="https://foo.com/pixel?RANDOM"
-    layout="nodisplay"></amp-pixel>
+<amp-pixel src="https://foo.com/pixel?RANDOM" layout="nodisplay"></amp-pixel>
 ```
 
 ## Application d'un style <a name="styling"></a>

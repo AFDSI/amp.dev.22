@@ -18,6 +18,7 @@ Añade todos los estilos CSS dentro de la etiqueta `<style amp-custom>` en el en
 Por ejemplo:
 
 [sourcecode:html]
+
 <!doctype html>
   <head>
     ...
@@ -35,6 +36,7 @@ Por ejemplo:
       }
     </style>
     ...
+
   </head>
 [/sourcecode]
 
@@ -44,6 +46,7 @@ Define los estilos de los componentes con selectores de clase o de elemento
 usando propiedades comunes de CSS. Por ejemplo:
 
 [sourcecode:html]
+
 <body>
   <p>Hello, Kitty.</p>
   <amp-img

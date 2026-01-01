@@ -16,11 +16,11 @@
 
 .#{utility('teaser-grid')} {
   max-width: 100%;
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     grid-column: 1 / -1;
   }
 
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     grid-column: 4 / 22;
   }
 }

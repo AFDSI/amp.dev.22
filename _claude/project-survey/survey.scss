@@ -14,7 +14,6 @@
 
 $delay: 0.25s;
 
-
 #fez-container {
   display: none;
 }
@@ -22,7 +21,7 @@ $delay: 0.25s;
 @media (min-width: 768px) {
   #fez-container {
     opacity: 0;
-    transform: translate3d(0,100vh,0);
+    transform: translate3d(0, 100vh, 0);
     display: block;
     overflow: hidden;
     min-height: 140px;
@@ -36,7 +35,7 @@ $delay: 0.25s;
     pointer-events: none;
 
     @at-root {
-      html[dir="rtl"] #{&} {
+      html[dir='rtl'] #{&} {
         left: 0;
         right: auto;
       }
@@ -62,8 +61,7 @@ $delay: 0.25s;
       font-family: 'Noto Sans', system;
     }
 
-
-    input[type=radio] {
+    input[type='radio'] {
       display: none;
     }
 
@@ -91,21 +89,23 @@ $delay: 0.25s;
         display: none;
       }
     }
-
   }
 
   #fez {
     --padding: 20px;
     transition: all $delay ease 0s;
     background: white;
-    font-family: Noto Sans, sans-serif;
+    font-family:
+      Noto Sans,
+      sans-serif;
     border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 12px 1px,
-                rgba(0, 0, 0, 0.12) 0px 3px 15px 3px,
-                rgba(0, 0, 0, 0.2) 0px 4px 5px -3px;
+    box-shadow:
+      rgba(0, 0, 0, 0.14) 0px 8px 12px 1px,
+      rgba(0, 0, 0, 0.12) 0px 3px 15px 3px,
+      rgba(0, 0, 0, 0.2) 0px 4px 5px -3px;
     min-height: 0;
     position: absolute;
-    width: calc(100% - (var(--padding)*2));
+    width: calc(100% - (var(--padding) * 2));
     margin: auto;
     height: 0;
     bottom: 1rem;
@@ -133,7 +133,6 @@ $delay: 0.25s;
         transition-timing-function: ease;
         opacity: 0;
       }
-
     }
 
     li {

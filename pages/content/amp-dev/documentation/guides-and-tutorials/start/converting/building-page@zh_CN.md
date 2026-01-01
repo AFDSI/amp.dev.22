@@ -14,7 +14,7 @@ description: 在项目目录中，您会看到一个名为 article.html 的文�
 您的 `article.amp.html` 文件应该如下所示：
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

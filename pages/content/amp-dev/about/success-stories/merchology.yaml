@@ -19,13 +19,11 @@ teaser:
     alt: Merchology
   text: Merchology increases conversions, lowers load times with AMP
 
-
 stage:
   headline: Merchology increases conversions, lowers load times with AMP
   layout: mobile
   subline: FEB 2, 2018
   devices:
-
     - image_src: '/static/img/success-stories/merchology/amp_merchology_1.jpg'
       width: 3
       height: 5

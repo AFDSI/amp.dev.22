@@ -2,8 +2,6 @@
 
 ## Objective
 
-
 ## construction errors and warnings
 
 see error and warning files in: `./_project-message-management/`
-

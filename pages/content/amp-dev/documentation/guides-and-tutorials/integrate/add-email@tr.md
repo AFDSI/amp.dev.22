@@ -25,7 +25,7 @@ From: Person A
     World in plain text! --001a114634ac3555ae05525685ae Content-Type:
     text/x-amp-html; charset="UTF-8"
 
-    <!DOCTYPE html>
+    <!doctype html>
     <html ⚡4email data-css-strict>
       <head>
         <meta charset="utf-8" />

@@ -8,7 +8,6 @@ toc: true
 $title: amp-script
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -40,7 +39,7 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-script layout="container" src="https://example.com/hello-world.js">
-  <button>Hello amp-script!</button>
+<button>Hello amp-script!</button>
 </amp-script>
 [/sourcecode]
 
@@ -48,11 +47,12 @@ limitations under the License.
 
 你也可以将你的JavaScript嵌入到一个 `script` 标签中。你必须:
 
-- 设置你的  `amp-script` 的 `script` 属性为本地 `script` 元素的 `id`.
+- 设置你的 `amp-script` 的 `script` 属性为本地 `script` 元素的 `id`.
 - 在你的 `target="amp-script"` 中包含 `amp-script`。
 - 在你的 `script` 中包含 `type="text/plain"` 这样，浏览器就不会执行你的脚本，而允许amp-script来控制它。
 
 [sourcecode:html]
+
 <!-- To use inline JavaScript, you must add a script hash to the document head. -->
 <head>
   <meta
@@ -74,6 +74,7 @@ limitations under the License.
     document.body.textContent = 'Hello World!';
   });
 </script>
+
 [/sourcecode]
 
 [tip type="default"]
@@ -97,6 +98,7 @@ Will be reflected on the page as a new child of the `amp-script` element:
 
 [sourcecode:html]
 <amp-script src="http://example.com/my-script.js" width="300" height="100">
+
   <p>I am added to the body!</p>
 </amp-script>
 [/sourcecode]
@@ -107,26 +109,28 @@ Will be reflected on the page as a new child of the `amp-script` element:
 
 `amp-script` 支持通过JavaScript获取和设置 [`amp-state`](https://amp.dev/documentation/components/amp-bind/#initializing-state-with-amp-state) JSON。
 
-这样就可以通过  `amp-bind`[bindings](https://amp.dev/documentation/components/amp-bind/#bindings) 在页面上的 `amp-script` 和其他AMP元素之间进行高级交互。 调用 `AMP.setState()` 从 `amp-script` 可能会导致DOM发生突变，只要它是由用户手势触发的，否则它将只隐式地设置状态 (类似于 [`amp-state` 初始化](https://amp.dev/documentation/examples/components/amp-bind/?referrer=ampbyexample.com#initializing-state)).
+这样就可以通过 `amp-bind`[bindings](https://amp.dev/documentation/components/amp-bind/#bindings) 在页面上的 `amp-script` 和其他AMP元素之间进行高级交互。 调用 `AMP.setState()` 从 `amp-script` 可能会导致DOM发生突变，只要它是由用户手势触发的，否则它将只隐式地设置状态 (类似于 [`amp-state` 初始化](https://amp.dev/documentation/examples/components/amp-bind/?referrer=ampbyexample.com#initializing-state)).
 
 [tip type="default"]
 `AMP.setState()` 要求 [`amp-bind`](https://amp.dev/documentation/components/amp-bind) 扩展脚本包含在文档头中。
 [/tip]
 
 [sourcecode:js]
-/**
- * Deep-merges `json` into the current amp-state.
- * @param {!Object} json A JSON object e.g. must not contain circular references.
- */
-AMP.setState(json) {}
+/\*\*
 
-/**
- * Asynchronously returns amp-state.
- * @param {string=} expr An optional JSON expression string e.g. "foo.bar".
- * @return {!Promise<!Object>}
- */
-AMP.getState(expr) {}
-[/sourcecode]
+- Deep-merges `json` into the current amp-state.
+- @param {!Object} json A JSON object e.g. must not contain circular references.
+  \*/
+  AMP.setState(json) {}
+
+/\*\*
+
+- Asynchronously returns amp-state.
+- @param {string=} expr An optional JSON expression string e.g. "foo.bar".
+- @return {!Promise<!Object>}
+  \*/
+  AMP.getState(expr) {}
+  [/sourcecode]
 
 ### 使用WebSocket和AMP.setState()的例子
 
@@ -143,6 +147,7 @@ AMP.getState(expr) {}
     AMP.setState({socketData: event.data});
   };
 </script>
+
 [/sourcecode]
 
 ## 限制
@@ -197,15 +202,15 @@ const crypto = require('crypto');
 const hash = crypto.createHash('sha384');
 
 function generateCSPHash(script) {
-  const data = hash.update(script, 'utf-8');
-  return (
-    'sha384-' +
-    data
-      .digest('base64')
-      .replace(/=/g, '')
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-  );
+const data = hash.update(script, 'utf-8');
+return (
+'sha384-' +
+data
+.digest('base64')
+.replace(/=/g, '')
+.replace(/\+/g, '-')
+.replace(/\//g, '\_')
+);
 }
 [/sourcecode]
 
@@ -214,6 +219,7 @@ function generateCSPHash(script) {
 这个例子展示了如何在HTML中使用脚本哈希:
 
 [sourcecode:html]
+
 <head>
   <!--
     A meta[name="amp-script-src"] element contains all script hashes for
@@ -281,7 +287,7 @@ function generateCSPHash(script) {
 
 `max-age` 属性指定从[[signed exchange (SXG)](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/) 发布开始允许提供的本地脚本的最大生存期(以秒为单位)。[AMP Packager](https://github.com/ampproject/amppackager) 使用此值来计算SXG `expires` 时间。
 
- `max-age` 的值应该谨慎选择：
+`max-age` 的值应该谨慎选择：
 
 - 更长的 `max-age` 增加了 [SXG downgrade](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#seccons-downgrades) 的潜在安全影响。
 

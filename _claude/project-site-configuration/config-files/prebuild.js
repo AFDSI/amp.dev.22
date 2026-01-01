@@ -2,14 +2,14 @@
 
 /**
  * scripts/prebuild.js
- * 
+ *
  * Pre-build script that generates site-specific files from site-vars.yaml.
  * Run before the main build process.
- * 
+ *
  * Usage:
  *   node scripts/prebuild.js
  *   SITE_CONFIG=wabc node scripts/prebuild.js
- * 
+ *
  * What it does:
  *   1. Generates manifest.json
  *   2. Generates robots.txt (production)
@@ -32,13 +32,17 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 function loadSiteConfig() {
   const siteConfigName = process.env.SITE_CONFIG;
   let configPath;
-  
+
   if (siteConfigName) {
-    configPath = path.join(PROJECT_ROOT, 'config/sites', `${siteConfigName}.yaml`);
+    configPath = path.join(
+      PROJECT_ROOT,
+      'config/sites',
+      `${siteConfigName}.yaml`
+    );
   } else {
     configPath = path.join(PROJECT_ROOT, 'config/site-vars.yaml');
   }
-  
+
   console.log(`[prebuild] Loading: ${configPath}`);
   return yaml.load(fs.readFileSync(configPath, 'utf8'));
 }
@@ -56,24 +60,24 @@ function generateManifest() {
   const manifest = {
     name: config.site.name,
     short_name: config.site.id,
-    start_url: "/",
-    display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#005af0",
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#ffffff',
+    theme_color: '#005af0',
     icons: [
       {
-        src: "/static/img/icons/icon-192x192.png",
-        sizes: "192x192",
-        type: "image/png"
+        src: '/static/img/icons/icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
       },
       {
-        src: "/static/img/icons/icon-512x512.png",
-        sizes: "512x512",
-        type: "image/png"
-      }
-    ]
+        src: '/static/img/icons/icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
   };
-  
+
   const outputPath = path.join(PROJECT_ROOT, 'pages/static/manifest.json');
   fs.writeFileSync(outputPath, JSON.stringify(manifest, null, 2));
   console.log(`  ✓ Generated: manifest.json`);
@@ -89,8 +93,11 @@ Allow: /
 # Sitemap
 Sitemap: ${config.urls.production}/sitemap.xml
 `;
-  
-  const outputPath = path.join(PROJECT_ROOT, 'pages/static/robots/platform_prod.txt');
+
+  const outputPath = path.join(
+    PROJECT_ROOT,
+    'pages/static/robots/platform_prod.txt'
+  );
   fs.writeFileSync(outputPath, robotsTxt);
   console.log(`  ✓ Generated: robots/platform_prod.txt`);
 }
@@ -118,8 +125,11 @@ function generateSitemapManual() {
   <!-- Add additional manual sitemap entries here -->
 </urlset>
 `;
-  
-  const outputPath = path.join(PROJECT_ROOT, 'pages/static/sitemap/sitemap_manual.xml');
+
+  const outputPath = path.join(
+    PROJECT_ROOT,
+    'pages/static/sitemap/sitemap_manual.xml'
+  );
   fs.writeFileSync(outputPath, sitemapXml);
   console.log(`  ✓ Generated: sitemap/sitemap_manual.xml`);
 }
@@ -148,7 +158,7 @@ function generateServiceworkerHtml() {
 </body>
 </html>
 `;
-  
+
   const outputPath = path.join(PROJECT_ROOT, 'pages/static/serviceworker.html');
   fs.writeFileSync(outputPath, swHtml);
   console.log(`  ✓ Generated: serviceworker.html`);
@@ -160,23 +170,25 @@ function generateServiceworkerHtml() {
 function copyNetlifyConfig() {
   const siteId = config.site.id;
   const domain = config.domains.production;
-  
+
   // Try site-specific config first, then domain-specific
   const possibleSources = [
     path.join(PROJECT_ROOT, `netlify/configs/${siteId}/netlify.toml`),
     path.join(PROJECT_ROOT, `netlify/configs/${domain}/netlify.toml`),
   ];
-  
-  const sourcePath = possibleSources.find(p => fs.existsSync(p));
-  
+
+  const sourcePath = possibleSources.find((p) => fs.existsSync(p));
+
   if (sourcePath) {
     const destPath = path.join(PROJECT_ROOT, 'netlify.toml');
     fs.copyFileSync(sourcePath, destPath);
-    console.log(`  ✓ Copied: netlify.toml (from ${path.basename(path.dirname(sourcePath))})`);
+    console.log(
+      `  ✓ Copied: netlify.toml (from ${path.basename(path.dirname(sourcePath))})`
+    );
   } else {
     console.log(`  ⚠ No site-specific netlify.toml found for ${siteId}`);
     console.log(`    Expected one of:`);
-    possibleSources.forEach(p => console.log(`      - ${p}`));
+    possibleSources.forEach((p) => console.log(`      - ${p}`));
   }
 }
 
@@ -187,12 +199,12 @@ function copyNetlifyConfig() {
 function updatePackageJson() {
   const packagePath = path.join(PROJECT_ROOT, 'package.json');
   const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-  
+
   // Update only site-specific fields
   pkg.name = config.domains.production;
   pkg.description = config.site.description;
   pkg.repository = config.repository.git_ssh;
-  
+
   fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2) + '\n');
   console.log(`  ✓ Updated: package.json (name, description, repository)`);
 }
@@ -212,7 +224,7 @@ try {
   generateServiceworkerHtml();
   copyNetlifyConfig();
   updatePackageJson();
-  
+
   console.log('\n[prebuild] Complete!\n');
 } catch (error) {
   console.error('\n[prebuild] Error:', error.message);

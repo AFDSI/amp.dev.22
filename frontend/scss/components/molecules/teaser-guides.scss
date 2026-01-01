@@ -15,14 +15,12 @@
 @import 'components/atoms/_color';
 @import 'components/molecules/_teaser.scss';
 
-
 .#{utility('teaser-guides')} {
   padding: 35px 0;
   grid-column: 3 / 23;
 }
 
 .#{molecule('teaser-guides')} {
-
   .ap-m-teaser-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -38,8 +36,10 @@
     grid-column: span 12;
     margin: 16px 0;
     background-color: color('white');
-    transform: translate3d(0,0,0);
-    transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+      box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &-highlighted {
       box-shadow: 0 15px 30px 0 transparentize(color('black'), 0.85);
@@ -52,7 +52,7 @@
       }
     }
 
-    &-highlighted:nth-of-type(2){
+    &-highlighted:nth-of-type(2) {
       position: relative;
     }
 
@@ -61,7 +61,7 @@
     }
 
     @media (min-width: 1024px) {
-      grid-column: span 4 ;
+      grid-column: span 4;
     }
 
     &-double-teaser {
@@ -117,7 +117,7 @@
       background-color: color('athens-gray');
       &-icon {
         fill: color('blue-ribbon');
-        margin-right:10px;
+        margin-right: 10px;
 
         &-tutorial-nav {
           display: flex;

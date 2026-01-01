@@ -21,7 +21,6 @@ format modifiers for differen color rendering (e.g. websites -> blue border, ads
 @import 'components/atoms/_color.scss';
 
 @mixin component-frame {
-
   &:before {
     content: '';
     width: 100%;
@@ -74,21 +73,37 @@ format modifiers for differen color rendering (e.g. websites -> blue border, ads
 }
 
 @mixin component-frame-websites {
-  &:before { border-color: color('robins-egg'); }
-  &:after { @include gradient-websites; }
+  &:before {
+    border-color: color('robins-egg');
+  }
+  &:after {
+    @include gradient-websites;
+  }
 }
 
 @mixin component-frame-stories {
-  &:before { border-color: color('school-bus'); }
-  &:after { @include gradient-stories; }
+  &:before {
+    border-color: color('school-bus');
+  }
+  &:after {
+    @include gradient-stories;
+  }
 }
 
 @mixin component-frame-ads {
-  &:before { border-color: color('lav-magenta'); }
-  &:after { @include gradient-ads; }
+  &:before {
+    border-color: color('lav-magenta');
+  }
+  &:after {
+    @include gradient-ads;
+  }
 }
 
 @mixin component-frame-email {
-  &:before { border-color: color('confetti'); }
-  &:after { @include gradient-e-mails; }
+  &:before {
+    border-color: color('confetti');
+  }
+  &:after {
+    @include gradient-e-mails;
+  }
 }

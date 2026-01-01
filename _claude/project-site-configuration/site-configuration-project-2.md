@@ -17,6 +17,7 @@ Add to `platform/config/environments/production.json`:
 This should merge with existing hosts in that file. Check the current structure - it likely already has `platform`, `api`, `preview` hosts defined. Add `playground` alongside them.
 
 Also verify the same pattern exists in:
+
 - `staging.json` (use same value or a staging playground if you have one)
 - `development.json` / `local.json` (can use `localhost:8083` or the production URL)
 
@@ -40,6 +41,7 @@ Both may have hardcoded values like site title and social links.
 **Option B:** You apply the pattern yourself to 2021 templates after completing the main templates, since the changes follow the same pattern?
 
 If you choose Option A, please share these files:
+
 ```bash
 cat frontend/templates/views/2021/partials/header.j2
 cat frontend/templates/views/2021/partials/footer.j2

@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Adding Features To Our Site
 
 So far, we’ve converted our basic HTML site into a basic AMP site. There is only one validation error remaining in our site, and we’ll fix it by using an `<amp-img>` component instead of an `<img>` tag. As we fix this last validation error, we’ll learn what AMP components are, why some HTML tags are replaced or disallowed in AMP, and how to add components to our site.

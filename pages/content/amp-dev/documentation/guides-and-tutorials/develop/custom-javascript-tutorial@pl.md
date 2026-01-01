@@ -3,8 +3,8 @@ $title: Tworzenie widżetu UI z użyciem własnego kodu JavaScript
 $order: 101
 tutorial: true
 author:
-- morsssss
-- CrystalOnScript
+  - morsssss
+  - CrystalOnScript
 description: Dla materiałów internetowych wymagających znacznego dostosowania w AMP stworzono składnik amp-script, pozwalający na użycie dowolnego kodu JavaScript na stronie AMP bez wpływu na jej wydajność.
 ---
 
@@ -15,8 +15,8 @@ W tym samouczku nauczysz się jak używać składnika `<amp-script>`, który poz
 - Nowoczesna przeglądarka internetowa
 - Podstawowa znajomość HTML, CSS i JavaScript
 - Albo
-    - lokalny serwer sieciowy i edytor kodu, taki jak [SublimeText](https://www.sublimetext.com) lub [VSCode](https://code.visualstudio.com/),
-    - *albo* [CodePen](https://codepen.io/), [Glitch](https://glitch.com/) lub podobny plac zabaw online
+  - lokalny serwer sieciowy i edytor kodu, taki jak [SublimeText](https://www.sublimetext.com) lub [VSCode](https://code.visualstudio.com/),
+  - _albo_ [CodePen](https://codepen.io/), [Glitch](https://glitch.com/) lub podobny plac zabaw online
 
 ## Opis ogólny
 
@@ -70,21 +70,29 @@ Aby użyć składnika `<amp-script>`, musimy zaimportować jego własny kod Java
 
 ```html
 <head>
- ...
-  <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+  ...
+  <script
+    async
+    custom-element="amp-script"
+    src="https://cdn.ampproject.org/v0/amp-script-0.1.js"
+  ></script>
   ...
 </head>
 ```
 
 Składnik `<amp-script>` pozwala nam napisać własny JavaScript inline lub w pliku zewnętrznym. W tym ćwiczeniu napiszemy wystarczająco dużo kodu, aby zasłużył on na osobny plik. Utwórz nowy katalog o nazwie `js`, i dodaj do niego nowy plik o nazwie `validate.js`.
 
-Składnik `<amp-script>` pozwala skryptowi JavaScript na manipulowanie jego podrzędnymi modelami DOM — elementami, które zawiera składnik. Kopiuje podrzędne DOM do wirtualnego DOM i udziela kodowi dostępu do tego wirtualnego modelu DOM. W tym ćwiczeniu chcemy, aby nasz kod JavaScript kontrolował `<form>` i jego zawartość. Otoczymy zatem `<form>` w składniku  `<amp-script>`, w następujący sposób:
+Składnik `<amp-script>` pozwala skryptowi JavaScript na manipulowanie jego podrzędnymi modelami DOM — elementami, które zawiera składnik. Kopiuje podrzędne DOM do wirtualnego DOM i udziela kodowi dostępu do tego wirtualnego modelu DOM. W tym ćwiczeniu chcemy, aby nasz kod JavaScript kontrolował `<form>` i jego zawartość. Otoczymy zatem `<form>` w składniku `<amp-script>`, w następujący sposób:
 
 ```html
-<amp-script src="js/validate.js" layout="fixed" sandbox="allow-forms" height="500" width="750">
-  <form method="post" action-xhr="#" target="_top" class="card">
-    ...
-  </form>
+<amp-script
+  src="js/validate.js"
+  layout="fixed"
+  sandbox="allow-forms"
+  height="500"
+  width="750"
+>
+  <form method="post" action-xhr="#" target="_top" class="card">...</form>
 </amp-script>
 ```
 
@@ -112,7 +120,7 @@ on="tap:rules.show; input-debounced:rules.show"
 Teraz upewnijmy się, że nasz składnik `<amp-script>` działa. Otwórz utworzony plik `validate.js` i dodaj komunikat debugowania:
 
 ```js
-console.log("Hello, amp-script!");
+console.log('Hello, amp-script!');
 ```
 
 Przejdź do przeglądarki, otwórz konsolę i ponownie załaduj stronę. Upewnij się, że widzisz komunikat!
@@ -136,9 +144,9 @@ Skoro już wiemy, że nasz składnik `<amp-script>` działa, napiszmy trochę ko
 Przede wszystkim chcemy chwycić elementy DOM, z którymi będziemy pracować i ukryć je w zmiennych globalnych. W kodzie użyjemy pola wprowadzania hasła, przycisku przesyłania oraz obszaru, w którym pokazywane są zasady wprowadzania hasła. Do skryptu `validate.js` dodaj te trzy deklaracje:
 
 ```js
-const passwordBox = document.getElementById("passwordBox");
-const submitButton = document.getElementById("submitButton");
-const rulesArea = document.getElementById("rules");
+const passwordBox = document.getElementById('passwordBox');
+const submitButton = document.getElementById('submitButton');
+const rulesArea = document.getElementById('rules');
 ```
 
 Zauważ, że jesteśmy w stanie używać zwykłych metod interfejsu API modelu DOM, takich jak `getElementById()`. Chociaż nasz kod działa w procesie Worker, a procesy te nie mają bezpośredniego dostępu do DOM, składnik `<amp-script>` dostarcza wirtualną kopię DOM i emuluje niektóre popularne API, wymienione [tutaj ](https://github.com/ampproject/worker-dom/blob/main/web_compat_table.md). Te API dają nam wystarczająco dużo narzędzi do większości przypadków użycia. Należy jednak zauważyć, że obsługiwany jest tylko podzbiór interfejsów API DOM. W przeciwnym razie kod JavaScript dołączony do składnika `<amp-script>` byłby ogromny <br>i niwelowałby korzyści płynące z wydajności AMP!
@@ -180,16 +188,14 @@ const checkRegexes = {
   upper: /[A-Z]/,
   digit: /\d/,
   special: /[^a-zA-Z\d]/i,
-  eight: /.{8}/
+  eight: /.{8}/,
 };
 ```
 
 Po ustawieniu tych zmiennych globalnych jesteśmy gotowi do napisania logiki, która sprawdza hasło i odpowiednio dostosuje UI. Umieścimy naszą logikę w funkcji o nazwie `initCheckPassword`, która pobiera jeden argument — element DOM hasła `<input>`. Podejście to pozwala na wygodne umieszczenie elementu DOM w zamknięciu.
 
 ```js
-function initCheckPassword(element) {
-
-}
+function initCheckPassword(element) {}
 ```
 
 Następnie wypełnijmy `initCheckPassword` funkcjami i przypisaniami odbiornika zdarzeń, które będą nam potrzebne. Po pierwsze, dodajmy małą funkcję, która zmienia kolor indywidualnej zasady `<li>` na zielony, gdy warunek zasady zostanie spełniony i drugą, która zmienia jej kolor na czerwony, gdy warunek zasady nie zostanie spełniony.
@@ -197,15 +203,15 @@ Następnie wypełnijmy `initCheckPassword` funkcjami i przypisaniami odbiornika 
 ```js
 function initCheckPassword(el) {
   const checkPass = (el) => {
-    el.classList.remove("invalid");
-    el.classList.add("valid");
+    el.classList.remove('invalid');
+    el.classList.add('valid');
   };
 
   const checkFail = (el) => {
-    el.classList.remove("valid");
-    el.classList.add("invalid");
+    el.classList.remove('valid');
+    el.classList.add('invalid');
   };
-};
+}
 ```
 
 Niech te klasy `valid` i `invalid` zmieniają kolor tekst na zielony albo czerwony. Wróćmy do pliku `index.html`, i dodajmy te dwie zasady do znacznika `<style amp-custom>`:
@@ -216,7 +222,7 @@ li.valid {
 }
 
 li.invalid {
-  color:#c11136;
+  color: #c11136;
 }
 ```
 
@@ -239,7 +245,7 @@ const checkPassword = () => {
   }
 
   if (!failed) {
-    submitButton.removeAttribute("disabled");
+    submitButton.removeAttribute('disabled');
   }
 };
 ```
@@ -249,8 +255,8 @@ Funkcja ta wykonuje następujące działania:
 1. Pobiera zawartość pola hasła `<input>`.
 2. Tworzy flagę o nazwie `failed`, inicjowaną z wartością <code>false.</code>
 3. Wykonuje iteracje przez każde z naszych wyrażeń regularnych i sprawdza każde z nich w odniesieniu do hasła:
-    - Jeśli hasło nie przejdzie testu, należy wywołać funkcję `checkFail()`, aby zmienić kolor odpowiedniej zasady na czerwony. Ponadto, wartość flagi `failed` należy ustawić na `true`.
-    - Jeśli hasło przejdzie test, należy wywołać funkcję `checkPass()`, aby zmienić kolor odpowiedniej zasady na zielony.
+   - Jeśli hasło nie przejdzie testu, należy wywołać funkcję `checkFail()`, aby zmienić kolor odpowiedniej zasady na czerwony. Ponadto, wartość flagi `failed` należy ustawić na `true`.
+   - Jeśli hasło przejdzie test, należy wywołać funkcję `checkPass()`, aby zmienić kolor odpowiedniej zasady na zielony.
 4. Wreszcie, jeśli spełnione są wszystkie zasady, hasło jest prawidłowe, więc włączamy przycisk Prześlij.
 
 Potrzebujemy teraz jedynie kilku odbiorników zdarzeń. Pamiętasz, jak nie mogliśmy użyć zdarzenia `focus` w AMP? W składniku `<amp-script>` jest to możliwe. Gdy tylko pole hasła `<input>` odbierze zdarzenie `focus`, wyświetlimy zasady, a za każdym razem, gdy użytkownik naciśnie przycisk w tym polu wprowadzania, wywołamy funkcję `checkPassword()`.
@@ -258,8 +264,8 @@ Potrzebujemy teraz jedynie kilku odbiorników zdarzeń. Pamiętasz, jak nie mogl
 Dodaj te dwa odbiorniki zdarzeń na końcu funkcji `initCheckPassword()`, tuż przed nawiasem zamykającym:
 
 ```js
-element.addEventListener("focus", () => rulesArea.removeAttribute("hidden"));
-element.addEventListener("keyup", checkPassword);
+element.addEventListener('focus', () => rulesArea.removeAttribute('hidden'));
+element.addEventListener('keyup', checkPassword);
 ```
 
 Wreszcie, na samym końcu skryptu `validate.js` dodaj wiersz inicjujący funkcję `initCheckPassword` za pomocą elementu DOM pola hasła `<input>`:
@@ -269,7 +275,6 @@ initCheckPassword(passwordBox);
 ```
 
 Nasza logika jest ukończona! Gdy hasło spełni wszystkie nasze kryteria, wszystkie zasady będą zielone, a nasz przycisk przesyłania zostanie włączony. Możliwa powinna być taka interakcja:
-
 
 <figure class="alignment-wrapper margin-">   {amp-video1}     <source src="/static/img/docs/tutorials/custom-javascript-tutorial/finished-project.mp4" type="video/mp4">     <source src="/static/img/docs/tutorials/custom-javascript-tutorial/finished-project.webm" type="video/webm">   {/amp-video1} </source></source></figure> Jeśli utkniesz, zawsze możesz zerknąć na działający kod w katalogu „finished_code”.
 

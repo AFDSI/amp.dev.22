@@ -11,7 +11,7 @@ As AMP são páginas HTML com algumas restrições que proporcionam um desempenh
 A estrutura básica de uma página AMP é a seguinte:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

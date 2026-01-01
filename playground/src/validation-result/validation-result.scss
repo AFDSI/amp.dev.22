@@ -4,7 +4,6 @@
 @import 'components/atoms/_text.scss';
 
 .validation-result {
-
   &-card {
     display: flex;
     background-color: color('white');
@@ -28,14 +27,12 @@
     }
 
     &.valid {
-
       strong {
         color: color('japan-laurel');
       }
     }
 
     &.invalid {
-
       strong {
         color: color('guardsman-red');
       }
@@ -43,7 +40,9 @@
   }
 
   & > * {
-    transition: opacity 0.3s ease, transform 0.5s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.5s ease;
   }
 
   &.loading > * {

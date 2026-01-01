@@ -36,8 +36,10 @@ AMP 技术能够从 AMP 网页内安装渐进式 Web 应用的 Service Worker - 
 首先，使用 [`amp-install-serviceworker`](../../../documentation/components/reference/amp-install-serviceworker.md) 在您的所有 AMP 网页上安装 Service Worker；为此，请先通过相应脚本在您网页的 `<head>` 中添加该组件：
 
 [sourcecode:html]
+
 <script async custom-element="amp-install-serviceworker"
   src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+
 [/sourcecode]
 
 然后，在您 `<body>` 中的某个位置添加以下内容（请酌情进行修改以使其指向您的实际 Service Worker）：
@@ -54,20 +56,20 @@ AMP 技术能够从 AMP 网页内安装渐进式 Web 应用的 Service Worker - 
 [sourcecode:javascript]
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  '/',
-  '/styles/main.css',
-  '/script/main.js'
+'/',
+'/styles/main.css',
+'/script/main.js'
 ];
 
 self.addEventListener('install', function(event) {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
+// Perform install steps
+event.waitUntil(
+caches.open(CACHE_NAME)
+.then(function(cache) {
+console.log('Opened cache');
+return cache.addAll(urlsToCache);
+})
+);
 });
 [/sourcecode]
 
@@ -89,8 +91,8 @@ self.addEventListener('install', function(event) {
 
 [sourcecode:javascript]
 self.addEventListener('fetch', event => {
-    if (event.request.mode === 'navigate') {
-      event.respondWith(fetch('/pwa'));
+if (event.request.mode === 'navigate') {
+event.respondWith(fetch('/pwa'));
 
       // Immediately start downloading the actual resource.
       fetch(event.request.url);

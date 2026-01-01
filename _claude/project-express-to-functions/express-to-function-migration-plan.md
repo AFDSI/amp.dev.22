@@ -17,6 +17,7 @@
 **Tasks:**
 
 1. Add redirect to `netlify.toml`:
+
 ```toml
 [[redirects]]
   from = "/search/do"
@@ -34,6 +35,7 @@
 3. Test search functionality
 
 **Files:**
+
 ```
 netlify.toml
 netlify/functions/search_do/
@@ -49,6 +51,7 @@ netlify/functions/search_autosuggest/
 **Objective:** One example using Functions routing with static JSON
 
 **Approach:**
+
 1. You identify the Express example using static JSON
 2. CC creates duplicate with Functions routing
 3. Both use identical JSON data source
@@ -63,6 +66,7 @@ netlify/functions/search_autosuggest/
 **Objective:** Capture ratings to Google Sheets
 
 **Architecture:**
+
 ```
 User clicks star → Function receives POST → Google Sheets API → Row added
 ```
@@ -73,15 +77,18 @@ User clicks star → Function receives POST → Google Sheets API → Row added
 | 2025-12-22T10:30:00Z | /documentation/components/ | 4 | abc123 |
 
 **Files to modify:**
+
 ```
 netlify/functions/examples_interactivity_dynamic_content_star_rating/
 ```
 
 **New dependencies:**
+
 - `googleapis` npm package
 - Google Sheets API credentials (service account)
 
 **Setup required:**
+
 1. Create Google Sheet in Workspace
 2. Create service account with Sheets API access
 3. Share Sheet with service account email
@@ -96,6 +103,7 @@ netlify/functions/examples_interactivity_dynamic_content_star_rating/
 **Objective:** Multi-language form capturing to Google Sheets
 
 **Architecture:**
+
 ```
 User fills form (in NL) → Function receives POST → Google Sheets API → Row added
                         → Return confirmation (in same NL)
@@ -107,6 +115,7 @@ User fills form (in NL) → Function receives POST → Google Sheets API → Row
 | 2025-12-22T10:30:00Z | ar | أحمد | a@b.com | مرحبا | /ar/contact/ |
 
 **Files:**
+
 ```
 # New page
 pages/content/amp-dev/contact/index.md
@@ -128,12 +137,14 @@ pages/translations/*.po
 ```
 
 **Form fields:**
+
 - Name (text)
 - Email (email)
 - Message (textarea)
 - Hidden: locale, source URL
 
-**Success criteria:** 
+**Success criteria:**
+
 - Form renders in each NL
 - Submissions appear in Google Sheet with correct locale
 
@@ -203,6 +214,7 @@ find . -name "*contact*" -type f
 1. **Create Sheet:** "AMP Site Data" with tabs: "Star Ratings", "Contact Submissions"
 
 2. **Service Account:**
+
    - Google Cloud Console → Create service account
    - Enable Sheets API
    - Create JSON key
@@ -224,4 +236,3 @@ find . -name "*contact*" -type f
 3. **Phase 4:** Contact Us → Sheets (builds on Phase 3 patterns)
 4. **Phase 2:** Autosuggest example (after you identify source)
 5. **Phase 5:** Complete routing (consolidate all redirects)
-

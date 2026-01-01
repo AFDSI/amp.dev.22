@@ -11,10 +11,7 @@ teaser:
     data binding and simple JS-like expressions.
 ---
 
-
-
 يضيف المكوِّن تفاعلاً مخصصًا باستخدام ربط البيانات والتعبيرات.
-
 
 <!--
 Copyright 2016 The AMP HTML Authors. All Rights Reserved.
@@ -85,9 +82,9 @@ limitations under the License.
 
 يحتوي "amp-bind" على ثلاثة مكونات رئيسية:
 
-1. [State](#state): حالة JSON قابلة للتحويل على نطاق المستند. في المثال أعلاه، الحالة فارغة قبل النقر على الزر.  أما بعد النقر، تصبح الحالة `{foo: 'amp-bind'}`.
+1. [State](#state): حالة JSON قابلة للتحويل على نطاق المستند. في المثال أعلاه، الحالة فارغة قبل النقر على الزر. أما بعد النقر، تصبح الحالة `{foo: 'amp-bind'}`.
 2. [Expressions](#expressions): هذه تعبيرات تشبيه جافا سكريبت وتشير إلى **state**. يحتوي المثال أعلاه على تعبير واحد هو `'Hello ' + foo` والذي يربط السلسلة الحرفية `'Hello '` مع متغير الحالة `foo`.
-يمكن استخدام ما يصل إلى 100 معامل كحد أقصى في التعبير.
+   يمكن استخدام ما يصل إلى 100 معامل كحد أقصى في التعبير.
 3. [Bindings](#bindings): هذه سمات خاصة لخاصية `[property]` النموذج التي تربط خاصية العنصر بالتعبير **expression**. يحتوي المثال أعلاه على ربط واحد هو `[text]` والذي يعدّل نص العنصر `` كلما تغيرت قيمة التعبير.
 
 يحتاج `amp-bind` إلى عناية خاصة لضمان السرعة والأمان وجودة الأداء على صفحات AMP.
@@ -119,8 +116,12 @@ limitations under the License.
 </p>
 
 <!-- Or change an image's src with the [src] binding. -->
-<amp-img width="300" height="200" src="/img/dog.jpg"
-    [src]="myAnimals[currentAnimal].imageUrl">
+<amp-img
+  width="300"
+  height="200"
+  src="/img/dog.jpg"
+  [src]="myAnimals[currentAnimal].imageUrl"
+>
 </amp-img>
 
 <button on="tap:AMP.setState({currentAnimal: 'cat'})">Set to Cat</button>
@@ -131,14 +132,14 @@ limitations under the License.
 1. يتم تعديل **الحالة** بـ `currentAnimal` الذي يتم تحديده على أنه `'cat'`.
 2. يتم تقييم **التعبيرات** التي تعتمد على الحالة `currentAnimal`:
 
-    * `'This is a ' + currentAnimal + '.'` =&gt; `'This is a cat.'`
-    * `myAnimals[currentAnimal].style` =&gt; `'redBackground'`
-    * `myAnimals[currentAnimal].imageUrl` =&gt;  `/img/cat.jpg`</li>
+   - `'This is a ' + currentAnimal + '.'` =&gt; `'This is a cat.'`
+   - `myAnimals[currentAnimal].style` =&gt; `'redBackground'`
+   - `myAnimals[currentAnimal].imageUrl` =&gt; `/img/cat.jpg`</li>
 
 3. يتم تعديل **عمليات الربط** التي تعتمد على التعبيرات التي تم تغييرها:
-    * نص عنصر `<p>` الأول سيصبح "This is a cat."
-    * السمة `class` للعنصر `<p>` الثاني ستصبح "redBackground".
-    * العنصر `amp-img` سيعرض صورة قطة.</li>
+   - نص عنصر `<p>` الأول سيصبح "This is a cat."
+   - السمة `class` للعنصر `<p>` الثاني ستصبح "redBackground".
+   - العنصر `amp-img` سيعرض صورة قطة.</li>
 
 [tip type="success"]
 [شاهِد **العرض التوضيحي المباشر**](https://ampbyexample.com/components/amp-bind/) لهذا المثال مع تعليقات توضيحية للترميز.
@@ -166,8 +167,8 @@ limitations under the License.
 
 يمكن أن تشير [التعبيرات](#expressions) إلى متغيرات الحالة عبر بنية النقاط. في هذا المثال، سيتم تقييم `myState.foo` إلى `"bar"`.
 
-* الحد الأقصى لحجم JSON للعنصر الثانوي للعنصر `<amp-state>` هو 100 كيلوبايت.
-* يمكن للعنصر `<amp-state>` أيضًا تحديد عنوان CORS URL بدلاً من نص برمجي لعنصر JSON الثانوي. يمكن مراجعة [الملحق](#amp-state-specification) للحصول على التفاصيل.
+- الحد الأقصى لحجم JSON للعنصر الثانوي للعنصر `<amp-state>` هو 100 كيلوبايت.
+- يمكن للعنصر `<amp-state>` أيضًا تحديد عنوان CORS URL بدلاً من نص برمجي لعنصر JSON الثانوي. يمكن مراجعة [الملحق](#amp-state-specification) للحصول على التفاصيل.
 
 # إعادة تحميل الحالة <a name="refreshing-state"></a>
 
@@ -186,7 +187,9 @@ limitations under the License.
 ```html
 <!-- Like JavaScript, you can reference existing
      variables in the values of the  object literal. -->
-<button on="tap:AMP.setState({foo: 'bar', baz: myAmpState.someVariable})"></button>
+<button
+  on="tap:AMP.setState({foo: 'bar', baz: myAmpState.someVariable})"
+></button>
 ```
 
 بشكل عام، سيتم دمج الكائنات المدمجة بحد أقصى للعمق يساوي 10. يمكن إلغاء كل المتغيرات، بما في ذلك المتغيرات التي قدمها `amp-state`.
@@ -196,7 +199,7 @@ limitations under the License.
 ```html
 <!-- The "change" event of this <input> element contains
      a "value" variable that can be referenced via "event.value". -->
-<input type="range" on="change:AMP.setState({myRangeValue: event.value})">
+<input type="range" on="change:AMP.setState({myRangeValue: event.value})" />
 ```
 
 # تعديل السجلّ باستخدام `AMP.pushState()` <a name="modifying-history-with-amppushstate"></a>
@@ -204,12 +207,13 @@ limitations under the License.
 يشبه الإجراء [`AMP.pushState()`](../../../documentation/guides-and-tutorials/learn/amp-actions-and-events.md#target-amp) الإجراء `AMP.setState()` إلا أنه يدفع إدخالاً جديدًا في حِزم سجلّ التصفُّح. يؤدي دفع إدخال السجلّ هذا (بالانتقال إلى الخلف مثلاً) إلى استعادة القيمة السابقة للمتغيرات التي عينها `AMP.pushState()`.
 
 على سبيل المثال:
+
 ```html
 <button on="tap:AMP.pushState({foo: '123'})">Set 'foo' to 123</button>
 ```
 
-* سيؤدي النقر على الزر إلى تعيين المتغير `foo` على 123 ودفع إدخال سجلّ جديد.
-* سيؤدي الانتقال إلى الخلف إلى استعادة `foo` قيمتها السابقة وهي "bar" (أي ما يعادل استدعاء `AMP.setState({foo: 'bar'})`.
+- سيؤدي النقر على الزر إلى تعيين المتغير `foo` على 123 ودفع إدخال سجلّ جديد.
+- سيؤدي الانتقال إلى الخلف إلى استعادة `foo` قيمتها السابقة وهي "bar" (أي ما يعادل استدعاء `AMP.setState({foo: 'bar'})`.
 
 # التعبيرات <a name="expressions"></a>
 
@@ -217,12 +221,12 @@ limitations under the License.
 
 # الاختلافات التي تميّزها عن جافا سكريبت <a name="differences-from-javascript"></a>
 
-* قد تصل التعبيرات فقط إلى [حالة](#state) المستند الحاوية.
-* **ليست** للتعبيرات إمكانية الوصول إلى المتغيرات العمومية مثل `window` أو `document`.
-* لا يمكن استخدام سوى [الدالات المدرجة في القائمة البيضاء](#allow-listed-functions) وعوامل التشغيل.
-* غير مسموح عمومًا بالدالات والفئات والحلقات المخصصة. يُسمح بالدالات السهمية كمعلَمات، مثل `Array.prototype.map`.
-* المتغيرات غير المحددة وarray-index-out-of-bound تعرض `null` بدلاً من `undefined` أو إظهار الأخطاء.
-* للتعبير الواحد حاليًا حد قيمته 50 معاملًا بغرض جودة الأداء. يرجى [الاتصال بنا](https://github.com/ampproject/amphtml/issues/new) إذا لم يكن هذا كافيًا لحالة الاستخدام لديك.
+- قد تصل التعبيرات فقط إلى [حالة](#state) المستند الحاوية.
+- **ليست** للتعبيرات إمكانية الوصول إلى المتغيرات العمومية مثل `window` أو `document`.
+- لا يمكن استخدام سوى [الدالات المدرجة في القائمة البيضاء](#allow-listed-functions) وعوامل التشغيل.
+- غير مسموح عمومًا بالدالات والفئات والحلقات المخصصة. يُسمح بالدالات السهمية كمعلَمات، مثل `Array.prototype.map`.
+- المتغيرات غير المحددة وarray-index-out-of-bound تعرض `null` بدلاً من `undefined` أو إظهار الأخطاء.
+- للتعبير الواحد حاليًا حد قيمته 50 معاملًا بغرض جودة الأداء. يرجى [الاتصال بنا](https://github.com/ampproject/amphtml/issues/new) إذا لم يكن هذا كافيًا لحالة الاستخدام لديك.
 
 يمكن العثور على القواعد الكاملة للتعبيرات وتنفيذها في [bind-expr-impl.jison](https://github.com/ampproject/amphtml/blob/main/extensions/amp-bind/0.1/bind-expr-impl.jison) و[bind-expression.js](https://github.com/ampproject/amphtml/blob/main/extensions/amp-bind/0.1/bind-expression.js).
 
@@ -231,10 +235,10 @@ limitations under the License.
 جميع ما يلي تعبيرات صالحة:
 
 ```javascript
-1 + '1'           // 11
-1 + (+'1')        // 2
-!0                // true
-null || 'default' // 'default'
+1 + '1'; // 11
+1 + +'1'; // 2
+!0; // true
+null || 'default'; // 'default'
 ```
 
 # الدالات المدرجة في القائمة البيضاء <a name="allow-listed-functions"></a>
@@ -346,7 +350,6 @@ null || 'default' // 'default'
                           </tr>
                         </table>
 
-
 <sup>1</sup>لا يمكن أن تحتوي الدالات السهمية ذات المعلَمة الفردية على أقواس، استخدِم مثلاً `x => x + 1` بدلاً من `(x) => x + 1`. وتعرض أيضًا `sort()` و`splice()` نسخًا معدّلة بدلاً العمل في مكانها.
 
 <sup>2</sup>الدالات الثابتة لا تستخدم كمساحات أسماء، استخدِم مثلاً `abs(-1)` بدلاً من `Math.abs(-1)`.
@@ -356,7 +359,11 @@ null || 'default' // 'default'
 يمكن إعادة استخدام أجزاء التعبير `amp-bind` من خلال تحديد `amp-bind-macro`. يتيح لك العنصر `amp-bind-macro` تحديد تعبير يأخذ وسيطات صفرية أو أكثر ويشير إلى الحالة الحالية. يمكن استدعاء وحدة ماكرو كدالة من خلال الإشارة إلى قيمة سمتها `id` من أي مكان في المستند.
 
 ```html
-<amp-bind-macro id="circleArea" arguments="radius" expression="3.14 * radius * radius"></amp-bind-macro>
+<amp-bind-macro
+  id="circleArea"
+  arguments="radius"
+  expression="3.14 * radius * radius"
+></amp-bind-macro>
 
 <div>
   The circle has an area of <span [text]="circleArea(myCircle.radius)">0</span>.
@@ -406,13 +413,12 @@ null || 'default' // 'default'
   </tr>
 </table>
 
-
 ملاحظات عن عمليات الربط:
 
-* إن الربط بـ `innerHTML` غير مسموح به لأسباب تتعلق بالأمان.
-* يتم تصحيح جميع عمليات ربط السمات من القيم غير الآمنة (مثل `javascript:)`.
-* يؤدي التعبير المنطقي إلى تبديل السمات المنطقية على سبيل المثال: `<amp-video [controls]="expr"...>`. عندما يتم تقييم `expr` إلى `true`، يحتوي العنصر `<amp-video>` على السمة `controls`. عند تقييم `expr` إلى `false`، تتم إزالة السمة `controls`.
-* يمكن أن تكون أحرف الأقواس `[` and `]` في أسماء السمات مشكلة عند كتابة XML (مثل XHTML وJSX) أو كتابة السمات عبر واجهات برمجة التطبيقات DOM. في هذه الحالات، استخدِم البنية البديلة `data-amp-bind-x="foo"` بدلاً من `[x]="foo"`.
+- إن الربط بـ `innerHTML` غير مسموح به لأسباب تتعلق بالأمان.
+- يتم تصحيح جميع عمليات ربط السمات من القيم غير الآمنة (مثل `javascript:)`.
+- يؤدي التعبير المنطقي إلى تبديل السمات المنطقية على سبيل المثال: `<amp-video [controls]="expr"...>`. عندما يتم تقييم `expr` إلى `true`، يحتوي العنصر `<amp-video>` على السمة `controls`. عند تقييم `expr` إلى `false`، تتم إزالة السمة `controls`.
+- يمكن أن تكون أحرف الأقواس `[` and `]` في أسماء السمات مشكلة عند كتابة XML (مثل XHTML وJSX) أو كتابة السمات عبر واجهات برمجة التطبيقات DOM. في هذه الحالات، استخدِم البنية البديلة `data-amp-bind-x="foo"` بدلاً من `[x]="foo"`.
 
 # السمات الخاصة بالعناصر <a name="element-specific-attributes"></a>
 
@@ -556,8 +562,7 @@ null || 'default' // 'default'
     </tr>
   </table>
 
-
-<sup>*</sup>* تشير إلى سمات قابلة للربط ليس لها نظير غير قابل للربط.
+<sup>_</sup>_ تشير إلى سمات قابلة للربط ليس لها نظير غير قابل للربط.
 
 # تصحيح الأخطاء <a name="debugging"></a>
 
@@ -571,7 +576,6 @@ null || 'default' // 'default'
 <!-- The element's default class value ('def') doesn't match the expression result for [class] ('abc'),
      so a warning will be issued in development mode. -->
 <p [class]="'abc'" class="def"></p>
-
 ```
 
 في وضع مطور البرامج، سيصدر `amp-bind` أيضًا تحذيرًا عند الوصول إلى محتوى المتغيرات أو الخصائص غير المحددة. يمكن أن يساعد هذا أيضًا في منع الطفرات غير المقصودة بسبب نتائج التعبير `null`. مثال:
@@ -579,7 +583,7 @@ null || 'default' // 'default'
 ```html
 <amp-state id="myAmpState">
   <script type="application/json">
-    { "foo": 123 }
+    {"foo": 123}
   </script>
 </amp-state>
 
@@ -644,13 +648,12 @@ null || 'default' // 'default'
   </script>
 </amp-state>
 
-<amp-state id="myRemoteState" src="https://data.com/articles.json">
-</amp-state>
+<amp-state id="myRemoteState" src="https://data.com/articles.json"> </amp-state>
 ```
 
 # إرسال XHR في دفعات <a name="xhr-batching"></a>
 
-AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفعات، أي أنه يمكنك استخدام طلب بيانات JSON واحد كمصدر بيانات لعدة مستهلكين (عدة عناصر `amp-state` مثلاً) على صفحة AMP.  على سبيل المثال، إذا أرسل العنصر `amp-state` طلب XHR إلى نقطة نهاية، وكان الطلب في رحلته، لن يتم تشغيل جميع طلبات XHR اللاحقة إلى نقطة النهاية ونفسها وسيتم عرض النتائج من طلب XHR الأول.
+AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفعات، أي أنه يمكنك استخدام طلب بيانات JSON واحد كمصدر بيانات لعدة مستهلكين (عدة عناصر `amp-state` مثلاً) على صفحة AMP. على سبيل المثال، إذا أرسل العنصر `amp-state` طلب XHR إلى نقطة نهاية، وكان الطلب في رحلته، لن يتم تشغيل جميع طلبات XHR اللاحقة إلى نقطة النهاية ونفسها وسيتم عرض النتائج من طلب XHR الأول.
 
 # السمات <a name="attributes"></a>
 
@@ -675,7 +678,6 @@ AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفع�
     </tr>
   </table>
 
-
 # الدمج العميق باستخدام `AMP.setState()` <a name="deep-merge-with-ampsetstate"></a>
 
 عندما يتم استدعاء `AMP.setState()`، يدمج `amp-bind` الكائن الحرفي المتوفر بعمق مع الحالة الحالية. تتم كتابة جميع المتغيرات من الكائن الحرفي إلى الحالة مباشرة باستثناء الكائنات المدمجة والتي يتم دمجها بشكل متكرر. يتم دائمًا إلغاء العناصر الأولية والمصفوفات في الحالة بمتغيرات تحمل الاسم نفسه في الكائن الحرفي.
@@ -689,8 +691,11 @@ AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفع�
 ```
 
 ```html
-<button on="tap:AMP.setState({employee: {name: 'John Smith', age: 47, vehicle: 'Car'}})"...></button>
-<button on="tap:AMP.setState({employee: {age: 64}})"...></button>
+<button
+  on="tap:AMP.setState({employee: {name: 'John Smith', age: 47, vehicle: 'Car'}})"
+  ...
+></button>
+<button on="tap:AMP.setState({employee: {age: 64}})" ...></button>
 ```
 
 عند الضغط على الزر الأول، تتغير الحالة إلى:
@@ -726,7 +731,7 @@ AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفع�
 أزِل متغير حالة قائم عن طريق تعيين قيمته إلى القيمة `null` في `AMP.setState()`. بالبدء من الحالة في المثال السابق، سيؤدي الضغط إلى:
 
 ```html
-<button on="tap:AMP.setState({employee: {vehicle: null}})"...></button>
+<button on="tap:AMP.setState({employee: {vehicle: null}})" ...></button>
 ```
 
 تغيير الحالة إلى:
@@ -743,7 +748,7 @@ AMP ترسل XMLHttpRequests (XHRs) إلى نقاط نهاية JSON في دفع�
 بالمثل:
 
 ```html
-<button on="tap:AMP.setState({employee: null})"...></button>
+<button on="tap:AMP.setState({employee: null})" ...></button>
 ```
 
 تغيير الحالة إلى:

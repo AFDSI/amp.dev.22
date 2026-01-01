@@ -13,14 +13,26 @@ author: zhouyx
 <!doctype html>
 <html amp4ads lang="en">
   <head>
-    <meta charset="utf-8">
-  <title>Scrollbound Animation Ad</title>
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <title>Scrollbound Animation Ad</title>
+    <meta name="viewport" content="width=device-width" />
     <script async src="https://cdn.ampproject.org/amp4ads-v0.js"></script>
-    <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
-    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+    <script
+      async
+      custom-element="amp-animation"
+      src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-position-observer"
+      src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"
+    ></script>
 
-    <style amp4ads-boilerplate>body{visibility:hidden}</style>
+    <style amp4ads-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
     <!-- ## Summary-->
     <!--
     Sample AMPHTML ad using [amp-position-observer](/content/amp-dev/documentation/components/reference/amp-position-observer-v0.1.md), and [amp-animation](/content/amp-dev/documentation/components/reference/amp-animation-v0.1.md) to create an interactive ad.
@@ -117,8 +129,8 @@ author: zhouyx
             {
               "selector": "#cardsContainer",
               "keyframes": [
-                { "transform": "translateY(0)" },
-                { "transform": "translateY(-384px)"}
+                {"transform": "translateY(0)"},
+                {"transform": "translateY(-384px)"}
               ]
             }
           ]
@@ -141,22 +153,29 @@ author: zhouyx
       intersection-ratios="1"
       viewport-margins="10vh"
       on="scroll:adAnim.seekTo(percent=event.percent)"
-      layout="nodisplay">
+      layout="nodisplay"
+    >
     </amp-position-observer>
 
-      <!-- ## Banner markup -->
-     <div class="root-container">
+    <!-- ## Banner markup -->
+    <div class="root-container">
       <div class="footer">
         <div class="footer-logo">
-          <amp-img src="/static/samples/img/car-logo.png"
-              width="72"
-              height="32"
-              layout="fixed"
-              alt="Howdy"
-              class="logo-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-logo.png"
+            width="72"
+            height="32"
+            layout="fixed"
+            alt="Howdy"
+            class="logo-img"
+          ></amp-img>
         </div>
         <div class="stretch">The All-New WX-S R5</div>
-        <a href="https://amp.dev/documentation/examples/" target="_blank" class="button">
+        <a
+          href="https://amp.dev/documentation/examples/"
+          target="_blank"
+          class="button"
+        >
           Learn more
         </a>
       </div>
@@ -164,28 +183,34 @@ author: zhouyx
       <!-- ## Cards -->
       <div class="cards-container" id="cardsContainer">
         <div class="card card-seats">
-          <amp-img src="/static/samples/img/car-seats.jpg"
-              width="340"
-              height="192"
-              layout="responsive"
-              alt="Ergonomic Leather Seats"
-              class="a-carousel-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-seats.jpg"
+            width="340"
+            height="192"
+            layout="responsive"
+            alt="Ergonomic Leather Seats"
+            class="a-carousel-img"
+          ></amp-img>
         </div>
         <div class="card card-gauges">
-          <amp-img src="/static/samples/img/car-gauges.jpg"
-              width="340"
-              height="192"
-              layout="responsive"
-              alt="Sport Gauge Cluster"
-              class="a-carousel-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-gauges.jpg"
+            width="340"
+            height="192"
+            layout="responsive"
+            alt="Sport Gauge Cluster"
+            class="a-carousel-img"
+          ></amp-img>
         </div>
         <div class="card card-engine">
-          <amp-img src="/static/samples/img/car-engine.jpg"
-              width="340"
-              height="192"
-              layout="responsive"
-              alt="Tuned Engine"
-              class="a-carousel-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-engine.jpg"
+            width="340"
+            height="192"
+            layout="responsive"
+            alt="Tuned Engine"
+            class="a-carousel-img"
+          ></amp-img>
         </div>
       </div>
     </div>

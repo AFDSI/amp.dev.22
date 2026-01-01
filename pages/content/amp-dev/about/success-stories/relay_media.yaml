@@ -19,13 +19,11 @@ teaser:
     alt: Relay Media
   text: Relay Media helps publishers get AMP’d
 
-
 stage:
   headline: Relay Media helps publishers get AMP’d
   layout: mobile
   subline: OCTOBER 7, 2016
   devices:
-
     - image_src: '/static/img/success-stories/relay_media/amp_relaymedia_1.jpg'
       width: 3
       height: 5
@@ -46,11 +44,9 @@ kpis:
     text: New traffic on AMP (The Daily Dot)
 
 contents:
-
   - layout: text
     text: Relay Media was founded in 2015 with the purpose of converting web content to AMP for publishers. The company has placed a big bet on AMP’s long-term importance to the online ecosystem, and is committed to strengthening the format’s foothold on the mobile web. “Today’s lumbering and overloaded mobile web pages are the legacy of a volume-based advertising marketplace that’s being replaced by one tuned to viewability and engagement” said Barb Palser, Chief Product Officer at Relay Media.
     direction: left-flat
-
 
   - layout: text-media
     image_src: '/static/img/success-stories/relay_media/amp_relaymedia_2.jpg'

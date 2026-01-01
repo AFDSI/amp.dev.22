@@ -1,7 +1,9 @@
 ---
 $title: Chào mừng bạn đến với Cộng đồng AMP!
 ---
+
 [filter level="beginner"]
+
 ## Tại sao là AMP?
 
 Theo nhiều cách khác nhau, Internet hiện tại là trung tâm của Thế giới. Mỗi ngày, hàng trăm triệu người từ khắp nơi trên thế giới truy cập thông tin trực tiếp. Nhưng không quá nhiều kết nối vào Internet đến từ các đường truyền tốc độ cao hoặc thiết bị công suất cao. Khi các website được phát triển chỉ dành cho những kết nối và thiết bị truy cập nhanh nhất, những trải nghiệm của nhiều người dùng khác sẽ có sự ảnh hưởng.

@@ -5,8 +5,6 @@ teaser:
   text: Mostra un video di YouTube.
 ---
 
-
-
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,8 +20,6 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-
 
 Mostra un video di [YouTube](https://www.youtube.com/).
 
@@ -51,22 +47,22 @@ Grazie al layout adattabile, la larghezza e l'altezza dell'esempio dovrebbero pr
     data-videoid="mGENRKrdoGY"
     layout="responsive"
     width="480" height="270"></amp-youtube>
-  [/sourcecode]
+[/sourcecode]
 
-  [sourcecode:html]
-  <amp-youtube
+[sourcecode:html]
+<amp-youtube
       id="myLiveChannel"
       data-live-channelid="UCB8Kb4pxYzsDsHxzBfnid4Q"
       width="358"
       height="204"
       layout="responsive">
-    <amp-img
+<amp-img
       src="https://i.ytimg.com/vi/Wm1fWz-7nLQ/hqdefault_live.jpg"
       placeholder
       layout="fill"
       />
-  </amp-youtube>
-  [/sourcecode]
+</amp-youtube>
+[/sourcecode]
 
 ## Attributi <a name="attributes"></a>
 

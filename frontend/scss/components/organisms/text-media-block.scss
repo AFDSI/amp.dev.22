@@ -44,7 +44,8 @@
       &.media {
         grid-column: 2/10;
 
-        &.bg-gray, &.bg-gradient {
+        &.bg-gray,
+        &.bg-gradient {
           &:before {
             left: -45%;
           }
@@ -70,7 +71,8 @@
       &.media {
         grid-column: 14/23;
 
-        &.bg-gray, &.bg-gradient {
+        &.bg-gray,
+        &.bg-gradient {
           &:before {
             right: -45%;
           }

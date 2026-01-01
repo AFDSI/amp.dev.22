@@ -38,7 +38,9 @@
     background: none;
     border-radius: 8px;
     border: 2px solid color('iron');
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+      box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &:hover {
       transform: translateY(-0.125em);
@@ -81,9 +83,9 @@
     }
 
     &-item {
-       margin-bottom: 10px;
-       @include txt;
-       @include txt-2;
+      margin-bottom: 10px;
+      @include txt;
+      @include txt-2;
     }
   }
 }

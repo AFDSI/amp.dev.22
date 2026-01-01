@@ -15,8 +15,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
 ## `head > style[amp-boilerplate]` and `noscript > style[amp-boilerplate]` <a name="head--styleamp-boilerplate-and-noscript--styleamp-boilerplate"></a>
 
 AMP HTML documents must contain the following boilerplate in their `head` tag.

@@ -43,11 +43,11 @@
     line-height: 1.3em;
   }
 
-  strong  {
+  strong {
     @include txt-strong;
   }
 
   @media (max-width: 374px) {
-    font-size: .75em;
+    font-size: 0.75em;
   }
 }

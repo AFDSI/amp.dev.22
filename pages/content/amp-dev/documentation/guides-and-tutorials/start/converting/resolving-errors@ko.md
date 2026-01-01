@@ -324,7 +324,7 @@ AMP는 사용자가 지정한 너비와 높이에 따라 해당 요소의 가로
 이제 AMP 문서가 다음과 같이 작성되어 있어야 합니다.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

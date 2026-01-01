@@ -1,4 +1,4 @@
-.#{project("components-showcase")} {
+.#{project('components-showcase')} {
   position: relative;
   height: 100%;
 
@@ -26,7 +26,7 @@
       height: 455px;
       visibility: visible;
       opacity: 1;
-      transition: .3s ease-in-out;
+      transition: 0.3s ease-in-out;
     }
 
     .hide {
@@ -60,8 +60,8 @@
         bottom: calc(100% - 20px);
         width: calc(100% - 40px);
         padding: 12px 20px;
-        border-bottom: 2px solid color("river-bed");
-        background: color("charade");
+        border-bottom: 2px solid color('river-bed');
+        background: color('charade');
         color: white;
         font-family: $fontFamilyHeadline;
         font-weight: 700;
@@ -76,18 +76,18 @@
         margin-top: 20px;
         width: 100%;
 
-        @include respond-to("small") {
+        @include respond-to('small') {
           margin-top: 15px;
           width: 50%;
         }
 
-        @include respond-to("medium") {
+        @include respond-to('medium') {
           margin-top: 10px;
           width: 100%;
         }
       }
 
-      &[title="amp-carousel"] {
+      &[title='amp-carousel'] {
         .grap-lnk {
           margin-top: 300px;
 
@@ -97,7 +97,7 @@
         }
       }
 
-      &[title="amp-accordion"] {
+      &[title='amp-accordion'] {
         .grap-lnk {
           margin-top: 140px;
 
@@ -107,7 +107,7 @@
         }
       }
 
-      &[title="amp-autocomplete"] {
+      &[title='amp-autocomplete'] {
         .grap-lnk {
           margin-top: 90px;
 
@@ -125,14 +125,14 @@
       max-height: 330px;
       right: 0;
       bottom: 0;
-      background: color("white");
+      background: color('white');
 
       @include respond-to('small') {
         width: 55%;
       }
 
       &:before {
-        content: "";
+        content: '';
         @include fill;
         top: -3px;
         left: -3px;
@@ -142,7 +142,7 @@
           225deg,
           color('robins-egg') 0%,
           color('blue-ribbon') 75%
-          );
+        );
         pointer-events: none;
       }
 
@@ -208,14 +208,14 @@
         amp-accordion {
           height: 100%;
           padding: 20px;
-          background-color: color("whisper");
+          background-color: color('whisper');
 
           section {
             position: relative;
             margin-bottom: 20px;
 
             &:after {
-              content: "";
+              content: '';
               position: absolute;
               top: 12px;
               right: 8px;
@@ -225,7 +225,7 @@
               background-repeat: no-repeat;
               pointer-events: none;
 
-              @include respond-to("small") {
+              @include respond-to('small') {
                 right: 16px;
               }
             }
@@ -241,7 +241,7 @@
 
           section > h2,
           section > p {
-            background-color: color("white");
+            background-color: color('white');
             padding: 10px 20px;
           }
 
@@ -279,7 +279,7 @@
           }
         }
 
-        amp-autocomplete > div[role="listbox"] {
+        amp-autocomplete > div[role='listbox'] {
           width: 100%;
           right: 0;
           box-shadow: 0 15px 35px -5px rgb(0 0 0 / 25%);

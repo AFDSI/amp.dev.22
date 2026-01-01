@@ -9,7 +9,7 @@ Le [code HTML requis pour une annonce AMPHTML](../../../../documentation/guides-
 À l'aide de votre éditeur de texte préféré, créez un fichier HTML nommé **`my-amphtml-ad.html`**. Copiez le balisage HTML suivant dans ce fichier:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Maintenant, modifions le code HTML pour en faire une annonce AMPHTML.
 Dans la balise `<html>`, ajoutez l'attribut `⚡4ads`, qui identifie le document en tant qu'annonce AMPHTML. Vous pouvez également spécifier l'attribut `amp4ads`, qui est également valide.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ Pour ajouter des styles à votre annonce AMPHTML, votre CSS doit être intégré
 Voici le code complet de votre fichier HTML:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

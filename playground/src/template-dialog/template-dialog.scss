@@ -39,7 +39,8 @@
     padding: 8px;
     list-style-type: none;
     cursor: pointer;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: color('athens-gray');
     }
     &.filtered {

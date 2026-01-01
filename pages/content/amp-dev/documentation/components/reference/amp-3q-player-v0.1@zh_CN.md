@@ -6,7 +6,6 @@ teaser:
   text: 嵌入来自3Q SDN的视频。
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -23,8 +22,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
-
 使AMP能够将3Q SDN中的视频嵌入到您的网站中。
 
 ## 用法
@@ -36,12 +33,13 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-3q-player
-  data-id="c8dbe7f4-7f7f-11e6-a407-0cc47a188158"
-  layout="responsive"
-  width="480"
-  height="270"
-></amp-3q-player>
-[/sourcecode]
+data-id="c8dbe7f4-7f7f-11e6-a407-0cc47a188158"
+layout="responsive"
+width="480"
+height="270"
+
+> </amp-3q-player>
+> [/sourcecode]
 
 ## 属性
 

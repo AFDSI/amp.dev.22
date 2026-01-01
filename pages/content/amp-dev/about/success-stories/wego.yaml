@@ -19,13 +19,11 @@ teaser:
     alt: Wego
   text: Wego.com increases mobile conversion rates 95% with AMP
 
-
 stage:
   headline: Wego.com increases mobile conversion rates 95% with AMP
   layout: mobile
   subline: MAY 11, 2017
   devices:
-
     - image_src: '/static/img/success-stories/wego/amp_wego_1.jpg'
       width: 3
       height: 5
@@ -46,7 +44,6 @@ kpis:
     text: Increase in ad CTRs
 
 contents:
-
   - layout: text-media
     image_src: '/static/img/success-stories/wego/amp_wego_1.jpg'
     width: 3

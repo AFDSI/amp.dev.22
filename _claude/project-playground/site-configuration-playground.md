@@ -27,19 +27,22 @@ const replace = require('gulp-replace');
  */
 function replacePlaygroundUrls() {
   const env = config.environment;
-  
+
   // Skip for local development
   if (env === 'development' || env === 'local') {
     return Promise.resolve();
   }
-  
+
   const playgroundHost = config.hosts.playground.base
     .replace('https://', '')
     .replace('http://', '');
-  
-  console.log(`[Playground URLs] Replacing playground.amp.dev with ${playgroundHost}`);
-  
-  return gulp.src(['dist/**/*.html', 'dist/**/*.json'])
+
+  console.log(
+    `[Playground URLs] Replacing playground.amp.dev with ${playgroundHost}`
+  );
+
+  return gulp
+    .src(['dist/**/*.html', 'dist/**/*.json'])
     .pipe(replace(/playground\.amp\.dev/g, playgroundHost))
     .pipe(gulp.dest('dist'));
 }
@@ -60,13 +63,14 @@ In the build task sequence, add `replacePlaygroundUrls` as a late-stage step (af
 // In the build sequence
 gulp.series(
   // ... existing tasks
-  'buildPages',        // Grow builds HTML
-  'replacePlaygroundUrls',  // Replace playground URLs
+  'buildPages', // Grow builds HTML
+  'replacePlaygroundUrls' // Replace playground URLs
   // ... remaining tasks
-)
+);
 ```
 
-**Verify:** 
+**Verify:**
+
 1. `npm run build:local` - URLs unchanged (development mode)
 2. `npm run build` (production) - Check `dist/**/*.html` for replaced URLs
 
@@ -83,13 +87,13 @@ function generateManifest() {
     short_name: config.shared.site.shortName,
     // ... other manifest fields
   };
-  
-  return file('manifest.json', JSON.stringify(manifest, null, 2))
-    .pipe(gulp.dest('dist/static'));
+
+  return file('manifest.json', JSON.stringify(manifest, null, 2)).pipe(
+    gulp.dest('dist/static')
+  );
 }
 ```
 
 **Verify:** `dist/static/manifest.json` contains config values.
 
 **Checkpoint 4 Complete:** Build pipeline handles playground URLs. Commit to Git.
-

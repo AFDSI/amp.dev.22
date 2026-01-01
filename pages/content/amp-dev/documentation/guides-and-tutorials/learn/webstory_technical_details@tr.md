@@ -26,7 +26,7 @@ Web Hikayesi, teknik olarak AMP ile oluşturulmuş tek bir web sayfasıdır ve A
 Bir AMP web sayfası ile AMP ile oluşturulmuş bir Web Hikayesi arasındaki fark, [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories) bileşenidir. `<body>` belgesinin doğrudan alt öğesidir ve `standalone` özniteliğini içermelidir. Tüm Web Hikayesi sayfaları, katmanları ve öğeleri `<amp-story>` etiketleri içinde tanımlanmıştır.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

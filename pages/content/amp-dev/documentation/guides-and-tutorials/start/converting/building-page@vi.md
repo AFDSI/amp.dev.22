@@ -14,7 +14,7 @@ Trong thư mục dự án, bạn sẽ thấy một tập tin tên là [`article.
 Tập tin `article.amp.html` của bạn nên có dạng như sau:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

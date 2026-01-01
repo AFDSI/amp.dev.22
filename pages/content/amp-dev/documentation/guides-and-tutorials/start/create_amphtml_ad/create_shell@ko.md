@@ -9,7 +9,7 @@ description: '가장 좋아하는 텍스트 에디터를 사용하여 my-amphtml
 가장 좋아하는 텍스트 에디터를 사용하여 **`my-amphtml-ad.html`**라는 이름의 HTML 파일을 생성합니다. 다음 HTML 마크업을 해당 파일에 붙여넣기합니다:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ description: '가장 좋아하는 텍스트 에디터를 사용하여 my-amphtml
 `<html> ` 태그에 `⚡4ads` 속성을 추가하면 문서가 AMPHTML 광고로 식별됩니다. 또는 유효한 다른 속성인 `amp4ads` 속성을 지정할 수도 있습니다.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ AMPHTML 광고 스타일링을 위해 `<head>` 섹션의 `<style amp-custom>` �
 HTML 파일의 완성된 코드는 다음과 같습니다.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

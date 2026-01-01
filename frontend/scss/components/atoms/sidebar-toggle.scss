@@ -7,14 +7,20 @@
 @import 'components/atoms/_text.scss';
 
 $originalSpeed: 0.233s;
-$originalEasing: cubic-bezier(0,0,.21,1);
+$originalEasing: cubic-bezier(0, 0, 0.21, 1);
 
-#sidebar-left[aria-hidden="true"]:not([hidden]) ~ .ap--main  {
+#sidebar-left[aria-hidden='true']:not([hidden]) ~ .ap--main {
   .ap-a-sidebar-mobile-toggle-label {
-    animation: moveSidebarToggleBackwards $originalSpeed $originalEasing forwards;
+    animation: moveSidebarToggleBackwards $originalSpeed $originalEasing
+      forwards;
 
-    .label-icon svg { transform: rotate(180deg); }
-    .label-title { transform: translateX(0) scaleX(1); transform-origin: left center; }
+    .label-icon svg {
+      transform: rotate(180deg);
+    }
+    .label-title {
+      transform: translateX(0) scaleX(1);
+      transform-origin: left center;
+    }
   }
 }
 
@@ -24,26 +30,39 @@ $originalEasing: cubic-bezier(0,0,.21,1);
     margin-left: 0;
     animation: moveSidebarToggleForwards $originalSpeed $originalEasing forwards;
 
-    .label-icon svg { transform: rotate(0); }
-    .label-title { transform: translateX(-150vw) scaleX(0); transform-origin: left center; }
+    .label-icon svg {
+      transform: rotate(0);
+    }
+    .label-title {
+      transform: translateX(-150vw) scaleX(0);
+      transform-origin: left center;
+    }
   }
 }
 
 #sidebar-left[open] ~ .ap--main,
-#sidebar-left[aria-hidden="true"]:not([hidden]) ~ .ap--main {
+#sidebar-left[aria-hidden='true']:not([hidden]) ~ .ap--main {
   .ap-a-sidebar-mobile-toggle-label {
     z-index: 9999999999;
   }
 }
 
 @keyframes moveSidebarToggleBackwards {
-  from { transform: translateX(calc(90vw - 50%)); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(calc(90vw - 50%));
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes moveSidebarToggleForwards {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(90vw - 50%)); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(90vw - 50%));
+  }
 }
 
 .#{utility('sidebar-toggle-observer')} {
@@ -77,7 +96,7 @@ $originalEasing: cubic-bezier(0,0,.21,1);
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.25);
       z-index: 1;
 
       svg {
@@ -97,7 +116,7 @@ $originalEasing: cubic-bezier(0,0,.21,1);
       white-space: nowrap;
       border-radius: 0 4px 4px 0;
       background: color('blue-ribbon');
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.25);
       transform: scale3d(0, 1, 1);
       transform-origin: left;
       transition: transform $originalSpeed $originalEasing;
@@ -152,7 +171,7 @@ $originalEasing: cubic-bezier(0,0,.21,1);
 
     &-input {
       &:checked {
-        &~ .ap--sidebar {
+        & ~ .ap--sidebar {
           grid-column: 1 / 2;
           nav {
             display: none;
@@ -161,12 +180,12 @@ $originalEasing: cubic-bezier(0,0,.21,1);
             transform: rotate(180deg);
           }
         }
-        &~ .ap--toc {
+        & ~ .ap--toc {
           @media (max-width: 1023px) {
             grid-column: 2 / 25;
           }
         }
-        &~ .ap--toc ~ .ap--content  {
+        & ~ .ap--toc ~ .ap--content {
           padding-left: 80px;
           padding-right: 80px;
           grid-column: 2 / 20;
@@ -175,7 +194,8 @@ $originalEasing: cubic-bezier(0,0,.21,1);
           }
         }
 
-        &~ .ap--content, &~ .ap--help  {
+        & ~ .ap--content,
+        & ~ .ap--help {
           grid-column-start: 2;
           padding-left: 80px;
           padding-right: 80px;

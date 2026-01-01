@@ -324,7 +324,7 @@ Leia mais: Saiba mais sobre o sistema de layout AMP na [especificação de layou
 O documento AMP será parecido com isto:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

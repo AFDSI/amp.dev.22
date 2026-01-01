@@ -17,7 +17,6 @@
 $BIG_WDITH: 1224px;
 $MED_WIDTH: 768px;
 
-
 .#{organism('fragment-slider')} {
   &-text {
     grid-column: 1 / -1;
@@ -32,7 +31,8 @@ $MED_WIDTH: 768px;
       margin-top: -20px;
       grid-column: 14 / 22;
     }
-    h2,h3 {
+    h2,
+    h3 {
       @media (min-width: $BIG_WDITH) {
         @include color-white;
       }
@@ -45,7 +45,9 @@ $MED_WIDTH: 768px;
         min-width: 100%;
       }
       opacity: 0;
-      transition: opacity 400ms, transform 400ms;
+      transition:
+        opacity 400ms,
+        transform 400ms;
       transition-delay: 400ms;
       &.active {
         opacity: 1;

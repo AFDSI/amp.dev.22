@@ -112,6 +112,7 @@ A titolo di esempio, segue la struttura dell'HTML finale per la mappa dei posti:
 <amp-selector multiple on="select:AMP.setState({
           selectedSeats: event.selectedOptions
         })" layout="fill">
+
 <div class="svg-container">
 <svg preserveAspectRatio="xMidYMin slice" viewBox="0 0 {{width}} {{height}}">
 {{#seats}}

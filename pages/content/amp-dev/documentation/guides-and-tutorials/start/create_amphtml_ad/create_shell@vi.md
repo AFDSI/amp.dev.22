@@ -9,7 +9,7 @@ description: 'Sử dụng trình soạn văn bản ưa thích của bạn, tạo
 Sử dụng trình soạn văn bản ưa thích của bạn, tạo một tập tin HTML tên là **`my-amphtml-ad.html`**. Sao chép đánh dấu HTML sau vào tập tin đó:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,7 +27,7 @@ Bây giờ, hãy sửa đổi HTML để biến nó thành một quảng cáo AM
 Trong thẻ `<html> `, thêm thuộc tính `⚡4ads`, xác định tài liệu này là một quảng cáo AMPHTML. Hoặc, bạn cũng có thể quy định thuộc tính `amp4ads`, cũng là một lựa chọn hợp lệ.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     ...
@@ -60,7 +60,7 @@ Các quảng cáo AMPHTML đòi hỏi một kiểu phong cách [code soạn sẵ
 Đây là đoạn mã hoàn chỉnh cho tập tin HTML của bạn:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4ads>
   <head>
     <meta charset="utf-8" />

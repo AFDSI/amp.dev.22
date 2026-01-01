@@ -19,7 +19,6 @@ teaser:
     alt: Renovation Brands
   text: Renovation Brands improves speed and site duration with AMP
 
-
 stage:
   headline: Renovation Brands improves speed and site duration with AMP
   layout: mobile
@@ -42,9 +41,8 @@ kpis:
     text: Lower bounce rate
 
 contents:
-
   - layout: text
-    text: "Renovation Brands, a top 500 e-retailer, is the parent company of multiple fast-growing home improvement products brands serving both residential and commercial customers in the renovation space. With sites such as American Tin Ceilings, Renovation Brands has a distinct focus on a user-first digital experience."
+    text: 'Renovation Brands, a top 500 e-retailer, is the parent company of multiple fast-growing home improvement products brands serving both residential and commercial customers in the renovation space. With sites such as American Tin Ceilings, Renovation Brands has a distinct focus on a user-first digital experience.'
     direction: left-flat
 
   - layout: text-media
@@ -64,6 +62,6 @@ contents:
     type: mobile
     alt: Renovation Brands
     headline: Results
-    text: "“AMP lets us quickly generate new, interactive content while optimizing our overall site experience,” James shares. “Building and testing AMP pages is a breeze for our design team, and the capacity of our A/B testing has nearly tripled. And introducing new interactive pages like AMP stories will help us get the most out of our content.”<br><br>For all their web traffic, Renovation Brands saw 27% longer session duration, 24% more pages per session, and a 30% lower bounce rate on their new AMP pages. Specifically for Google Shopping campaign traffic directed to AMP pages, session duration rose 124%, pages per session doubled, and the bounce rate dropped by 56%. In addition, average load times fell by nearly half, from 6.5 to 3.5 seconds, while the conversion rate rose 79%.<br><br>“Using all possible channel types was key for us, to test the increases in performance compared to the non-AMP experience,” James adds. “By deploying AMP pages to multiple platforms, we’ve been able to unify all front-end development. As a result, our development costs have been cut nearly 60%.”"
+    text: '“AMP lets us quickly generate new, interactive content while optimizing our overall site experience,” James shares. “Building and testing AMP pages is a breeze for our design team, and the capacity of our A/B testing has nearly tripled. And introducing new interactive pages like AMP stories will help us get the most out of our content.”<br><br>For all their web traffic, Renovation Brands saw 27% longer session duration, 24% more pages per session, and a 30% lower bounce rate on their new AMP pages. Specifically for Google Shopping campaign traffic directed to AMP pages, session duration rose 124%, pages per session doubled, and the bounce rate dropped by 56%. In addition, average load times fell by nearly half, from 6.5 to 3.5 seconds, while the conversion rate rose 79%.<br><br>“Using all possible channel types was key for us, to test the increases in performance compared to the non-AMP experience,” James adds. “By deploying AMP pages to multiple platforms, we’ve been able to unify all front-end development. As a result, our development costs have been cut nearly 60%.”'
     direction: left-flat
     download_url: '/static/files/case-studies/renovation_brands.pdf'

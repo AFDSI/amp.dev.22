@@ -11,7 +11,7 @@ An AMP page is an HTML page with some restrictions for reliable performance. AMP
 A bare bones AMP page looks like this:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

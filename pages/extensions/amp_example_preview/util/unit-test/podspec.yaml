@@ -11,4 +11,3 @@ deployments:
   default:
     name: default
     destination: local
-

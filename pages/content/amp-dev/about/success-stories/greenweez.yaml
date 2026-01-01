@@ -23,7 +23,6 @@ stage:
   layout: mobile
   subline: JUNE 6, 2017
   devices:
-
     - image_src: '/static/img/success-stories/greenweez/amp_greenweez_1.jpg'
       width: 3
       height: 5

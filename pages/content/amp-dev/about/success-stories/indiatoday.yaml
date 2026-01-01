@@ -19,13 +19,11 @@ teaser:
     alt: India Today
   text: India Today delights readers and boosts revenue with AMP
 
-
 stage:
   headline: India Today delights readers and boosts revenue with AMP
   layout: mobile
   subline: FEB 13, 2018
   devices:
-
     - image_src: '/static/img/success-stories/indiatoday/amp_indiatoday_1.jpg'
       width: 3
       height: 5
@@ -61,7 +59,7 @@ contents:
     image_src: '/static/img/success-stories/indiatoday/indiatoday_logo.jpg'
     width: 340
     height: 154
-    author:  Sanjay Nagpal, India Today’s Head of Technology
+    author: Sanjay Nagpal, India Today’s Head of Technology
     alt: India Today
     story_url: https://google.com
 

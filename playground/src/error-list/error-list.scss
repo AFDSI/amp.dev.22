@@ -1,7 +1,6 @@
 @import 'components/atoms/_text.scss';
 
 #error-list {
-
   .fly-in-content {
     padding: 0;
   }
@@ -32,7 +31,8 @@
     background-repeat: no-repeat;
     border-bottom: 1px solid color('iron');
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: color('athens-gray');
     }
   }
@@ -43,7 +43,8 @@
     color: color('river-bed');
   }
 
-  .location, .category {
+  .location,
+  .category {
     padding-top: 8px;
     line-height: 18px;
     font-size: 14px;
@@ -68,5 +69,4 @@
     justify-content: center;
     align-items: center;
   }
-
 }

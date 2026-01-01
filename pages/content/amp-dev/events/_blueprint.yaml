@@ -7,5 +7,5 @@ $order: 4
 
 index: /content/amp-dev/events/amp-fest-2020.html
 flyout:
-    - /content/amp-dev/events/amp-fest-2020.html
-    - /content/amp-dev/events/amp-roadshow.html
+  - /content/amp-dev/events/amp-fest-2020.html
+  - /content/amp-dev/events/amp-roadshow.html

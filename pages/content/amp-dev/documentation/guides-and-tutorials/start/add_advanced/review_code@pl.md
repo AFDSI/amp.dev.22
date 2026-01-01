@@ -7,7 +7,7 @@ description: Zanim zaczniemy dodawać kod, przeanalizujmy przykładową stronę 
 Zanim zaczniemy dodawać kod, przeanalizujmy przykładową stronę article.amp.html, która powinna wyglądać następująco:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

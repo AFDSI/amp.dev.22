@@ -14,10 +14,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
-
-
 [tip type="note"]
 This documentation covers actions and events for the AMP email format. Read [Actions and events](https://github.com/ampproject/amphtml/blob/master/docs/spec/amp-actions-and-events.md) for AMP websites, stories and ads.
 [/tip]

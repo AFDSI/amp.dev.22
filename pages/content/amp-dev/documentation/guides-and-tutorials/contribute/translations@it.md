@@ -22,12 +22,12 @@ Il Progetto AMP sta eseguendo un processo di traduzione interna della documentaz
 ### Attualmente, il nostro processo è il seguente:
 
 1. Ricerca di un file da tradurre.
-2. Creazione di una [segnalazione GitHub](https://github.com/ampproject/docs/issues/new). * Dichiarare in quale lingua si sta traducendo il documento. * Indicare il nome del file che si desidera tradurre o aggiornare. * Fornire una stima approssimativa della quantità di file in corso di traduzione.
-    - File completi
-    - Parti di file
-    - Alcune condizioni * Fornire una stima generale per la durata del lavoro di traduzione * Includere nelle comunicazioni [@CrystalOnScript](https://github.com/CrystalOnScript) in modo che possa ricevere le richieste di localizzazione e informare i collaboratori se qualcuno sta già lavorando alla stessa traduzione:
-    - Sì! Puoi tradurre questo documento!
-    - Grazie per l'interessamento, ma il nostro team interno o un volontario stanno già attualmente lavorando a questo documento. Sarai aggiunto come revisore del documento prima che sia pubblicato.
+2. Creazione di una [segnalazione GitHub](https://github.com/ampproject/docs/issues/new). _ Dichiarare in quale lingua si sta traducendo il documento. _ Indicare il nome del file che si desidera tradurre o aggiornare. \* Fornire una stima approssimativa della quantità di file in corso di traduzione.
+   - File completi
+   - Parti di file
+   - Alcune condizioni _ Fornire una stima generale per la durata del lavoro di traduzione _ Includere nelle comunicazioni [@CrystalOnScript](https://github.com/CrystalOnScript) in modo che possa ricevere le richieste di localizzazione e informare i collaboratori se qualcuno sta già lavorando alla stessa traduzione:
+   - Sì! Puoi tradurre questo documento!
+   - Grazie per l'interessamento, ma il nostro team interno o un volontario stanno già attualmente lavorando a questo documento. Sarai aggiunto come revisore del documento prima che sia pubblicato.
 
 Molti dei collaboratori alla traduzione sono iscritti ai canali Slack. Ti invitiamo a unirti a loro e presentarti! Iscriviti al [canale Slack AMP qui](https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877).
 
@@ -37,20 +37,20 @@ Il sito web [amp.dev](https://amp.dev/) distingue i file localizzati aggiungendo
 
 #### suffissi per i file delle traduzioni in amp.dev
 
-Lingua | Suffisso
---- | :-:
-Arabo | `@ar`
-Spagnolo | `@es`
-Francese | `@fr`
-Indonesiano | `@id`
-Italiano | `@it`
-Giapponese | `@ja`
-Coreano | `@ko`
-Portoghese Brasiliano | `@pt_BR`
-Russo | `@ru`
-Turco | `@tr`
-Vietnamita | `@vi`
-Cinese | `@zh_CN`
+| Lingua                | Suffisso |
+| --------------------- | :------: |
+| Arabo                 |  `@ar`   |
+| Spagnolo              |  `@es`   |
+| Francese              |  `@fr`   |
+| Indonesiano           |  `@id`   |
+| Italiano              |  `@it`   |
+| Giapponese            |  `@ja`   |
+| Coreano               |  `@ko`   |
+| Portoghese Brasiliano | `@pt_BR` |
+| Russo                 |  `@ru`   |
+| Turco                 |  `@tr`   |
+| Vietnamita            |  `@vi`   |
+| Cinese                | `@zh_CN` |
 
 ## Comunità
 

@@ -68,7 +68,7 @@
       left: 15px;
     }
 
-    div[role="listbox"] {
+    div[role='listbox'] {
       width: 100%;
       max-height: 210px;
       margin-top: -4px;
@@ -85,7 +85,7 @@
         top: 0;
         width: calc(100% - 20px);
         height: 1px;
-        background: #CECED2;
+        background: #ceced2;
         z-index: 1;
 
         @media (min-width: 1024px) {
@@ -95,7 +95,7 @@
       }
     }
 
-    div[role="option"] {
+    div[role='option'] {
       padding: 14px 60px;
       @include txt-font-accent;
       color: color('charade');
@@ -105,8 +105,8 @@
       }
     }
 
-    div[role="option"]:hover,
-    div[role="option"][aria-selected="true"] {
+    div[role='option']:hover,
+    div[role='option'][aria-selected='true'] {
       color: color('blue-ribbon');
       background: none;
     }
@@ -128,8 +128,12 @@
       padding: 20px 20px 20px 40px;
     }
 
-    &::-webkit-input-placeholder { color: #CECED2; }
-    &::-moz-placeholder { color: #CECED2; }
+    &::-webkit-input-placeholder {
+      color: #ceced2;
+    }
+    &::-moz-placeholder {
+      color: #ceced2;
+    }
 
     &:focus {
       outline: none;
@@ -218,7 +222,11 @@
       position: sticky;
       position: -webkit-sticky;
       top: 0;
-      background: linear-gradient(0deg, rgba(color('whisper'), 0) 0%, color('whisper') 100%);
+      background: linear-gradient(
+        0deg,
+        rgba(color('whisper'), 0) 0%,
+        color('whisper') 100%
+      );
       z-index: 1;
     }
 
@@ -238,8 +246,8 @@
     &-category {
       padding: 30px 0 0;
       margin: 1.5rem 25px 10px;
-      color: #CECED2;
-      border-top: 1px solid #CECED2;
+      color: #ceced2;
+      border-top: 1px solid #ceced2;
 
       @media (min-width: 1024px) {
         margin: 1.5rem 60px 10px;
@@ -296,7 +304,7 @@
       justify-content: flex-end;
       padding: 0 0 5px;
       margin: 0 15px;
-      border-top: 1px solid #E8E8E9;
+      border-top: 1px solid #e8e8e9;
 
       @media (min-width: 1024px) {
         padding: 0;
@@ -314,7 +322,7 @@
         }
 
         .#{molecule('lnk-text')} {
-          font-size: .75rem;
+          font-size: 0.75rem;
         }
 
         .#{molecule('lnk-icon')} {
@@ -342,7 +350,7 @@
     }
 
     &-description {
-      font-size: .875rem;
+      font-size: 0.875rem;
       line-height: 1.6;
       margin: 0;
     }
@@ -353,13 +361,13 @@
       margin-bottom: 2rem;
 
       .#{atom('btn')} {
-        padding: .5rem 2rem;
-        font-size: .875rem;
+        padding: 0.5rem 2rem;
+        font-size: 0.875rem;
         color: color('blue-ribbon');
         border: 2px solid color('blue-ribbon');
         background: transparent;
         box-shadow: none;
-        opacity: .6;
+        opacity: 0.6;
 
         &:hover {
           transform: none;
@@ -374,7 +382,7 @@
 
     &-hint {
       padding: 0 25px;
-      font-size: .75rem;
+      font-size: 0.75rem;
 
       @media (min-width: 1024px) {
         padding: 0 60px;

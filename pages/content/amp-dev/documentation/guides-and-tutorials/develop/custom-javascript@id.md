@@ -3,7 +3,7 @@ $title: Gunakan JavaScript kustom di halaman AMP
 $order: 7
 author: CrystalOnScript
 contributors:
-- fstanis
+  - fstanis
 description: Untuk sejumlah pengalaman web yang membutuhkan jumlah kustomisasi yang tinggi, AMP telah membuat amp-script, sebuah komponen yang memungkinkan penggunaan JavaScript sesuai keinginan Anda pada halaman AMP tanpa memengaruhi kinerja keseluruhan halaman.
 ---
 
@@ -63,7 +63,7 @@ Contohnya, jika dimulai dengan kode di bawah ini:
 DOM pekerja mengizinkan perubahan minor pada struktur, namun tidak mengizinkannya pada konten:
 
 ```html
- <text>Hello </text><text>world</text>
+<text>Hello </text><text>world</text>
 ```
 
 ## Manipulasi DOM
@@ -92,8 +92,7 @@ Jika Anda ingin memanggil `document.body.appendChild(document.createElement('spa
 <body>
   <p>Hello!</p>
   <div>
-    <amp-script layout="container" src="customjs.js">
-    </amp-script>
+    <amp-script layout="container" src="customjs.js"> </amp-script>
   </div>
 </body>
 ```

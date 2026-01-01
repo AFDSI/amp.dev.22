@@ -2,7 +2,7 @@
 $title: التحقق من صحة صفحات AMP
 ---
 
-لا تقتصر الميزة الأساسية لتطبيق AMP على زيادة سرعة صفحاتك تحميل، ولكنها تجعل صفحاتك سريعة على نحو يمكن معه *التحقق من صحتها*. وبناءً على ذلك، يمكن للجهات الأخرى، مثل Twitter أو Instagram أو بحث Google الثقة في عرض صفحات AMP للقرّاء من خلال طُرُق أكثر تشويقًا.
+لا تقتصر الميزة الأساسية لتطبيق AMP على زيادة سرعة صفحاتك تحميل، ولكنها تجعل صفحاتك سريعة على نحو يمكن معه _التحقق من صحتها_. وبناءً على ذلك، يمكن للجهات الأخرى، مثل Twitter أو Instagram أو بحث Google الثقة في عرض صفحات AMP للقرّاء من خلال طُرُق أكثر تشويقًا.
 
 ## كيف يمكنني معرفة ما اذا كانت صفحتي هي صفحة AMP صالحة؟
 
@@ -16,9 +16,9 @@ $title: التحقق من صحة صفحات AMP
 
 تتوفّر أداة التحقق من صفحة صفحات AMP مصحوبة بمكتبة AMP JS، وبالتالي فهو متاحة في كل صفحة من صفحات AMP بشكل فوري. للتحقق من الصحة:
 
-  1. فتح صفحة AMP في متصفحك
-  1. أضف "`#development=1`" إلى عنوان URL، على سبيل المثال، `http://localhost:8000/released.amp.html#development=1`.
-  1. افتح [وحدة تحكم Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/debug/console/) وابحث عن أخطاء التحقق من الصحة.
+1. فتح صفحة AMP في متصفحك
+1. أضف "`#development=1`" إلى عنوان URL، على سبيل المثال، `http://localhost:8000/released.amp.html#development=1`.
+1. افتح [وحدة تحكم Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/debug/console/) وابحث عن أخطاء التحقق من الصحة.
 
 ستبدو أخطاء Developer Console على النحو التالي:
 
@@ -50,6 +50,7 @@ $title: التحقق من صحة صفحات AMP
     <td>عند وجود أخطاء في صفحة AMP، سيظهر رمز
       الإضافة بلون أحمر ويعرض عدد الأخطاء التي حدثت.
     </td>
+
   </tr>
   <tr>
     <td>
@@ -59,6 +60,7 @@ $title: التحقق من صحة صفحات AMP
     <td>عند عدم وجود أخطاء في صفحة AMP، سيعرض الرمز لونًا
       أخضر مع بيان عدد التحذيرات، إن وجدت.
     </td>
+
   </tr>
   <tr>
     <td>
@@ -69,6 +71,7 @@ $title: التحقق من صحة صفحات AMP
       فسيظهر الرمز بلون أزرق مع رمز رابط، حيث يؤدي النقر على
       الإضافة إلى إعادة توجيه المتصفّح إلى إصدار AMP.
     </td>
+
   </tr>
 </table>
 
@@ -120,12 +123,12 @@ minimum_valid_amp.html: PASS
 [sourcecode:console]
 $ amphtml-validator --help
 
-  Usage: index [options] <fileOrUrlOrMinus...>
+Usage: index [options] <fileOrUrlOrMinus...>
 
-  Validates the files or urls provided as arguments. If "-" is
-  specified, reads from stdin instead.
+Validates the files or urls provided as arguments. If "-" is
+specified, reads from stdin instead.
 
-  Options:
+Options:
 
     -h, --help                  output usage information
     -V, --version               output the version number
@@ -140,6 +143,7 @@ $ amphtml-validator --help
               supporting color).
       "json"  emits json corresponding to the ValidationResult
               message in validator.proto.
+
 [/sourcecode]
 
 ## ماذا يحدث إذا كانت صفحتي غير صالحة؟
@@ -156,22 +160,22 @@ $ amphtml-validator --help
 
 والتي ينتج عنها خطأ التحقق من صحة صفحات AMP التالي، كما هو موضح في هذه الأدوات مختلفة:
 
-* وحدة تحكم Developer Console بالمتصفّح
-<amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="30" src="/static/img/docs/validator_console_imgerror.png" width="696" layout="responsive"></amp-img>
-* واجهة الويب
-<amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="58" src="/static/img/docs/validator_webui_imgerror.png" width="676" layout="responsive"></amp-img>
-* <amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="108" src="/static/img/docs/validator_extension_imgerror.png" width="724" layout="responsive"></amp-img>
+- وحدة تحكم Developer Console بالمتصفّح
+  <amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="30" src="/static/img/docs/validator_console_imgerror.png" width="696" layout="responsive"></amp-img>
+- واجهة الويب
+  <amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="58" src="/static/img/docs/validator_webui_imgerror.png" width="676" layout="responsive"></amp-img>
+- <amp-img alt="AMP error: The tag &#39;img&#39; may only appear as a descendant of tag &#39;noscript&#39;. Did you mean &#39;amp-img&#39;? line 11, column 2" height="108" src="/static/img/docs/validator_extension_imgerror.png" width="724" layout="responsive"></amp-img>
 
 تقدّم كل أداة عدة معلومات كما يلي:
 
-  1. الموقع (السطر والعمود) في مستند HTML الذي ورد به الخطأ
-     ، حيث يمكن النقر عليه في بي بضع الواجهات لتمييز الموقع. وفي هذه الحالة
-     ، تظهر المشكلة في السطر 11، بالعمود 2.
-  1. سطر نصّي يصف الخطأ. وفي هذه الحالة، يشير النص إلى
-     استخدامنا لعلامة `<img>` في حين كان يجب استخدام علامة [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
-  1. رابط إلى مستند ذي صلة يتعلق بالخطأ. في هذه الحالة،
-     مستندات لعلامة [`<amp-img>`](../../../../documentation/components/reference/amp-img.md). ولا تنشئ كل الأخطاء
-     روابط للمستندات.
+1. الموقع (السطر والعمود) في مستند HTML الذي ورد به الخطأ
+   ، حيث يمكن النقر عليه في بي بضع الواجهات لتمييز الموقع. وفي هذه الحالة
+   ، تظهر المشكلة في السطر 11، بالعمود 2.
+1. سطر نصّي يصف الخطأ. وفي هذه الحالة، يشير النص إلى
+   استخدامنا لعلامة `<img>` في حين كان يجب استخدام علامة [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
+1. رابط إلى مستند ذي صلة يتعلق بالخطأ. في هذه الحالة،
+   مستندات لعلامة [`<amp-img>`](../../../../documentation/components/reference/amp-img.md). ولا تنشئ كل الأخطاء
+   روابط للمستندات.
 
 بعد إعادة قراءة المواصفات بعناية، تبيّن لنا أننا نستخدم علامة `<img>`، في حين كان يجب استخدم علامة [`<amp-img>`](../../../../documentation/components/reference/amp-img.md).
 

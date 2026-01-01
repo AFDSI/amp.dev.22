@@ -15,7 +15,7 @@ teaser:
   download_url: '/static/files/templates/e-commerce.zip'
   template_demo_home: 'websites/e-commerce/templates/landing.amp.html'
   template_github_home: 'websites/e-commerce'
- 
+
 document:
   pages: /content/amp-dev/documentation/templates/bikeshop/pages
   description: The Bike Shop e-commerce template includes the core pages of a typical e-commerce site.

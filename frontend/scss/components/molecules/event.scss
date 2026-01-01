@@ -25,9 +25,7 @@ none
 @import 'components/atoms/_color.scss';
 @import 'components/atoms/_icon.scss';
 
-
 .#{molecule('event')} {
-
   @include roadshow-event-shadow;
   flex: 0 0 calc(100% - 15px);
   display: flex;
@@ -44,16 +42,16 @@ none
     flex: 0 0 calc(33.33% - 20px);
   }
 
-	&-date {
-		text-align: right;
+  &-date {
+    text-align: right;
 
-		span:last-child {
-			display: block;
-			line-height: 1.4em;
-		}
-	}
+    span:last-child {
+      display: block;
+      line-height: 1.4em;
+    }
+  }
 
-	&-content {
+  &-content {
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -81,7 +79,6 @@ none
       &-year {
         color: fade_out(color('black'), 0.8);
       }
-
     }
 
     &-city {
@@ -98,7 +95,6 @@ none
     }
 
     &-details {
-
       &-time {
         @include txt;
         @include txt-3;
@@ -125,5 +121,5 @@ none
         margin-right: 5px;
       }
     }
-	}
+  }
 }

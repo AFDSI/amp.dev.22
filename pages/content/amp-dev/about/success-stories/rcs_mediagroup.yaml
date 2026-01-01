@@ -19,7 +19,6 @@ teaser:
     alt: RCS MediaGroup
   text: RCS MediaGroup reports good news with AMP and PWA
 
-
 stage:
   headline: RCS MediaGroup reports good news with AMP and PWA
   layout: mobile
@@ -42,7 +41,6 @@ kpis:
     text: Faster page load times
 
 contents:
-
   - layout: text
     text: The story of RCS MediaGroup began with Angelo Rizzoli’s one-man printing shop in Milan in the early 1900s. Today they’re one of Europe’s top multimedia groups, publishing newspapers,  magazines and online content primarily in Italy and Spain. Their newspapers include Corriere della Sera, La Gazzetta dello Sport,  and El Mundo, and their magazines include Oggi, Amica, Io Donna, Living, Style Magazine, Dove, Abitare, Sette and Sport Week. With so many content assets online (and increasingly accessed by mobile device users), they knew that AMP could help engage readers with a faster, higher-performing experience.
     direction: left-flat

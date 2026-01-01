@@ -46,14 +46,13 @@ body {
       grid-column: 6 / 25;
     }
 
-    .#{atom('sidebar-toggle-label')}{
+    .#{atom('sidebar-toggle-label')} {
       margin-left: -25px;
 
       @media (min-width: 768px) {
         margin-left: -30px;
       }
     }
-
   }
 
   .#{utility('sidebar')} {
@@ -70,14 +69,14 @@ body {
   }
 
   .#{utility('benefits--list')} {
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       display: flex;
     }
 
     .#{molecule('benefit')} {
       margin: 20px 0;
 
-      @media (min-width: 768px){
+      @media (min-width: 768px) {
         margin-right: 40px;
       }
     }
@@ -91,14 +90,19 @@ body {
     padding: 20px 30px 20px 30px;
     margin: 2em -30px;
     text-align: center;
-    background: linear-gradient(to bottom, color('whisper') 0%, color('whisper') 80%, rgba(250, 250, 252, 0) 100%);
+    background: linear-gradient(
+      to bottom,
+      color('whisper') 0%,
+      color('whisper') 80%,
+      rgba(250, 250, 252, 0) 100%
+    );
 
     &-item {
       @include txt;
 
       &:not(:last-child):after {
         color: color('iron');
-        content: " |";
+        content: ' |';
       }
     }
   }
@@ -109,7 +113,7 @@ body {
       margin: 0;
       padding: 0;
       .#{molecule('teaser-component')} {
-        @media (max-width: 559px){
+        @media (max-width: 559px) {
           margin: 0 0 2em 0;
         }
         .#{molecule('teaser')} {

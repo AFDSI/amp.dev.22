@@ -14,7 +14,7 @@ Proje dizininde, [`article.html`](https://github.com/googlecodelabs/accelerated-
 `article.amp.html` dosyanız aşağıdaki gibi görünmelidir:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

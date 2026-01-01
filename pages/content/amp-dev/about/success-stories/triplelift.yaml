@@ -19,13 +19,11 @@ teaser:
     alt: Triplelift
   text: Triplelift and Cloudflare boost Time Inc.’s revenue with AMP Ads
 
-
 stage:
   headline: Triplelift and Cloudflare boost Time Inc.’s revenue with AMP Ads
   layout: mobile
   subline: MAY 5, 2017
   devices:
-
     - image_src: '/static/img/success-stories/triplelift/amp_triplelift.jpg'
       width: 3
       height: 5

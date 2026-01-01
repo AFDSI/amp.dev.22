@@ -44,6 +44,7 @@ Web ストーリーは、ページで直接 [`amp-ad`](../../../documentation/co
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

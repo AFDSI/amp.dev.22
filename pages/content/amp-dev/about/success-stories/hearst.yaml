@@ -19,13 +19,11 @@ teaser:
     alt: Hearst
   text: Hearst integrates key partner and product solutions on AMP
 
-
 stage:
   headline: Hearst integrates key partner and product solutions on AMP
   layout: mobile
   subline: JANUARY 24, 2017
   devices:
-
     - image_src: '/static/img/success-stories/milestone/amp_milestone_1.jpg'
       width: 3
       height: 5
@@ -43,7 +41,6 @@ kpis:
     text: AMP pages published
 
 contents:
-
   - layout: text
     text: Hearst is one of the world’s largest media and information companies with household name brands including Elle, Cosmopolitan, Esquire, and more. With 70% of global traffic on mobile devices, Hearst recognizes the need to deliver fast and compelling user experiences across all screens. “We saw AMP as a perfect way to make mobile experiences as enjoyable as possible for users with fast-loading content and rich features,” said Phil Wiser, Chief Technology Officer.<br><br>However, Hearst knew that they could not deliver a fast user experience at the expense of their business model. Before making the move to implement AMP, they needed to ensure that their ability to monetize, optimize, and track performance of their revenue streams would not be sacrificed.
     direction: left-flat

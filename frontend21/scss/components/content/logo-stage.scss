@@ -34,9 +34,9 @@
     flex: 1 0 25%;
     max-width: 168px;
 
-   @include respond-to('small') {
-     max-width: 180px;
-   }
+    @include respond-to('small') {
+      max-width: 180px;
+    }
   }
 
   &-headline {

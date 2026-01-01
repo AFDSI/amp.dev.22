@@ -5,6 +5,7 @@
 1. **Create Sheet:** "AMP Site Data" with tabs: "Star Ratings", "Contact Submissions"
 
 2. **Service Account:**
+
    - Google Cloud Console → Create service account
    - Enable Sheets API
    - Create JSON key

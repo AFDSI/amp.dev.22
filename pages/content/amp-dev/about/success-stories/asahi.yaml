@@ -18,31 +18,28 @@ teaser:
     alt: asahi
   text: Asahi.com uses a paired AMP approach for their free articles
 
-
 stage:
   headline: Asahi.com uses a paired AMP approach for their free articles
   layout: mobile
   subline:
   devices:
-  - image_src: '/static/img/success-stories/asahi/ss_with_ads.jpg'
-    width: 3
-    height: 5
-    type: mobile
-    alt: asahi
+    - image_src: '/static/img/success-stories/asahi/ss_with_ads.jpg'
+      width: 3
+      height: 5
+      type: mobile
+      alt: asahi
 
 kpis:
   - value: 240%
-    text: "PVs (YoY)<br>*YoY: May in 2018 and 2019."
+    text: 'PVs (YoY)<br>*YoY: May in 2018 and 2019.'
 
   - value: 201%
-    text: "Average growth in CTRs (YoY)<br>*YoY: May in 2018 and 2019."
+    text: 'Average growth in CTRs (YoY)<br>*YoY: May in 2018 and 2019.'
 
   - value: 344%
-    text: "Ad revenue (YoY)<br>*YoY: May in 2018 and 2019."
-
+    text: 'Ad revenue (YoY)<br>*YoY: May in 2018 and 2019.'
 
 contents:
-
   - layout: text
     text: Asahi Shimbun is the second largest newspaper company in Japan with a 140-year history, based on the corporate philosophy of "think together and create together". To showcase journalism should be in the digital domain, they operate a website called Asahi Shimbun Digital. Because a large portion of their traffic comes from mobile devices, they conducted a mobile site acceleration project last year to increase their mobile page speed<br><br><a href="https://www.asahi.com/">Asahi.com</a> uses a paired AMP approach for their free articles across 30% of their domain. Because of this focus, they decided to use AMP's superiority in UX optimization and display in mobile search to optimize their AMP pages even further, including using <a href="https://blog.amp.dev/2018/10/08/how-to-make-amp-even-faster/">strategies shared on amp.dev</a>. They made these improvements to their AMP site without having to make major infrastructure changes. Instead they worked towards a faster page display while securing the visibility of the user on the page displayed in the cache..
     direction: left-flat
@@ -63,7 +60,7 @@ contents:
     direction: left-flat
 
   - layout: quote
-    quote: "AMP offers great extensibility and an improved user experience despite the same easy coding as HTML. In particular, even with minimal changes to the infrastructure, the speeding up of pages through caching works, which in turn makes the Web more attractive in the mobile world.<br>On our AMP page, we implemented components such as amp-list (infinite scroll) and Native infeed that were released the other day to further improve the user experience. In the future, we will aim to provide a site that more meets the needs of users while following the latest expression technologies such as AMP Email and AMP Stories, which must be widespread after this."
+    quote: 'AMP offers great extensibility and an improved user experience despite the same easy coding as HTML. In particular, even with minimal changes to the infrastructure, the speeding up of pages through caching works, which in turn makes the Web more attractive in the mobile world.<br>On our AMP page, we implemented components such as amp-list (infinite scroll) and Native infeed that were released the other day to further improve the user experience. In the future, we will aim to provide a site that more meets the needs of users while following the latest expression technologies such as AMP Email and AMP Stories, which must be widespread after this.'
     image_src: '/static/img/success-stories/asahi/asahi_logo.jpg'
     width: 156
     height: 51

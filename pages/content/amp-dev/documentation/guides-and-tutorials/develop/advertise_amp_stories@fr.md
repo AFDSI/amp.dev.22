@@ -44,6 +44,7 @@ Les stories Web ne peuvent pas prendre en charge un attribut [`amp-ad`](../../..
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

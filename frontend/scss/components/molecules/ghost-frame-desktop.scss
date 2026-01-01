@@ -18,7 +18,7 @@ The ghost frame desktop wraps an element with a desktop-like frame.
 @import '../atoms/_color';
 
 .#{molecule('ghost-frame-desktop')} {
-  background: rgba(color('white'), .9);
+  background: rgba(color('white'), 0.9);
   border-radius: 5px;
   box-shadow: 0 20px 50px -5px rgba(0, 0, 0, 0.25);
   padding: 5% 2% 2%;
@@ -26,7 +26,10 @@ The ghost frame desktop wraps an element with a desktop-like frame.
   width: 100%;
   z-index: 0;
 
-  &.left-flat, &.left, &.right-flat, &.right {
+  &.left-flat,
+  &.left,
+  &.right-flat,
+  &.right {
     border-radius: 7px;
   }
 
@@ -36,10 +39,7 @@ The ghost frame desktop wraps an element with a desktop-like frame.
       inset 25px -25px 10px -25px rgba(255, 255, 255, 0.8),
       inset 25px -25px 20px -30px rgba(0, 0, 0, 0.7);
     transform-origin: center;
-    transform:
-      rotateX(45deg)
-      rotateY(5deg)
-      rotateZ(-50deg);
+    transform: rotateX(45deg) rotateY(5deg) rotateZ(-50deg);
   }
 
   &.left {
@@ -57,10 +57,7 @@ The ghost frame desktop wraps an element with a desktop-like frame.
       inset -25px -25px 10px -25px rgba(255, 255, 255, 0.8),
       inset -25px -25px 20px -30px rgba(0, 0, 0, 0.7);
     transform-origin: center;
-    transform:
-      rotateX(45deg)
-      rotateY(-5deg)
-      rotateZ(50deg);
+    transform: rotateX(45deg) rotateY(-5deg) rotateZ(50deg);
   }
 
   &.right {
@@ -74,12 +71,21 @@ The ghost frame desktop wraps an element with a desktop-like frame.
 
   // ui
   &:before {
-    background-image: radial-gradient(circle at center, color('iron') 25%, transparent 25%), radial-gradient(circle at center, color('iron') 25%, transparent 25%), radial-gradient(circle at center, color('iron') 25%, transparent 25%);
+    background-image: radial-gradient(
+        circle at center,
+        color('iron') 25%,
+        transparent 25%
+      ),
+      radial-gradient(circle at center, color('iron') 25%, transparent 25%),
+      radial-gradient(circle at center, color('iron') 25%, transparent 25%);
     background-position: 0%, 2%, 3.9%;
     background-repeat: no-repeat;
-    background-size: 4% 100%, 4% 100%, 4% 100%;
-    border-top-left-radius: calc(1rem/6);
-    border-top-right-radius: calc(1rem/6);
+    background-size:
+      4% 100%,
+      4% 100%,
+      4% 100%;
+    border-top-left-radius: calc(1rem / 6);
+    border-top-right-radius: calc(1rem / 6);
     content: '';
     height: 3%;
     left: 0.5%;
@@ -89,7 +95,9 @@ The ghost frame desktop wraps an element with a desktop-like frame.
     z-index: 1;
   }
 
-  amp-img, amp-video, amp-vimeo {
+  amp-img,
+  amp-video,
+  amp-vimeo {
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }

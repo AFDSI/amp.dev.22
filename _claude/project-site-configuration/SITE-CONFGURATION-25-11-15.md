@@ -1,4 +1,5 @@
 # amp.dev Portability & Reusability Project Specification
+
 ## Analysis & Recommendations
 
 **Date:** November 15, 2025  
@@ -9,19 +10,23 @@
 ## 📊 EXECUTIVE SUMMARY
 
 ### Current State
+
 - Google-specific amp.dev configuration with hardcoded values
 - Single-site deployment model (amp.dev only)
 - App Engine and GCP-specific infrastructure
 - Incomplete documentation for GitHub + Netlify workflow
 
 ### Target State
+
 - Multi-site platform supporting 6+ independent deployments
 - Netlify-based hosting with site-specific configurations
 - Generalized workflows supporting multiple domains
 - Complete end-to-end deployment documentation
 
 ### Gap Analysis
+
 **CRITICAL GAPS IDENTIFIED:**
+
 1. No configuration abstraction layer
 2. Missing site-specific credential management
 3. Incomplete Netlify integration patterns
@@ -37,6 +42,7 @@
 ### Multi-Site Configuration Model
 
 **Proposed Structure:**
+
 ```
 config/
 ├── sites/
@@ -57,6 +63,7 @@ config/
 ```
 
 ### Configuration Hierarchy
+
 ```
 [Site Config] + [Environment Config] + [Credentials] = [Runtime Config]
 ```
@@ -77,8 +84,8 @@ config/
     "name": "AMP Development Site",
     "domain": {
       "primary": "lighthearted-genie.netlify.app",
-      "custom": null,  // Future: "amp20.example.com"
-      "production": null  // Future: "amp.dev"
+      "custom": null, // Future: "amp20.example.com"
+      "production": null // Future: "amp.dev"
     },
     "netlify": {
       "site_id": "NETLIFY_SITE_ID",
@@ -98,32 +105,32 @@ config/
     },
     "google_analytics": {
       "tracking_id_var": "GA_TRACKING_ID_AMP20",
-      "enabled": false  // Until production
+      "enabled": false // Until production
     },
     "google_site_verification": {
       "verification_id_var": "GOOGLE_SITE_VERIFICATION_AMP20",
-      "enabled": false  // Until production
+      "enabled": false // Until production
     },
     "google_knowledge_graph": {
       "api_key_var": "GOOGLE_KG_API_KEY_AMP20",
-      "enabled": false  // Optional feature
+      "enabled": false // Optional feature
     },
     "google_maps": {
       "api_key_var": "GOOGLE_MAPS_API_KEY_AMP20",
-      "enabled": false  // Optional feature
+      "enabled": false // Optional feature
     }
   },
   "features": {
     "playground": true,
     "preview": true,
     "pixi": true,
-    "packager": false,  // Complex, not needed initially
-    "thumbor": false,   // Complex, not needed initially
-    "redis": false      // Not needed for Netlify
+    "packager": false, // Complex, not needed initially
+    "thumbor": false, // Complex, not needed initially
+    "redis": false // Not needed for Netlify
   },
   "locales": {
     "default": "en",
-    "supported": ["en"]  // Start with English only
+    "supported": ["en"] // Start with English only
   },
   "build": {
     "node_version": "22",
@@ -133,7 +140,8 @@ config/
 }
 ```
 
-**ACTION REQUIRED:** 
+**ACTION REQUIRED:**
+
 - [ ] Define complete site configuration schema
 - [ ] Create site-specific configs for amp.dev.20 and benetta.io
 - [ ] Document all configuration options
@@ -143,6 +151,7 @@ config/
 ### 2. Environment Configuration Abstraction
 
 **Current Issues:**
+
 - Hardcoded amp.dev hosts in all environments
 - Google App Engine specific endpoints (appspot.com)
 - Redis endpoints not needed for Netlify
@@ -159,7 +168,7 @@ config/
   "hosts": {
     "pages": {
       "scheme": "https",
-      "host": "${SITE_STAGING_DOMAIN}",  // e.g., "branch--lighthearted-genie.netlify.app"
+      "host": "${SITE_STAGING_DOMAIN}", // e.g., "branch--lighthearted-genie.netlify.app"
       "port": ""
     },
     "api": {
@@ -206,11 +215,13 @@ config/
 }
 ```
 
-**Question for User:** Does Netlify support subdomain routing (playground.site.netlify.app)? 
+**Question for User:** Does Netlify support subdomain routing (playground.site.netlify.app)?
+
 - If NO: Need alternative routing strategy (path-based: /playground, /preview)
 - If YES: Confirm configuration approach
 
 **ACTION REQUIRED:**
+
 - [ ] Clarify Netlify subdomain capabilities
 - [ ] Define staging environment template
 - [ ] Create environment configs for each deployment target
@@ -225,22 +236,22 @@ config/
 {
   "name": "production",
   "platform": "netlify",
-  "custom_domain": "${SITE_PRODUCTION_DOMAIN}",  // "benetta.io"
+  "custom_domain": "${SITE_PRODUCTION_DOMAIN}", // "benetta.io"
   "hosts": {
     "pages": {
       "scheme": "https",
       "host": "${SITE_PRODUCTION_DOMAIN}",
       "port": ""
-    },
+    }
     // ... similar structure to staging
   },
   "ssl": {
     "enabled": true,
-    "provider": "netlify",  // Netlify provides free SSL
+    "provider": "netlify", // Netlify provides free SSL
     "force_https": true
   },
   "dns": {
-    "provider": "aws_route53",  // Current DNS provider
+    "provider": "aws_route53", // Current DNS provider
     "migration_required": true,
     "target_provider": "netlify"
   }
@@ -248,6 +259,7 @@ config/
 ```
 
 **ACTION REQUIRED:**
+
 - [ ] Document DNS migration process from AWS to Netlify
 - [ ] Create checklist for domain transfer
 - [ ] Define production deployment gates
@@ -292,7 +304,7 @@ on:
           - staging
           - production
         default: staging
-      
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -310,7 +322,7 @@ jobs:
           SITE_CONFIG="config/sites/${{ inputs.site }}.json"
           # Set environment variables from config
           # ... configuration loading logic
-      
+
       - name: Deploy to Netlify
         run: |
           npx netlify deploy \
@@ -321,6 +333,7 @@ jobs:
 ```
 
 **ACTION REQUIRED:**
+
 - [ ] Create multi-site workflow template
 - [ ] Define secret naming convention
 - [ ] Test with amp.dev.20 first
@@ -405,6 +418,7 @@ echo "  GitHub Repo: $GITHUB_ORG/$GITHUB_REPO"
 ```
 
 **ACTION REQUIRED:**
+
 - [ ] Create credential template
 - [ ] Document credential generation process
 - [ ] Create loading scripts for each environment
@@ -420,10 +434,11 @@ echo "  GitHub Repo: $GITHUB_ORG/$GITHUB_REPO"
 
 ##### A. Google Programmable Search Setup
 
-```markdown
+````markdown
 # Google Programmable Search Engine Setup
 
 ## Prerequisites
+
 - Google Account
 - Domain transferred to Netlify (for production)
 - Site deployed and accessible
@@ -431,6 +446,7 @@ echo "  GitHub Repo: $GITHUB_ORG/$GITHUB_REPO"
 ## Steps
 
 ### 1. Create Programmable Search Engine
+
 1. Go to: https://programmablesearchengine.google.com/
 2. Click "Add" to create new search engine
 3. Configure:
@@ -440,11 +456,13 @@ echo "  GitHub Repo: $GITHUB_ORG/$GITHUB_REPO"
 4. Click "Create"
 
 ### 2. Get Search Engine ID
+
 1. In PSE control panel, click "Setup"
 2. Copy "Search engine ID" (format: `xxxxxxxxxxxxx:yyyyyyy`)
 3. Save to: `GOOGLE_PSE_CSE_ID` in credentials file
 
 ### 3. Generate API Key
+
 1. Go to: https://console.cloud.google.com/
 2. Create new project OR select existing
 3. Enable "Custom Search API"
@@ -454,30 +472,34 @@ echo "  GitHub Repo: $GITHUB_ORG/$GITHUB_REPO"
 7. Save to: `GOOGLE_PSE_API_KEY` in credentials file
 
 ### 4. Configure Search Results
+
 1. In PSE control panel:
    - Settings → Basics → Sites to search
    - Add/verify your domain
    - Enable "Search the entire web"
    - Enable "Image search"
-   
 2. Look and Feel:
    - Layout: Results only
    - Themes: (your choice)
 
 ### 5. Test Search
+
 ```bash
 curl "https://www.googleapis.com/customsearch/v1?\
 key=${GOOGLE_PSE_API_KEY}&\
 cx=${GOOGLE_PSE_CSE_ID}&\
 q=test"
 ```
+````
 
 Expected: JSON response with search results
 
 ### 6. Rate Limits
+
 - Free tier: 100 queries/day
 - Paid tier: 10,000 queries/day
 - Monitor: https://console.cloud.google.com/apis/dashboard
+
 ```
 
 **Similar guides needed for:**
@@ -514,22 +536,27 @@ Expected: JSON response with search results
    - Built-in to Netlify workflow
 
 2. **Simpler Mental Model**
-   ```
-   main branch        → Production (or staging)
-   feature branches   → Automatic previews
-   ```
+```
+
+main branch → Production (or staging)
+feature branches → Automatic previews
+
+```
 
 3. **Can add later if needed**
-   - Start simple
-   - Add complexity only if branch previews insufficient
-   - Evaluate after real usage
+- Start simple
+- Add complexity only if branch previews insufficient
+- Evaluate after real usage
 
 **Alternative Approach:**
 ```
+
 Use Netlify's native features:
+
 1. Branch deploys (automatic)
 2. Deploy previews for PRs
 3. Deploy contexts (production vs branch)
+
 ```
 
 **ACTION:** Document branch preview workflow instead of static-test
@@ -538,61 +565,63 @@ Use Netlify's native features:
 
 ### 7. Documentation Structure Needed
 
-**Current:** Fragmented command references  
+**Current:** Fragmented command references
 **Required:** Complete end-to-end workflows
 
 #### Proposed Documentation Structure:
 
 ```
+
 docs/
 ├── 00-OVERVIEW.md
-│   ├── Project goals
-│   ├── Architecture overview
-│   └── Multi-site strategy
+│ ├── Project goals
+│ ├── Architecture overview
+│ └── Multi-site strategy
 │
 ├── 01-SETUP/
-│   ├── initial-setup.md
-│   ├── prerequisites.md
-│   ├── tool-installation.md
-│   └── credential-generation.md
+│ ├── initial-setup.md
+│ ├── prerequisites.md
+│ ├── tool-installation.md
+│ └── credential-generation.md
 │
 ├── 02-SITE-CREATION/
-│   ├── create-new-site.md
-│   ├── site-configuration.md
-│   ├── github-repo-setup.md
-│   └── netlify-project-setup.md
+│ ├── create-new-site.md
+│ ├── site-configuration.md
+│ ├── github-repo-setup.md
+│ └── netlify-project-setup.md
 │
 ├── 03-GOOGLE-SERVICES/
-│   ├── programmable-search.md
-│   ├── google-analytics.md
-│   ├── site-verification.md
-│   ├── knowledge-graph.md (optional)
-│   └── maps-api.md (optional)
+│ ├── programmable-search.md
+│ ├── google-analytics.md
+│ ├── site-verification.md
+│ ├── knowledge-graph.md (optional)
+│ └── maps-api.md (optional)
 │
 ├── 04-DEVELOPMENT/
-│   ├── local-development.md
-│   ├── branch-strategy.md
-│   ├── testing-locally.md
-│   └── code-standards.md
+│ ├── local-development.md
+│ ├── branch-strategy.md
+│ ├── testing-locally.md
+│ └── code-standards.md
 │
 ├── 05-DEPLOYMENT/
-│   ├── staging-deployment.md
-│   ├── production-deployment.md
-│   ├── rollback-procedures.md
-│   └── troubleshooting.md
+│ ├── staging-deployment.md
+│ ├── production-deployment.md
+│ ├── rollback-procedures.md
+│ └── troubleshooting.md
 │
 ├── 06-WORKFLOWS/
-│   ├── content-developer-workflow.md
-│   ├── technical-workflow.md
-│   ├── review-approval-process.md
-│   └── ci-cd-pipeline.md
+│ ├── content-developer-workflow.md
+│ ├── technical-workflow.md
+│ ├── review-approval-process.md
+│ └── ci-cd-pipeline.md
 │
 └── 07-REFERENCE/
-    ├── configuration-schema.md
-    ├── environment-variables.md
-    ├── makefile-commands.md
-    └── api-reference.md
-```
+├── configuration-schema.md
+├── environment-variables.md
+├── makefile-commands.md
+└── api-reference.md
+
+````
 
 ---
 
@@ -600,7 +629,7 @@ docs/
 
 ### End-to-End: New Site Creation
 
-**Starting Point:** Nothing exists  
+**Starting Point:** Nothing exists
 **Ending Point:** Site live on Netlify with working search
 
 ```bash
@@ -672,7 +701,7 @@ netlify domains:add benetta.io
 
 # 16. Deploy to production
 # (Use GitHub Actions workflow or manual deploy)
-```
+````
 
 ---
 
@@ -681,11 +710,13 @@ netlify domains:add benetta.io
 ### Priority 1: Foundation (Week 1)
 
 - [ ] **Define configuration schema**
+
   - Site configuration JSON schema
   - Environment configuration schema
   - Credentials template
 
 - [ ] **Create amp.dev.20 configs**
+
   - config/sites/amp.dev.20.json
   - config/credentials/.env.amp-dev-20
   - config/environments/staging.json (Netlify version)
@@ -698,6 +729,7 @@ netlify domains:add benetta.io
 ### Priority 2: Documentation (Week 1-2)
 
 - [ ] **Core workflow docs**
+
   - 00-OVERVIEW.md
   - 02-SITE-CREATION/create-new-site.md
   - 05-DEPLOYMENT/staging-deployment.md
@@ -710,11 +742,13 @@ netlify domains:add benetta.io
 ### Priority 3: Multi-Site Support (Week 2-3)
 
 - [ ] **Workflow updates**
+
   - Multi-site deploy.yaml
   - Site selection mechanism
   - Secret management strategy
 
 - [ ] **Create benetta.io configs**
+
   - config/sites/benetta.io.json
   - config/credentials/.env.benetta-io
 
@@ -726,6 +760,7 @@ netlify domains:add benetta.io
 ### Priority 4: Production Readiness (Week 3-4)
 
 - [ ] **DNS migration guide**
+
   - AWS Route53 → Netlify DNS
   - Verification steps
   - Rollback procedures
@@ -742,10 +777,12 @@ netlify domains:add benetta.io
 ### Technical Architecture
 
 1. **Netlify Subdomain Support**
+
    - Can Netlify handle subdomain routing? (playground.site.netlify.app)
    - If not, what's the alternative? (path-based routing?)
 
 2. **Build Optimization**
+
    - Current builds take 20+ minutes. Acceptable for CI/CD?
    - Should we implement caching strategies?
    - Parallel builds for multiple locales?
@@ -758,11 +795,13 @@ netlify domains:add benetta.io
 ### Operational
 
 4. **Team Structure**
+
    - How many content developers per site?
    - Review/approval process?
    - Who manages deployments?
 
 5. **Cost Considerations**
+
    - Netlify plan needed for 6 sites?
    - Build minutes allocation?
    - Bandwidth requirements?
@@ -775,6 +814,7 @@ netlify domains:add benetta.io
 ### Process
 
 7. **Deployment Frequency**
+
    - How often will sites be updated?
    - Continuous deployment or scheduled releases?
    - Who approves production deployments?
@@ -828,19 +868,19 @@ class ConfigLoader {
     return {
       netlify: {
         siteId: process.env.NETLIFY_SITE_ID,
-        deployToken: process.env.NETLIFY_DEPLOY_TOKEN
+        deployToken: process.env.NETLIFY_DEPLOY_TOKEN,
       },
       google: {
         pse: {
           apiKey: process.env.GOOGLE_PSE_API_KEY,
           cseId: process.env.GOOGLE_PSE_CSE_ID,
-          enabled: process.env.GOOGLE_PSE_ENABLED === 'true'
+          enabled: process.env.GOOGLE_PSE_ENABLED === 'true',
         },
         analytics: {
           trackingId: process.env.GA_TRACKING_ID,
-          enabled: process.env.GA_ENABLED === 'true'
-        }
-      }
+          enabled: process.env.GA_ENABLED === 'true',
+        },
+      },
     };
   }
 
@@ -859,24 +899,28 @@ module.exports = new ConfigLoader();
 ## 📊 SUCCESS METRICS
 
 ### Phase 1: Foundation (Weeks 1-2)
+
 - [ ] amp.dev.20 deployed to Netlify staging
 - [ ] Search functionality working
 - [ ] Configuration system implemented
 - [ ] Basic documentation complete
 
 ### Phase 2: Second Site (Weeks 2-3)
+
 - [ ] benetta.io configured
 - [ ] Deployed to Netlify staging
 - [ ] Independent from amp.dev.20
 - [ ] All features working
 
 ### Phase 3: Production (Week 4+)
+
 - [ ] benetta.io domain transferred
 - [ ] Google services configured
 - [ ] Production deployment successful
 - [ ] Monitoring in place
 
 ### Phase 4: Scale (Week 5+)
+
 - [ ] Template system proven
 - [ ] Sites 3-6 configuration ready
 - [ ] Team trained on workflows
@@ -887,30 +931,35 @@ module.exports = new ConfigLoader();
 ## 🎓 RECOMMENDATIONS
 
 ### 1. Start Small, Scale Systematically
+
 - Perfect amp.dev.20 first
 - Add benetta.io second
 - Learn from each deployment
 - Refine templates before scaling to 6 sites
 
 ### 2. Prioritize Documentation
+
 - Write as you build
 - Document every decision
 - Create reusable templates
 - Think about contractors using docs
 
 ### 3. Automate Early
+
 - Scripts for repetitive tasks
 - GitHub Actions for deployments
 - Credential loading helpers
 - Validation checks
 
 ### 4. Simplify Where Possible
+
 - Remove unused amp.dev features
 - Use Netlify's built-in capabilities
 - Avoid premature optimization
 - Add complexity only when needed
 
 ### 5. Plan for Maintenance
+
 - Clear ownership per site
 - Update procedures
 - Rollback capabilities

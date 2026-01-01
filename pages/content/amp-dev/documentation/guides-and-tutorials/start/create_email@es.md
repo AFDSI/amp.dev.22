@@ -21,7 +21,7 @@ Siga este tutorial para crear y enviar su primer correo electrónico dinámico, 
 AMP playground es compatible con el formato de AMP for Email, lo que le permite desarrollar, probar y validar sus correos electrónicos de AMP. Abra [AMP Playground](https://playground.amp.dev/?runtime=amp4email) y asegúrese de que el formato esté configurado para `AMP for Email` en la esquina superior izquierda. Debería visualizar el siguiente código:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

@@ -19,13 +19,11 @@ teaser:
     alt: Terra
   text: Terra drives mobile viewership up with AMP
 
-
 stage:
   headline: Terra drives mobile viewership up with AMP
   layout: mobile
   subline: MARCH 6, 2017
   devices:
-
     - image_src: '/static/img/success-stories/terra/amp_terra_1.jpg'
       width: 3
       height: 5
@@ -46,11 +44,9 @@ kpis:
     text: Increase in clickthrough rate (all countries)
 
 contents:
-
   - layout: text
     text: A subsidiary of Telefonica, a global telecommunications enterprise, Terra is the largest online media company in the Spanish-speaking world, offering a valuable, popular resource for news and entertainment to more than 100 million people monthly across Spain, Latin America, and the U.S.
     direction: left-flat
-
 
   - layout: text-media
     image_src: '/static/img/success-stories/terra/amp_terra_1.jpg'

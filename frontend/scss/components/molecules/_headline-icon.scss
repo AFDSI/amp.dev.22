@@ -14,10 +14,8 @@ none
 
 */
 
-
 @import '../atoms/_icon.scss';
 @import '../atoms/_headline.scss';
-
 
 .#{molecule('headline-icon')} {
   display: flex;
@@ -34,5 +32,4 @@ none
     margin-bottom: 0;
     margin-left: -1em;
   }
-
 }

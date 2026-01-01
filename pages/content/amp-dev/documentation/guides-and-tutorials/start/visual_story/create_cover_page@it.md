@@ -10,13 +10,14 @@ Una pagina all'interno di una storia web è rappresentata dal componente `<amp-s
 Per creare una pagina, **aggiungere** l'elemento `<amp-story-page>` come figlio di [`amp-story`](../../../../documentation/components/reference/amp-story.md). **Assegnare** un ID univoco alla pagina. Per la nostra prima pagina, cioè la copertina, assegniamo un ID univoco di `cover`:
 
 ```html
-<amp-story standalone
-    title="Joy of Pets"
-    publisher="AMP tutorials"
-    publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
-    poster-portrait-src="assets/cover.jpg">
-   <amp-story-page id="cover">
-   </amp-story-page>
+<amp-story
+  standalone
+  title="Joy of Pets"
+  publisher="AMP tutorials"
+  publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
+  poster-portrait-src="assets/cover.jpg"
+>
+  <amp-story-page id="cover"> </amp-story-page>
 </amp-story>
 ```
 
@@ -40,9 +41,12 @@ Creare il livello aggiungendo l'elemento `<amp-story-grid-layer>` come figlio di
 ```html
 <amp-story-page id="cover">
   <amp-story-grid-layer template="fill">
-    <amp-img src="assets/cover.jpg"
-        width="720" height="1280"
-        layout="responsive">
+    <amp-img
+      src="assets/cover.jpg"
+      width="720"
+      height="1280"
+      layout="responsive"
+    >
     </amp-img>
   </amp-story-grid-layer>
 </amp-story-page>
@@ -105,7 +109,7 @@ Per il livello 2, vogliamo che l'intestazione e le righe siano in alto e vogliam
 
 ```html
 <amp-story-grid-layer>
- <!--our first layer -->
+  <!--our first layer -->
 </amp-story-grid-layer>
 <amp-story-grid-layer template="vertical">
   <h1>The Joy of Pets</h1>

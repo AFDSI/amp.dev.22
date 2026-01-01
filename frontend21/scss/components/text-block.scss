@@ -10,7 +10,10 @@
     color: color('river-bed');
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     max-width: 90%;
 
     &:first-of-type {

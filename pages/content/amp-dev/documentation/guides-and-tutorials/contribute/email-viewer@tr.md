@@ -37,7 +37,7 @@ viewerIframe.contentWindow.onMessage = (xhrRequestIntercepted) => {
 Görüntüleyiciyi başlatma sırasında xhrInterceptor özelliğine dahil ederek xhr müdahalesini etkinleştirin. Lütfen bunun nasıl yapıldığına dair görüntüleyici örneğine ve xhr müdahalesi örneğine bakın. AMP belgesi daha sonra XHR müdahalesine izin vermeyi seçmelidir. Belgeler, `allow-xhr-interception` özniteliğini `<html amp4email>` etiketine ekleyerek etkinleştirir. E-posta istemcisi, bu öznitelik kasıtlı olarak geçersiz bir öznitelik olduğundan ve AMP belgesi doğrulaması sırasında bu şekilde işaretleneceğinden, işlemeden önce AMP belgesinde bu özniteliği ayarlamalıdır.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email allow-xhr-interception>
   ...
 </html>

@@ -1,26 +1,26 @@
 {
-  "gaTrackingId": "G-1HFVWLN28T",
-  "baseUrls": {
-    "playground": "/#url=",
-    "repository": "https://github.com/AFDSI/amp-dev-22/docs/blob/future/"
-  },
-  "site": {
-    "name": "amp-new",
-    "shortName": "amp-new", 
-    "title": "AMP-VERIFY",
-    "description": "The AMP Project website."
-  },
-  "social": {
-    "twitter": {
-      "handle": "@ampproject",
-      "url": "https://twitter.com/AMPhtml"
-    },
-    "youtube": {
-      "url": "https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw"
-    },
-    "github": {
-      "org": "ampproject",
-      "url": "https://github.com/ampproject"
-    }
-  }
+	"gaTrackingId": "G-1HFVWLN28T",
+	"baseUrls": {
+		"playground": "/#url=",
+		"repository": "https://github.com/AFDSI/amp-dev-22/docs/blob/future/"
+	},
+	"site": {
+		"name": "amp-new",
+		"shortName": "amp-new",
+		"title": "AMP-VERIFY",
+		"description": "The AMP Project website."
+	},
+	"social": {
+		"twitter": {
+			"handle": "@ampproject",
+			"url": "https://twitter.com/AMPhtml"
+		},
+		"youtube": {
+			"url": "https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw"
+		},
+		"github": {
+			"org": "ampproject",
+			"url": "https://github.com/ampproject"
+		}
+	}
 }

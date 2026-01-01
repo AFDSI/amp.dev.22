@@ -3,10 +3,8 @@
 @import '_mixins.scss';
 @import '_variables.scss';
 
-
 .#{utility('stage')} {
   .#{organism('stage')} {
-
     &-content {
       grid-column: 3 / 12;
     }
@@ -31,7 +29,5 @@
   &-block {
     @include roadshow-video-shadow;
     width: 100%;
-
   }
-
 }

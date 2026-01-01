@@ -312,7 +312,7 @@ Większość pominięć wynika z kwestii wydajności albo tego, że znaczniki ni
 
 Tagi SVG nie znajdują się w przestrzeni nazw HTML5. Są one wymienione poniżej bez identyfikatorów sekcji.
 
-` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
+`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
 
 #### 4.9 Dane tabelaryczne <a name="49-tabular-data"></a>
 

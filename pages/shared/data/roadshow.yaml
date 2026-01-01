@@ -161,74 +161,74 @@ past:
 
 agenda:
   - title: Intro + Keynote
-    time: "09:30"
+    time: '09:30'
     type: keynote
-  - title: "AMP: A library for rich content experiences"
-    time: "09:50"
+  - title: 'AMP: A library for rich content experiences'
+    time: '09:50'
     type: session
   - title: Advanced interactivity with AMP
-    time: "10:20"
+    time: '10:20'
     type: session
   - title: Coffee break
-    time: "10:50"
+    time: '10:50'
     type: break
-  - title: "Tutorial: Your first AMP site!"
-    time: "11:10"
+  - title: 'Tutorial: Your first AMP site!'
+    time: '11:10'
     type: tutorial
   - title: Creating an excellent AMP
-    time: "11:40"
+    time: '11:40'
     type: session
   - title: Letting your AMP into the world
-    time: "12:10"
+    time: '12:10'
     type: session
   - title: Lunch
-    time: "12:40"
+    time: '12:40'
     type: break
   - title: Mystery talk
-    time: "13:40"
+    time: '13:40'
     type: session
   - title: AMP everywhere
-    time: "14:10"
+    time: '14:10'
     type: session
   - title: What’s next in AMP
-    time: "14:40"
+    time: '14:40'
     type: session
   - title: Coffee break
-    time: "15:00"
+    time: '15:00'
     type: break
   - title: Q&A with AMP team
-    time: "15:15"
+    time: '15:15'
     type: panel
-  - title: "Tutorial: Do more with AMP"
-    time: "16:00"
+  - title: 'Tutorial: Do more with AMP'
+    time: '16:00'
     type: tutorial
   - title: Happy hour
-    time: "17:00"
+    time: '17:00'
     type: break
 
 pillars:
   - pillar: Design
     contents:
-    - AMP as canonical site
-    - Responsive design
-    - New AMP Effects
-    - New AMP UI components
+      - AMP as canonical site
+      - Responsive design
+      - New AMP Effects
+      - New AMP UI components
   - pillar: Interactivity
     contents:
-    - State management (amp-bind)
-    - Live data
-    - Forms & autocomplete
-    - Selections
+      - State management (amp-bind)
+      - Live data
+      - Forms & autocomplete
+      - Selections
   - pillar: DevOps
     contents:
-    - Deploying AMP
-    - AMP in your favorite CMS
-    - SEO & Discovery
-    - AMP & PWA
+      - Deploying AMP
+      - AMP in your favorite CMS
+      - SEO & Discovery
+      - AMP & PWA
   - pillar: Monetization
     contents:
-    - AMP Ads
-    - AMP for Landing Pages
-    - Integrating ads
-    - Analytics
-    - Paywalls & Payments
+      - AMP Ads
+      - AMP for Landing Pages
+      - Integrating ads
+      - Analytics
+      - Paywalls & Payments

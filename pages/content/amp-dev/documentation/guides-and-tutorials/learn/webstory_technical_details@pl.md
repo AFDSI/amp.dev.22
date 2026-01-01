@@ -26,7 +26,7 @@ Relacja internetowa to pod względem technicznym pojedyncza strona utworzona prz
 Różnica między stroną internetową AMP a relacją internetową utworzoną przy użyciu AMP to składnik [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). Jest jedynym bezpośrednim elementem podrzędnym sekcji `<body>` dokumentu i musi zawierać atrybut `standalone`. Wszystkie strony, warstwy i elementy relacji internetowej są definiowane w znacznikach `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

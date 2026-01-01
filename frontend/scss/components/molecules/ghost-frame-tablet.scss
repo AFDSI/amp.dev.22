@@ -18,15 +18,18 @@ The ghost frame tablet wraps an element with a tablet-like frame.
 @import '../atoms/_color';
 
 .#{molecule('ghost-frame-tablet')} {
-  background: rgba(color('white'), .9);
+  background: rgba(color('white'), 0.9);
   border-radius: 5px;
   box-shadow: 0 20px 50px -5px rgba(0, 0, 0, 0.25);
-  width: calc((4/3) * 100%);
+  width: calc((4 / 3) * 100%);
   padding: 4.5% 3% 3%;
   position: relative;
   z-index: 0;
 
-  &.left-flat, &.left, &.right-flat, &.right {
+  &.left-flat,
+  &.left,
+  &.right-flat,
+  &.right {
     border-radius: 10px;
   }
 
@@ -36,10 +39,7 @@ The ghost frame tablet wraps an element with a tablet-like frame.
       inset 25px -25px 10px -25px rgba(255, 255, 255, 0.8),
       inset 25px -25px 20px -30px rgba(0, 0, 0, 0.7);
     transform-origin: center;
-    transform:
-      rotateX(45deg)
-      rotateY(5deg)
-      rotateZ(-50deg);
+    transform: rotateX(45deg) rotateY(5deg) rotateZ(-50deg);
   }
 
   &.left {
@@ -57,10 +57,7 @@ The ghost frame tablet wraps an element with a tablet-like frame.
       inset -25px -25px 10px -25px rgba(255, 255, 255, 0.8),
       inset -25px -25px 20px -30px rgba(0, 0, 0, 0.7);
     transform-origin: center;
-    transform:
-      rotateX(45deg)
-      rotateY(-5deg)
-      rotateZ(50deg);
+    transform: rotateX(45deg) rotateY(-5deg) rotateZ(50deg);
   }
 
   &.right {
@@ -89,7 +86,9 @@ The ghost frame tablet wraps an element with a tablet-like frame.
     z-index: 1;
   }
 
-  amp-img, amp-video, amp-vimeo {
+  amp-img,
+  amp-video,
+  amp-vimeo {
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }

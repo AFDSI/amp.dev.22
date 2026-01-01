@@ -26,7 +26,7 @@ Una Storia web dal punto di vista tecnico è una singola pagina web realizzata t
 La differenza tra una semplice pagina web AMP e una storia web realizzata con AMP è il componente [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories) È l'unico elemento figlio diretto della sezione `<body>` del documento e deve contenere l'attributo `standalone`. Tutte le pagine, i livelli e gli elementi della Storia web sono definiti all'interno dei tag `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

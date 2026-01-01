@@ -44,6 +44,7 @@ author: CrystalOnScript
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

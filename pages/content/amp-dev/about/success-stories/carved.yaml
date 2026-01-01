@@ -40,9 +40,8 @@ kpis:
     text: Lower bounce rate
 
 contents:
-
   - layout: text
-    text: "In 2011, John Webber founded Carved in Elkhart, Indiana, to use computer-controlled machine tooling to make best-in-class phone cases. The first product was a skin made from wood veneer that customers could stick on the back of their phone. The company now offers a full line of cases, wallets, phone batteries, and more via their e-commerce website.<br><br>Their responsive, e-commerce website, built in-house in 2016, was only ”50% responsive,” Webber says. About 90 to 95 percent of their sales come through the site, half from mobile users. “Increasing mobile speed has been a top priority, as we know that performance is central to capturing, engaging, and creating loyal customers,” Webber adds. “Over the years, we experienced a surge in mobile traffic, but the conversions just weren’t keeping up.”"
+    text: 'In 2011, John Webber founded Carved in Elkhart, Indiana, to use computer-controlled machine tooling to make best-in-class phone cases. The first product was a skin made from wood veneer that customers could stick on the back of their phone. The company now offers a full line of cases, wallets, phone batteries, and more via their e-commerce website.<br><br>Their responsive, e-commerce website, built in-house in 2016, was only ”50% responsive,” Webber says. About 90 to 95 percent of their sales come through the site, half from mobile users. “Increasing mobile speed has been a top priority, as we know that performance is central to capturing, engaging, and creating loyal customers,” Webber adds. “Over the years, we experienced a surge in mobile traffic, but the conversions just weren’t keeping up.”'
     direction: left-flat
 
   - layout: text-media

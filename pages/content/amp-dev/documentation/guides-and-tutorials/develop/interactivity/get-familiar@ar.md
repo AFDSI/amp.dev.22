@@ -11,7 +11,7 @@ description: إن صفحة AMP عبارة عن صفحة HTML مع بعض الق�
 تبدو صفحة AMP الأساسية مثل:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

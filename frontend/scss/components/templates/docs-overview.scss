@@ -20,7 +20,6 @@
 @import '../templates/_default.scss';
 
 .#{template('docs-overview')} {
-
   .#{utility('container')} {
     @include container;
   }
@@ -46,7 +45,7 @@
   section {
     &.#{utility('content')},
     &.#{utility('teaser-grid')} {
-      @media (min-width: 1024px){
+      @media (min-width: 1024px) {
         grid-column-start: 7;
         grid-column-end: 25;
       }

@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Starting Our Journey
 
 It’s our team’s first day building out our Chico’s Cheese Bike site. So far, the site is a basic HTML page, with a header containing the title of our site, an image of one of our bikes, and some marketing text.
@@ -15,6 +16,7 @@ In your Glitch project, open index.html and verify that the HTML looks like this
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -142,7 +144,9 @@ The following rules are specifically for setting up the AMP runtime. Valid AMP p
 
 [sourcecode:html]
 {% raw %}
+
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
 {% endraw %}[/sourcecode]
 
 [tip type="note"]
@@ -168,14 +172,14 @@ To practice adding custom styles to your AMP page, add the following `<style amp
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -197,6 +201,7 @@ The solution can be found in <a href="https://glitch.com/~hungry-modem" target="
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>
@@ -234,6 +239,7 @@ This is an important error to understand. Some HTML tags are not allowed in AMP 
 [/tip]
 [/filter]
 [filter level="advanced"]
+
 ## Starting Our Journey
 
 It's our team's first day building out our Chico's Cheese Bike site. So far, the site is a basic HTML page, with a header containing the title of our site, an image of one of our bikes, and some marketing text. Our goal is to convert this page to AMP!
@@ -244,6 +250,7 @@ In <a href="https://glitch.com/edit/#!/nosy-leech" target="_blank">your</a> Glit
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -394,14 +401,14 @@ To ensure good performance and to let AMP do what it needs to, AMP places some r
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -421,6 +428,7 @@ The solution can be found in <a href="https://glitch.com/~hungry-modem" target="
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>

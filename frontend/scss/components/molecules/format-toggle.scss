@@ -28,12 +28,13 @@
     }
     border: 0;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       &:after {
         position: absolute;
         top: 0;
         left: 0;
-        content: "";
+        content: '';
         display: block;
         height: 300%;
         width: 100%;
@@ -41,7 +42,8 @@
     }
   }
 
-  &-link, &-selected {
+  &-link,
+  &-selected {
     z-index: 3;
     display: flex;
     align-items: center;
@@ -77,30 +79,46 @@
   }
 
   &-link-websites {
-    &:hover, &.#{molecule('format-toggle')}-selected  {
-      @include gradient-websites; color: color('white');
-      .#{atom('ico')} { fill: color('white'); }
+    &:hover,
+    &.#{molecule('format-toggle')}-selected {
+      @include gradient-websites;
+      color: color('white');
+      .#{atom('ico')} {
+        fill: color('white');
+      }
     }
   }
 
   &-link-stories {
-    &:hover, &.#{molecule('format-toggle')}-selected {
-      @include gradient-stories; color: color('charade');
-      .#{atom('ico')} { fill: color('charade'); }
+    &:hover,
+    &.#{molecule('format-toggle')}-selected {
+      @include gradient-stories;
+      color: color('charade');
+      .#{atom('ico')} {
+        fill: color('charade');
+      }
     }
   }
 
   &-link-ads {
-    &:hover, &.#{molecule('format-toggle')}-selected {
-      @include gradient-ads; color: color('white');
-      .#{atom('ico')} { fill: color('white'); }
+    &:hover,
+    &.#{molecule('format-toggle')}-selected {
+      @include gradient-ads;
+      color: color('white');
+      .#{atom('ico')} {
+        fill: color('white');
+      }
     }
   }
 
   &-link-email {
-    &:hover, &.#{molecule('format-toggle')}-selected {
-      @include gradient-e-mails; color: color('charade');
-      .#{atom('ico')} { fill: color('charade'); }
+    &:hover,
+    &.#{molecule('format-toggle')}-selected {
+      @include gradient-e-mails;
+      color: color('charade');
+      .#{atom('ico')} {
+        fill: color('charade');
+      }
     }
   }
 

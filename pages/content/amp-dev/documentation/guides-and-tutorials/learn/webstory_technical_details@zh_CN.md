@@ -26,7 +26,7 @@ author: CrystalOnScript
 使用 AMP 构建的 AMP 网页与网页故事之间的区别在于 [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories) 组件。它是文档 `<body>` 的唯一直接子项，且必须包含 `standalone` 特性。所有网页故事页面、层和元素都在 `<amp-story>` 标记内定义。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

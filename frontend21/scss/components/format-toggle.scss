@@ -48,7 +48,9 @@
     pointer-events: none;
     opacity: 0;
     transform: translateY(-20px);
-    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transition:
+      transform 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
     transition-delay: 0.05s;
   }
 
@@ -91,5 +93,4 @@
       @include ci-e-mails;
     }
   }
-
 }

@@ -23,7 +23,6 @@ stage:
   layout: mobile
   subline: DEC 20, 2017
   devices:
-
     - image_src: '/static/img/success-stories/consumer_advocate/amp_consumer_advocate_1.jpg'
       width: 3
       height: 5
@@ -51,7 +50,7 @@ contents:
     type: mobile
     alt: ConsumersAdvocate.org
     headline: Solution
-    text: "The Puerto Rico-based organization had two goals for improving their site’s performance: lowering the bounce rate on their most-visited pages and increasing conversion rates from their AdWords campaigns. After seeing a number news articles about AMP, ConsumersAdvocate.org learned that AMP could help speed up their site and improve conversion rates. They decided to test the framework, and after about a week of in-house development, they began replacing their existing mobile webpages with AMP pages.<br><br>“We implemented AMP for sections of our site that drove views and business value, namely reviews of pet insurance and home-security systems,” CEO Greg Powel. “It made sense to test AMP on our most valuable content to see if it led to an increase in time on site and conversion rates.”"
+    text: 'The Puerto Rico-based organization had two goals for improving their site’s performance: lowering the bounce rate on their most-visited pages and increasing conversion rates from their AdWords campaigns. After seeing a number news articles about AMP, ConsumersAdvocate.org learned that AMP could help speed up their site and improve conversion rates. They decided to test the framework, and after about a week of in-house development, they began replacing their existing mobile webpages with AMP pages.<br><br>“We implemented AMP for sections of our site that drove views and business value, namely reviews of pet insurance and home-security systems,” CEO Greg Powel. “It made sense to test AMP on our most valuable content to see if it led to an increase in time on site and conversion rates.”'
     direction: left-flat
 
   - layout: text-button

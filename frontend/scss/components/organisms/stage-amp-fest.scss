@@ -17,7 +17,13 @@
     width: 100%;
     margin-left: 30px;
     border-bottom-left-radius: 4em;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2em), 4em 100%, 0% 100%);
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 2em),
+      4em 100%,
+      0% 100%
+    );
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2em), 4em 100%, 0% 100%);
     background-size: cover;
     background-position: center left;
@@ -25,9 +31,21 @@
 
     @media (min-width: 768px) {
       margin-left: 64px;
-      border-bottom-left-radius: 6.250em;
-      -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3em), 6.250em 100%, 0% 100%);
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3em), 6.250em 100%, 0% 100%);
+      border-bottom-left-radius: 6.25em;
+      -webkit-clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 3em),
+        6.25em 100%,
+        0% 100%
+      );
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 3em),
+        6.25em 100%,
+        0% 100%
+      );
     }
 
     &.city-ams {
@@ -50,7 +68,7 @@
     }
 
     .logo {
-      filter: drop-shadow(10px 5px 5px rgba(35,40,46,0.5));
+      filter: drop-shadow(10px 5px 5px rgba(35, 40, 46, 0.5));
       max-width: 80%;
     }
 
@@ -68,12 +86,10 @@
       }
 
       .#{organism('stage')} {
-
         &-content {
           position: relative;
           margin: 5em 0 9em;
           text-align: center;
-
 
           @media (min-width: 768px) {
             grid-column: 1 / 18;
@@ -134,7 +150,6 @@
             margin-top: 0;
             @include txt-2;
 
-
             @media (min-width: 768px) {
               @include txt-lrg;
             }
@@ -152,22 +167,18 @@
         }
       }
     }
-
-
   }
-
 }
 
-
 .join-quote p {
-  grid-column: 4 / 22
+  grid-column: 4 / 22;
 }
 
 .talks-quote p {
   margin: -50px auto 0;
-  grid-column: 4 / 22
+  grid-column: 4 / 22;
 }
 
 .ap-t-events .main-video {
-    display: grid
+  display: grid;
 }

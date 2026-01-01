@@ -28,6 +28,7 @@ I am updating `generate_netlify_redirects.py` to handle dynamic patterns and `gi
 Does this simplified build-time approach align with how you'd like to manage the project?
 
 ---
+
 ```
 name: 'Release: Static Production'
 
@@ -173,10 +174,10 @@ jobs:
         run: npx gulp unpackArtifacts
       - name: Finalizing build
         run: npx gulp buildFinalize
-      
+
       - name: Generate Netlify Redirects from Go Links
         run: python generate_netlify_redirects.py
-        
+
       - name: Deploying to Netlify
         run: |
           NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_DEPLOY_TOKEN }} npx netlify deploy --prod --site 69bbcc85-2aad-4a49-be6f-b6caef14bf1a --dir /home/runner/work/amp.dev.aka/amp.dev.aka/dist/pages
@@ -188,12 +189,12 @@ To help you with your experiments, I’ve put together a "Rosetta Stone" mapping
 
 ### Mapping Google Regex to Netlify Placeholders
 
-| Google `go` Regex | Netlify Placeholder Syntax | Example Match |
-| --- | --- | --- |
-| `([a-z-]+)` | `:slug` or `:id` | `amp-carousel` |
-| `([0-9]+)` | `:number` or `:id` | `12345` |
-| `(.*)` | `:splat` | `any/path/here` |
-| `$1` | `:id` (repeating the name) | `/target/:id` |
+| Google `go` Regex | Netlify Placeholder Syntax | Example Match   |
+| ----------------- | -------------------------- | --------------- |
+| `([a-z-]+)`       | `:slug` or `:id`           | `amp-carousel`  |
+| `([0-9]+)`        | `:number` or `:id`         | `12345`         |
+| `(.*)`            | `:splat`                   | `any/path/here` |
+| `$1`              | `:id` (repeating the name) | `/target/:id`   |
 
 ### Implementing the "Go" Regex in `netlify.toml`
 

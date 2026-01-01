@@ -26,7 +26,7 @@ Cerita Web secara teknis adalah halaman web tunggal yang dibuat dengan AMP dan m
 Perbedaan antara halaman web AMP dan Cerita Web yang dibuat dengan AMP adalah komponen [`amp-story`](https://amp.dev/documentation/components/amp-story/?format=stories). Ini adalah satu-satunya anak langsung dari `<body>` dokumen dan harus berisi atribut `standalone`. Semua halaman, lapisan, dan elemen Cerita Web ditentukan di dalam tag `<amp-story>`.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8" />

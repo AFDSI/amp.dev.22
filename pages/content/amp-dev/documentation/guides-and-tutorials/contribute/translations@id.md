@@ -22,12 +22,12 @@ AMP sedang menyelenggarakan proses penerjemahan internal untuk dokumentasi. Kami
 ### Saat ini, proses kami adalah:
 
 1. Temukan berkas untuk diterjemahkan.
-2. Buat [Masalah GitHub](https://github.com/ampproject/docs/issues/new). * Nyatakan bahasa target terjemahan dokumen yang Anda kerjakan. * Sebutkan berkas mana yang ingin Anda terjemahkan atau perbarui. * Berikan perkiraan kasar tentang seberapa banyak berkas yang Anda terjemahkan.
-    - Seluruh Berkas
-    - Sebagian Berkas
-    - Beberapa Istilah * Berikan perkiraan umum tentang berapa lama diperlukan untuk menyelesaikan tugas terjemahan. * Tambahkan [@CrystalOnScript](https://github.com/CrystalOnScript) agar dia dapat mengatur permintaan pelokalan dan memberikan informasi kepada Anda jika telah ada seseorang yang mengerjakan terjemahan yang sama:
-    - Ya! Silakan terjemahkan ini!
-    - Terima kasih atas minat Anda, namun tim internal atau seorang sukarelawan sedang mengerjakan dokumen ini. Anda akan ditambahkan sebagai peninjau sebelum dokumen ini dirilis.
+2. Buat [Masalah GitHub](https://github.com/ampproject/docs/issues/new). _ Nyatakan bahasa target terjemahan dokumen yang Anda kerjakan. _ Sebutkan berkas mana yang ingin Anda terjemahkan atau perbarui. \* Berikan perkiraan kasar tentang seberapa banyak berkas yang Anda terjemahkan.
+   - Seluruh Berkas
+   - Sebagian Berkas
+   - Beberapa Istilah _ Berikan perkiraan umum tentang berapa lama diperlukan untuk menyelesaikan tugas terjemahan. _ Tambahkan [@CrystalOnScript](https://github.com/CrystalOnScript) agar dia dapat mengatur permintaan pelokalan dan memberikan informasi kepada Anda jika telah ada seseorang yang mengerjakan terjemahan yang sama:
+   - Ya! Silakan terjemahkan ini!
+   - Terima kasih atas minat Anda, namun tim internal atau seorang sukarelawan sedang mengerjakan dokumen ini. Anda akan ditambahkan sebagai peninjau sebelum dokumen ini dirilis.
 
 Sejumlah kontributor penerjemahan berpartisipasi di saluran Slack. Anda sebaiknya bergabung dan memperkenalkan diri Anda! Bergabunglah dengan [Saluran Slack AMP di sini](https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877).
 
@@ -37,20 +37,20 @@ Situs web [amp.dev](https://amp.dev/) membedakan berkas-berkas yang dilokalkan d
 
 #### Akhiran berkas penerjemahan amp.dev
 
-Bahasa | Akhiran
---- | :-:
-Arab | `@ar`
-Spanyol | `@es`
-Prancis | `@fr`
-Indonesia | `@id`
-Italia | `@it`
-Jepang | `@ja`
-Korea | `@ko`
-Portugis Brasil | `@pt_BR`
-Rusia | `@ru`
-Turki | `@tr`
-Vietnam | `@vi`
-Tionghoa | `@zh_CN`
+| Bahasa          | Akhiran  |
+| --------------- | :------: |
+| Arab            |  `@ar`   |
+| Spanyol         |  `@es`   |
+| Prancis         |  `@fr`   |
+| Indonesia       |  `@id`   |
+| Italia          |  `@it`   |
+| Jepang          |  `@ja`   |
+| Korea           |  `@ko`   |
+| Portugis Brasil | `@pt_BR` |
+| Rusia           |  `@ru`   |
+| Turki           |  `@tr`   |
+| Vietnam         |  `@vi`   |
+| Tionghoa        | `@zh_CN` |
 
 ## Komunitas
 

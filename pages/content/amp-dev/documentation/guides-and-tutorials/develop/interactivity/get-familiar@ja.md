@@ -11,7 +11,7 @@ AMP ページは、安定したパフォーマンスのために制限がいく�
 基本的な構成の AMP ページは次のようになります。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

@@ -148,7 +148,7 @@ creation:
   - name: Pendular.io
     description: Allows publishers to automate the creation of high-quality stories focused on sports content.
     url: https://pendular.io/
-    type:  WYSIWYG Editor
+    type: WYSIWYG Editor
     image:
       src: /static/img/tools/pend-c3a1c71e-8f09-4e5b-829f-96ddd6a67d7f.jpg
       width: 1340
@@ -284,7 +284,7 @@ creation:
   - name: Zazu
     description: Design award-winning Web Story builder. Rely on the most intuitive editor to build Stories with your team or automate the entire process.
     url: https://zazuapp.co/
-    type:  WYSIWYG Editor
+    type: WYSIWYG Editor
     image:
       src: /static/img/tools/Zazu-c580-d8e1.jpeg
       width: 3840

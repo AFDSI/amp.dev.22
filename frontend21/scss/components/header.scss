@@ -11,7 +11,7 @@
 
   /* Add a shadow to simulate that the flyouts are under the header */
   &:after {
-    content: "";
+    content: '';
     pointer-events: none;
     display: block;
     position: absolute;
@@ -304,7 +304,8 @@
     }
   }
 
-  .amp-mode-mouse &, .amp-mode-keyboard & {
+  .amp-mode-mouse &,
+  .amp-mode-keyboard & {
     &-flyout:hover,
     &-nav-link:focus ~ #{$header}-flyout,
     &-nav-link:hover ~ #{$header}-flyout {

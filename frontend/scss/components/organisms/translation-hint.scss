@@ -22,7 +22,7 @@
   bottom: 0;
 
   @media (max-width: 767px) {
-    display: none
+    display: none;
   }
 
   &-wrapper {
@@ -33,14 +33,14 @@
     padding: 1em 30px;
     background-color: color('white');
     border-top: 5px solid color('school-bus');
-    box-shadow: 0 -2px 10px 0 rgba(0,0,0,0.07);
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.07);
   }
 
-    &-link {
-      display: inline-block;
-    }
+  &-link {
+    display: inline-block;
+  }
 
   .#{molecule('banner')} + & {
-      bottom: 25px;
+    bottom: 25px;
   }
 }

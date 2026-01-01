@@ -1,8 +1,8 @@
 ---
-"$title": AMPHTML 広告の作成
+'$title': AMPHTML 広告の作成
 description: このチュートリアルでは、AMP と非 AMP ページに配信できる AMPHTML 広告をゼロから作成する方法を学習します。
 formats:
-- ads
+  - ads
 ---
 
 {{ image('/static/img/docs/ads/amp-ad-framed-final.png', 597, 1240, align='right third', caption='Completed AMPHTML image ad') }}
@@ -26,4 +26,4 @@ AMPHTML 広告は従来の HTML 広告に似ていますが、従来の HTML で
 
 - [Celtra の Ad Creator](http://www.prnewswire.com/news-releases/celtra-partners-with-the-amp-project-showcases-amp-ad-creation-at-google-io-event-300459514.html)
 - [Google Web Designer](https://support.google.com/webdesigner/answer/7529856)
-- Adobe Animate（*近日公開予定*）[/tip]
+- Adobe Animate（_近日公開予定_）[/tip]

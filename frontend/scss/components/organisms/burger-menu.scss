@@ -14,7 +14,7 @@
 @import 'components/atoms/_text.scss';
 
 .#{organism('burger-menu')} {
-/* This is where the actual burger-menu starts */
+  /* This is where the actual burger-menu starts */
   display: none;
   position: fixed;
   top: 0;
@@ -72,7 +72,6 @@
     display: none;
   }
 
-
   &.mainmenuopen {
     display: block;
     z-index: 1003;
@@ -117,51 +116,51 @@
     }
   }
 
-    &-item {
-      margin-bottom: 1rem;
-      position: relative;
-      &:last-child {
-        margin-top: auto;
-      }
-      ul {
-        display: none;
-      }
-      &-trigger {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 36px;
-        padding: 0;
-        margin: 0;
-        background: none transparent;
-        border: none;
-        cursor: pointer;
-        -webkit-appearance: none;
+  &-item {
+    margin-bottom: 1rem;
+    position: relative;
+    &:last-child {
+      margin-top: auto;
+    }
+    ul {
+      display: none;
+    }
+    &-trigger {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 36px;
+      padding: 0;
+      margin: 0;
+      background: none transparent;
+      border: none;
+      cursor: pointer;
+      -webkit-appearance: none;
 
-        &:focus {
-          outline: -webkit-focus-ring-color auto 5px;
-        }
+      &:focus {
+        outline: -webkit-focus-ring-color auto 5px;
+      }
 
-        &:checked {
-          & ~ ul {
-            display: block;
-          }
-          & + .nav-icon .#{atom('ico')} {
-            transform: rotate(0);
-          }
+      &:checked {
+        & ~ ul {
+          display: block;
         }
         & + .nav-icon .#{atom('ico')} {
-          display: inline-block;
-          transform: rotate(-90deg);
+          transform: rotate(0);
         }
       }
-
-      .#{atom('ico')} {
-        height: 0.6em;
-        margin-bottom: 0.3em;
-        margin-left: 0.3em;
-        width: 0.6em;
+      & + .nav-icon .#{atom('ico')} {
+        display: inline-block;
+        transform: rotate(-90deg);
       }
     }
+
+    .#{atom('ico')} {
+      height: 0.6em;
+      margin-bottom: 0.3em;
+      margin-left: 0.3em;
+      width: 0.6em;
+    }
+  }
 }

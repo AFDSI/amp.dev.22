@@ -7,12 +7,12 @@
 @import './_color';
 
 a {
-	font-weight: bold;
-	text-decoration: none;
-	color: color('blue-ribbon');
+  font-weight: bold;
+  text-decoration: none;
+  color: color('blue-ribbon');
 
-	code {
-		@include txt-mono-inline;
-		@include color-blue-ribbon;
-	}
+  code {
+    @include txt-mono-inline;
+    @include color-blue-ribbon;
+  }
 }

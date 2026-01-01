@@ -11,7 +11,7 @@ config/
     amp-new.yaml
 
 scripts/
-  prebuild.js                 ← Generates: manifest.json, robots.txt, 
+  prebuild.js                 ← Generates: manifest.json, robots.txt,
                                            sitemap_manual.xml, serviceworker.html
                                  Copies: netlify.toml
 
@@ -32,12 +32,12 @@ SITE_CONFIG=wabc npm run prebuild && npm run build
 
 ## What Each File Does
 
-| File | Purpose |
-|------|---------|
-| `site-vars.yaml` | Master config with all site variables, organized by category |
-| `config.js` | Loads YAML, builds podspec, provides values to Grow and other scripts |
-| `prebuild.js` | Generates static files that can't use Jinja (JSON, XML, TXT) |
-| `template-migration-examples.j2` | Reference showing how to update existing templates |
+| File                             | Purpose                                                               |
+| -------------------------------- | --------------------------------------------------------------------- |
+| `site-vars.yaml`                 | Master config with all site variables, organized by category          |
+| `config.js`                      | Loads YAML, builds podspec, provides values to Grow and other scripts |
+| `prebuild.js`                    | Generates static files that can't use Jinja (JSON, XML, TXT)          |
+| `template-migration-examples.j2` | Reference showing how to update existing templates                    |
 
 ## Key Design Decisions
 

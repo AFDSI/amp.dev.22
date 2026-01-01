@@ -134,11 +134,20 @@ The [`amp-anim`](../../../../documentation/components/reference/amp-anim.md) 元
 [example preview="inline" playground="true" imports="amp-video:0.1"]
 
 ```html
-<amp-video {% if format=='stories'%}autoplay {% endif %}controls
+<amp-video
+  {%
+  if
+  format=""
+  ="stories"
+  %}autoplay
+  {%
+  endif
+  %}controls
   width="640"
   height="360"
   src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.mp4"
-  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png">
+  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png"
+>
   <div fallback>
     <p>This browser does not support the video element.</p>
   </div>
@@ -158,18 +167,32 @@ The [`amp-anim`](../../../../documentation/components/reference/amp-anim.md) 元
 [example preview="inline" playground="true" imports="amp-audio:0.1"]
 
 ```html
-<amp-audio width="400"
+<amp-audio
+  width="400"
   height="200"
-  {% if format == 'stories' %}  layout="nodisplay" autoplay
-  {% endif %}
-  src="{{server_for_email}}/static/inline-examples/audio/cat-meow.mp3">
+  {%
+  if
+  format=""
+  ="stories"
+  %}
+  layout="nodisplay"
+  autoplay
+  {%
+  endif
+  %}
+  src="{{server_for_email}}/static/inline-examples/audio/cat-meow.mp3"
+>
   <div fallback>
     <p>Your browser doesn’t support HTML5 audio.</p>
   </div>
-  <source type="audio/mpeg"
-    src="{{server_for_email}}/static/inline-examples/audio/cat-meow.mp3">
-  <source type="audio/ogg"
-    src="{{server_for_email}}/static/inline-examples/audio/cat-meow.ogg">
+  <source
+    type="audio/mpeg"
+    src="{{server_for_email}}/static/inline-examples/audio/cat-meow.mp3"
+  />
+  <source
+    type="audio/ogg"
+    src="{{server_for_email}}/static/inline-examples/audio/cat-meow.ogg"
+  />
 </amp-audio>
 ```
 

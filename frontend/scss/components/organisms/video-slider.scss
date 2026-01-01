@@ -6,7 +6,6 @@
 
 */
 
-
 @import '_extends.scss';
 @import '_functions.scss';
 @import '_mixins.scss';
@@ -17,7 +16,7 @@
 
 .#{utility('video-slider')} {
   overflow-x: hidden;
-  
+
   @media (min-width: 930px) {
     padding: 40px 0;
   }
@@ -37,7 +36,7 @@
       width: 3em;
       height: 3em;
       border-radius: 50%;
-      box-shadow: 0 10px 15px 0 rgba(0,0,0,0.4);
+      box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.4);
       transition: 400ms;
       background-color: color('athens-gray');
       outline: none;
@@ -53,7 +52,7 @@
       &:hover {
         cursor: pointer;
         box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
-        background-color: #FFFFFF;
+        background-color: #ffffff;
       }
     }
   }

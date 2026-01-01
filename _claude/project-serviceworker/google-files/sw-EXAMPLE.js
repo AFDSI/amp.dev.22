@@ -17,7 +17,7 @@
 importScripts('/sw-toolbox/sw-toolbox.js');
 
 const config = {
-  offlinePage: '/youre_offline/'
+  offlinePage: '/youre_offline/',
 };
 
 const IGNORED_URLS = ['shopping_cart'];
@@ -30,7 +30,7 @@ config.filesToCache = [
   '/img/offline.png',
   '/playground/img/playground-logo.svg',
   '/playground/',
-  '/img/amp_logo_black.svg'
+  '/img/amp_logo_black.svg',
 ];
 
 /**
@@ -58,7 +58,7 @@ function requestAccepts(request, contentType) {
 /**
  * ampbyexample.com fetch handler:
  *
- * - one-behind caching 
+ * - one-behind caching
  * - shows offline page
  * - generates placeholder image for unavailable images
  */
@@ -66,30 +66,37 @@ function ampByExampleHandler(request, values) {
   // for samples show offline page if offline and samples are not cached
   if (requestAccepts(request, 'text/html')) {
     // never use cached version for AMP CORS requests (e.g. amp-live-list) or pages that shouldn't be cached
-    if (request.url.indexOf("__amp_source_origin") != -1 || shouldNotCache(request)) {
+    if (
+      request.url.indexOf('__amp_source_origin') != -1 ||
+      shouldNotCache(request)
+    ) {
       return toolbox.networkOnly(request, values);
     }
-    // network first, we always want to get the latest 
-    return toolbox.networkFirst(request, values).catch(function() {
-      return toolbox.cacheOnly(new Request(config.offlinePage), values)
-        .then(function(response) {
-          return response || new Response('You\'re offline. Sorry.', {
-            status: 500,
-            statusText: 'Offline Page Missing'
-          });
+    // network first, we always want to get the latest
+    return toolbox.networkFirst(request, values).catch(function () {
+      return toolbox
+        .cacheOnly(new Request(config.offlinePage), values)
+        .then(function (response) {
+          return (
+            response ||
+            new Response("You're offline. Sorry.", {
+              status: 500,
+              statusText: 'Offline Page Missing',
+            })
+          );
         });
     });
   }
   // always try to load images from the cache first
   // fallback to placeholder SVG image if offline and image not available
   if (requestAccepts(request, 'image/')) {
-    return toolbox.cacheFirst(request, values).catch(function() {
+    return toolbox.cacheFirst(request, values).catch(function () {
       const url = request.url;
       const fileName = url.substring(url.lastIndexOf('/') + 1);
       // TODO use correct image dimensions
-      return new Response(offlineImage(fileName, 1080, 610),
-          { headers: { 'Content-Type': 'image/svg+xml' } }
-      );
+      return new Response(offlineImage(fileName, 1080, 610), {
+        headers: {'Content-Type': 'image/svg+xml'},
+      });
     });
   } else {
     // cache first for all other requests
@@ -98,14 +105,18 @@ function ampByExampleHandler(request, values) {
 }
 
 function shouldNotCache(request) {
-  return IGNORED_URLS.some(url => request.url.indexOf(url) != -1);
+  return IGNORED_URLS.some((url) => request.url.indexOf(url) != -1);
 }
 
 toolbox.options.debug = false;
 toolbox.router.default = toolbox.networkFirst;
-toolbox.router.get('/(.*)', ampByExampleHandler, {origin: self.location.origin});
-// network first amp runtime 
-toolbox.router.get('/(.*)', toolbox.networkFirst, {origin: 'https://cdn.ampproject.org'});
+toolbox.router.get('/(.*)', ampByExampleHandler, {
+  origin: self.location.origin,
+});
+// network first amp runtime
+toolbox.router.get('/(.*)', toolbox.networkFirst, {
+  origin: 'https://cdn.ampproject.org',
+});
 
 toolbox.precache(config.filesToCache);
 
@@ -113,8 +124,8 @@ toolbox.precache(config.filesToCache);
 // "first" page the user visits is only cached on the second visit,
 // since the first load is uncontrolled.
 toolbox.precache(
-  clients.matchAll({includeUncontrolled: true}).then(l => {
-    return l.map(c => c.url);
+  clients.matchAll({includeUncontrolled: true}).then((l) => {
+    return l.map((c) => c.url);
   })
 );
 

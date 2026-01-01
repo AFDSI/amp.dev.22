@@ -19,7 +19,6 @@
 @import '../templates/_default.scss';
 
 .#{template('use-cases')} {
-
   .#{utility('container')} {
     @include container;
     max-width: 100vw;
@@ -30,7 +29,7 @@
   }
 
   .#{utility('stage')} {
-      overflow: visible;
+    overflow: visible;
   }
 
   .#{organism('stage')} {

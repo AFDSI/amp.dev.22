@@ -13,7 +13,7 @@ formats:
   Data can be fetched from a JSON endpoint.
 -->
 <!-- -->
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email lang="en" data-css-strict>
   <head>
     <meta charset="utf-8" />
@@ -47,7 +47,10 @@ formats:
     <style amp-custom>
       .custom {
         padding-top: 4px;
-        font: 10pt 'Courier New', Courier, monospace;
+        font:
+          10pt 'Courier New',
+          Courier,
+          monospace;
       }
       .profile-pic {
         width: 40px;
@@ -79,9 +82,7 @@ formats:
     >
       <input type="search" name="queryInput" />
       <template type="amp-mustache">
-        <div data-value="{{.}}">
-          {{.}}
-        </div>
+        <div data-value="{{.}}">{{.}}</div>
       </template>
     </amp-autocomplete>
 

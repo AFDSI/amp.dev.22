@@ -21,7 +21,7 @@ Ikuti tutorial ini untuk membuat dan mengirimkan email dinamis pertama Anda yang
 AMP Playground mendukung format AMP untuk Email, sehingga memungkinkan Anda untuk mengembangkan, menguji, dan memvalidasi Email AMP Anda. Buka [AMP Playground](https://playground.amp.dev/?runtime=amp4email) dan pastikan bahwa format sudah diatur ke `AMP for Email` pada sudut kiri atas. Anda akan melihat kode berikut ini:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

@@ -7,7 +7,7 @@ description: '"قبل البدء في إضافة رمز، هيا نراجع مث
 قبل البدء في إضافة رمز، هيا نراجع مثال صفحة [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html)، والذي يجب أن يكون كالتالي:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

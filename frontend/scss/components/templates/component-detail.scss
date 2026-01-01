@@ -23,7 +23,6 @@ body {
 }
 
 .#{template('component-detail')} {
-
   .#{utility('container')} {
     @include container;
     @include container-nogap;
@@ -90,7 +89,7 @@ body {
   }
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .#{template('component-detail')} {
     .#{utility('content')},
     .#{utility('help')} {

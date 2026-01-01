@@ -18,8 +18,8 @@
 @import '../atoms/_headline';
 
 .#{molecule('text-media')} {
-
-  &.bg-gray, &.bg-gradient {
+  &.bg-gray,
+  &.bg-gradient {
     &:before {
       @media (max-width: 767px) {
         margin-top: 18%;
@@ -39,7 +39,11 @@
 
   &.bg-gradient {
     &:before {
-      background: linear-gradient(to right, color('blue-ribbon'), color('robins-egg'));
+      background: linear-gradient(
+        to right,
+        color('blue-ribbon'),
+        color('robins-egg')
+      );
     }
   }
 }

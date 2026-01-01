@@ -120,7 +120,6 @@
           margin: 7vw 0 11vw;
         }
       }
-
     }
 
     & + .#{utility('content')} {
@@ -166,7 +165,8 @@
       @include teaser-copy;
     }
 
-    &-image, &-icon {
+    &-image,
+    &-icon {
       + .#{molecule('teaser-card')} {
         background-color: transparent;
         box-shadow: none;
@@ -198,7 +198,11 @@
 
       align-items: center;
       background: color('charade');
-      background: linear-gradient(225deg, color('charade') 0%, color('river-bed') 75%);
+      background: linear-gradient(
+        225deg,
+        color('charade') 0%,
+        color('river-bed') 75%
+      );
       display: flex;
       justify-content: center;
       left: 0;
@@ -220,8 +224,7 @@
 
   .#{organism('teaser-grid-list')} {
     @media (max-width: 767px) {
-      padding: 1.25rem
+      padding: 1.25rem;
     }
   }
-
 }

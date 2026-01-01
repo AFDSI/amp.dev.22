@@ -1,10 +1,10 @@
 {
-  "templateId": "image-template",
-  "data": {
-    "imgSrc": "https://amp.dev/static/samples/img/ad-hangouts.jpg"
-  },
-  "vars": {
-    "ctaType": "INSTALL",
-    "ctaUrl": "https://amp.dev"
-  }
+	"templateId": "image-template",
+	"data": {
+		"imgSrc": "https://amp.dev/static/samples/img/ad-hangouts.jpg"
+	},
+	"vars": {
+		"ctaType": "INSTALL",
+		"ctaUrl": "https://amp.dev"
+	}
 }

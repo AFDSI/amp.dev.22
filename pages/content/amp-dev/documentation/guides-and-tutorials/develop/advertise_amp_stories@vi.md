@@ -44,6 +44,7 @@ Các Câu chuyện Web không thể hỗ trợ [`amp-ad`](../../../documentation
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

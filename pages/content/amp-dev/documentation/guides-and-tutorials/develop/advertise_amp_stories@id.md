@@ -44,6 +44,7 @@ Cerita Web tidak dapat mendukung [`amp-ad`](../../../documentation/components/re
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

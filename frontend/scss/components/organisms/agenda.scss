@@ -6,7 +6,6 @@
 
 */
 
-
 @import '_extends.scss';
 @import '_functions.scss';
 @import '_mixins.scss';
@@ -14,7 +13,6 @@
 
 @import 'components/atoms/_headline.scss';
 @import 'components/atoms/_text.scss';
-
 
 .#{organism('agenda')} {
   @include agenda-list-shadow;
@@ -35,7 +33,6 @@
   }
 
   &-selector {
-
     &-button {
       @include hl;
       @include hl-h3;
@@ -50,7 +47,7 @@
         font-size: 12pt;
       }
 
-      &+.#{organism('agenda')} {
+      & + .#{organism('agenda')} {
         display: none;
       }
 
@@ -61,11 +58,10 @@
         background: color('bittersweet');
         border-radius: 4px 4px 0 0;
 
-        &+.#{organism('agenda')} {
+        & + .#{organism('agenda')} {
           display: block;
           order: 1;
         }
-
       }
 
       &.ampcs[option][selected] {
@@ -111,5 +107,4 @@
       }
     }
   }
-
 }

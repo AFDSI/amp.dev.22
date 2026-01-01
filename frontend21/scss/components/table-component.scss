@@ -42,7 +42,6 @@
       }
 
       .#{prefix(null, 'tag')} {
-
         @include respond-to('medium') {
           max-width: 8px;
           max-height: 8px;

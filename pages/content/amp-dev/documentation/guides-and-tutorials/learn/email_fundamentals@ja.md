@@ -14,7 +14,7 @@ AMP を使用し慣れている方には朗報です！AMP for Email は AMP HTM
 AMP メールは、外観的に従来の HTML メールに似ていますが、異なる点がいくつかあります。以下は、有効な AMP メールを作成するために必要な最小限のマークアップを示しています。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

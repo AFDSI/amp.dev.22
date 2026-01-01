@@ -19,7 +19,6 @@ teaser:
     alt: TransUnion
   text: TransUnion scores more conversions with faster page loads via AMP
 
-
 stage:
   headline: TransUnion scores more conversions with faster page loads via AMP
   layout: mobile
@@ -42,9 +41,8 @@ kpis:
     text: Time on site
 
 contents:
-
   - layout: text
-    text: "Smartphones have empowered people to take control of their personal finances in a way that’s never been possible before. Important information, like credit scores, is right at our fingertips—ready to be accessed anytime, anywhere. In fact, 56% of searches for credit reporting now come from mobile devices. This affects not only consumers, but financial institutions too. TransUnion, one of the three national credit bureaus, has seen a significant increase in mobile traffic, which now accounts for the majority of visitors to the consumer services division of its site.<br><br>TransUnion had a hypothesis that slow loading mobile pages could be leading to higher bounce rates and lower mobile conversion rates compared to desktop. They wanted to create a best-in-class mobile site on their CMS, HP TeamSite, to both improve the experience for users and get the highest return on their advertising investment."
+    text: 'Smartphones have empowered people to take control of their personal finances in a way that’s never been possible before. Important information, like credit scores, is right at our fingertips—ready to be accessed anytime, anywhere. In fact, 56% of searches for credit reporting now come from mobile devices. This affects not only consumers, but financial institutions too. TransUnion, one of the three national credit bureaus, has seen a significant increase in mobile traffic, which now accounts for the majority of visitors to the consumer services division of its site.<br><br>TransUnion had a hypothesis that slow loading mobile pages could be leading to higher bounce rates and lower mobile conversion rates compared to desktop. They wanted to create a best-in-class mobile site on their CMS, HP TeamSite, to both improve the experience for users and get the highest return on their advertising investment.'
     direction: left-flat
 
   - layout: text-media
@@ -65,6 +63,6 @@ contents:
     alt: TransUnion
     background: gradient
     headline: Results
-    text: "AMP was quickly confirmed to be an ROI positive project. On a 3G fast connection the AMP pages loaded in 1.6 seconds, compared to 7.1 seconds for the non-AMP versions, leading to a 26% lower bounce rate and users spending 2.5X the amount of time on site. Ultimately the AMP pages drove 3% more conversions than their non-AMP counterparts, affirming Transunion’s hypothesis that improved mobile page speed does lead to better conversion rates.<br><br>“Not only was AMP easy to implement, but the AMP pages’ instant loading of static content capability is amazing,” said Amber Liu, Performance Marketing and Innovation Lead of Consumer Interactive at TransUnion. “We look forward to driving better performance in user engagement with AMP and partnering with our Google partners to continue to be at the forefront of mobile technology.” Following its success, TransUnion plans to continue incorporating AMP on high-mobile traffic pages in the coming months."
+    text: 'AMP was quickly confirmed to be an ROI positive project. On a 3G fast connection the AMP pages loaded in 1.6 seconds, compared to 7.1 seconds for the non-AMP versions, leading to a 26% lower bounce rate and users spending 2.5X the amount of time on site. Ultimately the AMP pages drove 3% more conversions than their non-AMP counterparts, affirming Transunion’s hypothesis that improved mobile page speed does lead to better conversion rates.<br><br>“Not only was AMP easy to implement, but the AMP pages’ instant loading of static content capability is amazing,” said Amber Liu, Performance Marketing and Innovation Lead of Consumer Interactive at TransUnion. “We look forward to driving better performance in user engagement with AMP and partnering with our Google partners to continue to be at the forefront of mobile technology.” Following its success, TransUnion plans to continue incorporating AMP on high-mobile traffic pages in the coming months.'
     direction: right-flat
     download_url: '/static/files/case-studies/transunion.pdf'

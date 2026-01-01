@@ -3,7 +3,7 @@ $title: AMP for Email best practices
 $order: 1
 $category: Develop
 formats:
-    - email
+  - email
 ---
 
 AMP allows for exciting new types of immersive and engaging content in email! When designing emails, keep in mind the following best practices to ensure they are performant, reliable across platforms, and work as your users expect.
@@ -39,13 +39,12 @@ When working AMP for Email, keep in mind the following tips and tricks:
 - The `src` attribute of [`amp-list`](../../components/reference/amp-list-v0.1.md?format=email), [`action-xhr`](../../components/reference/amp-form-v0.1.md?format=email#action-xhr) of [`amp-form`](../../components/reference/amp-form-v0.1.md?format=email), the `src` for [`amp-img`](../../components/reference/amp-img-v0.1.md?format=email), or the href attribute of an `<a>` tag cannot be mutated by [`amp-bind`](../../components/reference/amp-bind-v0.1.md?format=email).
 - Your messages should include a static HTML version in the event that a user is taken to the HTML version of the message, or if that user forwards the message.
 - The AMP for Email format imposes a [byte limit on the size of the email](../learn/email-spec/amp-email-format.md?format=email#required-markup). Prevent your email from falling back to static email due to exceeding the size limit by
-    - Trimming your email and removing unnecessary content
-    - Minimizing the number of hyperlinks in your email, whose URLs could be rewritten into very long URLs by ESPs and analytics platforms
-    - Eliminating unnecessary use of HTML constructs such as multiple nested `div`s that can be collapsed into one `div`
-    - Minimizing whitespace characters in the [`on` attribute for events and actions](../learn/amp-email-actions-and-events.md?format=email) and [`amp-bind` binding expressions](../../components/reference/amp-bind-v0.1.md?format=email#expressions)
-    - Using tools like [HTML and CSS minifiers](https://github.com/kangax/html-minifier) to perform compressions such as:
-        - Removing unnecessary whitespace characters (such as space and newline characters used for making the source code human-readable) in HTML and CSS
-        - Removing comments in HTML and CSS
-        - Removing [optional tags](https://html.spec.whatwg.org/multipage/syntax.html#syntax-tag-omission)
-        - Minifying the length of ID and class names used in CSS selectors and HTML
-
+  - Trimming your email and removing unnecessary content
+  - Minimizing the number of hyperlinks in your email, whose URLs could be rewritten into very long URLs by ESPs and analytics platforms
+  - Eliminating unnecessary use of HTML constructs such as multiple nested `div`s that can be collapsed into one `div`
+  - Minimizing whitespace characters in the [`on` attribute for events and actions](../learn/amp-email-actions-and-events.md?format=email) and [`amp-bind` binding expressions](../../components/reference/amp-bind-v0.1.md?format=email#expressions)
+  - Using tools like [HTML and CSS minifiers](https://github.com/kangax/html-minifier) to perform compressions such as:
+    - Removing unnecessary whitespace characters (such as space and newline characters used for making the source code human-readable) in HTML and CSS
+    - Removing comments in HTML and CSS
+    - Removing [optional tags](https://html.spec.whatwg.org/multipage/syntax.html#syntax-tag-omission)
+    - Minifying the length of ID and class names used in CSS selectors and HTML

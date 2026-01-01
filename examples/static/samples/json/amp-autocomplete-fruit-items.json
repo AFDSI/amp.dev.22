@@ -1,1 +1,4 @@
-{ "items" : ["apples", "bananas", "pears"], "fruit" : ["kiwis", "oranges", "watermelons"] }
+{
+	"items": ["apples", "bananas", "pears"],
+	"fruit": ["kiwis", "oranges", "watermelons"]
+}

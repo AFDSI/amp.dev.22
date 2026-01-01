@@ -17,10 +17,6 @@ If you have found a bug or an issue please
 have a look and request a pull request there.
 -->
 
-
-
-
-
 AMP HTML is a subset of HTML for authoring content pages such as news articles in a way that guarantees certain baseline performance characteristics.
 
 Being a subset of HTML, it puts some restrictions on the full set of tags and functionality available through HTML but it does not require the development of new rendering engines: existing user agents can render AMP HTML just like all other HTML.
@@ -31,11 +27,11 @@ If you're primarily interested in what's allowed in AMP and what isn't, watch ou
 
 Also, AMP HTML documents can be uploaded to a web server and served just like any other HTML document; no special configuration for the server is necessary. However, they are also designed to be optionally served through specialized AMP serving systems that proxy AMP documents. These documents serve them from their own origin and are allowed to apply transformations to the document that provide additional performance benefits. An incomplete list of optimizations such a serving system might do is:
 
--   Replace image references with images sized to the viewer’s viewport.
--   Inline images that are visible above the fold.
--   Inline CSS variables.
--   Preload extended components.
--   Minify HTML and CSS.
+- Replace image references with images sized to the viewer’s viewport.
+- Inline images that are visible above the fold.
+- Inline CSS variables.
+- Preload extended components.
+- Minify HTML and CSS.
 
 AMP HTML uses a set of contributed but centrally managed and hosted custom elements to implement advanced functionality such as image galleries that might be found in an AMP HTML document. While it does allow styling the document using custom CSS, it does not allow author written JavaScript beyond what is provided through the custom elements to reach its performance goals.
 
@@ -46,15 +42,16 @@ By using the AMP format, content producers are making the content in AMP files a
 Predictable performance is a key design goal for AMP HTML. Primarily we are aiming at reducing the time until the content of a page can be consumed / used by the user.
 In concrete terms this means that:
 
--   HTTP requests necessary to render and fully layout the document should be minimized.
--   Resources such as images or ads should only be downloaded if they are likely to be seen by the user.
--   Browsers should be able to calculate the space needed by every resource on the page without fetching that resource.
+- HTTP requests necessary to render and fully layout the document should be minimized.
+- Resources such as images or ads should only be downloaded if they are likely to be seen by the user.
+- Browsers should be able to calculate the space needed by every resource on the page without fetching that resource.
 
 ## The AMP HTML format <a name="the-amp-html-format"></a>
 
 ### Sample document <a name="sample-document"></a>
 
 [sourcecode:html]
+
 <!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
@@ -172,14 +169,14 @@ In concrete terms this means that:
 
 AMP HTML documents MUST
 
--   <a name="dctp"></a>start with the doctype `<!doctype html>`. [🔗](#dctp)
--   <a name="ampd"></a>contain a top-level `<html ⚡>` tag (`<html amp>` is accepted as well). [🔗](#ampd)
--   <a name="crps"></a>contain `<head>` and `<body>` tags (They are optional in HTML). [🔗](#crps)
--   <a name="canon"></a>contain a `<link rel="canonical" href="$SOME_URL">` tag inside their head that points to the regular HTML version of the AMP HTML document or to itself if no such HTML version exists. [🔗](#canon)
--   <a name="chrs"></a>contain a `<meta charset="utf-8">` tag as the first child of their head tag. [🔗](#chrs)
--   <a name="vprt"></a>contain a `<meta name="viewport" content="width=device-width">` tag inside their head tag. It's also recommended to include `minimum-scale=1` and `initial-scale=1`. [🔗](#vprt)
--   <a name="script"></a>contain a `<script async src="https://cdn.ampproject.org/v0.js"></script>` tag inside their head tag. [🔗](#script)
--   <a name="boilerplate"></a>contain the [AMP boilerplate code](https://github.com/ampproject/amphtml/blob/master/docs/spec/amp-boilerplate.md) (`head > style[amp-boilerplate]` and `noscript > style[amp-boilerplate]`) in their head tag. [🔗](#boilerplate)
+- <a name="dctp"></a>start with the doctype `<!doctype html>`. [🔗](#dctp)
+- <a name="ampd"></a>contain a top-level `<html ⚡>` tag (`<html amp>` is accepted as well). [🔗](#ampd)
+- <a name="crps"></a>contain `<head>` and `<body>` tags (They are optional in HTML). [🔗](#crps)
+- <a name="canon"></a>contain a `<link rel="canonical" href="$SOME_URL">` tag inside their head that points to the regular HTML version of the AMP HTML document or to itself if no such HTML version exists. [🔗](#canon)
+- <a name="chrs"></a>contain a `<meta charset="utf-8">` tag as the first child of their head tag. [🔗](#chrs)
+- <a name="vprt"></a>contain a `<meta name="viewport" content="width=device-width">` tag inside their head tag. It's also recommended to include `minimum-scale=1` and `initial-scale=1`. [🔗](#vprt)
+- <a name="script"></a>contain a `<script async src="https://cdn.ampproject.org/v0.js"></script>` tag inside their head tag. [🔗](#script)
+- <a name="boilerplate"></a>contain the [AMP boilerplate code](https://github.com/ampproject/amphtml/blob/master/docs/spec/amp-boilerplate.md) (`head > style[amp-boilerplate]` and `noscript > style[amp-boilerplate]`) in their head tag. [🔗](#boilerplate)
 
 ### Metadata <a name="metadata"></a>
 
@@ -359,8 +356,8 @@ AMP only allows transitions and animations of properties that can be GPU acceler
 
 In the following examples `<property>` needs to be in the allowed list above.
 
--   `transition <property>` (also -vendorPrefix-transition)
--   `@keyframes name { from: {<property>: value} to {<property: value>} }` (also `@-vendorPrefix-keyframes`)
+- `transition <property>` (also -vendorPrefix-transition)
+- `@keyframes name { from: {<property>: value} to {<property: value>} }` (also `@-vendorPrefix-keyframes`)
 
 #### Maximum size <a name="maximum-size"></a>
 
@@ -381,6 +378,7 @@ The reason the `<style amp-keyframes>` tag exists is because keyframes rules are
 Example:
 
 [sourcecode:html]
+
 <style amp-keyframes>
 @keyframes anim1 {}
 
@@ -398,6 +396,7 @@ Authors may include stylesheets for custom fonts. The 2 supported methods are li
 Example:
 
 [sourcecode:html]
+
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Tangerine"
@@ -406,10 +405,10 @@ Example:
 
 Font providers can be allowlisted if they support CSS-only integrations and serve over HTTPS. The following origins are currently allowed for font serving via link tags:
 
--   Fonts.com: `https://fast.fonts.net`
--   Google Fonts: `https://fonts.googleapis.com`
--   Font Awesome: `https://maxcdn.bootstrapcdn.com, https://use.fontawesome.com`
--   [Typekit](https://helpx.adobe.com/typekit/using/google-amp.html): `https://use.typekit.net/kitId.css` (replace `kitId` accordingly)
+- Fonts.com: `https://fast.fonts.net`
+- Google Fonts: `https://fonts.googleapis.com`
+- Font Awesome: `https://maxcdn.bootstrapcdn.com, https://use.fontawesome.com`
+- [Typekit](https://helpx.adobe.com/typekit/using/google-amp.html): `https://use.typekit.net/kitId.css` (replace `kitId` accordingly)
 
 IMPLEMENTERS NOTE: Adding to this list requires a change to the AMP Cache CSP rule.
 
@@ -471,10 +470,10 @@ Example: `on="tap:fooId"`
 
 Some actions, if documented, may accept arguments. The arguments are defined between parentheses in `key=value` notation. The accepted values are:
 
--   simple unquoted strings: `simple-value`;
--   quoted strings: `"string value"` or `'string value'`;
--   boolean values: `true` or `false`;
--   numbers: `11` or `1.1`.
+- simple unquoted strings: `simple-value`;
+- quoted strings: `"string value"` or `'string value'`;
+- boolean values: `true` or `false`;
+- numbers: `11` or `1.1`.
 
 You can listen to multiple events on an element by separating the two events with a semicolon `;`.
 
@@ -489,11 +488,13 @@ Extended components are components that do not necessarily ship with the AMP run
 Extended components are loaded by including a `<script>` tag in the head of the document like this:
 
 [sourcecode:html]
+
 <script
   async
   custom-element="amp-carousel"
   src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
 ></script>
+
 [/sourcecode]
 
 The `<script>` tag must have an `async` attribute and must have a `custom-element` attribute referencing the name of the element.
@@ -524,11 +525,13 @@ Templates are not shipped with the AMP runtime and have to be downloaded just as
 Extended components are loaded by including a `<script>` tag in the head of the document like this:
 
 [sourcecode:html]
+
 <script
   async
   custom-template="amp-mustache"
   src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
 ></script>
+
 [/sourcecode]
 
 The `<script>` tag must have an `async` attribute and must have a `custom-template` attribute referencing the type of the
@@ -539,7 +542,7 @@ The templates are declared in the document as following:
 
 [sourcecode:html]
 <template type="amp-mustache" id="template1">
-  Hello {% raw %}{{you}}{% endraw %}!
+Hello {% raw %}{{you}}{% endraw %}!
 </template>
 [/sourcecode]
 
@@ -575,20 +578,20 @@ All AMP template elements must go through AMP security review before they can be
 
 Currently, the following SVG elements are allowed:
 
--   [container elements](https://svgwg.org/svg2-draft/struct.html#TermContainerElement): "clipPath", "defs", "g", "marker", "mask", "pattern", "svg", "switch", and "symbol".
--   [structural elements](https://svgwg.org/svg2-draft/struct.html#TermStructuralElement): "defs", "g", "svg", "symbol", and "use".
--   [graphics elements](https://svgwg.org/svg2-draft/struct.html#TermGraphicsElement): "circle", "ellipse", "foreignObject", "image", "line", "path", "polygon", "polyline", "rect", "text", "textPath", and "tspan".
--   [text content elements](https://svgwg.org/svg2-draft/text.html#TermTextContentElement): "text", "textPath", and "tspan".
--   [paint server elements](https://svgwg.org/svg2-draft/painting.html#TermPaintServerElement): "linearGradient", "pattern", and "radialGradient".
--   [descriptive elements](https://svgwg.org/svg2-draft/struct.html#TermDescriptiveElement): "desc", "metadata", and "title".
--   [filter primitive elements](https://drafts.fxtf.org/filter-effects/#filter-primitive): "feColorMatrix", "feComposite", "feGaussianBlur", "feMerge", "feMergeNode", and "feOffset".
--   uncategorized elements: "view", and "filter".
--   deprecated elements: ["glyph"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/glyph), ["glyphRef"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/glyphRef), ["hkern"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/hkern), ["tref"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/tref), and ["vkern"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/vkern).
+- [container elements](https://svgwg.org/svg2-draft/struct.html#TermContainerElement): "clipPath", "defs", "g", "marker", "mask", "pattern", "svg", "switch", and "symbol".
+- [structural elements](https://svgwg.org/svg2-draft/struct.html#TermStructuralElement): "defs", "g", "svg", "symbol", and "use".
+- [graphics elements](https://svgwg.org/svg2-draft/struct.html#TermGraphicsElement): "circle", "ellipse", "foreignObject", "image", "line", "path", "polygon", "polyline", "rect", "text", "textPath", and "tspan".
+- [text content elements](https://svgwg.org/svg2-draft/text.html#TermTextContentElement): "text", "textPath", and "tspan".
+- [paint server elements](https://svgwg.org/svg2-draft/painting.html#TermPaintServerElement): "linearGradient", "pattern", and "radialGradient".
+- [descriptive elements](https://svgwg.org/svg2-draft/struct.html#TermDescriptiveElement): "desc", "metadata", and "title".
+- [filter primitive elements](https://drafts.fxtf.org/filter-effects/#filter-primitive): "feColorMatrix", "feComposite", "feGaussianBlur", "feMerge", "feMergeNode", and "feOffset".
+- uncategorized elements: "view", and "filter".
+- deprecated elements: ["glyph"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/glyph), ["glyphRef"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/glyphRef), ["hkern"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/hkern), ["tref"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/tref), and ["vkern"](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/vkern).
 
 As well as these attributes:
 
--   "xlink:href": only URIs starting with "#" are allowed
--   "style"
+- "xlink:href": only URIs starting with "#" are allowed
+- "style"
 
 ## AMP document discovery <a name="amp-document-discovery"></a>
 
@@ -599,6 +602,7 @@ If an AMP document exists that is an alternative representation of a canonical d
 Example:
 
 [sourcecode:html]
+
 <link rel="amphtml" href="https://www.example.com/url/to/amp/document.html" />
 [/sourcecode]
 
@@ -607,6 +611,7 @@ The AMP document itself is expected to point back to its canonical document via 
 Example:
 
 [sourcecode:html]
+
 <link
   rel="canonical"
   href="https://www.example.com/url/to/canonical/document.html"

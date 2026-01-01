@@ -32,7 +32,9 @@
       @include txt-font-accent;
       font-size: 18px;
       background-color: color('iron');
-      transition: color 0.2s ease, background-color 0.2s ease;
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
       cursor: pointer;
 
       @media (min-width: 768px) {

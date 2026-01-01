@@ -16,7 +16,7 @@
   &-grid {
     grid-template-rows: 10px auto 100px;
   }
-  
+
   &-link {
     grid-column: 3 / 12;
 
@@ -38,20 +38,22 @@
   @media (min-width: 768px) {
     margin: 0;
   }
-  
+
   &-shadow {
     box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.15);
   }
 
   &-hover {
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+      box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &:hover {
       transform: translateY(-0.125em);
-      box-shadow: 0 25px 60px 0px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 25px 60px 0px rgba(0, 0, 0, 0.1);
     }
   }
-  
+
   .#{molecule('ghost-frame-mobile')} {
     width: 100%;
     margin: auto;

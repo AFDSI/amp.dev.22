@@ -15,7 +15,7 @@ teaser:
   download_url: '/static/files/templates/themes_1.zip'
   template_demo_home: 'websites/themes_1/templates/template_1_article.amp.html'
   template_github_home: 'websites/themes_1'
- 
+
 document:
   pages: /content/amp-dev/documentation/templates/themes_1/pages
   description: 'Example blog theme, "The Scenic".'

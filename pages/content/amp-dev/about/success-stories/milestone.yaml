@@ -19,13 +19,11 @@ teaser:
     alt: Milestone
   text: Milestone drives conversions with AMP pages for local hospitality site
 
-
 stage:
   headline: Milestone drives conversions with AMP pages for local hospitality site
   layout: mobile
   subline: MARCH 6, 2017
   devices:
-
     - image_src: '/static/img/success-stories/milestone/amp_milestone_1.jpg'
       width: 3
       height: 5
@@ -43,11 +41,9 @@ kpis:
     text: Increase in booked revenue
 
 contents:
-
   - layout: text
     text: For nearly 20 years, Milestone has helped businesses in the hospitality, retail and financial services industries develop high-performance digital solutions. At the core of their strategy, Milestone’s leadership believes that the best possible digital experiences are created with the best available technologies. “From being an early adopter of Schema markup to leading on voice search, we’re always on the lookout for innovations that can help create a better user experience for our clients’ customers,” said Benu Aggarwal, Milestone’s President and Founder.<br><br>In the last few years, the sweeping adoption of mobile devices spurred Milestone to search for ways to improve the mobile experience for their clients’ increasingly mobile audience. When Aggarwal and her team found out about the AMP initiative in early 2016, they saw it as a great solution for their hospitality clients, whose customers were researching and booking rooms on their smartphones at a rapidly growing rate.
     direction: left-flat
-
 
   - layout: text-media
     image_src: '/static/img/success-stories/milestone/amp_milestone_2.jpg'

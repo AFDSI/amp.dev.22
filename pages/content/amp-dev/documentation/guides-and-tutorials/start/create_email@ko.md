@@ -21,7 +21,7 @@ author: CrystalOnScript
 AMP 플레이그라운드는 이메일용 AMP 형식을 지원하여 AMP 이메일의 개발, 테스트 및 유효성 검사를 실행할 수 있습니다. [AMP Playground](https://playground.amp.dev/?runtime=amp4email)를 열고 왼쪽 상단의 형식이 `AMP for Email`로 설정되었는지 확인하세요. 이제 다음 코드가 표시될 것입니다.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

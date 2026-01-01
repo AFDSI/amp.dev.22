@@ -11,6 +11,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Why AMP?
 
 De muchas formas, Internet es el eje central del mundo. Cada día, más personas de todo el mundo acceden a la información en línea. Pero muchas no usan Internet con conexiones super rápidas o en equipos de muy potentes. Cuando los sitios web son desarrollados sólo para equipos y conexiones rápidas, la experiencia de muchos usuarios se ve afectada.
@@ -35,7 +36,7 @@ AMP trabaja para mejorar el rendimiento web por medio de:
 
 - Detectando problemas de forma temprana y frecuentemente durante el curso del desarrollo del sitio web. Como hemos mencionado, hay mucho que seguir en el desarrollo web moderno. AMP ayuda a manejar esto al proporcionar un validador que busca problemas en su sitio que pudieran afectar el rendimiento o la accesibilidad. ¡Tambien te ayuda a aprender cómo solucionar los problemas que encuentra!
 
-Los beneficios de AMP no terminan una vez que tu pagina es implementada. Empresas como Google y Microsoft han creado cachés que almacenan páginas AMP que no tienen errores de validación. Estos cachés pueden aplicar pontentes optimizaciones de rendimiento al contenido de tu sitio sin afectar la experiencia de los usuarios con ella. Las páginas AMP almacenadas en caché son integradas también con los motores de búsqueda, por lo que tu sitio puede aparecer en los resultados de búsqueda en cuestión de segundos - o incluso ménos! 
+Los beneficios de AMP no terminan una vez que tu pagina es implementada. Empresas como Google y Microsoft han creado cachés que almacenan páginas AMP que no tienen errores de validación. Estos cachés pueden aplicar pontentes optimizaciones de rendimiento al contenido de tu sitio sin afectar la experiencia de los usuarios con ella. Las páginas AMP almacenadas en caché son integradas también con los motores de búsqueda, por lo que tu sitio puede aparecer en los resultados de búsqueda en cuestión de segundos - o incluso ménos!
 
 ## Aprendiendo AMP para entender el desarrollo web
 
@@ -67,5 +68,5 @@ Muchos usuarios ingresan a sitios web por medio de conexiones lentas y en dispos
 
 AMP coloca restricciones sobre dónde y cómo se puede usar JavaScript en otras partes de sus páginas. Esta restricción puede mejorar drásticamente el rendimiento en dispositivos móviles. Los componentes web de AMP estan diseñados para brindar lo mejor de su funcionalidad - lo que significa que no tienes que escribir mucho JavaScript o dejarlo a librerias de terceros. Por otro lado, AMP tiene mucho en común con otros frameworks en front-end - por lo tanto usarás tus habilidades adquiridas.
 
-Los beneficios de AMP no terminan una vez que tu pagina es implementada. Empresas como Google y Microsoft han creado cachés que almacenan páginas AMP que no tienen errores de validación. Estos cachés pueden aplicar pontentes optimizaciones de rendimiento al contenido de tu sitio sin afectar la experiencia de los usuarios con ella. Las páginas AMP almacenadas en caché son integradas también con los motores de búsqueda, por lo que tu sitio puede aparecer en los resultados de búsqueda en cuestión de segundos - o incluso ménos! 
+Los beneficios de AMP no terminan una vez que tu pagina es implementada. Empresas como Google y Microsoft han creado cachés que almacenan páginas AMP que no tienen errores de validación. Estos cachés pueden aplicar pontentes optimizaciones de rendimiento al contenido de tu sitio sin afectar la experiencia de los usuarios con ella. Las páginas AMP almacenadas en caché son integradas también con los motores de búsqueda, por lo que tu sitio puede aparecer en los resultados de búsqueda en cuestión de segundos - o incluso ménos!
 [/filter]

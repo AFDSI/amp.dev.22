@@ -15,16 +15,73 @@ author: kul3r4
 <!-- -->
 <!doctype html>
 <html ⚡ lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Using the Google AMP Cache</title>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <link rel="canonical" href="<% canonical %>">
-  <meta name="viewport" content="width=device-width">
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-</head>
-<body>
-  <!--
+  <head>
+    <meta charset="utf-8" />
+    <title>Using the Google AMP Cache</title>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href="<% canonical %>" />
+    <meta name="viewport" content="width=device-width" />
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+  </head>
+  <body>
+    <!--
 ## AMP Cache URL Format
 
 When possible, the Google AMP Cache will create a subdomain for each AMP document's domain by first converting it from [IDN (punycode)](https://en.wikipedia.org/wiki/Punycode) to UTF-8. The caches replaces every `-` (dash) with `--` (2 dashes) and replace every `.` (dot) with `-` (dash). For example, `pub.com` will map to `pub-com.cdn.ampproject.org`.
@@ -97,5 +154,5 @@ If an URL returns a 5XX server errors, the AMP Cache will return a 404 status.</
 Example: [https://amp-dev.cdn.ampproject.org/amp.dev/documentation/examples/api/error](https://cdn.ampproject.org/c/s/amp.dev/documentation/examples/api/error)
 
 -->
-</body>
+  </body>
 </html>

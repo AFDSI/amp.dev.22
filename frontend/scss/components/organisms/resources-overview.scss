@@ -28,7 +28,7 @@
     height: 100%;
     opacity: 0;
     will-change: opacity;
-    transition: opacity 0.8s cubic-bezier(.25,.1,.25,1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &.active {
       opacity: 1;
@@ -70,13 +70,13 @@
 
   &-websites .#{organism('resources-grid')} h2,
   &-ads .#{organism('resources-grid')} h2 {
-    transition: color 0.3s cubic-bezier(.25, .1, .25, 1);
+    transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     @include color-websites;
   }
 
   &-email .#{organism('resources-grid')} h2,
   &-stories .#{organism('resources-grid')} h2 {
-    transition: color 0.3s cubic-bezier(.25, .1, .25, 1);
+    transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     @include color-stories;
   }
 
@@ -133,7 +133,9 @@
           border-radius: 4px;
           color: color('black');
           background: color('athens-gray');
-          transition: transform 0.3s cubic-bezier(.25,.1,.25,1), box-shadow 0.3s cubic-bezier(.25,.1,.25,1);
+          transition:
+            transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+            box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
           @media (max-width: 400px) {
             width: 100%;
@@ -152,7 +154,7 @@
           &-websites.active,
           &:hover {
             transform: translateY(-1px);
-            box-shadow: 0 9px 7px -8px rgba(0, 0, 0, 0.30);
+            box-shadow: 0 9px 7px -8px rgba(0, 0, 0, 0.3);
           }
 
           &-websites.active,
@@ -161,7 +163,7 @@
             @include color-websites;
 
             .#{atom('ico')} {
-              @include fill-websites;;
+              @include fill-websites;
             }
           }
 

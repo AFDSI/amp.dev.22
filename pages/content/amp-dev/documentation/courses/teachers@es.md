@@ -32,7 +32,9 @@ El curso consta de una serie de proyectos prácticos, la mayoría de los cuales 
 - El curso utiliza el editor en línea Glitch. ¡No se requiere IDE o servidor web local!
 
 ### Certificación
+
 Si estás interesado en nuestro programa de certificación, <a href="mailto:morsssss@amp.dev"> póngase en contacto con nosotros </a>.
 
 ### Háblanos
+
 ¿Estás usando estos cursos? ¿Quieres contarnos tu experiencia? ¿O tiene ideas sobre cómo pueden mejorar? ¿Quieres compartir tu propia versión de los cursos con la comunidad? <a href="https://docs.google.com/forms/d/1H0qp9m5jq2ZaiaoU9zWu3Vd_WRGuluV7xPs14jxneSA/viewform" target="_blank"> Envíanos tus comentarios </a>

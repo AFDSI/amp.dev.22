@@ -15,7 +15,7 @@ Start
 [example preview="none" playground="true"]
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp lang="en">
   <head>
     <meta charset="utf-8" />

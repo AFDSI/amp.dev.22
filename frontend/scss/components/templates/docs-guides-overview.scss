@@ -48,11 +48,12 @@
       margin-bottom: 1.75em;
     }
 
-    h1, h2 {
-      margin-bottom: .5em;
+    h1,
+    h2 {
+      margin-bottom: 0.5em;
     }
 
-    .#{atom('sidebar-toggle-label')}{
+    .#{atom('sidebar-toggle-label')} {
       margin-left: -25px;
 
       @media (min-width: 768px) {
@@ -62,8 +63,8 @@
   }
 
   section {
-
-    &.#{utility('section')}, &.#{utility('video-slider')} {
+    &.#{utility('section')},
+    &.#{utility('video-slider')} {
       width: 100%;
     }
 
@@ -85,7 +86,7 @@
   .#{organism('video-slider')} {
     &-carousel {
       amp-youtube {
-        box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+        box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.3);
       }
     }
   }

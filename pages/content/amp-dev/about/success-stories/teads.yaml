@@ -1,7 +1,7 @@
 $title: Teads
 $category: advertisers
 $date: 2016-12-02
-description: "Across Teads publisher portfolio, video ads perform significantly better on AMP’d pages than on the traditional mobile web, Mr. Shih notes. The completion rate is 15% higher ..."
+description: 'Across Teads publisher portfolio, video ads perform significantly better on AMP’d pages than on the traditional mobile web, Mr. Shih notes. The completion rate is 15% higher ...'
 
 formats:
   - websites
@@ -19,13 +19,11 @@ teaser:
     alt: Teads
   text: Teads brings AMP'd mobile video inventory to nearly 100 publishers
 
-
 stage:
   headline: Teads brings AMP'd mobile video inventory to nearly 100 publishers
   layout: mobile
   subline: DEC 2, 2016
   devices:
-
     - image_src: '/static/img/success-stories/teads/amp_teads.jpg'
       width: 120
       height: 200
@@ -43,7 +41,6 @@ kpis:
     text: Increase in available inventory
 
 contents:
-
   - layout: text
     text: Historically, demand for digital video has <a href="https://www.emarketer.com/Article/Mobile-Video-Advertisers-Demand-More-Inventory/1013575" target="_blank">far outstripped</a> online publishers’ limited supply of premium in-stream video inventory. So in 2011, French startup Teads designed a new type of video ad that appears natively inside editorial articles, without requiring existing video content.
     direction: left-flat

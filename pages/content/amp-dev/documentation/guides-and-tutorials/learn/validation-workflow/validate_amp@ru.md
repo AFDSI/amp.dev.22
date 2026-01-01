@@ -2,7 +2,7 @@
 $title: О проверке AMP-страниц
 ---
 
-Преимущество технологии AMP заключается не только в том, что благодаря ей ускоряется загрузка страниц, а в том, что такие страницы можно *проверять*. Это позволяет избежать проблем с показом AMP-страниц в Google Поиске и таких сервисах, как Twitter или Instagram.
+Преимущество технологии AMP заключается не только в том, что благодаря ей ускоряется загрузка страниц, а в том, что такие страницы можно _проверять_. Это позволяет избежать проблем с показом AMP-страниц в Google Поиске и таких сервисах, как Twitter или Instagram.
 
 ## Как проверить, соответствует ли страница критериям AMP
 
@@ -14,9 +14,9 @@ AMP-документ можно проверить несколькими спо
 
 Инструмент AMP Validator содержит библиотеку JavaScript AMP, поэтому она по умолчанию доступна на всех AMP-страницах. Чтобы проверить AMP-страницу, выполните следующие действия:
 
-  1. Откройте AMP-страницу в браузере.
-  1. Добавьте к URL элемент `#development=1`, например так: `http://localhost:8000/released.amp.html#development=1`.
-  1. Откройте [консоль разработчика Chrome](https://developers.google.com/web/tools/chrome-devtools/debug/console/) и проверьте страницу на наличие ошибок
+1. Откройте AMP-страницу в браузере.
+1. Добавьте к URL элемент `#development=1`, например так: `http://localhost:8000/released.amp.html#development=1`.
+1. Откройте [консоль разработчика Chrome](https://developers.google.com/web/tools/chrome-devtools/debug/console/) и проверьте страницу на наличие ошибок
 
 Ошибки будут выглядеть примерно так:
 
@@ -41,6 +41,7 @@ AMP-документ можно проверить несколькими спо
     </td>
     <td>Если на странице выявлены проблемы, значок расширения становится красного цвета и на нем показывается количество ошибок.
     </td>
+
   </tr>
   <tr>
     <td>
@@ -49,6 +50,7 @@ AMP-документ можно проверить несколькими спо
     </td>
     <td>Если ошибки не обнаружены, отображается зеленый значок и количество предупреждений (при их наличии).
     </td>
+
   </tr>
   <tr>
     <td>
@@ -57,6 +59,7 @@ AMP-документ можно проверить несколькими спо
     </td>
     <td>Если страница не использует технологию AMP, но сообщает, что доступна ее AMP-версия, вы увидите синий значок и символ ссылки под ним. При нажатии на расширение браузер откроет AMP-версию страницы.
     </td>
+
   </tr>
 </table>
 
@@ -100,12 +103,12 @@ minimum_valid_amp.html: PASS
 [sourcecode:console]
 $ amphtml-validator --help
 
-  Usage: index [options] <fileOrUrlOrMinus...>
+Usage: index [options] <fileOrUrlOrMinus...>
 
-  Validates the files or urls provided as arguments. If "-" is
-  specified, reads from stdin instead.
+Validates the files or urls provided as arguments. If "-" is
+specified, reads from stdin instead.
 
-  Options:
+Options:
 
     -h, --help                  output usage information
     -V, --version               output the version number
@@ -120,6 +123,7 @@ $ amphtml-validator --help
               supporting color).
       "json"  emits json corresponding to the ValidationResult
               message in validator.proto.
+
 [/sourcecode]
 
 ## Что произойдет, если страница не соответствует критериям AMP
@@ -138,14 +142,14 @@ AMP Validator не просто инструмент, который упрощ�
 
 Вот как будет выглядеть ошибка при проверке AMP в трех различных инструментах:
 
-* Консоль разработчика браузера
-<amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="30" src="/static/img/docs/validator_console_imgerror.png" width="696" layout="responsive"></amp-img>
+- Консоль разработчика браузера
+  <amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="30" src="/static/img/docs/validator_console_imgerror.png" width="696" layout="responsive"></amp-img>
 
-* Веб-интерфейс
-<amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="58" src="/static/img/docs/validator_webui_imgerror.png" width="676" layout="responsive"></amp-img>
+- Веб-интерфейс
+  <amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="58" src="/static/img/docs/validator_webui_imgerror.png" width="676" layout="responsive"></amp-img>
 
-* Расширение для браузера
-<amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="108" src="/static/img/docs/validator_extension_imgerror.png" width="724" layout="responsive"></amp-img>
+- Расширение для браузера
+  <amp-img alt="Ошибка AMP: тег img может быть только потомком тега noscript.Возможно, вы имели в виду amp-img?Строка 11, столбец 2" height="108" src="/static/img/docs/validator_extension_imgerror.png" width="724" layout="responsive"></amp-img>
 
 Все эти инструменты предоставляют следующие данные:
 

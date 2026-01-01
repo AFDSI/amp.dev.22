@@ -11,7 +11,7 @@ AMP sayfası, güvenilir performans için bazı kısıtlamalara sahip bir HTML s
 Basit bir AMP sayfası şuna benzer:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

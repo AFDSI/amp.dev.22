@@ -7,7 +7,7 @@ description: 'Antes de começar a adicionar código, revise a página de exemplo
 Antes de começar a adicionar código, revise a página de exemplo [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html), que terá uma aparência semelhante a esta:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

@@ -315,7 +315,7 @@ _示例_：尚未包括 `<amp-lightbox>` 的原因在于，有些 AMPHTML 广告
 
 SVG 标记不属于 HTML5 命名空间。以下列出的 SVG 标记没有板块 ID。
 
-` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
+`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
 
 #### 4.9 表格数据 <a name="49-tabular-data"></a>
 

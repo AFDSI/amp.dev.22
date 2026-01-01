@@ -14,7 +14,7 @@ O diretório do projeto contém um arquivo chamado [`article.html`](https://gith
 Seu arquivo `article.amp.html` precisa ter a seguinte forma:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>News Article</title>

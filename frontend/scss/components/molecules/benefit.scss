@@ -58,7 +58,7 @@ section.#{utility('content')}.benefits {
   display: flex;
   margin: 20px;
 
-	@media (min-width: 768px) {
+  @media (min-width: 768px) {
     padding: 0;
     margin: 50px 0;
     flex: 0 0 calc(33.333333333% - 40px);

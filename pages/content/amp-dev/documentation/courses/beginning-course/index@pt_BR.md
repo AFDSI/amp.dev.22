@@ -4,6 +4,7 @@ description: 'Aprenda sobre AMP e como ele pode ajudar você. Crie sua primeira 
 ---
 
 [filter level="beginner"]
+
 ## Por que AMP?
 
 Em muitas maneiras, a internet é o hub central do mundo. Todos os dias, mais pessoas de todos os lugares do mundo acessam informações online. Mas muitos desses usuário não usam a internet em conexões rápidas ou em dispositivos móveis com alto desempenho. Quando sites são desenvolvidos apenas para conexões e dispositivos mais rápido, a experiência de muitos usuários ficam comprometida.

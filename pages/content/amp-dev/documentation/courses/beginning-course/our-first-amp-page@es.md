@@ -5,6 +5,7 @@ leveled: true
 ---
 
 [filter level="beginner"]
+
 ## Iniciando Nuestro Viaje
 
 Es el primer dia de nuestro equipo desarrollando nuestro sitio Chico's Cheese Bike. Hasta ahora, el sitio es una página HTML básica, con un encabezado que contiene el título de nuestro sitio, una imagen de una de nuestras bicicletas y algún texto de marketing.
@@ -15,6 +16,7 @@ En tu proyecto Glitch, abre index.html y verifica que el HTML se vea como esto:
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -61,7 +63,7 @@ Este símbolo es esencial. Indica que estamos haciendo un sitio AMP. A continuac
 
 Hemos mencionado el concepto de escribir "AMP valido" tiempo atras. Véamos qué significa y por qué es importante.
 
-En primer lugar, una AMP valida es importante porque es bueno para los usuarios. Las reglas de AMP representan las mejores prácticas en rendimiento, accesibilidad y seguridad. Por lo tanto, los errores de validación son la forma que tiene AMP de decirte que hay posibilidades de mejorar tu sitio para tus usuarios. 
+En primer lugar, una AMP valida es importante porque es bueno para los usuarios. Las reglas de AMP representan las mejores prácticas en rendimiento, accesibilidad y seguridad. Por lo tanto, los errores de validación son la forma que tiene AMP de decirte que hay posibilidades de mejorar tu sitio para tus usuarios.
 
 En segundo lugar, una AMP valida es importante debido a la utilidad de la caché de AMP. La caché es una parte poderosa de la arquitectura AMP. Es una red de entrega de contanido (CDN) diseñada para:
 
@@ -97,9 +99,8 @@ En el caso del renglón de la etiqueta `<img>`:
 
 `The tag <img> may only appear as a descendant of tag 'noscript'. Did you mean 'amp-img'?`
 
-
 Da clic en el enlace “Debug” al final del renglón. El enlace te llevará directamente a la linea de código en tu página que contiene el error listado. Esto te ayuda a encontrar los errores que ocurren en tus archivos, y te ayuda mencionando el contexto necesario para entender cómo reparar los errores.
-Y no te preocupes: Este mensaje parecerá poco claro ahora, pero es un arreglo fácil. Necesitamos usar el componente AMP `<amp-img>` en lugar de la etiqueta HTML  `<img>`. En la sección [Thinking in Components](thinking-in-components.md) de este curso, exploraremos por qué aparece este error, que es `<amp-img>`, y cómo repararlo.
+Y no te preocupes: Este mensaje parecerá poco claro ahora, pero es un arreglo fácil. Necesitamos usar el componente AMP `<amp-img>` en lugar de la etiqueta HTML `<img>`. En la sección [Thinking in Components](thinking-in-components.md) de este curso, exploraremos por qué aparece este error, que es `<amp-img>`, y cómo repararlo.
 
 {{ image('/static/img/courses/beginner/image16.png', 1999, 798, align='center', caption='AMP debugger showing an error inline.') }}
 
@@ -141,11 +142,13 @@ Las siguientes reglas son específicamente para configurar el tiempo de ejecuci�
 
 [sourcecode:html]
 {% raw %}
+
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
 {% endraw %}[/sourcecode]
 
 [tip type="note"]
-**Nota**: El código boilerplate de AMP debe ser copiado tal cual. El código esta reducido, pero también funciona si  estas usando un auto-formateador en tu código, como Prettier. Asegurate no cambiar el orden del texto dentro de las etiquetas o cambiar los valores. Si quieres conocer más esas etiquetas y porqué son importantes, puedes leer más sobre ellas en el [apendice](appendix.md).
+**Nota**: El código boilerplate de AMP debe ser copiado tal cual. El código esta reducido, pero también funciona si estas usando un auto-formateador en tu código, como Prettier. Asegurate no cambiar el orden del texto dentro de las etiquetas o cambiar los valores. Si quieres conocer más esas etiquetas y porqué son importantes, puedes leer más sobre ellas en el [apendice](appendix.md).
 [/tip]
 
 ## CSS y AMP
@@ -166,14 +169,14 @@ Para practicar el agregar estilos personalizados a tu página AMP, agrega la sig
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -195,6 +198,7 @@ La solución la puedes encontrar en <a href="https://glitch.com/~hungry-modem" t
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>
@@ -233,6 +237,7 @@ Este es un error importante de entender. Algunas etiquetas HTML no estan permiti
 [/tip]
 [/filter]
 [filter level="advanced"]
+
 ## Iniciando Nuestro Viaje
 
 Es el primer dia de nuestro equipo desarrollando nuestro sitio Chico's Cheese Bike. Hasta ahora, el sitio es una página HTML básica, con un encabezado que contiene el título de nuestro sitio, una imagen de una de nuestras bicicletas y algún texto de marketing. Nuestro objetivo es convertir esta página en AMP!
@@ -243,6 +248,7 @@ En <a href="https://glitch.com/edit/#!/nosy-leech" target="_blank">tu</a> proyec
 
 [sourcecode:html]
 {% raw %}<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -287,7 +293,7 @@ Este símbolo es esencial. Indica que estamos haciendo un sitio AMP. A continuac
 
 ¿Porqué esto es importante para escribir un AMP valido?
 
-En primer lugar, una AMP valida es importante porque es bueno para los usuarios. Las reglas de AMP representan las mejores prácticas en rendimiento, accesibilidad y seguridad. Por lo tanto, los errores de validación son la forma que tiene AMP de decirte que hay posibilidades de mejorar tu sitio para tus usuarios. 
+En primer lugar, una AMP valida es importante porque es bueno para los usuarios. Las reglas de AMP representan las mejores prácticas en rendimiento, accesibilidad y seguridad. Por lo tanto, los errores de validación son la forma que tiene AMP de decirte que hay posibilidades de mejorar tu sitio para tus usuarios.
 
 En segundo lugar, una AMP valida es importante debido a la utilidad de la caché de AMP. La caché es una parte poderosa de la arquitectura AMP. Es una red de entrega de contanido (CDN) diseñada para:
 
@@ -324,7 +330,7 @@ En el caso del renglón de la etiqueta `<img>`:
 `The tag <img> may only appear as a descendant of tag 'noscript'. Did you mean 'amp-img'?`
 
 Da clic en el enlace “Debug” al final del renglón. El enlace te llevará directamente a la linea de código en tu página que contiene el error listado. Esto te ayuda a encontrar los errores que ocurren en tus archivos, y te ayuda mencionando el contexto necesario para entender cómo reparar los errores.
-Y no te preocupes: Este mensaje parecerá poco claro ahora, pero es un arreglo fácil. Necesitamos usar el componente AMP `<amp-img>` en lugar de la etiqueta HTML  `<img>`. En la sección [Thinking in Components](thinking-in-components.md) de este curso, exploraremos por qué aparece este error, que es `<amp-img>`, y cómo repararlo.
+Y no te preocupes: Este mensaje parecerá poco claro ahora, pero es un arreglo fácil. Necesitamos usar el componente AMP `<amp-img>` en lugar de la etiqueta HTML `<img>`. En la sección [Thinking in Components](thinking-in-components.md) de este curso, exploraremos por qué aparece este error, que es `<amp-img>`, y cómo repararlo.
 
 {{ image('/static/img/courses/beginner/image16.png', 1999, 798, align='center', caption='AMP debugger showing an error inline.') }}
 
@@ -369,9 +375,8 @@ Las siguientes reglas son específicamente para configurar el tiempo de ejecuci�
 
 {% endraw %}[/sourcecode]
 
-
 [tip type="note"]
-**Nota**: El código boilerplate de AMP debe ser copiado tal cual. El código esta reducido, pero también funciona si  estas usando un auto-formateador en tu código, como Prettier. Asegurate no cambiar el orden del texto dentro de las etiquetas o cambiar los valores. Si quieres conocer más esas etiquetas y porqué son importantes, puedes leer más sobre ellas en el [apendice]({{g.doc('/content/amp-dev/documentation/courses/beginning-course/appendix.md', locale=doc.locale).url.path}}).
+**Nota**: El código boilerplate de AMP debe ser copiado tal cual. El código esta reducido, pero también funciona si estas usando un auto-formateador en tu código, como Prettier. Asegurate no cambiar el orden del texto dentro de las etiquetas o cambiar los valores. Si quieres conocer más esas etiquetas y porqué son importantes, puedes leer más sobre ellas en el [apendice]({{g.doc('/content/amp-dev/documentation/courses/beginning-course/appendix.md', locale=doc.locale).url.path}}).
 [/tip]
 
 ## CSS and AMP
@@ -390,14 +395,14 @@ Para asegurar un buen desempeño y permitir que AMP haga lo necesario, AMP pone 
 
 [sourcecode:html]
 {% raw %}<style amp-custom>
-    body {
-        font-family: sans-serif;
-        line-height: 1.5rem;
-        padding: 20px;
-    }
-    p, h2 {
-        border: 1px dotted red;
-    }
+body {
+font-family: sans-serif;
+line-height: 1.5rem;
+padding: 20px;
+}
+p, h2 {
+border: 1px dotted red;
+}
 </style>
 {% endraw %}[/sourcecode]
 
@@ -417,6 +422,7 @@ La solución se puede encontar en <a href="https://glitch.com/~hungry-modem" tar
 
 [sourcecode:html]
 {% raw %}<head>
+
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <title>Chico's Cheese Bicycles</title>

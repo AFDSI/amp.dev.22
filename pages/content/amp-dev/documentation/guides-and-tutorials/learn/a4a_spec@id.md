@@ -315,7 +315,7 @@ Sebagian besar yang ditiadakan adalah demi kinerja atau karena tag-tag tersebut 
 
 Tag-tag SVG tidak ada di dalam namespace HTML5. Mereka dicantumkan di bawah tanpa ID bagian.
 
-` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
+`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
 
 #### 4.9 Data tabel <a name="49-tabular-data"></a>
 

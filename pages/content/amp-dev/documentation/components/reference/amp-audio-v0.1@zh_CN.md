@@ -8,7 +8,6 @@ teaser:
   text: 替代 HTML5 audio 标记。
 ---
 
-
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -25,8 +24,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
-
 ## 行为
 
 将`amp-audio`组件与直接嵌入HTML5音频文件一起使用。
@@ -36,16 +33,18 @@ limitations under the License.
 
 `amp-audio` 组件最多接受三种不同类型的 HTML 节点作为子级：
 
-* `source` 标记：和在 HTML `<audio>` 标记中一样，您可以添加 `<source>` 标记子级，以指定要播放的不同源媒体文件。
-* 音频播放前使用的占位符: 一个或零个直接子节点可以具有`placeholder`属性。如果存在，此节点及其子节点将形成一个占位符，该占位符将显示而不是音频。 在 `amp-audio` 容器内的任何位置单击或点击都会将占位符替换为音频本身。
-* 回调（如果浏览器不支持 HTML5 音频）：一个或零个直接子节点可以具有 `fallback` 属性。如果存在此节点，则在用户的浏览器不支持 HTML5 音频时，则显示此节点及其子级的内容。
+- `source` 标记：和在 HTML `<audio>` 标记中一样，您可以添加 `<source>` 标记子级，以指定要播放的不同源媒体文件。
+- 音频播放前使用的占位符: 一个或零个直接子节点可以具有`placeholder`属性。如果存在，此节点及其子节点将形成一个占位符，该占位符将显示而不是音频。 在 `amp-audio` 容器内的任何位置单击或点击都会将占位符替换为音频本身。
+- 回调（如果浏览器不支持 HTML5 音频）：一个或零个直接子节点可以具有 `fallback` 属性。如果存在此节点，则在用户的浏览器不支持 HTML5 音频时，则显示此节点及其子级的内容。
 
 [sourcecode:html]
 <amp-audio
-  width="400"
-  height="300"
-  src="https://yourhost.com/audios/myaudio.mp3"
+width="400"
+height="300"
+src="https://yourhost.com/audios/myaudio.mp3"
+
 >
+
   <div fallback>
     <p>Your browser doesn’t support HTML5 audio</p>
   </div>
@@ -93,14 +92,16 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-audio
-  width="400"
-  height="300"
-  src="https://yourhost.com/audios/myaudio.mp3"
-  artwork="https://yourhost.com/artworks/artwork.png"
-  title="Awesome music"
-  artist="Awesome singer"
-  album="Amazing album"
+width="400"
+height="300"
+src="https://yourhost.com/audios/myaudio.mp3"
+artwork="https://yourhost.com/artworks/artwork.png"
+title="Awesome music"
+artist="Awesome singer"
+album="Amazing album"
+
 >
+
   <source type="audio/mpeg" src="foo.mp3" />
 </amp-audio>
 [/sourcecode]
@@ -136,11 +137,11 @@ AMP音频分析收集有关用户如何与AMP文档中的音频进行交互的�
 
 [sourcecode:javascript]
 "triggers": {
-  "audioPlay": {
-    "on": "audio-play",
-    "request": "event",
-    "selector": "#audio1"
-  }
+"audioPlay": {
+"on": "audio-play",
+"request": "event",
+"selector": "#audio1"
+}
 }
 [/sourcecode]
 
@@ -151,11 +152,11 @@ AMP音频分析收集有关用户如何与AMP文档中的音频进行交互的�
 
 [sourcecode:javascript]
 "triggers": {
-  "audioPause": {
-    "on": "audio-pause",
-    "request": "event",
-    "selector": "#audio1"
-  }
+"audioPause": {
+"on": "audio-pause",
+"request": "event",
+"selector": "#audio1"
+}
 }
 [/sourcecode]
 

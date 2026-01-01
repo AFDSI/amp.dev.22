@@ -302,7 +302,7 @@ AMP не поддерживает стандартные HTML-элементы �
 Теперь ваш документ AMP должен выглядеть примерно так:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

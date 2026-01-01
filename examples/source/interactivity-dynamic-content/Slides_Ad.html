@@ -13,12 +13,20 @@ author: zhouyx
 <!doctype html>
 <html amp4ads lang="en">
   <head>
-    <meta charset="utf-8">
-  <title>Slides Ad</title>
-    <meta name="viewport" content="width=device-width">
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <meta charset="utf-8" />
+    <title>Slides Ad</title>
+    <meta name="viewport" content="width=device-width" />
+    <script
+      async
+      custom-element="amp-carousel"
+      src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
+    ></script>
     <script async src="https://cdn.ampproject.org/amp4ads-v0.js"></script>
-    <style amp4ads-boilerplate>body{visibility:hidden}</style>
+    <style amp4ads-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
     <!-- ## Summary-->
     <!--
     Sample AMPHTML ad using [amp-carousel](/content/amp-dev/documentation/components/reference/amp-carousel-v0.2.md) to create an interactive ad.
@@ -115,31 +123,38 @@ author: zhouyx
         This is only used for transitions that are activated when the selected item slides into view. If the transition is not desired, `amp-bind` is no longer a requisite for this example.
         -->
         <amp-carousel
-            height="132"
-            layout="fixed-height"
-            type="slides"
-            class="carousel"
-            controls>
+          height="132"
+          layout="fixed-height"
+          type="slides"
+          class="carousel"
+          controls
+        >
           <div class="carousel-item">
-            <amp-img src="/static/samples/img/car-sideview2.jpg"
-                width="216"
-                height="117"
-                layout="fixed"
-                class="carousel-img"></amp-img>
+            <amp-img
+              src="/static/samples/img/car-sideview2.jpg"
+              width="216"
+              height="117"
+              layout="fixed"
+              class="carousel-img"
+            ></amp-img>
           </div>
           <div class="carousel-item">
-            <amp-img src="/static/samples/img/car-gauges.jpg"
-                width="216"
-                height="117"
-                layout="fixed"
-                class="carousel-img"></amp-img>
+            <amp-img
+              src="/static/samples/img/car-gauges.jpg"
+              width="216"
+              height="117"
+              layout="fixed"
+              class="carousel-img"
+            ></amp-img>
           </div>
           <div class="carousel-item">
-            <amp-img src="/static/samples/img/car-sideview1.jpg"
-                width="216"
-                height="117"
-                layout="fixed"
-                class="carousel-img"></amp-img>
+            <amp-img
+              src="/static/samples/img/car-sideview1.jpg"
+              width="216"
+              height="117"
+              layout="fixed"
+              class="carousel-img"
+            ></amp-img>
           </div>
         </amp-carousel>
       </div>
@@ -150,16 +165,26 @@ author: zhouyx
       -->
       <div class="footer">
         <div class="stretch">
-          <amp-img src="/static/samples/img/car-logo.png"
-              width="72"
-              height="32"
-              layout="fixed"
-              class="logo-img"></amp-img>
+          <amp-img
+            src="/static/samples/img/car-logo.png"
+            width="72"
+            height="32"
+            layout="fixed"
+            class="logo-img"
+          ></amp-img>
         </div>
-        <a href="https://amp.dev/documentation/examples/" target="_blank" class="button button-secondary">
+        <a
+          href="https://amp.dev/documentation/examples/"
+          target="_blank"
+          class="button button-secondary"
+        >
           Locate Store
         </a>
-        <a href="https://amp.dev/documentation/examples/" target="_blank" class="button">
+        <a
+          href="https://amp.dev/documentation/examples/"
+          target="_blank"
+          class="button"
+        >
           Explore
         </a>
       </div>

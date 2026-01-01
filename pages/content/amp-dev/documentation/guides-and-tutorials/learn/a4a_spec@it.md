@@ -29,7 +29,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-*Se desideri proporre modifiche allo standard, inserisci un commento alla [Dichiarazione di Implementazione](https://github.com/ampproject/amphtml/issues/4264)*.
+_Se desideri proporre modifiche allo standard, inserisci un commento alla [Dichiarazione di Implementazione](https://github.com/ampproject/amphtml/issues/4264)_.
 
 Gli annunci AMPHTML sono uno strumento che permette il rendering veloce ed efficace delle pagine AMP. Per garantire un rendering rapido e senza problemi dei documenti di annunci AMPHTML (i cosiddetti contenuti "creativi AMP") nel browser senza impatti negativi sull'esperienza di utilizzo, i contenuti creativi AMP devono rispettare una serie di regole di convalida. Analogamente alle [regole del formato AMP](https://amp.dev/documentation/guides-and-tutorials/learn/spec/amphtml), gli annunci AMPHTML possono accedere a un set limitato di tag, funzioni ed estensioni consentiti.
 
@@ -83,7 +83,7 @@ Gli elementi creativi di annunci AMPHTML richiedono una linea di stile boilerpla
 
 [/sourcecode]
 
-*Spiegazione:* lo stile `amp-boilerplate` nasconde i contenuti del corpo fino a quando il sistema di runtime AMP non è pronto a visualizzarlo. Se Javascript è disabilitato o il runtime AMP non viene caricato, il boilerplate predefinito garantisce che il contenuto venga visualizzato comunque. Tuttavia se Javascript è completamente disattivato negli annunci AMPHTML, il loro codice non sarà eseguito e nessun annuncio verrà mai mostrato, per cui la sezione `<noscript>` non è necessaria. In assenza del sistema di runtime AMP, la maggior parte dei meccanismi su cui si basano gli annunci AMPHTML (ad esempio, analisi di monitoraggio della visibilità o elementi `amp-img` per la visualizzazione dei contenuti) non saranno disponibili, quindi è preferibile non visualizzare alcun annuncio che rischiare di mostrarne uno che non funziona correttamente.
+_Spiegazione:_ lo stile `amp-boilerplate` nasconde i contenuti del corpo fino a quando il sistema di runtime AMP non è pronto a visualizzarlo. Se Javascript è disabilitato o il runtime AMP non viene caricato, il boilerplate predefinito garantisce che il contenuto venga visualizzato comunque. Tuttavia se Javascript è completamente disattivato negli annunci AMPHTML, il loro codice non sarà eseguito e nessun annuncio verrà mai mostrato, per cui la sezione `<noscript>` non è necessaria. In assenza del sistema di runtime AMP, la maggior parte dei meccanismi su cui si basano gli annunci AMPHTML (ad esempio, analisi di monitoraggio della visibilità o elementi `amp-img` per la visualizzazione dei contenuti) non saranno disponibili, quindi è preferibile non visualizzare alcun annuncio che rischiare di mostrarne uno che non funziona correttamente.
 
 Infine, il boilerplate degli annunci AMPHTML utilizza l'elemento `amp-a4a-boilerplate` al posto di `amp-boilerplate` in modo che gli strumenti di convalida possano identificarlo facilmente e produrre messaggi di errore più accurati a beneficio degli sviluppatori.
 
@@ -131,7 +131,7 @@ Le proprietà `transition` e `animation` sono consentite solo nei selettori che:
 
 - Contengono solo proprietà `transition`, `animation`, `transform`, `visibility` o `opacity`.
 
-    *Spiegazione:* questo permette al sistema runtime AMP di rimuovere questa classe dal contesto per disattivare le animazioni, se necessario per garantire le migliori prestazioni della pagina.
+  _Spiegazione:_ questo permette al sistema runtime AMP di rimuovere questa classe dal contesto per disattivare le animazioni, se necessario per garantire le migliori prestazioni della pagina.
 
 **Vantaggi**
 
@@ -169,7 +169,7 @@ to { margin-left: 0%; width: 100%; } } [/sourcecode]
 
 ### Estensioni ed elementi integrati AMP consentiti <a name="allowed-amp-extensions-and-builtins"></a>
 
-I seguenti sono moduli di estensione e tag integrati AMP *consentiti* nei contenuti creativi di annunci AMPHTML Le estensioni e i tag integrati non elencati esplicitamente non sono ammessi.
+I seguenti sono moduli di estensione e tag integrati AMP _consentiti_ nei contenuti creativi di annunci AMPHTML Le estensioni e i tag integrati non elencati esplicitamente non sono ammessi.
 
 - [amp-accordion](https://amp.dev/documentation/components/amp-accordion)
 - [amp-ad-exit](https://amp.dev/documentation/components/amp-ad-exit)
@@ -195,19 +195,19 @@ I seguenti sono moduli di estensione e tag integrati AMP *consentiti* nei conten
 
 La maggior parte delle esclusioni riguardano elementi non inclusi per garantire le migliori prestazioni o per semplificare l'analisi degli annunci AMPHTML.
 
-*Esempio:* l'elemento `<amp-ad>` è escluso da questo elenco. È esplicitamente vietato perché la presenza di elementi `<amp-ad>` all'interno di altri `<amp-ad>` potrebbe causare sequenze potenzialmente illimitate di caricamento in cascata degli annunci, in contrasto con gli obiettivi di elevato rendimento perseguiti dagli annunci AMPHTML.
+_Esempio:_ l'elemento `<amp-ad>` è escluso da questo elenco. È esplicitamente vietato perché la presenza di elementi `<amp-ad>` all'interno di altri `<amp-ad>` potrebbe causare sequenze potenzialmente illimitate di caricamento in cascata degli annunci, in contrasto con gli obiettivi di elevato rendimento perseguiti dagli annunci AMPHTML.
 
-*Esempio:* l'elemento `<amp-iframe>` è escluso da questo elenco. Non è consentito perché gli annunci potrebbero utilizzarlo per eseguire codice Javascript arbitrario o caricare contenuti arbitrari. Gli annunci che devono utilizzare tali funzionalità devono restituire `false` dal loro attributo [a4aRegistry](https://github.com/ampproject/amphtml/blob/main/ads/_a4a-config.js#L40) e utilizzare il meccanismo di rendering degli annunci "3p iframe" esistente.
+_Esempio:_ l'elemento `<amp-iframe>` è escluso da questo elenco. Non è consentito perché gli annunci potrebbero utilizzarlo per eseguire codice Javascript arbitrario o caricare contenuti arbitrari. Gli annunci che devono utilizzare tali funzionalità devono restituire `false` dal loro attributo [a4aRegistry](https://github.com/ampproject/amphtml/blob/main/ads/_a4a-config.js#L40) e utilizzare il meccanismo di rendering degli annunci "3p iframe" esistente.
 
-*Esempio:* gli elementi `<amp-facebook>`, `<amp-instagram>`, `<amp-twitter>` e `<amp-youtube>` sono tutti esclusi per lo stesso motivo di `<amp-iframe>`: tutti creano iframe che possono potenzialmente consumare risorse illimitate.
+_Esempio:_ gli elementi `<amp-facebook>`, `<amp-instagram>`, `<amp-twitter>` e `<amp-youtube>` sono tutti esclusi per lo stesso motivo di `<amp-iframe>`: tutti creano iframe che possono potenzialmente consumare risorse illimitate.
 
-*Esempio:* gli elementi `<amp-ad-network-*-impl>` sono omessi da questo elenco. `<amp-ad>` gestisce la delega a questi tag di implementazione; i contenuti creativi non possono includerli direttamente.
+_Esempio:_ gli elementi `<amp-ad-network-*-impl>` sono omessi da questo elenco. `<amp-ad>` gestisce la delega a questi tag di implementazione; i contenuti creativi non possono includerli direttamente.
 
-*Esempio:* l'elemento `<amp-lightbox>` non è ancora incluso perché anche alcuni contenuti creativi di annunci AMPHTML possono essere visualizzati in un iframe e attualmente non esiste alcun meccanismo per l'espansione di annunci oltre un iframe. In futuro, in caso se ne dimostri la necessità, il sistema potrà aggiungere il supporto di tale elemento.
+_Esempio:_ l'elemento `<amp-lightbox>` non è ancora incluso perché anche alcuni contenuti creativi di annunci AMPHTML possono essere visualizzati in un iframe e attualmente non esiste alcun meccanismo per l'espansione di annunci oltre un iframe. In futuro, in caso se ne dimostri la necessità, il sistema potrà aggiungere il supporto di tale elemento.
 
 ### Tag HTML <a name="html-tags"></a>
 
-I seguenti tag sono *consentiti* nei contenuti creativi degli annunci AMPHTML. I tag non esplicitamente indicati non sono consentiti. Questo elenco è un sottoinsieme della [lista di tag AMP aggiuntivi consentiti](https://github.com/ampproject/amphtml/blob/main/extensions/amp-a4a/../../spec/amp-tag-addendum.md). Anche questo elenco è coerente con le specifiche HTML5 riportate nella sezione 4 [Elementi di HTML](http://www.w3.org/TR/html5/single-page.html#html-elements).
+I seguenti tag sono _consentiti_ nei contenuti creativi degli annunci AMPHTML. I tag non esplicitamente indicati non sono consentiti. Questo elenco è un sottoinsieme della [lista di tag AMP aggiuntivi consentiti](https://github.com/ampproject/amphtml/blob/main/extensions/amp-a4a/../../spec/amp-tag-addendum.md). Anche questo elenco è coerente con le specifiche HTML5 riportate nella sezione 4 [Elementi di HTML](http://www.w3.org/TR/html5/single-page.html#html-elements).
 
 La maggior parte delle esclusioni riguardano elementi che compromettono le prestazioni o tag che non sono standard HTML5. Ad esempio, `<noscript>` viene escluso perché gli annunci AMPHTML dipendono dall'attivazione di JavaScript, quindi un blocco `<noscript>` non verrà mai eseguito e, di conseguenza, aumenterà solo la dimensione dei contenuti creativi, oltre ai consumi di banda e ai tempi di latenza. Analogamente, gli elementi `<acronym>`, `<big>` e altri non sono consentiti perché incompatibili con HTML5.
 
@@ -229,7 +229,7 @@ La maggior parte delle esclusioni riguardano elementi che compromettono le prest
 
 - **Nota:** a differenza dell'AMP generale, i tag `<link rel="canonical">` non sono ammessi.
 
-    4.2.5 `<style>` 4.2.6 `<meta>`
+  4.2.5 `<style>` 4.2.6 `<meta>`
 
 #### 4.3 Sezioni <a name="43-sections"></a>
 
@@ -299,7 +299,7 @@ I tag SVG non si trovano nello spazio dei nomi HTML5. Sono elencati di seguito s
 
 - Come nel caso di documenti AMP generali, il tag `<head>` dei contenuti creativi deve contenere un tag `<script async src="https://cdn.ampproject.org/amp4ads-v0.js"></script>`.
 - A differenza dei documenti AMP generali, l'uso di `<noscript>` non è consentito.
-    - *Spiegazione:* poiché gli annunci AMPHTML richiedono che Javascript sia abilitato per funzionare, i blocchi `<noscript>` non hanno alcuno scopo negli annunci AMPHTML e causano solo maggiori consumi di risorse di rete.
+  - _Spiegazione:_ poiché gli annunci AMPHTML richiedono che Javascript sia abilitato per funzionare, i blocchi `<noscript>` non hanno alcuno scopo negli annunci AMPHTML e causano solo maggiori consumi di risorse di rete.
 - A differenza dei documenti AMP generali, l'uso di `<script type="application/ld+json">` non è consentito.
-    - *Spiegazione:* I blocchi JSON LD sono utilizzati per il markup dei dati strutturati sulle pagine host, ma gli elementi creativi degli annunci non sono documenti autonomi e non contengono dati strutturati. I blocchi JSON LD al loro interno causerebbero solo maggiori consumi di risorse di rete.
+  - _Spiegazione:_ I blocchi JSON LD sono utilizzati per il markup dei dati strutturati sulle pagine host, ma gli elementi creativi degli annunci non sono documenti autonomi e non contengono dati strutturati. I blocchi JSON LD al loro interno causerebbero solo maggiori consumi di risorse di rete.
 - Tutte le altre regole ed esclusioni relative agli script sono quelle applicate nei documenti AMP generali.

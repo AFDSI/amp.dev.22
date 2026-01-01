@@ -9,8 +9,8 @@ formats:
 teaser:
   image:
     src: '/static/img/success-stories/womp/teaser_wompmobile.jpg'
-    width: 240 
-    height:  240
+    width: 240
+    height: 240
     alt: WompMobile
   logo:
     src: '/static/img/success-stories/womp/wompmobile_logo.png'
@@ -19,13 +19,11 @@ teaser:
     alt: WompMobile
   text: WompMobile consistently improves e-commerce clients’ conversion rates with AMP sites
 
-
 stage:
   headline: WompMobile consistently improves e-commerce clients’ conversion rates with AMP sites
   layout: mobile
   subline: MARCH 15, 2017
   devices:
-
     - image_src: '/static/img/success-stories/womp/amp_womp_1.jpg'
       width: 120
       height: 200
@@ -43,7 +41,6 @@ kpis:
     text: Increase in CTR from search platforms on AMP sites
 
 contents:
-
   - layout: text
     text: WompMobile is a digital agency specializing in converting traditional e-commerce and enterprise sites into effective mobile experiences. "We tell our clients that today's mobile shoppers are won and lost in less than one second," says co-founder Robert Gara. "Being mobile friendly isn't enough. People expect instant access to information—and page speed is critical to getting customers to engage with our clients’ mobile sites."
     direction: left-flat

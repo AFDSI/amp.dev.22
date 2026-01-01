@@ -5,7 +5,6 @@ teaser:
   text: Consente ai publisher una facile integrazione con la piattaforma di micropagamenti LaterPay.
 ---
 
-
 <!--
 Copyright 2017 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,8 +20,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
-
 
 Consente ai publisher una facile integrazione con la piattaforma di micropagamenti [LaterPay](https://www.laterpay.net). `amp-access-laterpay` richiede l'[Accesso AMP](amp-access.md) e si basa su di esso.
 
@@ -47,7 +44,6 @@ Consente ai publisher una facile integrazione con la piattaforma di micropagamen
     <td>Vedi l'esempio con annotazioni di <a href="https://ampbyexample.com/components/amp-access-laterpay/">amp-access-laterpay</a> di AMP By Example.</td>
   </tr>
 </table>
-
 
 ## Comportamento <a name="behavior"></a>
 
@@ -76,7 +72,6 @@ Questo componente si basa anche sul [Markup dei contenuti di accesso](amp-access
 La configurazione è simile ad Accesso AMP, ma non sono necessari autorizzazione né link di pingback e di accesso.
 
 ```html
-
 <script id="amp-access" type="application/json">
   {
     "vendor": "laterpay",
@@ -85,7 +80,6 @@ La configurazione è simile ad Accesso AMP, ma non sono necessari autorizzazione
       }
     }
 </script>
-
 ```
 
 Nell'oggetto di configurazione `laterpay` possono essere impostati i seguenti valori:
@@ -163,7 +157,6 @@ Assicurati di aggiungere la classe `amp-access-laterpay` se vuoi utilizzare lo s
 <div amp-access="access" amp-access-hide="">
   <p>...contenuti dell'articolo...</p>
 </div>
-
 ```
 
 ## Stili <a name="styling"></a>
@@ -175,39 +168,45 @@ Alcuni layout CSS di base esistono già, ma è consigliabile che i publisher li 
 La struttura creata per la finestra di dialogo ha il seguente aspetto:
 
 ```html
-
 <div id="amp-access-laterpay-dialog" class="amp-access-laterpay">
   <div class="amp-access-laterpay-container">
     <p class="amp-access-laterpay-header">
-      Facoltativo, viene visualizzato se viene definito il messaggio di intestazione.
+      Facoltativo, viene visualizzato se viene definito il messaggio di
+      intestazione.
     </p>
     <ul>
       <li>
         <label>
-          <input name="purchaseOption" type="radio">
-            <div class="amp-access-laterpay-metadata">
-              <span class="amp-access-laterpay-title">Titolo opzione di acquisto</span>
-              <p class="amp-access-laterpay-description">Descrizione delle opzioni di acquisto</p>
-            </div>
-          </label>
-          <p class="amp-access-laterpay-price-container">
-            <span class="amp-access-laterpay-price">0,15</span>
-            <sup class="amp-access-laterpay-currency">USD</sup>
-          </p>
-        </li>
-        <!-- ... altre voci di elenco per altre opzioni di acquisto ... -->
-      </ul>
-      <button class="amp-access-laterpay-purchase-button">Acquista ora</button>
-      <p class="amp-access-laterpay-already-purchased-container">
-        <a href="…">Già acquistato</a>
-      </p>
-      <p class="amp-access-laterpay-footer">
-        Facoltativo, viene visualizzato se viene definito il messaggio del piè di pagina.
-      </p>
-    </div>
-    <p class="amp-access-laterpay-badge">Powered by <a href="https://laterpay.net" target="_blank">LaterPay</a></p>
+          <input name="purchaseOption" type="radio" />
+          <div class="amp-access-laterpay-metadata">
+            <span class="amp-access-laterpay-title"
+              >Titolo opzione di acquisto</span
+            >
+            <p class="amp-access-laterpay-description">
+              Descrizione delle opzioni di acquisto
+            </p>
+          </div>
+        </label>
+        <p class="amp-access-laterpay-price-container">
+          <span class="amp-access-laterpay-price">0,15</span>
+          <sup class="amp-access-laterpay-currency">USD</sup>
+        </p>
+      </li>
+      <!-- ... altre voci di elenco per altre opzioni di acquisto ... -->
+    </ul>
+    <button class="amp-access-laterpay-purchase-button">Acquista ora</button>
+    <p class="amp-access-laterpay-already-purchased-container">
+      <a href="…">Già acquistato</a>
+    </p>
+    <p class="amp-access-laterpay-footer">
+      Facoltativo, viene visualizzato se viene definito il messaggio del piè di
+      pagina.
+    </p>
   </div>
-
+  <p class="amp-access-laterpay-badge">
+    Powered by <a href="https://laterpay.net" target="_blank">LaterPay</a>
+  </p>
+</div>
 ```
 
 ## Localizzazione <a name="localization"></a>
@@ -217,18 +216,16 @@ Il testo visualizzato nella finestra di dialogo per le opzioni di acquisto verr�
 Il testo rimanente fa parte del componente esteso e può essere modificato e localizzato tramite le opzioni di configurazione nel seguente modo:
 
 ```html
-
 <script id="amp-access" type="application/json">
   {
     "vendor": "laterpay",
     "laterpay": {
       "localeMessages": {
         "messageKey": "message value"
-        }
       }
     }
+  }
 </script>
-
 ```
 
 I seguenti messaggi possono essere tradotti o personalizzati, ma devono conservare significato e intenzione originali.
@@ -288,7 +285,6 @@ La sezione relativa a [più provider](amp-access.md#multiple-access-providers) i
 Quando lo utilizzi con LaterPay e un'integrazione paywall esistente, la configurazione necessaria può avere un aspetto simile al seguente:
 
 ```html
-
 <script id="amp-access" type="application/json">
   [
     {
@@ -299,26 +295,27 @@ Quando lo utilizzi con LaterPay e un'integrazione paywall esistente, la configur
       "namespace": "laterpay"
     },
     {
-      "authorization":
-          "https://pub.com/amp-access?rid=READER_ID&url=SOURCE_URL",
-      "pingback":
-          "https://pub.com/amp-ping?rid=READER_ID&url=SOURCE_URL",
-      "login":
-          "https://pub.com/amp-login?rid=READER_ID&url=SOURCE_URL",
+      "authorization": "https://pub.com/amp-access?rid=READER_ID&url=SOURCE_URL",
+      "pingback": "https://pub.com/amp-ping?rid=READER_ID&url=SOURCE_URL",
+      "login": "https://pub.com/amp-login?rid=READER_ID&url=SOURCE_URL",
       "authorizationFallbackResponse": {"error": true},
       "namespace": "publishername"
     }
   ]
 </script>
-
 ```
 
 Dove il markup dell'accesso ai contenuti potrebbe risultare simile al seguente:
 
 ```html
-<section amp-access="NOT error AND NOT laterpay.access AND NOT publishername.access" amp-access-hide>
+<section
+  amp-access="NOT error AND NOT laterpay.access AND NOT publishername.access"
+  amp-access-hide
+>
   <p>
-    <a on="tap:amp-access.login-publishername">Esegui qui l'accesso per l'abbonamento a PublisherName.</a>
+    <a on="tap:amp-access.login-publishername"
+      >Esegui qui l'accesso per l'abbonamento a PublisherName.</a
+    >
   </p>
 
   <div id="amp-access-laterpay-dialog" class="amp-access-laterpay"></div>
@@ -331,17 +328,16 @@ Dove il markup dell'accesso ai contenuti potrebbe risultare simile al seguente:
 <div amp-access="laterpay.access OR publishername.access" amp-access-hide>
   <p>...contenuti dell'articolo...</p>
 </div>
-
 ```
 
 Puoi trovare un esempio più completo su [https://ampexample.laterpay.net/dual-amp-access.html](https://ampexample.laterpay.net/dual-amp-access.html)
 
 ## Documentazione correlata <a name="related-documentation"></a>
 
-* [Accesso AMP](amp-access.md)
-* [LaterPay](https://www.laterpay.net)
-* [LaterPay: modalità di esecuzione dei MicroPayments](https://docs.laterpay.net/how_we_do_micropayments/)
-* [LaterPay Connector](https://connectormwi.laterpay.net/docs/index.html) - Simile ad Accesso AMP LaterPay ma non per pagine AMP.
+- [Accesso AMP](amp-access.md)
+- [LaterPay](https://www.laterpay.net)
+- [LaterPay: modalità di esecuzione dei MicroPayments](https://docs.laterpay.net/how_we_do_micropayments/)
+- [LaterPay Connector](https://connectormwi.laterpay.net/docs/index.html) - Simile ad Accesso AMP LaterPay ma non per pagine AMP.
 
 ## Convalida <a name="validation"></a>
 

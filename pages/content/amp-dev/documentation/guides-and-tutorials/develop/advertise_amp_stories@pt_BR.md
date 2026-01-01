@@ -44,6 +44,7 @@ As histórias Web não suportam um [`amp-ad`](../../../documentation/components/
 [sourcecode:html]
 <amp-story>
 <amp-story-auto-ads>
+
 <script type="application/json">
 {
 "ad-attributes": {

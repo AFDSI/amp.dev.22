@@ -1,45 +1,45 @@
 {
-  "name": "staging",
-  "hosts": {
-    "pages": {
-      "scheme": "https",
-      "host": "amp-new.netlify.app",
-      "port": ""
-    },
-    "api": {
-      "scheme": "https",
-      "host": "api-dot-amp-new.netlify.app",
-      "port": ""
-    },
-    "platform": {
-      "scheme": "https",
-      "host": "amp-new.netlify.app",
-      "port": ""
-    },
-    "websocket": {
-      "scheme": "wss",
-      "host": "amp-new.netlify.app",
-      "port": ""
-    },
-    "playground": {
-      "scheme": "https",
-      "host": "playground-amp-new.netlify.app",
-      "port": ""
-    },
-    "preview": {
-      "scheme": "https",
-      "host": "preview-amp-new.netlify.app",
-      "port": ""
-    },
-    "go": {
-      "scheme": "https",
-      "host": "go-amp-new.netlify.app",
-      "port": ""
-    },
-    "log": {
-      "scheme": "https",
-      "host": "log-amp-new.netlify.app",
-      "port": ""
-    }
-  }
+	"name": "staging",
+	"hosts": {
+		"pages": {
+			"scheme": "https",
+			"host": "amp-new.netlify.app",
+			"port": ""
+		},
+		"api": {
+			"scheme": "https",
+			"host": "api-dot-amp-new.netlify.app",
+			"port": ""
+		},
+		"platform": {
+			"scheme": "https",
+			"host": "amp-new.netlify.app",
+			"port": ""
+		},
+		"websocket": {
+			"scheme": "wss",
+			"host": "amp-new.netlify.app",
+			"port": ""
+		},
+		"playground": {
+			"scheme": "https",
+			"host": "playground-amp-new.netlify.app",
+			"port": ""
+		},
+		"preview": {
+			"scheme": "https",
+			"host": "preview-amp-new.netlify.app",
+			"port": ""
+		},
+		"go": {
+			"scheme": "https",
+			"host": "go-amp-new.netlify.app",
+			"port": ""
+		},
+		"log": {
+			"scheme": "https",
+			"host": "log-amp-new.netlify.app",
+			"port": ""
+		}
+	}
 }

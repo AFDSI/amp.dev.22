@@ -7,44 +7,106 @@ teaserImage: '/static/samples/img/teaser/how_to_support_images_with_unknown_dime
 <!doctype html>
 <html amp lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>How to support Images with unknown Dimensions</title>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-    <link rel="canonical" href="<% canonical %>">
-    <meta name="viewport" content="width=device-width">
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-      <style amp-custom>
-        :root {
-          --color-primary: #005AF0;
-          --color-bg-light: #FAFAFC;
-          --space-1: .5rem;  /* 8px */
+    <script
+      async
+      custom-element="amp-carousel"
+      src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
+    ></script>
+    <link rel="canonical" href="<% canonical %>" />
+    <meta name="viewport" content="width=device-width" />
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
         }
-        .fixed-container, .fixed-height-container img {
-          background-color: var(--color-primary);
+        to {
+          visibility: visible;
         }
-        .contain img {
-          object-fit: contain;
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
         }
-        .cover img {
-          object-fit: cover;
+        to {
+          visibility: visible;
         }
-       .fixed-container {
-         position: relative;
-         width: 200px;
-         height: 200px;
-         margin: var(--space-1);
-       }
-       .fixed-height-container {
-         position: relative;
-         width: 100%;
-         height: 300px;
-         margin: var(--space-1);
-       }
-      </style>
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <style amp-custom>
+      :root {
+        --color-primary: #005af0;
+        --color-bg-light: #fafafc;
+        --space-1: 0.5rem; /* 8px */
+      }
+      .fixed-container,
+      .fixed-height-container img {
+        background-color: var(--color-primary);
+      }
+      .contain img {
+        object-fit: contain;
+      }
+      .cover img {
+        object-fit: cover;
+      }
+      .fixed-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: var(--space-1);
+      }
+      .fixed-height-container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin: var(--space-1);
+      }
+    </style>
   </head>
   <body>
-  <!--
+    <!--
     ## Introduction
 
     This sample demonstrates how it is possible to embed images with unknown dimensions into an AMP page while maintaining the correct aspect ratio.
@@ -53,30 +115,49 @@ teaserImage: '/static/samples/img/teaser/how_to_support_images_with_unknown_dime
 
     To avoid page jumps while loading an AMP page, the AMP runtime's static layout system requires that the height of all elements is known in advance. This is why the `amp-img` extension requires the `width` and `height` of an image to be specified:
   -->
-  <amp-img width="300" height="200" src="https://unsplash.it/300/200?image=1074"></amp-img>
-  <!--
+    <amp-img
+      width="300"
+      height="200"
+      src="https://unsplash.it/300/200?image=1074"
+    ></amp-img>
+    <!--
   The `amp-img` extension supports different [layouts](/documentation/guides-and-tutorials/develop/style_and_layout/control_layout). The `responsive` layout requires width and height to be able to determine an image's aspect ratio.
   -->
-  <amp-img layout="responsive" width="300" height="200" src="https://unsplash.it/300/200?image=1074"></amp-img>
+    <amp-img
+      layout="responsive"
+      width="300"
+      height="200"
+      src="https://unsplash.it/300/200?image=1074"
+    ></amp-img>
 
-  <!--
+    <!--
   The `fixed-height` layout only requires a height, but stretches the image to fill the available width:
   -->
-  <amp-img layout="fixed-height" height="200" src="https://unsplash.it/300/200?image=1074"></amp-img>
+    <amp-img
+      layout="fixed-height"
+      height="200"
+      src="https://unsplash.it/300/200?image=1074"
+    ></amp-img>
 
-  <!--
+    <!--
   The `fill` layout is the only layout supported by `amp-img` that doesn't require any image dimensions. However, images will be stretched in both dimensions to fill the container:
   -->
-  <div>
-    <div class="fixed-container">
-  <amp-img layout="fill" src="https://unsplash.it/300/200?image=1074"></amp-img>
+    <div>
+      <div class="fixed-container">
+        <amp-img
+          layout="fill"
+          src="https://unsplash.it/300/200?image=1074"
+        ></amp-img>
+      </div>
+      <div class="fixed-container">
+        <amp-img
+          layout="fill"
+          src="https://unsplash.it/200/300?image=1074"
+        ></amp-img>
+      </div>
     </div>
-    <div class="fixed-container">
-  <amp-img layout="fill" src="https://unsplash.it/200/300?image=1074"></amp-img>
-    </div>
- </div>
 
- <!-- The question is: how can images with unknown dimensions be embeded inside an AMP pages while maintaining their correct aspect ratio?
+    <!-- The question is: how can images with unknown dimensions be embeded inside an AMP pages while maintaining their correct aspect ratio?
 
     ## Object-Fit to the rescue
 
@@ -103,26 +184,50 @@ teaserImage: '/static/samples/img/teaser/how_to_support_images_with_unknown_dime
     `object-fit: contain` increases or decreases the size of the image to fill the container whilst preserving the image's aspect-ratio. -->
     <div>
       <div class="fixed-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/400/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/400/300"
+        ></amp-img>
       </div>
       <div class="fixed-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/300/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/300/300"
+        ></amp-img>
       </div>
       <div class="fixed-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/200/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/200/300"
+        ></amp-img>
       </div>
     </div>
     <!--
     With `object-fit: cover` the image will fill the height and width of its container, but maintains the aspect ratio by cropping the image: -->
     <div>
       <div class="fixed-container">
-        <amp-img class="cover" layout="fill" src="https://unsplash.it/400/300"></amp-img>
+        <amp-img
+          class="cover"
+          layout="fill"
+          src="https://unsplash.it/400/300"
+        ></amp-img>
       </div>
       <div class="fixed-container">
-        <amp-img class="cover" layout="fill" src="https://unsplash.it/300/300"></amp-img>
+        <amp-img
+          class="cover"
+          layout="fill"
+          src="https://unsplash.it/300/300"
+        ></amp-img>
       </div>
       <div class="fixed-container">
-        <amp-img class="cover" layout="fill" src="https://unsplash.it/200/300"></amp-img>
+        <amp-img
+          class="cover"
+          layout="fill"
+          src="https://unsplash.it/200/300"
+        ></amp-img>
       </div>
     </div>
 
@@ -143,16 +248,32 @@ teaserImage: '/static/samples/img/teaser/how_to_support_images_with_unknown_dime
     -->
     <div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/400/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/400/300"
+        ></amp-img>
       </div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/300/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/300/300"
+        ></amp-img>
       </div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/200/300"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/200/300"
+        ></amp-img>
       </div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/1920/480"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/1920/480"
+        ></amp-img>
       </div>
     </div>
 
@@ -163,15 +284,26 @@ teaserImage: '/static/samples/img/teaser/how_to_support_images_with_unknown_dime
     -->
     <amp-carousel height="300" layout="fixed-height" type="slides">
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/500/400"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/500/400"
+        ></amp-img>
       </div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/500/500"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/500/500"
+        ></amp-img>
       </div>
       <div class="fixed-height-container">
-        <amp-img class="contain" layout="fill" src="https://unsplash.it/300/500"></amp-img>
+        <amp-img
+          class="contain"
+          layout="fill"
+          src="https://unsplash.it/300/500"
+        ></amp-img>
       </div>
     </amp-carousel>
-
   </body>
 </html>

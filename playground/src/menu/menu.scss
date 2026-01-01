@@ -40,10 +40,11 @@
   input {
     margin-right: 8px;
   }
-  label:active, [role=button]:active {
+  label:active,
+  [role='button']:active {
     background: color('oslo-gray');
   }
-  [role=separator] {
+  [role='separator'] {
     padding: 0;
     height: 0;
     margin: 0.5rem 0;
@@ -57,7 +58,6 @@
     opacity: 1;
   }
 }
-
 
 @keyframes revealMenu {
   0% {

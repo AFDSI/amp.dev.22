@@ -11,7 +11,7 @@ Eine AMP Seite ist eine HTML Seite, die bestimmte Einschränkungen hat, um zuver
 Eine blanke AMP Seite sieht wie folgt aus:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html amp>
   <head>
     <meta charset="utf-8" />

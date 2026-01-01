@@ -7,7 +7,7 @@ description: コードの追加を開始する前に、サンプルの article.a
 コードの追加を開始する前に、サンプルの [article.amp.html](https://github.com/googlecodelabs/accelerated-mobile-pages-advanced/blob/master/article.amp.html) ページを確認してみましょう。次のような内容です。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />

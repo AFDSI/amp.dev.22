@@ -18,9 +18,9 @@
 <!doctype html>
 <html ⚡ lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="canonical" href="./Dark_Mode_Toggle.html">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <link rel="canonical" href="./Dark_Mode_Toggle.html" />
+    <meta name="viewport" content="width=device-width" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>Dark Mode</title>
     <style amp-custom>
@@ -41,7 +41,8 @@
        * Don't offer the option to override.
        */
       @media (prefers-color-scheme: dark) {
-        .wrapper, .wrapper h1 {
+        .wrapper,
+        .wrapper h1 {
           color: white;
           background-color: black;
         }
@@ -79,23 +80,86 @@
         display: none;
       }
     </style>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
   </head>
   <body>
     <!-- Everything _adjacent_ to this checkbox can be styled, leave it here in the DOM tree. -->
     <div>
-      <input id="dark-mode-checkbox" type=checkbox>
-      <label id="dark-mode-label" for="dark-mode-checkbox">Turn on dark mode</label>
+      <input id="dark-mode-checkbox" type="checkbox" />
+      <label id="dark-mode-label" for="dark-mode-checkbox"
+        >Turn on dark mode</label
+      >
       <div class="wrapper">
         <h1>Dark Mode Sample</h1>
         <ul>
           <li>
-            On browsers that support <code>prefers-color-scheme</code> and report the user prefers <code>dark</code>,
-            just obey and don't give the user an override option, since they clearly state they like dark.
+            On browsers that support <code>prefers-color-scheme</code> and
+            report the user prefers <code>dark</code>, just obey and don't give
+            the user an override option, since they clearly state they like
+            dark.
           </li>
           <li>
-            On browsers that support <code>prefers-color-scheme</code> and report the user prefers <code>light</code>
-            or <code>no-preference</code>, offer the option to toggle dark mode manually.
+            On browsers that support <code>prefers-color-scheme</code> and
+            report the user prefers <code>light</code> or
+            <code>no-preference</code>, offer the option to toggle dark mode
+            manually.
           </li>
           <li>
             On browsers that don't support <code>prefers-color-scheme</code>,

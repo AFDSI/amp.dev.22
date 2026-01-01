@@ -14,7 +14,7 @@ Gute Neuigkeiten für alle, die schon mit AMP vertraut sind: AMP für E-Mails is
 AMP E-Mails sehen aus wie klassische HTML E-Mails, weisen jedoch einige Unterschiede auf. Nachfolgend findest du das mindestens erforderliche Markup, der erforderlich ist, um eine normale E-Mail in eine gültige AMP E-Mail zu verwandeln.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

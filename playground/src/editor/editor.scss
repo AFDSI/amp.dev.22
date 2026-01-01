@@ -11,7 +11,8 @@
   width: 3;
 }
 
-.CodeMirror-error-markers, .CodeMirror-linenumbers {
+.CodeMirror-error-markers,
+.CodeMirror-linenumbers {
   background: color('charade');
 }
 
@@ -48,7 +49,7 @@
 
 .CodeMirror-hints {
   @include txt-mono;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
 
   /** Don't want scroll bars showing up on page */
   max-height: 60%;
@@ -107,7 +108,8 @@ li.CodeMirror-hint-active {
   margin-top: 4px;
 }
 
-.gutter-error > span, .gutter-warning > span {
+.gutter-error > span,
+.gutter-warning > span {
   display: none;
 }
 

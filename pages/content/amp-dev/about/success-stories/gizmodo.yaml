@@ -40,7 +40,6 @@ kpis:
     text: Increase in impressions
 
 contents:
-
   - layout: text-media
     image_src: '/static/img/success-stories/gizmodo/amp_gizmodo_1.jpg'
     width: 3
@@ -52,7 +51,7 @@ contents:
 
   - layout: text
     headline: Solution
-    text: "Gizmodo implemented AMP in May of 2016 and is now publishing AMP pages for 100% their posts, as well as creating AMP versions of previous work. Gizmodo has been early to test and adopt new AMP features. They are among the first to publish reader comments and conversations and run A/B tests on AMP articles. Ali Philippides, product lead for the implementation of AMP, said the most pleasant surprise has been the flexibility of the format:"
+    text: 'Gizmodo implemented AMP in May of 2016 and is now publishing AMP pages for 100% their posts, as well as creating AMP versions of previous work. Gizmodo has been early to test and adopt new AMP features. They are among the first to publish reader comments and conversations and run A/B tests on AMP articles. Ali Philippides, product lead for the implementation of AMP, said the most pleasant surprise has been the flexibility of the format:'
     direction: left-flat
 
   - layout: quote

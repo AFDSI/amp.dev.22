@@ -21,7 +21,7 @@ AMP tarafından desteklenen ilk dinamik e-postanızı oluşturmak ve göndermek 
 AMP playground, E-posta için AMP biçimini destekler ve AMP e-postalarınızı geliştirmenize, test etmenize ve doğrulamanıza olanak tanır. [AMP Playground](https://playground.amp.dev/?runtime=amp4email)'u açın ve sol üst köşesindeki biçimin `AMP for Email` olarak ayarlandığından emin olun. Aşağıdaki kodu görmelisiniz:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />

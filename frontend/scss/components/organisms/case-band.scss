@@ -47,7 +47,8 @@
   grid-template-rows: 19fr 6fr 12.5fr 12.5fr 25fr 5fr 5fr 5fr 5fr 5fr;
   padding: 7vw 0 11vw;
   // filter: drop-shadow(50px 50px 35px rgba(0, 0, 0, 0.25));
-  transform: perspective(100px) rotate(0.1deg) rotateY(-0.1deg) skewX(-4deg) skewY(0deg) translateX(6.3%);
+  transform: perspective(100px) rotate(0.1deg) rotateY(-0.1deg) skewX(-4deg)
+    skewY(0deg) translateX(6.3%);
   transform-origin: center;
 
   &-image {

@@ -30,23 +30,23 @@
 /// @return {String}           The prefixed selector
 */
 @function prefix($category, $selector) {
-    @if map-has-key($categoryPrefixes, $category) {
-      @return #{$projectPrefix}-#{map-get($categoryPrefixes, $category)}-#{$selector};
-    }
+  @if map-has-key($categoryPrefixes, $category) {
+    @return #{$projectPrefix}-#{map-get($categoryPrefixes, $category)}-#{$selector};
+  }
 
-    @return #{$projectPrefix}-#{$selector};
+  @return #{$projectPrefix}-#{$selector};
 }
 
 @function utility($selector) {
-    @return prefix('utility', $selector);
+  @return prefix('utility', $selector);
 }
 
 @function atom($selector) {
-    @return prefix('atom', $selector);
+  @return prefix('atom', $selector);
 }
 
 @function molecule($selector) {
-    @return prefix('molecule', $selector);
+  @return prefix('molecule', $selector);
 }
 
 @function organism($selector) {

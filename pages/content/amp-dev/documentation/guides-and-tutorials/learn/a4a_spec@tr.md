@@ -316,7 +316,7 @@ Aşağıdakiler, bir AMPHTML reklam öğesinde _izin verilen_ etiketlerdir. Aç�
 
 SVG etiketleri HTML5 ad alanında değildir. Aşağıda bölüm tanımlayıcıları olmadan listelenmişlerdir.
 
-` <svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title> `
+`<svg>``<g>``<path>``<glyph>``<glyphref>``<marker>``<view>``<circle>``<line>``<polygon>``<polyline>``<rect>``<text>``<textpath>``<tref>``<tspan>``<clippath>``<filter>``<lineargradient>``<radialgradient>``<mask>``<pattern>``<vkern>``<hkern>``<defs>``<use>``<symbol>``<desc>``<title>`
 
 #### 4.9 Tablo verileri <a name="49-tabular-data"></a>
 
