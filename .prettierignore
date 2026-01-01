@@ -1,0 +1,20 @@
+# Reference files (not valid JS/HTML)
+_claude/project-serviceworker/examples/
+
+# Template files with Mustache/Handlebars syntax
+boilerplate/templates/
+
+# Build output
+dist/
+.cache/
+
+# Dependencies
+node_modules/
+
+# Binary and generated files
+*.min.js
+*.min.css
+
+# Grow/Python
+*.pyc
+__pycache__/

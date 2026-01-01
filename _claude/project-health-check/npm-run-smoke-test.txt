@@ -1,0 +1,259 @@
+$ NODE_ENV=local npm run smoke-test
+
+> amp-dev@1.0.5 smoke-test
+> APP_ENV=local jest smoke-tests --forceExit
+
+[8:14:16 AM] › ℹ  info      Config: environment=local test=false
+[8:14:35 AM] [Page Cache] › ⚠  warning   No Redis instances available. Falling back to LRU
+[8:14:35 AM] [Google Search] › ⚠  warning   Missing Google Custom Search key, site search will not be available! Environment variable AMP_DEV_CREDENTIAL_GOOGLE_CSE_API_KEY is not set.
+[8:14:36 AM] [Platform] › ℹ  info      Starting platform
+[8:14:36 AM] [Platform] › …  awaiting  Starting platform with environment local on http://localhost:8080 ...
+[8:14:36 AM] › ℹ  info      playground dev server listening on 8083
+[8:14:36 AM] › ℹ  info      go dev server listening on 8086
+[8:14:36 AM] › ℹ  info      log dev server listening on 8087
+[8:14:36 AM] › ℹ  info      preview dev server listening on 8085
+[8:14:36 AM] [Platform] › ✔  success   server listening on 8080!
+  console.error
+    line 73, col 0: Invalid URL protocol 'http:' for attribute 'data-iframe-src' in tag 'amp-install-serviceworker'. (see https://amp.dev/documentation/components/amp-install-serviceworker)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 176, col 0: Invalid URL protocol 'http:' for attribute 'data-iframe-src' in tag 'amp-install-serviceworker'. (see https://amp.dev/documentation/components/amp-install-serviceworker)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 314, col 0: Invalid URL protocol 'http:' for attribute 'data-iframe-src' in tag 'amp-install-serviceworker'. (see https://amp.dev/documentation/components/amp-install-serviceworker)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 60, col 327: Invalid URL protocol 'http:' for attribute 'src' in tag 'amp-iframe'. (see https://amp.dev/documentation/components/amp-iframe)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 135, col 0: Invalid URL protocol 'http:' for attribute 'data-iframe-src' in tag 'amp-install-serviceworker'. (see https://amp.dev/documentation/components/amp-install-serviceworker)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 52, col 327: Invalid URL protocol 'http:' for attribute 'src' in tag 'amp-iframe'. (see https://amp.dev/documentation/components/amp-iframe)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+  console.error
+    line 94, col 0: Invalid URL protocol 'http:' for attribute 'data-iframe-src' in tag 'amp-install-serviceworker'. (see https://amp.dev/documentation/components/amp-install-serviceworker)
+
+       96 |       msg += ' (see ' + error.specUrl + ')';
+       97 |     }
+    >  98 |     (error.severity === 'ERROR' ? console.error : console.warn)(msg);
+          |                                                               ^
+       99 |   }
+      100 |   // console.log(`\n\n${string}\n\n`);
+      101 |   return false;
+
+      at validate (smoke-tests/platform/Routes.test.js:98:63)
+      at Object.validate (smoke-tests/platform/Routes.test.js:71:22)
+
+[8:14:58 AM] [Platform] › ℹ  info      Stopping platform
+ FAIL  smoke-tests/platform/Routes.test.js (42.494 s)
+  Routes
+    ✓ serves health check (180 ms)
+    ✓ serves playground (264 ms)
+    ✓ serves health check (3 ms)
+    ✕ serves pixi (150 ms)
+    serves docs
+      ✕ / (5000 ms)
+      ✕ /documentation/components/ (5000 ms)
+      ✕ /documentation/examples/ (4805 ms)
+      ✕ /documentation/components/amp-img (3633 ms)
+      ✕ /documentation/components/amp-story-page/?format=stories (1406 ms)
+      ✕ /documentation/components/amp-story-cta-layer/?format=stories (794 ms)
+      ✓ /boilerplate (146 ms)
+
+  ● Routes › serves docs › /
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      65 |       '/boilerplate',
+      66 |     ].forEach(async (pagePath) => {
+    > 67 |       it(pagePath, async () => {
+         |       ^
+      68 |         const response = await fetch(pagePath);
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+
+      at it (smoke-tests/platform/Routes.test.js:67:7)
+          at Array.forEach (<anonymous>)
+      at forEach (smoke-tests/platform/Routes.test.js:66:7)
+      at describe (smoke-tests/platform/Routes.test.js:57:3)
+      at Object.describe (smoke-tests/platform/Routes.test.js:28:1)
+
+  ● Routes › serves docs › /documentation/components/
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      65 |       '/boilerplate',
+      66 |     ].forEach(async (pagePath) => {
+    > 67 |       it(pagePath, async () => {
+         |       ^
+      68 |         const response = await fetch(pagePath);
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+
+      at it (smoke-tests/platform/Routes.test.js:67:7)
+          at Array.forEach (<anonymous>)
+      at forEach (smoke-tests/platform/Routes.test.js:66:7)
+      at describe (smoke-tests/platform/Routes.test.js:57:3)
+      at Object.describe (smoke-tests/platform/Routes.test.js:28:1)
+
+  ● Routes › serves docs › /documentation/examples/
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+    > 71 |         expect(await validate(body)).toBe(true);
+         |                                      ^
+      72 |       });
+      73 |     });
+      74 |   });
+
+      at Object.toBe (smoke-tests/platform/Routes.test.js:71:38)
+
+  ● Routes › serves docs › /documentation/components/amp-img
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+    > 71 |         expect(await validate(body)).toBe(true);
+         |                                      ^
+      72 |       });
+      73 |     });
+      74 |   });
+
+      at Object.toBe (smoke-tests/platform/Routes.test.js:71:38)
+
+  ● Routes › serves docs › /documentation/components/amp-story-page/?format=stories
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+    > 71 |         expect(await validate(body)).toBe(true);
+         |                                      ^
+      72 |       });
+      73 |     });
+      74 |   });
+
+      at Object.toBe (smoke-tests/platform/Routes.test.js:71:38)
+
+  ● Routes › serves docs › /documentation/components/amp-story-cta-layer/?format=stories
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      69 |         expect(response.status).toBe(200);
+      70 |         const body = await response.text();
+    > 71 |         expect(await validate(body)).toBe(true);
+         |                                      ^
+      72 |       });
+      73 |     });
+      74 |   });
+
+      at Object.toBe (smoke-tests/platform/Routes.test.js:71:38)
+
+  ● Routes › serves pixi
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+      75 |   it('serves pixi', async () => {
+      76 |     const response = await fetch('/page-experience/');
+    > 77 |     expect(response.status).toBe(200);
+         |                             ^
+      78 |     const body = await response.text();
+      79 |     expect(await validate(body)).toBe(true);
+      80 |   });
+
+      at Object.toBe (smoke-tests/platform/Routes.test.js:77:29)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 4 passed, 11 total
+Snapshots:   0 total
+Time:        42.605 s
+Ran all test suites matching /smoke-tests/i.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
+$

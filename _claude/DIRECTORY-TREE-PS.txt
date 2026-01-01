@@ -1,0 +1,156 @@
+E:\USERS\GIGSTER\WORKSPACE\REPOS\AMP\AMP.DEV.22\_CLAUDE
+│   CLAUDE-STRUCTURE.md
+│   CLAUDE.md
+│   commands.txt
+│   DIRECTORY-TREE-PS.txt
+│   PROJECT-1.md
+│   PROJECT-2.md
+│   
+├───project-analytics
+│       analytics.j2
+│       analytics.js-enhancement.md
+│       reference-analytics.txt
+│       
+├───project-aria
+│       ARIA-basic-file-structure.html
+│       ARIA-JSON-LD.html
+│       ARIA-preferred-list.txt
+│       ARIA.json
+│       main-template.html
+│       
+├───project-autosuggest
+│       amp-autocomplete.html
+│       amp-autocomplete.html.txt
+│       autosuggest-migration-targets.md
+│       
+├───project-boilerplate
+│       build.js
+│       example-state-list.txt
+│       template-avec-substitutions.html
+│       
+├───project-contact-us
+│       amp-analytics.txt
+│       form-rugmaster.html
+│       reference-amp-form.txt
+│       
+├───project-css-repair
+│   ├───components
+│   │       components-catalogue-amp-dev.png
+│   │       components-catalogue-amp-verify.png
+│   │       index.html
+│   │       table-component.scss
+│   │       teaser-component-code.scss
+│   │       
+│   └───examples
+│           card-grid.scss
+│           examples-amp-dev.png
+│           examples-amp-verify.png
+│           index.html
+│           teaser-info.scss
+│           
+├───project-express-to-functions
+│       express-routers.md
+│       express-to-function-migration-plan.md
+│       
+├───project-go-links
+│       go-links-with-netlify.md
+│       reference-go-links.txt
+│       
+├───project-google-sheets
+│       function-google-sheets.md
+│       reference-google-sheets.txt
+│       
+├───project-health-check
+│       amp-dev-dependency-triage.tsv
+│       amp-dev-warnings.txt
+│       google-search-console-error.txt
+│       grow-check-link-integrity.txt
+│       grow-linter-messages.md
+│       gulp-log.txt
+│       js-errors.txt
+│       lint-messages.txt
+│       npm-audit-report.txt
+│       npm-bootstrap-2.txt
+│       npm-bootstrap.txt
+│       npm-ci.txt
+│       npm-develop.txt
+│       npm-install-errors.txt
+│       npm-install.txt
+│       npm-run-lint.txt
+│       npm-run-smoke-test-2.txt
+│       npm-run-smoke-test.txt
+│       npm-run-test-2.txt
+│       npm-run-test.txt
+│       package.json-updates.txt
+│       python-grow-fix.txt
+│       _HEALTH-CHECK-2025-12-30.md
+│       
+├───project-playground
+│       development.js
+│       playground-issues.md
+│       site-configuration-playground.md
+│       
+├───project-repository-management
+├───project-serviceworker
+│   │   explainer-serviceworker-amp.md
+│   │   serviceworker-json-valid.txt
+│   │   serviceworker-URLs.txt
+│   │   
+│   ├───amp-files
+│   │       amp-sw.js
+│   │       serviceworker-components.html
+│   │       serviceworker-example.txt
+│   │       serviceworker.html
+│   │       serviceworker.js
+│   │       
+│   ├───examples
+│   │       serviceworker-adactio.js
+│   │       serviceworker-bmw.js
+│   │       serviceworker-couchbase.js
+│   │       serviceworker-david-laxer.js
+│   │       serviceworker-pinterest.js
+│   │       serviceworker-webstory.js
+│   │       _reference.txt
+│   │       
+│   └───google-files
+│           service-worker.js
+│           sw-EXAMPLE.js
+│           sw-toolbox_EXAMPLE.js
+│           workbox.js
+│           
+├───project-site-configuration
+│   │   SITE-CONFGURATION-25-11-15.md
+│   │   site-configuration-project-1.md
+│   │   site-configuration-project-2.md
+│   │   
+│   └───config-files
+│           config.js
+│           prebuild.js
+│           site-vars.yaml
+│           template-migration-examples.j2
+│           
+├───project-site-migration
+│       migration-plan-1.md
+│       migration-plan-2.md
+│       
+├───project-site-search
+│       amp-site-search-migration.md
+│       search-carousel.png
+│       search-fit-text.png
+│       search-image-sidebar.png
+│       search-list.png
+│       search-mustache.png
+│       search-promoted-pages.png
+│       
+├───project-star-rating
+│       example.html
+│       index.html
+│       
+├───project-structured-data
+│   ├───knowledge-graph
+│   └───rich-results
+└───project-survey
+        reference-survey.txt
+        survey.j2
+        survey.scss
+        

@@ -1,0 +1,25 @@
+
+example of errors possibly triggered by
+  check-grow-link-integrity.yaml
+  
+
+/home/runner/work/amp.dev/amp.dev/pages/views/detail/component-detail.j2", line 1, in top-level template code
+    {% extends '/layouts/default.j2' %}
+
+"/home/runner/work/amp.dev/amp.dev/pages/layouts/default.j2", line 117, in top-level template code
+    {% block main %}
+
+"/home/runner/work/amp.dev/amp.dev/pages/views/detail/component-detail.j2", line 52, in block "main"
+    {% include 'views/partials/sidebar.j2' %}
+
+"/home/runner/work/amp.dev/amp.dev/pages/views/partials/sidebar.j2", line 98, in top-level template code
+    {% do doc.pod.amp_dev.template_cache.add(sidebar_cache_key, components_sidebar()) %}
+
+"/home/runner/work/amp.dev/amp.dev/pages/views/partials/sidebar.j2", line 35, in template
+    [% if format in {{ formats|sum(start=[])|unique|list|tojson }} %]
+
+
+
+
+
+

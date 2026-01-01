@@ -1,0 +1,440 @@
+{
+"@context": "http://www.w3.org/TR/wai-aria/",
+"@type": "WAI-ARIA Roles",
+"@value": "http://www.w3.org/TR/wai-aria/roles",
+"category": "http://www.w3.org/TR/wai-aria/roles#roles_categorization",
+"role": [
+{
+"@type": "alert",
+"@value": "http://www.w3.org/TR/wai-aria/roles#alert",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A message with important, and usually time-sensitive, information."
+},
+{
+"@type": "alertdialog",
+"@value": "http://www.w3.org/TR/wai-aria/roles#alertdialog",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of dialog that contains an alert message, where initial focus goes to an element within the dialog."
+},
+{
+"@type": "application",
+"@value": "http://www.w3.org/TR/wai-aria/roles#application",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A region declared as a web application, as opposed to a web document."
+},
+{
+"@type": "article",
+"@value": "http://www.w3.org/TR/wai-aria/roles#article",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A section of a page that consists of a composition that forms an independent part of a document, page, or site."
+},
+{
+"@type": "banner",
+"@value": "http://www.w3.org/TR/wai-aria/roles#banner",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A region that contains mostly site-oriented content, rather than page-specific content."
+},
+{
+"@type": "button",
+"@value": "http://www.w3.org/TR/wai-aria/roles#button",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "An input that allows for user-triggered actions when clicked or pressed."
+},
+{
+"@type": "checkbox",
+"@value": "http://www.w3.org/TR/wai-aria/roles#checkbox",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A checkable input that has three possible values: true, false, or mixed."
+},
+{
+"@type": "columnheader",
+"@value": "http://www.w3.org/TR/wai-aria/roles#columnheader",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A cell containing header information for a column."
+},
+{
+"@type": "combobox",
+"@value": "http://www.w3.org/TR/wai-aria/roles#combobox",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A presentation of a select; usually similar to a textbox where users can type ahead to select an option, or type to enter arbitrary text as a new item in the list."
+},
+{
+"@type": "command",
+"@value": "http://www.w3.org/TR/wai-aria/roles#command",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A form of widget that performs an action but does not receive input data."
+},
+{
+"@type": "complementary",
+"@value": "http://www.w3.org/TR/wai-aria/roles#complementary",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content."
+},
+{
+"@type": "composite",
+"@value": "http://www.w3.org/TR/wai-aria/roles#composite",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A widget that may contain navigable descendants or owned children."
+},
+{
+"@type": "contentinfo",
+"@value": "http://www.w3.org/TR/wai-aria/roles#contentinfo",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A large perceivable region that contains information about the parent document."
+},
+{
+"@type": "definition",
+"@value": "http://www.w3.org/TR/wai-aria/roles#definition",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A definition of a term or concept."
+},
+{
+"@type": "dialog",
+"@value": "http://www.w3.org/TR/wai-aria/roles#dialog",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A dialog is an application window that is designed to interrupt the current processing of an application in order to prompt the user to enter information or require a response."
+},
+{
+"@type": "directory",
+"@value": "http://www.w3.org/TR/wai-aria/roles#directory",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A list of references to members of a group, such as a static table of contents."
+},
+{
+"@type": "document",
+"@value": "http://www.w3.org/TR/wai-aria/roles#document",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A region containing related information that is declared as document content, as opposed to a web application."
+},
+{
+"@type": "form",
+"@value": "http://www.w3.org/TR/wai-aria/roles#form",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A landmark region that contains a collection of items and objects that, as a whole, combine to create a form."
+},
+{
+"@type": "grid",
+"@value": "http://www.w3.org/TR/wai-aria/roles#grid",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A grid is an interactive control which contains cells of tabular data arranged in rows and columns, like a table."
+},
+{
+"@type": "gridcell",
+"@value": "http://www.w3.org/TR/wai-aria/roles#gridcell",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A cell in a grid or treegrid."
+},
+{
+"@type": "group",
+"@value": "http://www.w3.org/TR/wai-aria/roles#group",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A set of user interface objects which are not intended to be included in a page summary or table of contents by assistive technologies."
+},
+{
+"@type": "heading",
+"@value": "http://www.w3.org/TR/wai-aria/roles#heading",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A heading for a section of the page."
+},
+{
+"@type": "img",
+"@value": "http://www.w3.org/TR/wai-aria/roles#img",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A container for a collection of elements that form an image."
+},
+{
+"@type": "input",
+"@value": "http://www.w3.org/TR/wai-aria/roles#input",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A generic type of widget that allows user input."
+},
+{
+"@type": "link",
+"@value": "http://www.w3.org/TR/wai-aria/roles#link",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "An interactive reference to an internal or external resource that, when activated, causes the user agent to navigate to that resource."
+},
+{
+"@type": "list",
+"@value": "http://www.w3.org/TR/wai-aria/roles#list",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A group of non-interactive list items."
+},
+{
+"@type": "listbox",
+"@value": "http://www.w3.org/TR/wai-aria/roles#listbox",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A widget that allows the user to select one or more items from a list of choices."
+},
+{
+"@type": "listitem",
+"@value": "http://www.w3.org/TR/wai-aria/roles#listitem",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A single item in a list or directory."
+},
+{
+"@type": "log",
+"@value": "http://www.w3.org/TR/wai-aria/roles#log",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of live region where new information is added in meaningful order and old information may disappear."
+},
+{
+"@type": "main",
+"@value": "http://www.w3.org/TR/wai-aria/roles#main",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "The main content of a document."
+},
+{
+"@type": "marquee",
+"@value": "http://www.w3.org/TR/wai-aria/roles#marquee",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of live region where non-essential information changes frequently."
+},
+{
+"@type": "math",
+"@value": "http://www.w3.org/TR/wai-aria/roles#math",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "Content that represents a mathematical expression."
+},
+{
+"@type": "menu",
+"@value": "http://www.w3.org/TR/wai-aria/roles#menu",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of widget that offers a list of choices to the user."
+},
+{
+"@type": "menubar",
+"@value": "http://www.w3.org/TR/wai-aria/roles#menubar",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A presentation of menu that usually remains visible and is usually presented horizontally."
+},
+{
+"@type": "menuitem",
+"@value": "http://www.w3.org/TR/wai-aria/roles#menuitem",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "An option in a set of choices contained by a menu or menubar."
+},
+{
+"@type": "menuitemcheckbox",
+"@value": "http://www.w3.org/TR/wai-aria/roles#menuitemcheckbox",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A menuitem with a checkable state whose possible values are true, false, or mixed."
+},
+{
+"@type": "menuitemradio",
+"@value": "http://www.w3.org/TR/wai-aria/roles#menuitemradio",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A checkable menuitem in a set of elements with role menuitemradio, only one of which can be checked at a time."
+},
+{
+"@type": "navigation",
+"@value": "http://www.w3.org/TR/wai-aria/roles#navigation",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A collection of navigational elements (usually links) for navigating the document or related documents."
+},
+{
+"@type": "note",
+"@value": "http://www.w3.org/TR/wai-aria/roles#note",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A section whose content is parenthetic or ancillary to the main content of the resource."
+},
+{
+"@type": "option",
+"@value": "http://www.w3.org/TR/wai-aria/roles#option",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A selectable item in a select list."
+},
+{
+"@type": "presentation",
+"@value": "http://www.w3.org/TR/wai-aria/roles#presentation",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "An element whose implicit native role semantics will not be mapped to the accessibility API."
+},
+{
+"@type": "progressbar",
+"@value": "http://www.w3.org/TR/wai-aria/roles#progressbar",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "An element that displays the progress status for tasks that take a long time."
+},
+{
+"@type": "radio",
+"@value": "http://www.w3.org/TR/wai-aria/roles#radio",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A checkable input in a group of radio roles, only one of which can be checked at a time."
+},
+{
+"@type": "radiogroup",
+"@value": "http://www.w3.org/TR/wai-aria/roles#radiogroup",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A group of radio buttons."
+},
+{
+"@type": "range",
+"@value": "http://www.w3.org/TR/wai-aria/roles#range",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "An input representing a range of values that can be set by the user."
+},
+{
+"@type": "region",
+"@value": "http://www.w3.org/TR/wai-aria/roles#region",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A large perceivable section of a web page or document, that is important enough to be included in a page summary or table of contents, for example, an area of the page containing live sporting event statistics."
+},
+{
+"@type": "roletype",
+"@value": "http://www.w3.org/TR/wai-aria/roles#roletype",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "The base role from which all other roles in this taxonomy inherit."
+},
+{
+"@type": "row",
+"@value": "http://www.w3.org/TR/wai-aria/roles#row",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A row of cells in a grid."
+},
+{
+"@type": "rowgroup",
+"@value": "http://www.w3.org/TR/wai-aria/roles#rowgroup",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A group containing one or more row elements in a grid."
+},
+{
+"@type": "rowheader",
+"@value": "http://www.w3.org/TR/wai-aria/roles#rowheader",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A cell containing header information for a row in a grid."
+},
+{
+"@type": "scrollbar",
+"@value": "http://www.w3.org/TR/wai-aria/roles#scrollbar",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A graphical object that controls the scrolling of content within a viewing area, regardless of whether the content is fully displayed within the viewing area."
+},
+{
+"@type": "search",
+"@value": "http://www.w3.org/TR/wai-aria/roles#search",
+"category": "http://www.w3.org/TR/wai-aria/roles#landmark_roles",
+"description": "A landmark region that contains a collection of items and objects that, as a whole, combine to create a search facility."
+},
+{
+"@type": "section",
+"@value": "http://www.w3.org/TR/wai-aria/roles#section",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A renderable, structural containment unit in a document or application."
+},
+{
+"@type": "sectionhead",
+"@value": "http://www.w3.org/TR/wai-aria/roles#sectionhead",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A structure that labels or summarizes the topic of its related section."
+},
+{
+"@type": "select",
+"@value": "http://www.w3.org/TR/wai-aria/roles#select",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A form widget that allows the user to make selections from a set of choices."
+},
+{
+"@type": "separator",
+"@value": "http://www.w3.org/TR/wai-aria/roles#separator",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A divider that separates and distinguishes sections of content or groups of menuitems."
+},
+{
+"@type": "slider",
+"@value": "http://www.w3.org/TR/wai-aria/roles#slider",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A user input where the user selects a value from within a given range."
+},
+{
+"@type": "spinbutton",
+"@value": "http://www.w3.org/TR/wai-aria/roles#spinbutton",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A form of range that expects the user to select from among discrete choices."
+},
+{
+"@type": "status",
+"@value": "http://www.w3.org/TR/wai-aria/roles#status",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A container whose content is advisory information for the user but is not important enough to justify an alert, often but not necessarily presented as a status bar."
+},
+{
+"@type": "structure",
+"@value": "http://www.w3.org/TR/wai-aria/roles#structure",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A document structural element."
+},
+{
+"@type": "tab",
+"@value": "http://www.w3.org/TR/wai-aria/roles#tab",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A grouping label providing a mechanism for selecting the tab content that is to be rendered to the user."
+},
+{
+"@type": "tablist",
+"@value": "http://www.w3.org/TR/wai-aria/roles#tablist",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A list of tab elements, which are references to tabpanel elements."
+},
+{
+"@type": "tabpanel",
+"@value": "http://www.w3.org/TR/wai-aria/roles#tabpanel",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A container for the resources associated with a tab, where each tab is contained in a tablist."
+},
+{
+"@type": "textbox",
+"@value": "http://www.w3.org/TR/wai-aria/roles#textbox",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "Input that allows free-form text as its value."
+},
+{
+"@type": "timer",
+"@value": "http://www.w3.org/TR/wai-aria/roles#timer",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of live region containing a numerical counter which indicates an amount of elapsed time from a start point, or the time remaining until an end point."
+},
+{
+"@type": "toolbar",
+"@value": "http://www.w3.org/TR/wai-aria/roles#toolbar",
+"category": "http://www.w3.org/TR/wai-aria/roles#document_structure_roles",
+"description": "A collection of commonly used function buttons or controls represented in compact visual form."
+},
+{
+"@type": "tooltip",
+"@value": "http://www.w3.org/TR/wai-aria/roles#tooltip",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A contextual popup that displays a description for an element."
+},
+{
+"@type": "tree",
+"@value": "http://www.w3.org/TR/wai-aria/roles#tree",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A type of list that may contain sub-level nested groups that can be collapsed and expanded."
+},
+{
+"@type": "treegrid",
+"@value": "http://www.w3.org/TR/wai-aria/roles#treegrid",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "A grid whose rows can be expanded and collapsed in the same manner as for a tree."
+},
+{
+"@type": "treeitem",
+"@value": "http://www.w3.org/TR/wai-aria/roles#treeitem",
+"category": "http://www.w3.org/TR/wai-aria/roles#widget_roles",
+"description": "An option item of a tree. This is an element within a tree that may be expanded or collapsed if it contains a sub-level group of treeitem elements."
+},
+{
+"@type": "widget",
+"@value": "http://www.w3.org/TR/wai-aria/roles#widget",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "An interactive component of a graphical user interface (GUI)."
+},
+{
+"@type": "window",
+"@value": "http://www.w3.org/TR/wai-aria/roles#window",
+"category": "http://www.w3.org/TR/wai-aria/roles#abstract_roles",
+"description": "A browser or application window."
+}
+]
+}

@@ -1,0 +1,26 @@
+
+2025/11/18
+removed ' from title label; no errors
+
+> amp-dev@1.0.5 lint:node
+> eslint "**/*.js"
+
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/access-subscriptions.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/amp4email.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/analytics.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/approvers.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/bento.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/caching.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/codeofconduct.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/components.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/foundation-onboarding.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/infra.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/monetization.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/outreach.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/performance.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/runtime.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/security-privacy.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/stories.yaml as it contains custom constructors
+⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/viewers.yaml as it contains custom constructors
+
+Finished lintYaml after 18 s

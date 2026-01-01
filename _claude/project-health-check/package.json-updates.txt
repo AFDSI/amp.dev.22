@@ -1,0 +1,4 @@
+
+consider (from open-ai):
+
+"test:grow-extensions": "PYTHONPATH=pages python3 -m unittest discover -p \"*_test.py\" || echo \"grow not installed with pip. skip tests\"; exit 0"

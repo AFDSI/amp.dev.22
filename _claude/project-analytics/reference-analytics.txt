@@ -1,0 +1,16 @@
+
+examples/source/1.components/amp-analytics/api.js
+https://github.com/ampproject/amp.dev/blob/main/examples/source/1.components/amp-analytics/api.js
+
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="crossorigin" />
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+<amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{"vars":{"gtag_id":"UA-150279743-1","config":{"UA-150279743-1":{"groups":"default"}}}}
+</script>
+</amp-analytics>
+
+
+
+

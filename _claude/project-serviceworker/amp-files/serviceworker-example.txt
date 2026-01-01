@@ -1,0 +1,33 @@
+
+view-source:https://ampbyexample.com/sw.js
+
+config.filesToCache = [
+  '/',
+  '/components/amp-img/',
+  '/components/amp-install-serviceworker/',
+  config.offlinePage,
+  '/img/offline.png',
+  '/playground/img/playground-logo.svg',
+  '/playground/',
+  '/img/amp_logo_black.svg'
+];
+
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<g fill="none" fill-rule="evenodd"><path fill="#F8BBD0" d="M0 0h${width}v${height}H0z"/></g>
+<text text-anchor="middle" x="${Math.floor(width / 2)}" y="${Math.floor(height / 2)}">image offline (${name})</text>
+<style><![CDATA[
+text{
+  font: 48px Roboto,Verdana, Helvetica, Arial, sans-serif;
+}
+]]></style>
+</svg>
+
+https://ampbyexample.com/img/offline.png
+w1200
+h300
+
+uncertain which variables are being passed to SVG
+
+https://ampbyexample.com/components/amp-img/
+
+https://ampbyexample.com/config.offlinePage

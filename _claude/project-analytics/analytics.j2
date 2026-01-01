@@ -1,0 +1,124 @@
+{# 1. Setup Category Mapping #}
+{% set path_map = {
+  '/documentation/examples/': 'examples',
+  '/documentation/components/': 'components',
+  '/documentation/courses/': 'courses',
+  '/documentation/guides-and-tutorials/': 'guides-and-tutorials'
+} %}
+
+{% set category = namespace(value='other') %}
+{% for path, name in path_map.items() %}
+  {% if path in doc.pod_path %}
+    {% set category.value = name %}
+  {% endif %}
+{% endfor %}
+
+{# 2. Define the Macro for Reusable Triggers #}
+{% macro add_trigger(config, id, selector, action, event_name=none, cat=category.value | default('other') | string) %}
+  {% do config['triggers'].update({
+    id: {
+      'selector': selector,
+      'on': 'click',
+      'vars': {
+        'event_name': event_name or id,
+        'event_action': action,
+        'event_category': cat,
+        'destination_url': '${' ~ 'target}'
+      }
+    }
+  }) %}
+{% endmacro %}
+
+{# 3. Initial Configuration Object #}
+{% set config = {
+  'vars': {
+    'gtag_id': podspec.gaTrackingId | default('G-XXXXXXXX'),
+    'config': {
+      (podspec.gaTrackingId | default('G-XXXXXXXX')): { 'groups': 'default' }
+    }
+  },
+  'extraUrlParams': {
+      'cd2': '${' ~ 'ampdocHost}',
+      'debug_mode': 'true',
+      '_dbg': '1',
+      'page_category': category.value | default('other') | string
+    },
+  'requests': {
+      'base': 'https://google-analytics.com/collect/',
+      'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
+    },
+  'triggers': {
+    'defaultPageview': {
+      'on': 'visible',
+      'request': 'pageview',
+      'vars': { 'title': title | default('Untitled Page') } 
+    },
+    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${' ~ 'cumulativeLayoutShift}' } },
+    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${' ~ 'largestContentfulPaint}' } },
+    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '${' ~ 'firstInputDelay}' } }
+  }
+} %}
+
+{# 4. Global Triggers #}
+{{ add_trigger(config, 'banner', '#top-banner', 'click') }}
+{{ add_trigger(config, 'navigation', '.ap--header a, .ap-o-burger-menu-link', 'link') }}
+{{ add_trigger(config, 'searchButton', '#searchTriggerOpen', 'open', event_name='search', cat='search') }}
+
+{# 5. Behavioral Scroll Triggers #}
+{% do config['triggers'].update({
+  'scrolledHalf': { 
+    'on': 'scroll', 
+    'scrollSpec': { 'verticalBoundaries': [50] }, 
+    'vars': { 
+      'event_name': 'content_engagement',
+      'event_category': category.value | default('other') | string,
+      'event_action': 'read_50' 
+    } 
+  },
+  'scrolledEnd': { 
+    'on': 'scroll', 
+    'scrollSpec': { 'verticalBoundaries': [90] }, 
+    'vars': { 
+      'event_name': 'content_engagement', 
+      'event_category': category.value | default('other') | string,
+      'event_action': 'read_90' 
+    } 
+  }
+}) %}
+
+{# 6. Conditional Triggers #}
+{% if category.value != 'other' %}
+    {{ add_trigger(config, 'sidebarLink', '.ap-o-sidebar a', 'link') }}
+    {{ add_trigger(config, 'sidebarToggle', 'label[for="sidebar-desktop"], label[for="sidebar"]', 'toggle') }}
+    {{ add_trigger(config, 'breadcrumbLink', '.ap-m-breadcrumbs-crumb', 'link') }}
+    {{ add_trigger(config, 'formatToggle', '.ap-m-format-toggle-link', 'link') }}
+
+    {% if not (doc.format.toc == '<div class="toc">\n<ul></ul>\n</div>\n' or not doc.format.toc) %}
+        {{ add_trigger(config, 'tocLink', '.ap-o-toc a', 'link') }}
+        {{ add_trigger(config, 'tocToggle', '.ap-o-toc label', 'toggle') }}
+    {% endif %}
+{% endif %}
+
+{# 7. Page-Specific (Pixi & Courses) #}
+{% if 'teachers.md' in doc.pod_path %}
+    {{ add_trigger(config, 'getCoursesButton', '#get-courses', 'download', event_name='courses') }}
+{% endif %}
+
+{% if 'page-experience.html' in doc.pod_path %}
+    {% set pixi_items = [
+        ('analyzeButton', '.ap-m-input-bar-submit', 'analyze'),
+        ('shareButton', '#share-button', 'share'),
+        ('investigateButton', '#investigate-button', 'api-failure'),
+        ('openFieldData', '#field-data-tab', 'view-field-data'),
+        ('openLabData', '#lab-data-tab', 'view-lab-data')
+    ] %}
+    {% for id, selector, action in pixi_items %}
+        {{ add_trigger(config, id, selector, action, cat='pixi') }}
+    {% endfor %}
+{% endif %}
+
+<amp-analytics type="gtag" data-credentials="include" data-block-on-consent>
+<script type="application/json">
+{{ config|tojson }}
+</script>
+</amp-analytics>

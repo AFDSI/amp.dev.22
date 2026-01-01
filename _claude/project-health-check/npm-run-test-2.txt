@@ -1,0 +1,126 @@
+$ npm run test
+
+> amp-new.netlify.app@1.0.6 test
+> npm-run-all test:* --aggregate-output --parallel
+
+
+> amp-new.netlify.app@1.0.6 test:prepare
+> gulp updateTestResources
+
+[4:45:27 PM] › ℹ  info      Config: environment=development test=false
+[16:45:29] Using gulpfile ~/repos/amp/amp.dev.22/gulpfile.js
+[16:45:29] Starting 'updateTestResources'...
+[16:45:30] Finished 'updateTestResources' after 1.11 s
+
+> amp-new.netlify.app@1.0.6 test:platform
+> APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern platform --testPathIgnorePatterns smoke-tests
+
+ PASS  platform/lib/routers/search.test.js
+ PASS  platform/lib/samples/DocumentParser.test.js
+ PASS  platform/lib/samples/CodeSection.test.js
+ PASS  platform/lib/samples/Document.test.js
+ PASS  platform/lib/pipeline/markdownDocument.test.js
+ PASS  platform/lib/format-transform/index.test.js
+ PASS  platform/lib/common/samples.test.js
+ PASS  platform/lib/utils/rateLimitedFetch.test.js
+ PASS  platform/lib/samples/ElementSorting.test.js
+ PASS  platform/lib/samples/ExampleFile.test.js
+ PASS  platform/lib/middleware/redirects.test.js
+ PASS  platform/lib/runtime-log/LogProvider.test.js
+ PASS  platform/lib/samples/FileName.test.js
+ PASS  platform/lib/config.test.js
+ PASS  platform/lib/routers/surveyComponent.test.js
+ PASS  platform/lib/runtime-log/HtmlFormatter.test.js
+ PASS  platform/lib/routers/growPages.test.js
+ PASS  platform/lib/routers/runtimeLog.test.js
+ PASS  platform/lib/utils/slugGenerator.test.js
+ PASS  platform/lib/routers/go.test.js
+ PASS  platform/lib/amp/formatHelper.test.js
+ PASS  platform/lib/utils/HeadDedupTransformer.test.js
+ PASS  platform/lib/pipeline/componentReferenceDocument.test.js
+
+Test Suites: 23 passed, 23 total
+Tests:       205 passed, 205 total
+Snapshots:   0 total
+Time:        8.401 s
+Ran all test suites matching /platform/i.
+
+> amp-new.netlify.app@1.0.6 test:playground
+> APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern playground
+
+ PASS  playground/src/email-loader/email-loader.test.js
+ PASS  playground/src/events/events.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        1.89 s
+Ran all test suites matching /playground/i.
+
+> amp-new.netlify.app@1.0.6 test:grow-extensions
+> cd pages/extensions && if which grow; then python3 -m unittest discover -p "*_test.py"; else echo grow not installed with pip. skip tests; fi
+
+/mnt/e/users/gigster/workspace/.local/bin/grow
+..Adding an AMP dependency (amp-anim) without a specific version is not recommended.
+.Adding an AMP dependency (amp-anim) without a specific version is not recommended.
+....Adding an AMP dependency (amp-anim) without a specific version is not recommended.
+.Did not find placeholder for amp dependencies. Ensure you call emit() in your template head section.
+..........Unknown format 'invalid' defined in file /test/bar.md
+........../mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/grow/common/markdown_extensions.py:204: DeprecationWarning: Using the add method to register a processor or pattern is deprecated. Use the `register` method instead.
+  md.preprocessors.add('sourcecode', self.processor, '_begin')
+/mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/markdown/core.py:125: DeprecationWarning: The 'md_globals' parameter of 'grow.common.markdown_extensions.CodeBlockExtension.extendMarkdown' is deprecated.
+  ext._extendMarkdown(self)
+/mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/grow/common/markdown_extensions.py:88: DeprecationWarning: Using the add method to register a processor or pattern is deprecated. Use the `register` method instead.
+  md.preprocessors.add('include', self.processor, '_begin')
+/mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/markdown/core.py:125: DeprecationWarning: The 'md_globals' parameter of 'grow.common.markdown_extensions.IncludeExtension.extendMarkdown' is deprecated.
+  ext._extendMarkdown(self)
+/mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/grow/common/markdown_extensions.py:126: DeprecationWarning: Using the add method to register a processor or pattern is deprecated. Use the `register` method instead.
+  md.preprocessors.add('url', self.processor, '_begin')
+/mnt/e/users/gigster/workspace/.local/lib/python3.9/site-packages/markdown/core.py:125: DeprecationWarning: The 'md_globals' parameter of 'grow.common.markdown_extensions.UrlExtension.extendMarkdown' is deprecated.
+  ext._extendMarkdown(self)
+........................
+----------------------------------------------------------------------
+Ran 52 tests in 0.260s
+
+OK
+
+> amp-new.netlify.app@1.0.6 posttest
+> npm run lint
+
+
+> amp-new.netlify.app@1.0.6 lint
+> npx gulp lintAll
+
+[4:45:47 PM] › ℹ  info      Config: environment=development test=false
+[16:45:49] Using gulpfile ~/repos/amp/amp.dev.22/gulpfile.js
+[16:45:49] Starting 'lintAll'...
+[16:45:49] Starting 'lintNode'...
+[16:45:49] Starting 'lintYaml'...
+$ npm run lint:node
+
+> amp-new.netlify.app@1.0.6 lint:node
+> eslint "**/*.js"
+
+
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/access-subscriptions.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/amp4email.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/analytics.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/approvers.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/bento.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/caching.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/codeofconduct.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/components.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/foundation-onboarding.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/infra.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/monetization.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/outreach.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/performance.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/runtime.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/security-privacy.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/stories.yaml as it contains custom constructors
+[4:45:54 PM] [Linter] › ⚠  warning   Can not validate pages/content/amp-dev/community/working-groups/viewers.yaml as it contains custom constructors
+[16:45:54] Finished 'lintYaml' after 4.98 s
+
+[16:45:55] Finished 'lintNode' after 6.26 s
+[16:45:55] Finished 'lintAll' after 6.26 s
+$
