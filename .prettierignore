@@ -1,5 +1,5 @@
-# Reference files (not valid JS/HTML)
-_claude/project-serviceworker/examples/
+# Reference/documentation files
+_claude/
 
 # Template files with Mustache/Handlebars syntax
 boilerplate/templates/
