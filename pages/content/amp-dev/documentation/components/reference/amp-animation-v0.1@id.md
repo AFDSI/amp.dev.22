@@ -5,6 +5,7 @@ teaser:
   text: Defines and displays an animation.
 ---
 
+
 <!--
 Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +21,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+
 
 Menentukan dan menjalankan animasi.
 
@@ -38,6 +41,7 @@ Menentukan dan menjalankan animasi.
   </tr>
 </table>
 
+
 ## Ringkasan <a name="overview"></a>
 
 Animasi AMP mengandalkan [Web Animations API](https://www.w3.org/TR/web-animations/) untuk menentukan dan menjalankan animasi di dokumen AMP.
@@ -49,24 +53,23 @@ Elemen `amp-animation` menentukan animasi seperti struktur JSON.
 ### Spesifikasi animasi level teratas <a name="top-level-animation-specification"></a>
 
 Objek level teratas menentukan keseluruhan proses animasi yang terdiri dari sembarang jumlah komponen animasi yang ditetapkan sebagai array `animations` :
-
 ```html
 <amp-animation layout="nodisplay">
-  <script type="application/json">
+<script type="application/json">
+{
+  // Timing properties
+  ...
+  "animations": [
     {
-      // Timing properties
-      ...
-      "animations": [
-        {
-          // Animation 1
-        },
-        ...
-        {
-          // Animation N
-        }
-      ]
+      // Animation 1
+    },
+    ...
+    {
+      // Animation N
     }
-  </script>
+  ]
+}
+</script>
 </amp-animation>
 ```
 
@@ -138,7 +141,6 @@ Dalam beberapa kasus, Anda dapat menggabungkan beberapa [animasi bersyarat](#con
 Dalam animasi `switch`, kandidat dievaluasi sesuai urutan yang ditentukan dan animasi pertama yang cocok dengan [pernyataan bersyarat](#conditions) dieksekusi dan sisanya diabaikan.
 
 Misalnya, animasi ini menjalankan animasi jalur gerak jika didukung dan melakukan fallback ke transformasi:
-
 ```
 {
   "selector": "#target1",
@@ -164,24 +166,23 @@ Misalnya, animasi ini menjalankan animasi jalur gerak jika didukung dan melakuka
 Komponen animasi dapat mendeklarasikan variabel CSS yang akan digunakan untuk nilai pengaturan waktu dan keyframe melalui ekspresi `var()`. Ekspresi `var()` dievaluasi menggunakan konteks target saat ini. Variabel CSS yang ditentukan dalam komponen animasi disebarkan ke animasi bertingkat, diterapkan ke target animasi, sehingga mengganti variabel CSS yang digunakan dalam animasi final.
 
 Misalnya:
-
 ```html
 <amp-animation layout="nodisplay">
-  <script type="application/json">
+<script type="application/json">
+{
+  "--delay": "0.5s",
+  "--x": "100px",
+  "animations": [
     {
-      "--delay": "0.5s",
-      "--x": "100px",
-      "animations": [
-        {
-          "selector": "#target1",
-          "delay": "var(--delay)",
-          "--x": "150px",
-          "keyframes": {"transform": "translate(var(--x), var(--y, 0px)"}
-        },
-        ...
-      ]
-    }
-  </script>
+      "selector": "#target1",
+      "delay": "var(--delay)",
+      "--x": "150px",
+      "keyframes": {"transform": "translate(var(--x), var(--y, 0px)"}
+    },
+    ...
+  ]
+}
+</script>
 </amp-animation>
 ```
 
@@ -258,7 +259,6 @@ Komponen animasi dan animasi level teratas dapat berisi properti pengaturan wakt
 Semua properti pengaturan waktu menerima nilai numerik/string langsung atau nilai CSS. Misalnya, "duration" dapat ditetapkan sebagai `1000` atau `1s` atau `1000ms`. Selain itu, `calc()` dan `var()` serta ekspresi CSS lainnya juga didukung.
 
 Contoh properti pengaturan waktu di JSON:
-
 ```text
 {
   ...
@@ -278,7 +278,6 @@ Komponen animasi mewarisi properti pengaturan waktu yang ditentukan untuk animas
 Di mana pun `selector` dapat ditentukan, `subtargets: []` juga dapat ditentukan. Subtarget dapat menggantikan properti pengaturan waktu atau variabel yang ditentukan dalam animasi untuk subtarget tertentu yang ditunjukkan melalui indeks atau selektor CSS.
 
 Misalnya:
-
 ```text
 {
   "selector": ".target",
@@ -308,7 +307,6 @@ Keyframe dapat ditentukan dengan berbagai cara yang dijelaskan di [bagian keyfra
 Berikut beberapa contoh umum definisi keyframe.
 
 Shorthand format "to" bentuk objek menentukan status akhir 100%:
-
 ```text
 {
   "keyframes": {"opacity": 0, "transform": "scale(2)"}
@@ -316,7 +314,6 @@ Shorthand format "to" bentuk objek menentukan status akhir 100%:
 ```
 
 Shorthand format "from-to" bentuk objek menentukan status awal dan akhir 0 dan 100%:
-
 ```text
 {
   "keyframes": {
@@ -327,7 +324,6 @@ Shorthand format "from-to" bentuk objek menentukan status awal dan akhir 0 dan 1
 ```
 
 Shorthand format "value-array" bentuk objek menentukan beberapa nilai untuk status awal, akhir, dan beberapa offset (berjarak sama):
-
 ```text
 {
   "keyframes": {
@@ -338,7 +334,6 @@ Shorthand format "value-array" bentuk objek menentukan beberapa nilai untuk stat
 ```
 
 Bentuk array menentukan keyframe. Offset ditetapkan secara otomatis pada 0, 100% dan berjarak sama di antaranya:
-
 ```text
 {
   "keyframes": [
@@ -349,7 +344,6 @@ Bentuk array menentukan keyframe. Offset ditetapkan secara otomatis pada 0, 100%
 ```
 
 Bentuk array juga dapat menyertakan "offset" secara eksplisit:
-
 ```text
 {
   "keyframes": [
@@ -361,7 +355,6 @@ Bentuk array juga dapat menyertakan "offset" secara eksplisit:
 ```
 
 Bentuk array juga dapat menyertakan "easing":
-
 ```text
 {
   "keyframes": [
@@ -378,7 +371,6 @@ Nilai properti menerima semua nilai CSS yang valid, termasuk `calc()`, `var()`, 
 #### Keyframe dari CSS <a name="keyframes-from-css"></a>
 
 Cara lain untuk menentukan keyframe ada dalam stylesheet dokumen (tag `<style>`) sebagai aturan CSS `@keyframes`. Misalnya:
-
 ```html
 <style amp-custom>
   @keyframes keyframes1 {
@@ -392,12 +384,12 @@ Cara lain untuk menentukan keyframe ada dalam stylesheet dokumen (tag `<style>`)
 </style>
 
 <amp-animation layout="nodisplay">
-  <script type="application/json">
-    {
-      "duration": "1s",
-      "keyframes": "keyframes1"
-    }
-  </script>
+<script type="application/json">
+{
+  "duration": "1s",
+  "keyframes": "keyframes1"
+}
+</script>
 </amp-animation>
 ```
 
@@ -410,7 +402,6 @@ Sebagian besar `@keyframes` CSS setara dengan penempatan definisi keyframe secar
 #### Properti yang diizinkan untuk keyframe <a name="allow-listed-properties-for-keyframes"></a>
 
 Tidak semua properti CSS dapat digunakan dalam keyframe. Hanya properti CSS yang dapat dioptimalkan dan dianimasikan dengan cepat oleh browser modern yang diizinkan. Daftar ini akan bertambah dengan semakin banyaknya properti yang dikonfirmasi untuk memberikan performa yang baik. Saat ini daftar ini berisi:
-
 - [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)
 - [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
 - [`visibility`](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
@@ -421,39 +412,37 @@ Perlu diperhatikan bahwa penggunaan properti CSS yang diberi prefiks oleh vendor
 ### Bentuk singkat konfigurasi animasi <a name="abbreviated-forms-of-animation-configuration"></a>
 
 Jika animasi hanya melibatkan satu elemen, dan satu efek keyframe sudah memadai, konfigurasi dapat disederhanakan menjadi satu komponen animasi ini saja. Misalnya:
-
 ```html
 <amp-animation layout="nodisplay">
-  <script type="application/json">
-    {
-      "selector": "#target-id",
-      "duration": "1s",
-      "keyframes": {"opacity": 1}
-    }
-  </script>
+<script type="application/json">
+{
+  "selector": "#target-id",
+  "duration": "1s",
+  "keyframes": {"opacity": 1}
+}
+</script>
 </amp-animation>
 ```
 
 Jika animasi terdiri dari daftar komponen, tetapi tidak memiliki animasi level teratas, konfigurasi dapat disederhanakan menjadi sebuah array komponen. Misalnya:
-
 ```html
-<amp-animation layout="nodisplay">
+  <amp-animation layout="nodisplay">
   <script type="application/json">
-    [
-      {
-        "selector": ".target-class",
-        "duration": 1000,
-        "keyframes": {"opacity": 1}
-      },
-      {
-        "selector": ".target-class",
-        "duration": 600,
-        "delay": 400,
-        "keyframes": {"transform": "scale(2)"}
-      }
-    ]
+  [
+    {
+      "selector": ".target-class",
+      "duration": 1000,
+      "keyframes": {"opacity": 1}
+    },
+    {
+      "selector": ".target-class",
+      "duration": 600,
+      "delay": 400,
+      "keyframes": {"transform": "scale(2)"}
+    }
+  ]
   </script>
-</amp-animation>
+  </amp-animation>
 ```
 
 ### Komposisi animasi <a name="animation-composition"></a>
@@ -461,50 +450,48 @@ Jika animasi terdiri dari daftar komponen, tetapi tidak memiliki animasi level t
 Animasi dapat merujuk animasi lain sehingga menggabungkan beberapa deklarasi `amp-animation` menjadi satu animasi final. Merujuk animasi dari animasi lain secara umum sama dengan nesting (penyarangan). Alasan mengapa seseorang ingin membagi animasi menjadi beberapa elemen berbeda adalah agar dapat menggunakan kembali animasi yang sama dari beberapa tempat, atau agar setiap deklarasi animasi menjadi lebih kecil dan lebih mudah dikelola.
 
 Misalnya:
-
 ```html
 <amp-animation id="anim1" layout="nodisplay">
-  <script type="application/json">
-    {
-      "animation": "anim2",
-      "duration": 1000,
-      "--scale": 2
-    }
-  </script>
+<script type="application/json">
+{
+  "animation": "anim2",
+  "duration": 1000,
+  "--scale": 2
+}
+</script>
 </amp-animation>
 
 <amp-animation id="anim2" layout="nodisplay">
-  <script type="application/json">
-    {
-      "selector": ".target-class",
-      "keyframes": {"transform": "scale(var(--scale))"}
-    }
-  </script>
+<script type="application/json">
+{
+  "selector": ".target-class",
+  "keyframes": {"transform": "scale(var(--scale))"}
+}
+</script>
 </amp-animation>
 ```
 
 Contoh animasi ini akan menggabungkan animasi "anim2" sebagai bagian dari "anim1". "Anim2" disertakan tanpa target (`selector`). Dalam kasus semacam ini, animasi yang disertakan diharapkan akan merujuk ke targetnya sendiri.
 
 Bentuk lainnya memungkinkan penyertaan animasi untuk menyediakan satu atau beberapa target. Dalam kasus semacam ini, animasi yang disertakan dieksekusi untuk setiap target yang cocok. Misalnya:
-
 ```html
 <amp-animation id="anim1" layout="nodisplay">
-  <script type="application/json">
-    {
-      "selector": ".target-class",
-      "animation": "anim2",
-      "duration": 1000,
-      "--scale": 2
-    }
-  </script>
+<script type="application/json">
+{
+  "selector": ".target-class",
+  "animation": "anim2",
+  "duration": 1000,
+  "--scale": 2
+}
+</script>
 </amp-animation>
 
 <amp-animation id="anim2" layout="nodisplay">
-  <script type="application/json">
-    {
-      "keyframes": {"transform": "scale(var(--scale))"}
-    }
-  </script>
+<script type="application/json">
+{
+  "keyframes": {"transform": "scale(var(--scale))"}
+}
+</script>
 </amp-animation>
 ```
 
@@ -517,36 +504,34 @@ Variabel dan properti pengaturan waktu yang ditentukan dalam animasi caller juga
 `amp-animation` memungkinkan penggunaan ekspresi `var()` dan `calc()` untuk nilai pengaturan waktu dan keyframe.
 
 Misalnya:
-
 ```html
 <amp-animation layout="nodisplay">
-  <script type="application/json">
-    [
-      {
-        "selector": ".target-class",
-        "duration": "4s",
-        "delay": "var(--delay)",
-        "--y": "var(--other-y, 100px)",
-        "keyframes": {"transform": "translate(calc(100vh + 20px), var(--y))"}
-      }
-    ]
-  </script>
+<script type="application/json">
+[
+  {
+    "selector": ".target-class",
+    "duration": "4s",
+    "delay": "var(--delay)",
+    "--y": "var(--other-y, 100px)",
+    "keyframes": {"transform": "translate(calc(100vh + 20px), var(--y))"}
+  }
+]
+</script>
 </amp-animation>
 ```
 
 Baik `var()` maupun `calc()` di-polyfill pada platform yang tidak mendukungnya secara langsung. Properti `var()` diekstrak dari elemen target yang terkait. Namun, Anda tidak dapat mem-polyfill sepenuhnya properti `var()`. Jadi, jika kompatibilitas menjadi pertimbangan penting, sebaiknya sertakan nilai default dalam ekspresi `var()`. Misalnya:
-
 ```html
 <amp-animation layout="nodisplay">
-  <script type="application/json">
-    [
-      {
-        "selector": ".target-class",
-        "duration": "4s",
-        "delay": "var(--delay, 100ms)"
-      }
-    ]
-  </script>
+<script type="application/json">
+[
+  {
+    "selector": ".target-class",
+    "duration": "4s",
+    "delay": "var(--delay, 100ms)",
+  }
+]
+</script>
 </amp-animation>
 ```
 
@@ -561,7 +546,6 @@ Komponen animasi dapat menentukan variabelnya sendiri sebagai kolom `--var-name`
 Fungsi `index()` menampilkan indeks elemen target saat ini dalam efek animasi. Hal ini paling relevan jika beberapa target dianimasikan dengan efek yang sama menggunakan properti `selector`. Target pertama yang cocok dengan selektor akan memiliki indeks `0`, target kedua memiliki indeks `1`, dan seterusnya.
 
 Di antara hal-hal lainnya, properti ini dapat dikombinasikan dengan ekspresi `calc()` dan dapat digunakan untuk membuat efek bergilir. Misalnya:
-
 ```
 {
   "selector": ".class-x",
@@ -585,7 +569,6 @@ Fungsi `length()` menampilkan jumlah elemen target dalam efek animasi. Hal ini p
 Fungsi `rand()` menampilkan nilai CSS acak. Bentuknya ada dua.
 
 Bentuk tanpa argumen hanya akan menampilkan angka acak antara 0 dan 1.
-
 ```
 {
   "delay": "calc(10s * rand())"
@@ -593,7 +576,6 @@ Bentuk tanpa argumen hanya akan menampilkan angka acak antara 0 dan 1.
 ```
 
 Bentuk kedua memiliki dua argumen dan menampilkan nilai acak antara kedua argumen tersebut.
-
 ```
 {
   "delay": "rand(5s, 10s)"
@@ -613,7 +595,6 @@ Bentuk berikut didukung:
 Ekstensi `width()` dan `height()` sangat berguna khususnya untuk properti transformi. `left`, `top`, dan properti CSS serupa dapat menggunakan nilai `%` untuk mengekspresikan animasi yang sebanding dengan ukuran container. Namun, properti `transform` menafsirkan nilai `%` secara berbeda - sebagai persentase dari elemen yang dipilih. Dengan demikian, `width()` dan `height()` dapat digunakan untuk mengekspresikan animasi transformasi dari segi elemen container dan sejenisnya.
 
 Fungsi ini dapat dikombinasikan dengan `calc()`, `var()` dan ekspresi CSS lainnya. Misalnya:
-
 ```
 {
   "transform": "translateX(calc(width('#container') + 10px))"
@@ -629,7 +610,6 @@ Fungsi `num()` menampilkan representasi angka dari sebuah nilai CSS. Misalnya:
 - dll.
 
 Sebagai contoh, ekspresi berikut menghitung penundaan dalam detik yang sebanding dengan lebar elemen:
-
 ```
 {
   "delay": "calc(1s * num(width()) / 100)"
@@ -642,9 +622,9 @@ SVG sangat canggih dan kami sangat merekomendasikannya untuk animasi!
 
 Animasi SVG didukung melalui properti CSS yang sama seperti yang dijelaskan dalam [Properti yang diizinkan untuk keyframe](#allow-listed-properties-for-keyframes) dengan beberapa variasi:
 
-- Elemen IE/Edge SVG [tidak mendukung properti `transform` CSS](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/1173754/). Animasi `transform` itu sendiri di-polyfill. Namun, status awal yang ditentukan dalam stylesheet tidak diterapkan. Jika status transformasi awal dibutuhkan di IE/Edge, sebaiknya duplikasikan melalui [atribut `transform` SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform).
-- Meskipun `transform` CSS di-polyfill untuk IE/Edge, sayangnya `transform-origin` tidak dapat di-polyfill. Jadi, jika kompatibilitas dengan IE/Edge menjadi pertimbangan penting, sebaiknya gunakan hanya `transform-origin` default.
-- Saat ini, sebagian besar browser mengalami masalah dalam menafsirkan `transform-origin` CSS dengan benar. Lihat masalah untuk [Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=740300), [Safari](https://bugs.webkit.org/show_bug.cgi?id=174285) dan [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1379340). Sebagian besar kebingungan ini akan terselesaikan setelah [`transform-box` CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-box) diimplementasikan. Meskipun `transform-origin` itu penting, sebaiknya sertakan juga `transform-box` CSS yang diinginkan untuk kompatibilitas di masa mendatang.
+* Elemen IE/Edge SVG [tidak mendukung properti `transform` CSS](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/1173754/). Animasi `transform` itu sendiri di-polyfill. Namun, status awal yang ditentukan dalam stylesheet tidak diterapkan. Jika status transformasi awal dibutuhkan di IE/Edge, sebaiknya duplikasikan melalui [atribut `transform` SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform).
+* Meskipun `transform` CSS di-polyfill untuk IE/Edge, sayangnya `transform-origin` tidak dapat di-polyfill. Jadi, jika kompatibilitas dengan IE/Edge menjadi pertimbangan penting, sebaiknya gunakan hanya `transform-origin` default.
+* Saat ini, sebagian besar browser mengalami masalah dalam menafsirkan `transform-origin` CSS dengan benar. Lihat masalah untuk [Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=740300), [Safari](https://bugs.webkit.org/show_bug.cgi?id=174285) dan [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1379340). Sebagian besar kebingungan ini akan terselesaikan setelah [`transform-box` CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-box) diimplementasikan. Meskipun `transform-origin` itu penting, sebaiknya sertakan juga `transform-box` CSS yang diinginkan untuk kompatibilitas di masa mendatang.
 
 ## Memicu animasi <a name="triggering-animation"></a>
 
@@ -655,11 +635,11 @@ Animasi dapat dipicu melalui atribut `trigger` atau tindakan `on`.
 Saat ini, `visibility` adalah satu-satunya nilai yang tersedia untuk atribut `trigger`. `visibility` dipicu saat dokumen atau sematan sumber terlihat (di viewport).
 
 Misalnya:
-
 ```html
-<amp-animation id="anim1" layout="nodisplay" trigger="visibility">
-  ...
-</amp-animation>
+<amp-animation id="anim1" layout="nodisplay"
+    trigger="visibility">
+    ...
+  </amp-animation>
 ```
 
 ### Memicu melalui tindakan `on` <a name="triggering-via-on-action"></a>
@@ -667,7 +647,9 @@ Misalnya:
 Misalnya:
 
 ```html
-<amp-animation id="anim1" layout="nodisplay"> ... </amp-animation>
+<amp-animation id="anim1" layout="nodisplay">
+  ...
+</amp-animation>
 <button on="tap:anim1.start">Animate</button>
 ```
 
@@ -675,12 +657,12 @@ Misalnya:
 
 Elemen `amp-animation` mengekspor tindakan berikut:
 
-- `start` - Memulai animasi jika belum dijalankan. Properti dan variabel pengaturan waktu dapat ditentukan sebagai argumen tindakan. Misalnya, `anim1.start(delay=-100, --scale=2)`.
-- `restart` - Memulai animasi atau memulai ulang animasi yang sedang dijalankan. Properti dan variabel pengaturan waktu dapat ditentukan sebagai argumen tindakan. Misalnya, `anim1.start(delay=-100, --scale=2)`.
-- `pause` - Menjeda animasi yang sedang berjalan.
-- `resume` - Melanjutkan lagi animasi yang sedang berjalan.
-- `togglePause` - Beralih antara tindakan jeda/lanjutkan.
-- `seekTo` - Menjeda animasi dan mencari ke titik waktu yang ditetapkan oleh argumen `time` dalam milidetik atau argumen `percent` sebagai titik persentase dalam timeline.
-- `reverse` - Membalik animasi.
-- `finish` - Menyelesaikan animasi.
-- `cancel` - Membatalkan animasi.
+* `start` - Memulai animasi jika belum dijalankan. Properti dan variabel pengaturan waktu dapat ditentukan sebagai argumen tindakan. Misalnya, `anim1.start(delay=-100, --scale=2)`.
+* `restart` - Memulai animasi atau memulai ulang animasi yang sedang dijalankan. Properti dan variabel pengaturan waktu dapat ditentukan sebagai argumen tindakan. Misalnya, `anim1.start(delay=-100, --scale=2)`.
+* `pause` - Menjeda animasi yang sedang berjalan.
+* `resume` - Melanjutkan lagi animasi yang sedang berjalan.
+* `togglePause` - Beralih antara tindakan jeda/lanjutkan.
+* `seekTo` - Menjeda animasi dan mencari ke titik waktu yang ditetapkan oleh argumen `time` dalam milidetik atau argumen `percent` sebagai titik persentase dalam timeline.
+* `reverse` - Membalik animasi.
+* `finish` - Menyelesaikan animasi.
+* `cancel` - Membatalkan animasi.

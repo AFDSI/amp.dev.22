@@ -5,6 +5,7 @@ teaser:
   text: Inserisce in modo dinamico gli annunci in una pagina AMP utilizzando un file di configurazione gestito in remoto.
 ---
 
+
 <!--
 Copyright 2017 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +21,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+
 
 Inserisce in modo dinamico gli annunci in una pagina AMP utilizzando un file di configurazione gestito in remoto.
 
@@ -50,14 +53,15 @@ Inserisce in modo dinamico gli annunci in una pagina AMP utilizzando un file di 
     </tr>
   </table>
 
+
 ## Comportamento
 
 Dato un numero sufficiente di posizionamenti validi (forniti nella configurazione),
 `amp-auto-ads` cerca di inserire annunci aggiuntivi rispettando al contempo una serie di
 limitazioni specificate dalla rete pubblicitaria. Queste limitazioni agiscono su:
 
-- Il numero totale di annunci che possono essere inseriti
-- La distanza minima tra gli annunci adiacenti
+* Il numero totale di annunci che possono essere inseriti
+* La distanza minima tra gli annunci adiacenti
 
 In aggiunta, gli annunci verranno inseriti solo in posizioni della pagina che
 non causano una ripetizione flusso inaccettabile, come determinato da attemptChangeSize.
@@ -66,16 +70,17 @@ Il tag `<amp-auto-ads>` dovrebbe essere posizionato come primo tag secondario di
 
 Il tipo di rete pubblicitaria e qualsiasi informazione aggiuntiva richiesta dalla rete pubblicitaria
 devono essere specificati nel tag.
-
 ```html
-<amp-auto-ads type="adsense" data-ad-client="ca-pub-5439573510495356">
-</amp-auto-ads>
+<amp-auto-ads
+    type="adsense"
+    data-ad-client="ca-pub-5439573510495356">
+  </amp-auto-ads>
 ```
 
 ## Reti pubblicitarie supportate <a name="supported-ad-networks"></a>
 
-- [AdSense](https://github.com/ampproject/amphtml/blob/main/ads/google/adsense.md)
-- [DoubleClick (sperimentale)](https://github.com/ampproject/amphtml/blob/main/ads/google/doubleclick.md)
+* [AdSense](https://github.com/ampproject/amphtml/blob/main/ads/google/adsense.md)
+* [DoubleClick (sperimentale)](https://github.com/ampproject/amphtml/blob/main/ads/google/doubleclick.md)
 
 ## Attributi
 
@@ -112,16 +117,16 @@ subito dopo tutti gli elementi `<P class='paragraph'>` all'interno del terzo `<D
         "index": 2,
         "sub": {
           "selector": "P.paragraph",
-          "all": true
-        }
+          "all": true,
+        },
       },
       "pos": 4,
       "type": 1,
       "style": {
         "top_m": 5,
-        "bot_m": 10
-      }
-    }
+        "bot_m": 10,
+      },
+    },
   ]
 }
 ```
@@ -368,14 +373,14 @@ I campi da specificare nell'oggetto di configurazione `subsequentMinSpacing`. Le
 possono essere utilizzate per modificare la spaziatura obbligatoria tra gli annunci aggiuntivi a seconda del numero di annunci già presenti
 sulla pagina. Ad esempio, se si hanno:
 
-- 2 annunci esistenti sulla pagina
-- Il campo subsequentMinSpacing seguente è:
-  <code>
+* 2 annunci esistenti sulla pagina
+* Il campo subsequentMinSpacing seguente è:
+<code>
   [
-  {adCount: 3, spacing: "500px"},
-  {adCount: 5, spacing: "1000px"},
+    {adCount: 3, spacing: "500px"},
+    {adCount: 5, spacing: "1000px"},
   ]
-  </code>
+</code>
 
 Inizialmente vi sono 2 annunci sulla pagina, quindi nessuna mappatura corrisponde.
 Pertanto, la spaziatura minima viene impostata in modo predefinito su initialMinSpacing nell'oggetto `AdConstraints`.

@@ -5,6 +5,7 @@ teaser:
   text: Bir iframe görüntüler.
 ---
 
+
 <!--
 Copyright 2015 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,7 +22,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 Bir iframe görüntüler.
+
 
 <table>
   <tr>
@@ -42,23 +46,20 @@ Bir iframe görüntüler.
 
 `amp-iframe` öğesinin, vanilla iframe'e göre kendisini daha güvenli hale getirmek ve tek bir iframe tarafından yönetilen AMP dosyalarından kaçınmak için tasarlanmış bazı önemli farklılıkları vardır:
 
-- `amp-iframe`, ([aşağıda](#iframe-with-placeholder) açıklandığı gibi `placeholder` öğesini kullanan iframe'ler haricinde) dokümanın üst kısmına yakın görünmeyebilir. iframe en üst kısımdan 600 piksel uzaklıkta olmalı veya üst kısma kaydırıldığında, görüntü alanının ilk %75'inde yer almamalıdır (hangisi daha küçükse).
-- Varsayılan olarak, bir amp-iframe korumalı alanda yer alır ([ayrıntılara](#sandbox) bakın).
-- Bir `amp-iframe`, kaynakları yalnızca HTTPS aracılığıyla, bir veri URI'sından veya `srcdoc` özelliği ile istemelidir.
-- `sandbox` özelliğinde `allow-same-origin` değerine izin verilmedikçe, `amp-iframe` öğesi, kapsayıcıyla aynı kaynakta olmamalıdır. iframe'ler için izin verilen kaynaklarla ilgili daha fazla ayrıntı için ["iframe kaynak politikası"](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-iframe-origin-policy.md) dokümanına bakın.
+* `amp-iframe`, ([aşağıda](#iframe-with-placeholder) açıklandığı gibi `placeholder` öğesini kullanan iframe'ler haricinde) dokümanın üst kısmına yakın görünmeyebilir. iframe en üst kısımdan 600 piksel uzaklıkta olmalı veya üst kısma kaydırıldığında, görüntü alanının ilk %75'inde yer almamalıdır (hangisi daha küçükse).
+* Varsayılan olarak, bir amp-iframe korumalı alanda yer alır ([ayrıntılara](#sandbox) bakın).
+* Bir `amp-iframe`, kaynakları yalnızca HTTPS aracılığıyla, bir veri URI'sından veya `srcdoc` özelliği ile istemelidir.
+* `sandbox` özelliğinde `allow-same-origin` değerine izin verilmedikçe, `amp-iframe` öğesi, kapsayıcıyla aynı kaynakta olmamalıdır. iframe'ler için izin verilen kaynaklarla ilgili daha fazla ayrıntı için ["iframe kaynak politikası"](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-iframe-origin-policy.md) dokümanına bakın.
 
-_Örnek: Bir amp-iframe içine yerleştirilmiş Google Haritası_
+*Örnek: Bir amp-iframe içine yerleştirilmiş Google Haritası*
 
 ```html
-<amp-iframe
-  width="200"
-  height="100"
-  sandbox="allow-scripts allow-same-origin"
-  layout="responsive"
-  frameborder="0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDG9YXIhKBhqclZizcSzJ0ROiE0qgVfwzI&q=iceland"
->
-</amp-iframe>
+<amp-iframe width="200" height="100"
+    sandbox="allow-scripts allow-same-origin"
+    layout="responsive"
+    frameborder="0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDG9YXIhKBhqclZizcSzJ0ROiE0qgVfwzI&q=iceland">
+  </amp-iframe>
 ```
 
 Şu şekilde oluşturulur:
@@ -78,10 +79,10 @@ Reklamcılık kullanım alanları, bunun yerine [`amp-ad`](amp-ad.md) öğesini 
 
 Bu politikanın gerekçileri şunlardır:
 
-- `amp-iframe` korumalı alanı uygular ve korumalı alan, alt iframe'lere de uygulanır. Bu, reklamın kendisi çalışıyor görünse bile açılış sayfalarının bozuk olabileceği anlamına gelir.
-- `amp-iframe`, yapılandırmayı iframe'e geçirecek herhangi bir mekanizma sağlamaz.
-- `amp-iframe`, iframe tarafından tam olarak kontrol edilen yeniden boyutlandırma mekanizmasına sahip değildir.
-- Görüntülenebilirlik bilgileri `amp-iframe` tarafından kullanılamaz.
+* `amp-iframe` korumalı alanı uygular ve korumalı alan, alt iframe'lere de uygulanır. Bu, reklamın kendisi çalışıyor görünse bile açılış sayfalarının bozuk olabileceği anlamına gelir.
+* `amp-iframe`, yapılandırmayı iframe'e geçirecek herhangi bir mekanizma sağlamaz.
+* `amp-iframe`, iframe tarafından tam olarak kontrol edilen yeniden boyutlandırma mekanizmasına sahip değildir.
+* Görüntülenebilirlik bilgileri `amp-iframe` tarafından kullanılamaz.
 
 # Özellikler <a name="attributes"></a>
 
@@ -116,33 +117,27 @@ Bu politikanın gerekçileri şunlardır:
 
 `amp-iframe`, aşağıdaki örnekte gösterildiği gibi bir `placeholder` öğesi içerdiğinde, `amp-iframe` öğesinin dokümanın üst kısmında görünmesi mümkündür.
 
-- `amp-iframe`, iframe görüntülenmeye hazır olana kadar bir yer tutucu olarak oluşturulacak `placeholder` özelliğine sahip bir öğe (örneğin, bir `amp-img` öğesi) içermelidir.
-- iframe'in hazır olması, iframe'in `onload` özelliği veya iframe dokümanı tarafından gönderilecek bir `embed-ready` `postMessage` dinlenerek (hangisi önce gelirse) bilinebilir.
+* `amp-iframe`, iframe görüntülenmeye hazır olana kadar bir yer tutucu olarak oluşturulacak `placeholder` özelliğine sahip bir öğe (örneğin, bir `amp-img` öğesi) içermelidir.
+* iframe'in hazır olması, iframe'in `onload` özelliği veya iframe dokümanı tarafından gönderilecek bir `embed-ready` `postMessage` dinlenerek (hangisi önce gelirse) bilinebilir.
 
-_Örnek: Bir yer tutucu içeren iframe_
+*Örnek: Bir yer tutucu içeren iframe*
 
 ```html
-<amp-iframe
-  width="300"
-  height="300"
-  layout="responsive"
-  sandbox="allow-scripts allow-same-origin"
-  src="https://foo.com/iframe"
->
-  <amp-img layout="fill" src="https://foo.com/foo.png" placeholder></amp-img>
+<amp-iframe width=300 height=300
+    layout="responsive"
+    sandbox="allow-scripts allow-same-origin"
+    src="https://foo.com/iframe">
+    <amp-img layout="fill" src="https://foo.com/foo.png" placeholder></amp-img>
 </amp-iframe>
 ```
 
-_Örnek: iframe yerleştirme özellikli istek_
+*Örnek: iframe yerleştirme özellikli istek*
 
 ```javascript
-window.parent.postMessage(
-  {
-    sentinel: 'amp',
-    type: 'embed-ready',
-  },
-  '*'
-);
+window.parent.postMessage({
+  sentinel: 'amp',
+  type: 'embed-ready'
+  }, '*');
 ```
 
 # iframe'i yeniden boyutlandırma <a name="iframe-resizing"></a>
@@ -157,77 +152,64 @@ window.parent.postMessage(
 
 `resizable` değerinin, `scrolling` öğesinin `no` değerini geçersiz kıldığını unutmayın.
 
-_Örnek: `overflow` öğesine sahip `amp-iframe`_
+*Örnek: `overflow` öğesine sahip `amp-iframe`*
 
 ```html
-<amp-iframe
-  width="300"
-  height="300"
-  layout="responsive"
-  sandbox="allow-scripts allow-same-origin"
-  resizable
-  src="https://foo.com/iframe"
->
-  <div overflow tabindex="0" role="button" aria-label="Read more">
-    Read more!
-  </div>
+<amp-iframe width=300 height=300
+    layout="responsive"
+    sandbox="allow-scripts allow-same-origin"
+    resizable
+    src="https://foo.com/iframe">
+    <div overflow tabindex=0 role=button aria-label="Read more">Read more!</div>
 </amp-iframe>
 ```
 
-_Örnek: iframe yeniden boyutlandırma isteği_
+*Örnek: iframe yeniden boyutlandırma isteği*
 
 ```javascript
-window.parent.postMessage(
-  {
-    sentinel: 'amp',
-    type: 'embed-size',
-    height: document.body.scrollHeight,
-  },
-  '*'
-);
+window.parent.postMessage({
+  sentinel: 'amp',
+  type: 'embed-size',
+  height: document.body.scrollHeight
+  }, '*');
 ```
 
 Bu mesaj alındıktan sonra AMP çalışma zamanı, isteği olabildiğince erken yerine getirmeye çalışır ancak okuyucunun şu anda okumakta olduğu yeri, kaydırmanın devam edip etmediğini ve diğer herhangi kullanıcı deneyimlerini ya da performans faktörlerini göz önünde bulundurur. Çalışma zamanı yeniden boyutlandırma isteğini karşılayamazsa `amp-iframe` bir `overflow` öğesi gösterir. `overflow` öğesinin tıklanması, bir kullanıcı işlemi tarafından tetiklendiğinden `amp-iframe` öğesini hemen yeniden boyutlandırır.
 
 Yeniden boyutlandırmanın ne kadar hızlı yürütüleceğini etkileyen bazı faktörleri burada görebilirsiniz:
 
-- Yeniden boyutlandırmanın kullanıcı işlemi tarafından tetiklenip tetiklenmediği.
-- Yeniden boyutlandırmanın şu anda etkin olan bir iframe için istenip istenmediği.
-- Yeniden boyutlandırmanın görüntü alanının altında veya üstünde bulunan bir iframe için istenip istenmediği.
+* Yeniden boyutlandırmanın kullanıcı işlemi tarafından tetiklenip tetiklenmediği.
+* Yeniden boyutlandırmanın şu anda etkin olan bir iframe için istenip istenmediği.
+* Yeniden boyutlandırmanın görüntü alanının altında veya üstünde bulunan bir iframe için istenip istenmediği.
 
 # iframe görüntülenebilirliği <a name="iframe-viewability"></a>
 
 iframe'ler, iframe'in üst görüntü alanıyla kesişiminin IntersectionObserver stil [değişiklik kayıtlarını](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) almaya başlaması için üst öğelerine bir `send-intersections` mesajı gönderebilir.
 
-_Not: Aşağıdaki örneklerde, komut dosyasının oluşturulan iframe'de içinde yer aldığı ve `window.parent` öğesinin üst pencere olduğu kabul edilmektedir. Komut dosyası iç içe yerleştirilmiş bir iframe'deyse `window.parent` öğesini üstteki AMP penceresi olarak değiştirin._
+*Not: Aşağıdaki örneklerde, komut dosyasının oluşturulan iframe'de içinde yer aldığı ve `window.parent` öğesinin üst pencere olduğu kabul edilmektedir. Komut dosyası iç içe yerleştirilmiş bir iframe'deyse `window.parent` öğesini üstteki AMP penceresi olarak değiştirin.*
 
-_Örnek: iframe `send-intersections` isteği_
+*Örnek: iframe `send-intersections` isteği*
 
 ```javascript
-window.parent.postMessage(
-  {
-    sentinel: 'amp',
-    type: 'send-intersections',
-  },
-  '*'
-);
+window.parent.postMessage({
+  sentinel: 'amp',
+  type: 'send-intersections'
+  }, '*');
 ```
 
 Iframe, kesişim verilerini almak için üst pencereden gelen bir `intersection` mesajını dinleyebilir.
 
-_Örnek: iframe `send-intersections` isteği_
+*Örnek: iframe `send-intersections` isteği*
 
 ```javascript
-window.addEventListener('message', function (event) {
-  if (
-    event.source != window.parent ||
-    event.origin == window.location.origin ||
-    !event.data ||
-    event.data.sentinel != 'amp' ||
-    event.data.type != 'intersection'
-  ) {
+window.addEventListener('message', function(event) {
+  if (event.source != window.parent ||
+  event.origin == window.location.origin ||
+  !event.data ||
+  event.data.sentinel != 'amp' ||
+  event.data.type != 'intersection') {
     return;
-  }
+    }
   event.data.changes.forEach(function (change) {
     console.log(change);
   });
@@ -248,10 +230,10 @@ iframe'ler, görünmez veya küçük olmaları gibi kullanıcıya yönelik doğr
 
 Gerekli kullanıcı deneyimi AMP'deki diğer araçlarla mümkün değilse yani kullanım alanı için halihazırda mevcut bir [AMP bileşeni](../../../documentation/components/index.html) yoksa `amp-iframe` bileşeni, bir yedek olarak kabul edilmelidir. Bunun nedeni, belirli bir kullanım alanı için uyarlanmış bir AMP bileşenini kullanmanın birçok yararının olmasıdır. Örneğin:
 
-- Daha iyi kaynak yönetimi ve performans
-- Özel bileşenler, bazı durumlarda yerleşik yer tutucu resimler sağlayabilir. Bu, örneğin video yüklenmeden önce doğru video küçük resminin alınması anlamına gelir ve manuel olarak yer tutucu eklemek için yapılan kodlama çalışmasını azaltır.
-- Yerleşik yeniden boyutlandırma. Bu, öngörülemeyen boyuta sahip iframe içeriğinin kullanıcıya, kaydırılabilir bir çerçeve yerine sayfanın kendi içindeymiş gibi görünebileceği anlamına gelir
-- Başka ek özellikler de oluşturulabilir (örneğin, video oynatıcılar için otomatik oynatma)
+* Daha iyi kaynak yönetimi ve performans
+* Özel bileşenler, bazı durumlarda yerleşik yer tutucu resimler sağlayabilir. Bu, örneğin video yüklenmeden önce doğru video küçük resminin alınması anlamına gelir ve manuel olarak yer tutucu eklemek için yapılan kodlama çalışmasını azaltır.
+* Yerleşik yeniden boyutlandırma. Bu, öngörülemeyen boyuta sahip iframe içeriğinin kullanıcıya, kaydırılabilir bir çerçeve yerine sayfanın kendi içindeymiş gibi görünebileceği anlamına gelir
+* Başka ek özellikler de oluşturulabilir (örneğin, video oynatıcılar için otomatik oynatma)
 
 # Doğrulama <a name="validation"></a>
 

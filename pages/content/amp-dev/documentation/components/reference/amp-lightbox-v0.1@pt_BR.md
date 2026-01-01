@@ -5,6 +5,8 @@ teaser:
   text: Exibe elementos em um modal "lightbox" que ocupa toda a janela de visualização.
 ---
 
+
+
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +22,8 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+
 
 <table>
   <tr>
@@ -49,9 +53,7 @@ Pressionar a tecla Esc no teclado fecha o lightbox. Como alternativa, definir o 
 ```html
 <button on="tap:quote-lb">See Quote</button>
 <amp-lightbox id="quote-lb" layout="nodisplay">
-  <blockquote>
-    "Don't talk to me about JavaScript fatigue" - Horse JS
-  </blockquote>
+  <blockquote>"Don't talk to me about JavaScript fatigue" - Horse JS</blockquote>
   <button on="tap:quote-lb.close">Nice!</button>
 </amp-lightbox>
 ```
@@ -128,8 +130,8 @@ Há algumas diferenças entre o uso de `amp-lightbox` em documentos AMP normais 
 
 Para anúncios HTML para AMP, o atributo `close-button` é obrigatório. Esse atributo faz com que um cabeçalho seja renderizado na parte superior do lightbox. O cabeçalho contém um botão "Fechar" e um rótulo escrito "Anúncio". O requisito desse cabeçalho é necessário para:
 
-- definir uma experiência do usuário consistente e previsível para anúncios HTML para AMP;
-- garantir que sempre exista um ponto de saída para o lightbox. Caso contrário, o criativo poderá invadir o conteúdo do documento do host por meio de um lightbox.
+* definir uma experiência do usuário consistente e previsível para anúncios HTML para AMP;
+* garantir que sempre exista um ponto de saída para o lightbox. Caso contrário, o criativo poderá invadir o conteúdo do documento do host por meio de um lightbox.
 
 O atributo `close-button` é obrigatório e permitido apenas em anúncios HTML para AMP. Em documentos AMP normais, você pode renderizar um botão "Fechar" sempre que precisar dele no conteúdo do `<amp-lightbox>`.
 

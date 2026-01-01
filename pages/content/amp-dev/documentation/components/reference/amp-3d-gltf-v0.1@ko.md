@@ -21,6 +21,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 GL 전송 양식(glTF) 3D 모델을 표시합니다.
 
 <table>
@@ -53,8 +55,7 @@ GL 전송 양식(glTF) 3D 모델을 표시합니다.
   height="240"
   alpha="true"
   antialiasing="true"
-  src="path/to/model.glb"
-></amp-3d-gltf>
+  src="path/to/model.glb"></amp-3d-gltf>
 ```
 
 ### 제한사항 <a name="limitations"></a>

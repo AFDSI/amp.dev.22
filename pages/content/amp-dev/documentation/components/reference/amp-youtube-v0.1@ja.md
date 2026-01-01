@@ -5,6 +5,7 @@ teaser:
   text: YouTube 動画を表示します。
 ---
 
+
 <!--
        Copyright 2015 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +21,8 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+
 
 [YouTube](https://www.youtube.com/) 動画を表示します。
 
@@ -38,6 +41,7 @@ teaser:
   </tr>
 </table>
 
+
 ## 例 <a name="example"></a>
 
 次の例はレスポンシブ レイアウトを備えており、アスペクト比が 16:9 の動画の場合に適切な幅と高さのレイアウトになります。
@@ -47,22 +51,22 @@ teaser:
     data-videoid="mGENRKrdoGY"
     layout="responsive"
     width="480" height="270"></amp-youtube>
-[/sourcecode]
+  [/sourcecode]
 
-[sourcecode:html]
-<amp-youtube
+  [sourcecode:html]
+  <amp-youtube
       id="myLiveChannel"
       data-live-channelid="UCB8Kb4pxYzsDsHxzBfnid4Q"
       width="358"
       height="204"
       layout="responsive">
-<amp-img
+    <amp-img
       src="https://i.ytimg.com/vi/Wm1fWz-7nLQ/hqdefault_live.jpg"
       placeholder
       layout="fill"
       />
-</amp-youtube>
-[/sourcecode]
+  </amp-youtube>
+  [/sourcecode]
 
 ## 属性 <a name="attributes"></a>
 

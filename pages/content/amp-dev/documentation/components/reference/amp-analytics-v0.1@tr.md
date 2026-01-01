@@ -5,6 +5,7 @@ teaser:
   text: Bir AMP dokümanındaki analiz verilerini yakalar.
 ---
 
+
 <!--
 Copyright 2019 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,6 +22,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 Bir AMP dokümanındaki analiz verilerini yakalar.
 
 <table>
@@ -33,6 +36,7 @@ Bir AMP dokümanındaki analiz verilerini yakalar.
     <td>Örneklerle AMP <a href="https://ampbyexample.com/components/amp-analytics/">amp-analytics örneği</a> sayfasına bakın.</td>
   </tr>
 </table>
+
 
 ## Analizleri bir tedarikçi firmaya mı gönderiyorsunuz, yoksa şirket içi çözüm mü kullanıyorsunuz? <a name="sending-analytics-to-a-vendor-or-in-house"></a>
 
@@ -53,24 +57,24 @@ Entegre AMP Analytics tedarikçi firmaları için:
 
 Analiz tedarikçi firması AMP ile entegre değilse tedarikçi firmaya ulaşıp destek sağlamalarını isteyin. Ayrıca, tedarikçi firmanın eklenmesini isteyen AMP projesinde bir sorun oluşturmanızı da öneririz. Ayrıca, [Analiz araçlarınızı AMP HTML ile entegre etme](../../../documentation/guides-and-tutorials/contribute/integrate-your-analytics-tools.md) konusuna da bakın. Alternatif olarak, tedarikçi firmanızla birlikte çalışarak verileri belirttikleri URL'lere gönderin. Aşağıdaki [Verileri şirket içinde gönderme](#sending-data-in-house) bölümünde daha fazla bilgi edinebilirsiniz.
 
-_Örnek: Verileri bir üçüncü taraf analiz tedarikçi firmasına gönderme_
+*Örnek: Verileri bir üçüncü taraf analiz tedarikçi firmasına gönderme*
 
 Aşağıdaki örnekte, analiz verileri, AMP ile entegre olmuş bir üçüncü taraf analiz sağlayıcısı olan Nielsen'a gönderilir. Nielsen için analiz verilerinin yapılandırılmasıyla ilgili ayrıntılar, [Nielsen](https://engineeringportal.nielsen.com/docs/DCR_Static_Google_AMP_Cloud_API) dokümanlarında bulunabilir.
 
 ```html
 <amp-analytics type="nielsen">
   <script type="application/json">
-    {
-      "vars": {
-        "apid": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-        "apv": "1.0",
-        "apn": "My AMP Website",
-        "section": "Entertainment",
-        "segA": "Music",
-        "segB": "News",
-        "segC": "Google AMP"
-      }
+  {
+    "vars": {
+      "apid": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "apv": "1.0",
+      "apn": "My AMP Website",
+      "section": "Entertainment",
+      "segA": "Music",
+      "segB": "News",
+      "segC": "Google AMP"
     }
+  }
   </script>
 </amp-analytics>
 ```
@@ -92,29 +96,29 @@ Belirli bir URL'ye veri göndermek için:
 Analiz isteklerinin yönlendirme üstbilgisindeki AMP URL'leri işlenirken `usqp` parametresini çıkarın veya yoksayın. Bu parametre, Google tarafından Google AMP Önbelleği denemelerinin tetiklenmesi amacıyla kullanılır.
 [/tip]
 
-_Örnek: Verileri bir URL'ye gönderme_
+*Örnek: Verileri bir URL'ye gönderme*
 
-Burada, sayfa görüntülemelerini izleyen basit bir örnek verilmiştir. Bir sayfanın görünür hale geldiği her seferinde, tetikleyici etkinlik etkinleşir ve sayfa görüntüleme verilerini rastgele bir kimlikle birlikte tanımlanmış bir URL'ye gönderir.
+Burada, sayfa görüntülemelerini izleyen basit bir örnek verilmiştir.  Bir sayfanın görünür hale geldiği her seferinde, tetikleyici etkinlik etkinleşir ve sayfa görüntüleme verilerini rastgele bir kimlikle birlikte tanımlanmış bir URL'ye gönderir.
 
 ```html
 <amp-analytics>
-  <script type="application/json">
-    {
-      "requests": {
-        "pageview": "https://foo.com/pixel?RANDOM"
-      },
-      "triggers": {
-        "trackPageview": {
-          "on": "visible",
-          "request": "pageview"
-        }
-      }
+<script type="application/json">
+{
+  "requests": {
+    "pageview": "https://foo.com/pixel?RANDOM"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
     }
-  </script>
+  }
+}
+</script>
 </amp-analytics>
 ```
 
-[tip type="success"]
+  [tip type="success"]
 Bazı yaygın izleme kullanım alanları (ör. sayfa görüntülemeleri, sayfa tıklamaları, kaydırma vb.) için [Analytics: Kullanım Alanları](../../../documentation/guides-and-tutorials/optimize-measure/configure-analytics/use_cases.md) konusuna bakın.
 [/tip]
 
@@ -166,9 +170,7 @@ Bir uzak yapılandırmayı yüklemek için `<amp-analytics>` öğesinde `config`
 Bu örnekte, belirtilen URL'den yapılandırma verilerini yüklemek için `config` özelliğini belirtiriz.
 
 ```html
-<amp-analytics
-  config="https://example.com/analytics.account.config.json"
-></amp-analytics>
+<amp-analytics config="https://example.com/analytics.account.config.json">
 ```
 
 #### Yapılandırma Yeniden Yazıcı <a name="configuration-rewriter"></a>
@@ -176,7 +178,6 @@ Bu örnekte, belirtilen URL'den yapılandırma verilerini yüklemek için `confi
 Yapılandırma yeniden yazıcı özelliği, analiz sağlayıcılarının sağlanan bir yapılandırmayı dinamik olarak yeniden yazmasına olanak tanımak amacıyla tasarlanmıştır. Bu, uzak yapılandırma özelliğine benzer ancak buna ek olarak, sunucuya yapılan istekte kullanıcı tarafından sağlanan yapılandırmayı içerir. Bu özellik, şu anda yalnızca analiz tedarikçi firması tarafından etkinleştirilebilir.
 
 Bir analiz tedarikçi firması, bir sunucu URL'si ile bir configRewriter özelliği belirtir.
-
 ```js
 export const VENDOR_ANALYTICS_CONFIG = {
     ...
@@ -199,10 +200,9 @@ Ardından, çalışma zamanı, nihai yapılandırmayı belirlemek için sağlana
 
 Değişken Grupları, analiz sağlayıcılarının, kullanıcının kolayca etkinleştirebileceği önceden tanımlanmış bir değişken grubunu gruplamalarına olanak tanıyan bir özelliktir. Daha sonra, bu değişkenler çözümlenir ve belirtilen `configRewriter` uç noktasına gönderilir.
 
-Analiz sağlayıcılarının, bu özelliği etkinleştirmek için `configRewriter` yapılandırmasının içinde yeni bir `varGroups` nesnesi oluşturması gerekir. Böylece yayıncılar, analiz yapılandırmalarında etkinleştirmek istedikleri analiz sağlayıcı tarafından oluşturulan adlandırılmış `varGroups` nesnesini ekleyebilir. [AMP HTML Değişiklik Kılavuzu](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md) tarafından desteklenen tüm değişkenler kullanılabilir. _Önemli not_: ${varName} çeşitleri kullanılamaz.
+Analiz sağlayıcılarının, bu özelliği etkinleştirmek için `configRewriter` yapılandırmasının içinde yeni bir `varGroups` nesnesi oluşturması gerekir. Böylece yayıncılar, analiz yapılandırmalarında etkinleştirmek istedikleri analiz sağlayıcı tarafından oluşturulan adlandırılmış `varGroups` nesnesini ekleyebilir. [AMP HTML Değişiklik Kılavuzu](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md) tarafından desteklenen tüm değişkenler kullanılabilir. *Önemli not*: ${varName} çeşitleri kullanılamaz.
 
 Örneğin, yapılandırması şöyle görünen bir tedarikçi firmamız olabilir:
-
 ```js
 // This is predefined by vendor.
 export const VENDOR_ANALYTICS_CONFIG = {
@@ -228,9 +228,9 @@ Sağlayıcının `<amp-analytics>` yapılandırmasında, belirtilen `varGroups` 
 Aşağıdaki örnekte hem `group1` hem de `group2` etkinleştirilmiştir. Özel olarak etkinleştirilmemiş gruplar yoksayılır. Ardından, çalışma zamanı tüm bu etkinleştirilmiş değişkenleri çözümler ve yapılandırma yeniden yazıcı URL'sine gönderilecek olan tek bir `configRewriter.vars` nesnesinde birleştirir.
 
 ```html
-/* Included on publisher page */
-<amp-analytics type="myVendor" id="myVendor" data-credentials="include">
-  <script type="application/json">
+  /* Included on publisher page */
+  <amp-analytics type="myVendor" id="myVendor" data-credentials="include">
+    <script type="application/json">
     {
       "configRewriter": {
         "varGroups": {
@@ -243,12 +243,11 @@ Aşağıdaki örnekte hem `group1` hem de `group2` etkinleştirilmiştir. Özel 
         }
       }
     }
-  </script>
-</amp-analytics>
+    </script>
+  </amp-analytics>
 ```
 
 Bu örnekte, istek gövdesi aşağıdaki gibir görünür:
-
 ```json
   /* Sent to configuration rewriter server. */
   "configRewriter": {
@@ -300,7 +299,6 @@ Toplu işleme özellikleri şunlardır:
 - `batchInterval`: Bu özellik, istek sırasındaki istek pinglerini temizleme zaman aralığını (saniye cinsinden) belirtir. `batchInterval`, bir sayı veya bir sayı dizisi olabilir (minimum zaman aralığı 200 ms'dir). İstek, dizideki her değere uyar ve ardından, dizinin sonuna ulaştığında son aralık değerini (veya tek değeri) tekrar eder.
 
 Örneğin, aşağıdaki yapılandırma 2 saniyede bir tek bir istek pingi gönderir ve bir örnek istek pingi `https://example.com/analytics?rc=1&rc=2` gibi görünür.
-
 ```javascript
 "requests": {
   "timer": {
@@ -323,7 +321,6 @@ Toplu işleme özellikleri şunlardır:
 ```
 
 Aşağıdaki yapılandırma, 1 saniye sonra ilk istek pingini göndermesinin ardından her 3 saniyede bir, bir istek pingi gönderir. İlk istek pingi `https://example.com/analytics?rc=1`, ikinci istek pingi `https://example.com/analytics?rc=2&rc=3&rc=4` gibi görünür.
-
 ```javascript
 "requests": {
   "timer": {
@@ -349,7 +346,7 @@ Aşağıdaki yapılandırma, 1 saniye sonra ilk istek pingini göndermesinin ard
 
 `amp-analytics` bileşeni, isteklerde kullanılabilecek birçok temel değişken tanımlar. Bu değişkenlerin tamamını içeren bir listeyi [`amp-analytics` Değişkenler Kılavuzu](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/analytics-vars.md)'nda bulabilirsiniz. Buna ek olarak, [AMP HTML Değişiklik Kılavuzu](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md) tarafından desteklenen tüm değişkenler de desteklenir.
 
-`vars` yapılandırma nesnesi, yeni anahtar/değer çiftlerini tanımlamak veya `request` değerlerinde başvurulabilecek mevcut değişkenleri geçersiz kılmak için kullanılabilir. Yeni değişkenler, yaygın olarak yayıncıya özel bilgileri belirtmek için kullanılır. Diziler, virgül sınırlayıcısını korurken, URL kodlaması ayrı olarak yapılması gereken bir değer listesi belirtmek için kullanılabilir.
+`vars` yapılandırma nesnesi, yeni anahtar/değer çiftlerini tanımlamak veya `request` değerlerinde başvurulabilecek mevcut değişkenleri geçersiz kılmak için kullanılabilir. Yeni değişkenler, yaygın olarak yayıncıya özel bilgileri belirtmek için kullanılır.  Diziler, virgül sınırlayıcısını korurken, URL kodlaması ayrı olarak yapılması gereken bir değer listesi belirtmek için kullanılabilir.
 
 ```javascript
 "vars": {
@@ -385,17 +382,17 @@ Bir isteğe `&a=1&b=2&c=3` parametrelerini ekleyecek bir örneği burada bulabil
 
 `triggers` yapılandırma nesnesi, bir analiz isteğinin gönderilmesi gerektiği zamanı açıklar. `triggers` özelliği, tetikleyici adı ve tetikleyici yapılandırmasının anahtar/değer çiftini içerir. Tetikleyici adı, alfasayısal karakterlerden (a-zA-Z0-9) oluşan herhangi bir dize olabilir. Daha düşük önceliğe sahip bir yapılandırmadaki tetikleyiciler, daha yüksek önceliğe sahip bir yapılandırmada bulunan, aynı adlara sahip tetikleyiciler tarafından geçersiz kılınır.
 
-- `on` (zorunlu) Dinlenecek etkinlik. Geçerli değerler şunlardır: `render-start`, `ini-load`, `click`, `scroll`, `timer`, `visible`, `hidden`, `user-error`, [`access-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-access/amp-access-analytics.md) ve [`video-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/amp-video-analytics.md)
-- `request` (zorunlu) Gönderilecek isteğin adı (`requests` bölümünde belirtildiği gibi).
-- `vars` Üst düzey yapılandırmada tanımlanmış `vars` değerini geçersiz kılmak veya bu tetikleyiciye özel vars değeri belirtmek için kullanılan anahtar/değer çiftlerini içeren bir nesne.
-- Toplu işleme davranışını veya rapor aralığını destekleyen isteklerle çalışmak için `important` öğesi belirtilebilir. `important` öğesinin `true` değerine ayarlanması, toplu istek sırasının bazı tetikleyicilerle temizlenmesine yardımcı olabilir. Bu durumda, önemli tetikleme etkinliklerini kaybetmeden istek ping sayısını azaltmak mümkündür. `important` öğesinin `true` değerine ayarlanması, önemli istek pinglerine gönderilen isteğin `reportWindow` değerini de geçersiz kılabilir.
-- `selector` ve `selectionMethod`, `click` ve `visible` gibi bazı tetikleyiciler için belirtilebilir. Ayrıntılar için [Öğe seçici](#element-selector) konusuna bakın.
-- `scrollSpec` (`on` özelliği `scroll` değerine ayarlandığında zorunludur) Bu yapılandırma, `scroll` tetikleyicisi ile birlikte kullanılır. Ayrıntılar için lütfen aşağıdakilere göz atın.
-- `timerSpec` (`on` özelliği `timer` değerine ayarlandığında zorunludur) Bu yapılandırma, `timer` tetikleyicisiyle birlikte kullanılır. Ayrıntılar için lütfen aşağıdakilere göz atın.
-- `sampleSpec` Bu nesne, isteklerin gönderilmeden önce nasıl örneklenebileceğini tanımlamak için kullanılır. Bu ayar, rastgele girdi veya diğer platform destekli değişkenlere dayalı örneklemeye olanak tanır. Nesne, bir karma oluşturmak için kullanılan bir giriş ve karmanın karşılaması gereken bir eşiği belirten yapılandırmayı içerir.
-  - `sampleOn` Bu dize şablonu, platform değişkenlerinin doldurulmasıyla genişletilir ve ardından, aşağıdaki eşik altında açıklanan örnekleme mantığının amacına uygun bir sayı üretmek üzere karma oluşturulur.
-  - `threshold` Bu yapılandırma, belirli ölçütlere uymayan istekleri filtrelemek için kullanılır: Bir isteğin analiz tedarikçi firmasına ulaşması için aşağıdaki mantık gerçek `HASH(sampleOn) < threshold` olmalıdır.</li>
-- `videoSpec` (`on` özelliği `video-*` olarak ayarlandığında kullanılır) Bu yapılandırma, [`video-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/amp-video-analytics.md) tetikleyicileriyle birlikte kullanılır.
+* `on` (zorunlu) Dinlenecek etkinlik. Geçerli değerler şunlardır: `render-start`, `ini-load`, `click`, `scroll`, `timer`, `visible`, `hidden`, `user-error`, [`access-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-access/amp-access-analytics.md) ve [`video-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/amp-video-analytics.md)
+* `request` (zorunlu) Gönderilecek isteğin adı (`requests` bölümünde belirtildiği gibi).
+* `vars` Üst düzey yapılandırmada tanımlanmış `vars` değerini geçersiz kılmak veya bu tetikleyiciye özel vars değeri belirtmek için kullanılan anahtar/değer çiftlerini içeren bir nesne.
+* Toplu işleme davranışını veya rapor aralığını destekleyen isteklerle çalışmak için `important` öğesi belirtilebilir. `important` öğesinin `true` değerine ayarlanması, toplu istek sırasının bazı tetikleyicilerle temizlenmesine yardımcı olabilir. Bu durumda, önemli tetikleme etkinliklerini kaybetmeden istek ping sayısını azaltmak mümkündür. `important` öğesinin `true` değerine ayarlanması, önemli istek pinglerine gönderilen isteğin `reportWindow` değerini de geçersiz kılabilir.
+* `selector` ve `selectionMethod`, `click` ve `visible` gibi bazı tetikleyiciler için belirtilebilir. Ayrıntılar için [Öğe seçici](#element-selector) konusuna bakın.
+* `scrollSpec` (`on` özelliği `scroll` değerine ayarlandığında zorunludur) Bu yapılandırma, `scroll` tetikleyicisi ile birlikte kullanılır. Ayrıntılar için lütfen aşağıdakilere göz atın.
+* `timerSpec` (`on` özelliği `timer` değerine ayarlandığında zorunludur) Bu yapılandırma, `timer` tetikleyicisiyle birlikte kullanılır. Ayrıntılar için lütfen aşağıdakilere göz atın.
+* `sampleSpec` Bu nesne, isteklerin gönderilmeden önce nasıl örneklenebileceğini tanımlamak için kullanılır. Bu ayar, rastgele girdi veya diğer platform destekli değişkenlere dayalı örneklemeye olanak tanır. Nesne, bir karma oluşturmak için kullanılan bir giriş ve karmanın karşılaması gereken bir eşiği belirten yapılandırmayı içerir.
+    * `sampleOn` Bu dize şablonu, platform değişkenlerinin doldurulmasıyla genişletilir ve ardından, aşağıdaki eşik altında açıklanan örnekleme mantığının amacına uygun bir sayı üretmek üzere karma oluşturulur.
+    * `threshold` Bu yapılandırma, belirli ölçütlere uymayan istekleri filtrelemek için kullanılır: Bir isteğin analiz tedarikçi firmasına ulaşması için aşağıdaki mantık gerçek `HASH(sampleOn) < threshold` olmalıdır.</li>
+* `videoSpec` (`on` özelliği `video-*` olarak ayarlandığında kullanılır) Bu yapılandırma, [`video-*`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/amp-video-analytics.md) tetikleyicileriyle birlikte kullanılır.
 
 Örneğin, aşağıdaki yapılandırma rastgele girişe dayalı isteklerin %50'sinde veya istemci kimliğine göre %1'de örnekleme yapmak için kullanılabilir.
 
@@ -427,8 +424,8 @@ Bir isteğe `&a=1&b=2&c=3` parametrelerini ekleyecek bir örneği burada bulabil
 Seçici özellikleri şunlardır:
 
 - `selector` Bu özellik, CSS/DOM sorgusu kullanan bir öğeyi veya öğe koleksiyonunu bulmak için kullanılır. Öğenin eşleştirilme şeklinin anlamı, `selectionMethod` kullanılarak değiştirilebilir. Bu özelliğin değeri şunlardan biri olabilir:
-  - geçerli bir CSS seçici, ör. `#ad1` veya `amp-ad`.
-  - `:root` - doküman köküyle eşleşen özel bir seçici.
+    - geçerli bir CSS seçici, ör. `#ad1` veya `amp-ad`.
+    - `:root` - doküman köküyle eşleşen özel bir seçici.
 - `selectionMethod` Belirtildiğinde, bu özellik şu iki değerden birini alabilir: `scope` veya `closest`. `scope`, `amp-analytics` etiketinin üst öğesinin içinde öğe seçimine izin verir. `closest`, belirtilen seçiciyi karşılayan `amp-analytics` etiketinin en yakın üst öğesini arar. Varsayılan değer, `scope` değeridir.
 
 ##### Yerleştirme oluşturma başlangıç tetikleyicisi <a name="embed-render-start-trigger"></a>
@@ -436,7 +433,6 @@ Seçici özellikleri şunlardır:
 Diğer dokümanları iframe'lerin (ör. reklamlar) içine yerleştiren AMP öğeleri, bir oluşturma başlangıç etkinliği (`"on": "render-start"`) bildirebilir. Bu etkinlik genellikle yerleştirilmiş dokümanın oluşturulmasına başlandığını onaylamak mümkün olur olmaz yayınlanır. Belirli bir AMP öğesinin bu etkinliği yayınlayıp yayınlamadığını öğrenmek için öğenin dokümanlarına bakın.
 
 Yerleştirme öğesinin tetikleyicisi, yerleştirmeyi yapan öğeye işaret eden bir [`seçici`](#element-selector) içermelidir:
-
 ```javascript
 "triggers": {
   "renderStart": {
@@ -448,7 +444,6 @@ Yerleştirme öğesinin tetikleyicisi, yerleştirmeyi yapan öğeye işaret eden
 ```
 
 Oluşturma başlangıç etkinliği, dokümanın kendisi tarafından da yayınlanabilir ve şu şekilde yapılandırılabilir:
-
 ```javascript
 "triggers": {
   "renderStart": {
@@ -470,7 +465,6 @@ Daha kesin belirtmek gerekirse:
 - Basit bir AMP öğesi (ör. `amp-img`) için: resim veya video gibi kaynakların kendisi.
 
 Bir yerleştirme veya AMP öğesinin tetikleyicisi, öğeye işaret eden bir [`seçici`](#element-selector) içermelidir:
-
 ```javascript
 "triggers": {
   "iniLoad": {
@@ -482,7 +476,6 @@ Bir yerleştirme veya AMP öğesinin tetikleyicisi, öğeye işaret eden bir [`s
 ```
 
 İlk yükleme etkinliği, dokümanın kendisi tarafından da yayınlanabilir ve şu şekilde yapılandırılabilir:
-
 ```javascript
 "triggers": {
   "iniLoad": {
@@ -616,7 +609,6 @@ Yukarıdaki koşullara ek olarak, `visibilitySpec`, [burada](https://github.com/
   }
 }
 ```
-
 Tetikleyicilerin bir parçası olarak sağlanan değişkenlere ek olarak, [veri özelliği olarak ek değişkenler/değişken geçersiz kılmaları](https://github.com/ampproject/amphtml/blob/main/extensions/amp-analytics/analytics-vars.md#variables-as-data-attribute) da belirtebilirsiniz. Bu veri özellikleri kullanılırsa [`seçici`](#element-selector) olarak belirtilen öğenin bir parçası olmaları gerekir.
 
 ##### Tıklama tetikleyicisi <a name="click-trigger"></a>
@@ -666,9 +658,9 @@ Sayfa kaydırıldığında belirli koşullar altında bir isteği etkinleştirme
 Bir isteğinde düzenli aralıklarla etkinleşmesi için zamanlayıcı tetikleyicisini (`"on": "timer"`) kullanın. Bunun etkinleşeceği zamanı denetlemek için `timerSpec` öğesini kullanın:
 
 - `timerSpec` `timer` tetikleyici türüyle ilgili spesifikasyon. Bir `startSpec` belirtilmezse zamanlayıcı hemen (varsayılan olarak, ayar kaldırılabilir) ve daha sonra, belirtilen bir aralıkta tetiklenir.
-  - `interval` Zamanlayıcı aralığının saniye cinsinden uzunluğu.
-  - `maxTimerLength` Saniye cinsinden zamanlayıcının etkinleşeceği maksimum süre. `maxTimerLength` değerine ulaşıldığında bir ek istek tetiklenir. Varsayılan değer 2 saattir. Bir `stopSpec` değeri varsa ancak maxTimerLength belirtilmediyse varsayılan değer sonsuzdur.
-  - `immediate` Zamanlayıcının hemen tetiklenip tetiklenmeyeceği. Boole değeri, varsayılan olarak true değerini alır
+    - `interval` Zamanlayıcı aralığının saniye cinsinden uzunluğu.
+    - `maxTimerLength` Saniye cinsinden zamanlayıcının etkinleşeceği maksimum süre. `maxTimerLength` değerine ulaşıldığında bir ek istek tetiklenir. Varsayılan değer 2 saattir. Bir `stopSpec` değeri varsa ancak maxTimerLength belirtilmediyse varsayılan değer sonsuzdur.
+    - `immediate` Zamanlayıcının hemen tetiklenip tetiklenmeyeceği. Boole değeri, varsayılan olarak true değerini alır
 
 ```javascript
 "triggers": {
@@ -724,7 +716,6 @@ Sayfa gizlendiğinde bir isteği etkinleştirmek için gizli tetikleyiciyi (`"on
 ```
 
 Bir isteğin yalnızca görünürlük süresi koşulları karşılanırsa etkinleşmesi için bir [`visibilitySpec`](#visibility-spec) eklenebilir.
-
 ```json
 "triggers": {
   "defaultPageview": {
@@ -738,7 +729,6 @@ Bir isteğin yalnızca görünürlük süresi koşulları karşılanırsa etkinl
   }
 }
 ```
-
 Yukarıdaki yapılandırma şöyle çevrilir:
 
 <blockquote>
@@ -757,11 +747,11 @@ Video analizi, yayıncıların bir videonun yaşam döngüsü sırasında gerçe
 
 `transport` yapılandırma nesnesi, bir isteğin nasıl gönderileceğini belirtir. Değer, hangi taşıma yöntemlerinin kabul edilebilir olduğunu belirten alanlara sahip bir nesnedir.
 
-- `beacon` İsteği iletmek için [`navigator.sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) öğesinin kullanılabileceğini belirtir. Bu işlem, kimlik bilgilerini içeren bir POST isteği gönderir. `useBody` öğesi true değerine ayarlanmamışsa istek, boş bir gövdeyle gönderilir. `useBody` hakkında daha fazla bilgi için [Ek URL Parametreleri için Gövdeyi Kullanma](#use-body-for-extra-url-params) konusuna bakın.
-- `xhrpost` İsteği iletmek için `XMLHttpRequest` öğesinin kullanılabileceğini belirtir. Bu işlem, kimlik bilgilerini içeren bir POST isteği gönderir. `useBody` öğesi true değerine ayarlanmamışsa istek, boş bir gövdeyle gönderilir. `useBody` hakkında daha fazla bilgi için [Ek URL Parametreleri için Gövdeyi Kullanma](#use-body-for-extra-url-params) konusuna bakın.
-- `image` İsteğin bir `Image` etiketi oluşturularak gönderilebileceğini belirtir. Bu işlem bir GET isteği gönderir. Boş yanıtlar veya istek hatalarından dolayı konsol uyarılarını gizlemek için `"image": {"suppressWarnings": true}` değerini ayarlayın.
+* `beacon` İsteği iletmek için [`navigator.sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) öğesinin kullanılabileceğini belirtir. Bu işlem, kimlik bilgilerini içeren bir POST isteği gönderir. `useBody` öğesi true değerine ayarlanmamışsa istek, boş bir gövdeyle gönderilir. `useBody` hakkında daha fazla bilgi için [Ek URL Parametreleri için Gövdeyi Kullanma](#use-body-for-extra-url-params) konusuna bakın.
+* `xhrpost` İsteği iletmek için `XMLHttpRequest` öğesinin kullanılabileceğini belirtir. Bu işlem, kimlik bilgilerini içeren bir POST isteği gönderir. `useBody` öğesi true değerine ayarlanmamışsa istek, boş bir gövdeyle gönderilir. `useBody` hakkında daha fazla bilgi için [Ek URL Parametreleri için Gövdeyi Kullanma](#use-body-for-extra-url-params) konusuna bakın.
+* `image` İsteğin bir `Image` etiketi oluşturularak gönderilebileceğini belirtir. Bu işlem bir GET isteği gönderir. Boş yanıtlar veya istek hatalarından dolayı konsol uyarılarını gizlemek için `"image": {"suppressWarnings": true}` değerini ayarlayın.
 
-MRC tarafından onaylanan tedarikçi firmalar, iframe-transport-vendors.js dosyasına bir URL dizesi ekleyerek dördüncü bir taşıma mekanizması olan "iframe transport"tan yararlanabilir. Bu dize, `src` özelliği bu URL'ye ayarlanmış bir iframe'in oluşturulması gerektiğini ve isteklerin, `window.postMessage()` aracılığıyla bu iframe'e gönderileceğini belirtir. Bu durumda, isteklerin tam donanımlı URL'ler olması gerekmez. `iframe` yalnızca `iframe-transport-vendors.js` içinde belirtilebilir, `amp-analytics` etiketinin içinde satır içi olarak veya uzak yapılandırma aracılığıyla belirtilemez. Ayrıca, tedarikçi firma çerçevesi, amp-ad-exit tarafından kullanılacak bir yanıt gönderebilir. [analytics-iframe-transport-remote-frame.html](https://github.com/ampproject/amphtml/blob/main/examples/analytics-iframe-transport-remote-frame.html) ve [fake_amp_ad_with_iframe_transport.html](https://github.com/ampproject/amphtml/blob/main/extensions/amp-ad-network-fake-impl/0.1/data/fake_amp_ad_with_iframe_transport.html) dosyalarına bakın: İlk dosya, {'collected-data': 'abc'} öğesinin bir yanıt JSON nesnesini gönderir ve ikinci dosya, finalUrl öğesindeki 'abc' değerini 'bar\_' olarak değiştirmek için bu nesneyi kullanır.
+MRC tarafından onaylanan tedarikçi firmalar, iframe-transport-vendors.js dosyasına bir URL dizesi ekleyerek dördüncü bir taşıma mekanizması olan "iframe transport"tan yararlanabilir. Bu dize, `src` özelliği bu URL'ye ayarlanmış bir iframe'in oluşturulması gerektiğini ve isteklerin, `window.postMessage()` aracılığıyla bu iframe'e gönderileceğini belirtir. Bu durumda, isteklerin tam donanımlı URL'ler olması gerekmez. `iframe` yalnızca `iframe-transport-vendors.js` içinde belirtilebilir, `amp-analytics` etiketinin içinde satır içi olarak veya uzak yapılandırma aracılığıyla belirtilemez. Ayrıca, tedarikçi firma çerçevesi, amp-ad-exit tarafından kullanılacak bir yanıt gönderebilir. [analytics-iframe-transport-remote-frame.html](https://github.com/ampproject/amphtml/blob/main/examples/analytics-iframe-transport-remote-frame.html) ve [fake_amp_ad_with_iframe_transport.html](https://github.com/ampproject/amphtml/blob/main/extensions/amp-ad-network-fake-impl/0.1/data/fake_amp_ad_with_iframe_transport.html) dosyalarına bakın: İlk dosya, {'collected-data': 'abc'} öğesinin bir yanıt JSON nesnesini gönderir ve ikinci dosya, finalUrl öğesindeki 'abc' değerini 'bar_' olarak değiştirmek için bu nesneyi kullanır.
 
 Yukarıdaki taşıma yöntemlerinin birden fazlası etkinse öncelik `iframe` &gt; `beacon` `xhrpost` &gt; `image` şeklinde belirlenir. Yalnızca bir taşıma yöntemi kullanılır ve bu, izin verilen ve kullanılabilecek en yüksek öncelikli yöntem olur. İstemcinin kullanıcı aracısı bir yöntemi desteklemiyorsa etkinleştirilmiş olan bir sonraki en yüksek öncelikli yöntem kullanılır. Varsayılan olarak, yukarıdaki dört yöntem de etkinleştirilir.
 
@@ -832,15 +822,12 @@ Bunlar, `amp-analytics` bileşeninin geçerli özellikleridir:
 
 **type**
 
-Tedarikçi firmanın türünü belirtir. Ayrıntılar için [Analytics tedarikçi firmaları](../../../documentation/guides-and-tutorials/optimize-measure/configure-analytics/analytics-vendors.md) listesine bakın.
+Tedarikçi firmanın türünü belirtir.  Ayrıntılar için [Analytics tedarikçi firmaları](../../../documentation/guides-and-tutorials/optimize-measure/configure-analytics/analytics-vendors.md) listesine bakın.
 
 Örnek:
 
 ```html
-<amp-analytics
-  type="googleanalytics"
-  config="https://example.com/analytics.account.config.json"
-></amp-analytics>
+<amp-analytics type="googleanalytics" config="https://example.com/analytics.account.config.json"></amp-analytics>
 ```
 
 **config**
@@ -850,9 +837,7 @@ Bu, belirtilen uzak bir URL'den bir yapılandırmayı yüklemek için kullanıla
 Örnek:
 
 ```html
-<amp-analytics
-  config="https://example.com/analytics.config.json"
-></amp-analytics>
+<amp-analytics config="https://example.com/analytics.config.json"></amp-analytics>
 ```
 
 **data-credentials**<a name="data-credentials"></a>

@@ -5,6 +5,7 @@ teaser:
   text:: HTML5 이미지 태그를 대체합니다.
 ---
 
+
 <!--
 Copyright 2015 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,6 +22,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 <table>
   <tr>
     <td class="col-fourty"><strong>설명</strong></td>
@@ -36,6 +39,7 @@ limitations under the License.
   </tr>
 </table>
 
+
 # 동작 <a name="behavior"></a>
 
 런타임에서 표시 영역 위치, 시스템 리소스, 연결, 대역폭 또는 기타 요인을 기반으로 리소스 로드를 지연하거나 우선순위를 지정하도록 선택할 수 있습니다. `amp-img` 구성요소를 사용하면 런타임에서 이미지 리소스를 이와 같이 효율적으로 관리할 수 있습니다.
@@ -48,21 +52,17 @@ limitations under the License.
 
 # 예: 반응형 이미지 표시 <a name="example-displaying-a-responsive-image"></a>
 
-다음 예에서는 `layout=responsive`를 설정하여 표시 영역의 크기에 반응하는 이미지를 표시합니다. `width`와 `height`로 지정된 가로세로 비율에 따라 이미지가 확장되고 줄어듭니다.
+다음 예에서는 `layout=responsive`를 설정하여 표시 영역의 크기에 반응하는 이미지를 표시합니다.  `width`와 `height`로 지정된 가로세로 비율에 따라 이미지가 확장되고 줄어듭니다.
 
 [example preview="inline" playground="true"]
-
 ```html
-<amp-img
-  alt="A view of the sea"
+<amp-img alt="A view of the sea"
   src="{{server_for_email}}/static/inline-examples/images/sea.jpg"
   width="900"
   height="675"
-  layout="responsive"
->
+  layout="responsive">
 </amp-img>
 ```
-
 [/example]
 
 [tip type="read-on"]
@@ -76,24 +76,18 @@ limitations under the License.
 다음 예에서 브라우저가 WebP를 지원하지 않는 경우 대체 JPG 이미지가 표시됩니다.
 
 [example preview="inline" playground="true"]
-
 ```html
-<amp-img
-  alt="Mountains"
+<amp-img alt="Mountains"
   width="550"
   height="368"
-  src="{{server_for_email}}/static/inline-examples/images/mountains.webp"
->
-  <amp-img
-    alt="Mountains"
+  src="{{server_for_email}}/static/inline-examples/images/mountains.webp">
+  <amp-img alt="Mountains"
     fallback
     width="550"
     height="368"
-    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"
-  ></amp-img>
+    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"></amp-img>
 </amp-img>
 ```
-
 [/example]
 
 자리표시자 배경색 또는 기타 시각적 요소 자체에서 CSS 선택기와 스타일을 사용하여 설정할 수 있습니다.
@@ -103,9 +97,9 @@ limitations under the License.
 [tip type="read-on"]
 다음 리소스에서 `amp-img` 사용에 관해 자세히 알아보세요.
 
-- [자리표시자 및 대체](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md)
-- [이미지 및 동영상 포함](../../../documentation/guides-and-tutorials/develop/media_iframes_3p/index.md)
-  [/tip]
+* [자리표시자 및 대체](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md)
+* [이미지 및 동영상 포함](../../../documentation/guides-and-tutorials/develop/media_iframes_3p/index.md)
+[/tip]
 
 # 속성 <a name="attributes"></a>
 
@@ -149,7 +143,7 @@ limitations under the License.
 ```css
 amp-img {
   background-color: grey;
-}
+  }
 ```
 
 # 도움말 및 유용한 정보 <a name="tips--tricks"></a>
@@ -159,11 +153,11 @@ amp-img {
 창의 크기가 조정됨에 따라 이미지의 크기를 조정하지만 이미지가 자체 너비 이상으로 확장되지 않도록 최대 너비까지만 조정하려는 경우 다음을 시행합니다.
 
 1. `<amp-img>`의 `layout=responsive`를 설정합니다.
-1. 이미지의 컨테이너에서 `max-width:<max width to display image>` CSS 속성을 지정합니다. 왜 컨테이너에서 지정해야 할까요? `layout=responsive`가 있는 `amp-img` 요소는 _블록 수준_ 요소입니다. 여기서 `<img>`는 *인라인*입니다\*. 또는 CSS에서 amp-img 요소의 `display: inline-block`을 설정할 수 있습니다.
+1. 이미지의 컨테이너에서 `max-width:<max width to display image>` CSS 속성을 지정합니다.  왜 컨테이너에서 지정해야 할까요?  `layout=responsive`가 있는 `amp-img` 요소는 *블록 수준* 요소입니다. 여기서 `<img>`는 *인라인*입니다*. 또는 CSS에서 amp-img 요소의 `display: inline-block`을 설정할 수 있습니다.
 
 # 반응형 레이아웃과 내장형 레이아웃 사이의 차이점 <a name="the-difference-between-responsive-and-intrinsic-layout"></a>
 
-`responsive`과 `intrinsic` 레이아웃에서는 자동으로 크기가 조정되는 이미지를 만듭니다. `intrinsic` 레이아웃에서는 SVG 이미지를 크기 조정 요소로 사용한다는 주된 차이점이 있습니다. 따라서 표준 HTML 이미지와 동일한 방식으로 작동하며 브라우저에서 초기 레이아웃의 이미지 크기를 알 수 있다는 이점이 유지됩니다. `intrinsic` 레이아웃에는 고유 크기가 있으며 기본 이미지 크기 또는 `max-width`와 같은 CSS 제한조건에 도달할 때까지 플로팅 `div`로 확장됩니다. `responsive` 레이아웃은 플로팅될 때 기본 크기가 지정되지 않는 상위 요소로부터 크기를 가져오므로 플로팅된 `div`에서 0 x 0으로 렌더링됩니다.
+`responsive`과 `intrinsic` 레이아웃에서는 자동으로 크기가 조정되는 이미지를 만듭니다.  `intrinsic` 레이아웃에서는 SVG 이미지를 크기 조정 요소로 사용한다는 주된 차이점이 있습니다.  따라서 표준 HTML 이미지와 동일한 방식으로 작동하며 브라우저에서 초기 레이아웃의 이미지 크기를 알 수 있다는 이점이 유지됩니다. `intrinsic` 레이아웃에는 고유 크기가 있으며 기본 이미지 크기 또는 `max-width`와 같은 CSS 제한조건에 도달할 때까지 플로팅 `div`로 확장됩니다. `responsive` 레이아웃은 플로팅될 때 기본 크기가 지정되지 않는 상위 요소로부터 크기를 가져오므로 플로팅된 `div`에서 0 x 0으로 렌더링됩니다.
 
 # 고정 크기 이미지 설정 <a name="setting-a-fixed-sized-image"></a>
 
@@ -183,18 +177,14 @@ amp-img {
 예를 들어 `width="900"`과 `height="675"`를 지정하지 않고 `width="1.33"`과 `height="1"`을 지정할 수 있습니다.
 
 [example preview="inline" playground="true"]
-
 ```html
-<amp-img
-  alt="A view of the sea"
+<amp-img alt="A view of the sea"
   src="{{server_for_email}}/static/inline-examples/images/sea.jpg"
   width="1.33"
   height="1"
-  layout="responsive"
->
+  layout="responsive">
 </amp-img>
 ```
-
 [/example]
 
 # 여러 다른 화면 해상도에 맞게 여러 소스 파일 설정 <a name="setting-multiple-source-files-for-different-screen-resolutions"></a>

@@ -5,6 +5,7 @@ teaser:
   text: Exibe uma incorporação de ferramentas do site do AddThis.
 ---
 
+
 <!--
 Copyright 2018 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,6 +22,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 Exibe uma incorporação das ferramentas do site do [AddThis](https://www.addthis.com).
 
 <table>
@@ -33,6 +36,7 @@ Exibe uma incorporação das ferramentas do site do [AddThis](https://www.addthi
     <td>fill, fixed, fixed-height, flex-item, nodisplay, responsive</td>
   </tr>
 </table>
+
 
 ## Por que o AddThis? <a name="why-addthis"></a>
 
@@ -47,7 +51,6 @@ O AddThis é usado por mais de 15 milhões de sites, com mais de dois bilhões d
 Colocados nas laterais, na parte superior ou inferior da página, seguindo o leitor à medida que ele rola a página. Uma ótima maneira de promover o compartilhamento sem ficar muito "na cara".
 
 Exemplo:
-
 ```html
 <!--
   This example uses a placeholder pubId.
@@ -60,8 +63,7 @@ Exemplo:
   layout="responsive"
   data-pub-id="ra-5c191331410932ff"
   data-widget-id="957l"
-  data-widget-type="floating"
->
+  data-widget-type="floating">
 </amp-addthis>
 ```
 
@@ -70,7 +72,6 @@ Exemplo:
 Integre botões de compartilhamento ao seu conteúdo para ter uma experiência de compartilhamento ideal.
 
 Exemplo:
-
 ```html
 <!--
   This example uses a placeholder pubId.
@@ -82,8 +83,7 @@ Exemplo:
   height="92"
   data-pub-id="ra-5c191331410932ff"
   data-widget-id="mv93"
-  data-widget-type="inline"
->
+  data-widget-type="inline">
 </amp-addthis>
 ```
 
@@ -148,13 +148,13 @@ As ferramentas e a barra de ferramentas do AddThis coletam informações do disp
 
 Os Dados do AddThis podem consistir nos seguintes itens:
 
-- Endereço de Protocolo de Internet (IP, na sigla em inglês); ID de publicidade móvel (MAID, na sigla em inglês), que permite aos desenvolvedores de apps para dispositivos móveis identificarem quem está usando os apps deles; ID do aplicativo móvel; tipo de navegador; idioma do navegador; tipo de sistema operacional; data e hora em que o usuário final acessou um site do editor ou uma barra de ferramentas.
-- O usuário que usou a barra de ferramentas.
-- O comportamento em um site do editor, por exemplo, por quanto tempo o usuário final visitou o site do editor, o comportamento de compartilhamento de conteúdo do usuário final em um site do editor e o comportamento de rolagem de um usuário final em um site do editor.
-- O URL de referência e a pesquisa na Web que o usuário final usou para localizar e navegar para um site do editor.
-- Palavras-chave inseridas na funcionalidade de pesquisa da barra de ferramentas do AddThis e quando o usuário da barra de ferramentas fez o download, instalou ou desinstalou a barra de ferramentas do AddThis, se aplicável.
-- Informações sobre a frequência com que um usuário final usa as ferramentas do AddThis e a frequência com que um usuário utiliza a barra de ferramentas do AddThis.
-- Dados de geolocalização derivados do endereço IP de um usuário final e de um usuário da barra de ferramentas.
+* Endereço de Protocolo de Internet (IP, na sigla em inglês); ID de publicidade móvel (MAID, na sigla em inglês), que permite aos desenvolvedores de apps para dispositivos móveis identificarem quem está usando os apps deles; ID do aplicativo móvel; tipo de navegador; idioma do navegador; tipo de sistema operacional; data e hora em que o usuário final acessou um site do editor ou uma barra de ferramentas.
+* O usuário que usou a barra de ferramentas.
+* O comportamento em um site do editor, por exemplo, por quanto tempo o usuário final visitou o site do editor, o comportamento de compartilhamento de conteúdo do usuário final em um site do editor e o comportamento de rolagem de um usuário final em um site do editor.
+* O URL de referência e a pesquisa na Web que o usuário final usou para localizar e navegar para um site do editor.
+* Palavras-chave inseridas na funcionalidade de pesquisa da barra de ferramentas do AddThis e quando o usuário da barra de ferramentas fez o download, instalou ou desinstalou a barra de ferramentas do AddThis, se aplicável.
+* Informações sobre a frequência com que um usuário final usa as ferramentas do AddThis e a frequência com que um usuário utiliza a barra de ferramentas do AddThis.
+* Dados de geolocalização derivados do endereço IP de um usuário final e de um usuário da barra de ferramentas.
 
 Os Dados do AddThis serão tratados como informações pessoais na medida exigida pela legislação aplicável. Os editores são obrigados, de acordo com os Termos de Serviço do AddThis, a receber do usuário final todos os consentimentos e autorizações necessários e a dar todos os avisos necessários para o fornecimento dos Dados do AddThis coletados de usuários finais para a Oracle.
 

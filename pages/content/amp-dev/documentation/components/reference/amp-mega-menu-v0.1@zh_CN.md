@@ -6,6 +6,7 @@ teaser:
   text: 显示可扩展容器中的顶级导航内容。
 ---
 
+
 <!--
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -21,6 +22,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+
 
 带有菜单项的水平导航栏，可在单击时打开/关闭内容容器。
 
@@ -69,7 +72,6 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-mega-menu height="30" layout="fixed-height">
-
   <nav>
     <ul>
       <li>
@@ -112,14 +114,12 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-mega-menu height="60" layout="fixed-height">
-<amp-list
-height="350"
-layout="fixed-height"
-src="{{server_for_email}}/static/samples/json/product-single-item.json"
-single-item
-
->
-
+  <amp-list
+    height="350"
+    layout="fixed-height"
+    src="{{server_for_email}}/static/samples/json/product-single-item.json"
+    single-item
+  >
     <template type="amp-mustache">
       <nav>
         <ul>
@@ -139,7 +139,6 @@ single-item
         </ul>
       </nav>
     </template>
-
   </amp-list>
 </amp-mega-menu>
 [/sourcecode]
@@ -150,30 +149,30 @@ Here is the JSON file used:
 
 [sourcecode:json]
 {
-"items": [
-{
-"values": [
-{
-"id": 1,
-"img": "/static/samples/img/product1_640x426.jpg",
-"name": "Apple",
-"price": "1.99"
-},
-{
-"id": 2,
-"img": "/static/samples/img/product2_640x426.jpg",
-"name": "Orange",
-"price": "0.99"
-},
-{
-"id": 3,
-"img": "/static/samples/img/product3_640x426.jpg",
-"name": "Pear",
-"price": "1.50"
-}
-]
-}
-]
+  "items": [
+    {
+      "values": [
+        {
+          "id": 1,
+          "img": "/static/samples/img/product1_640x426.jpg",
+          "name": "Apple",
+          "price": "1.99"
+        },
+        {
+          "id": 2,
+          "img": "/static/samples/img/product2_640x426.jpg",
+          "name": "Orange",
+          "price": "0.99"
+        },
+        {
+          "id": 3,
+          "img": "/static/samples/img/product3_640x426.jpg",
+          "name": "Pear",
+          "price": "1.50"
+        }
+      ]
+    }
+  ]
 }
 [/sourcecode]
 
@@ -186,7 +185,6 @@ Here is the JSON file used:
 [example playground="true" preview="top-frame"]
 
 [sourcecode:html]
-
 <head>
   <script
     async
@@ -277,7 +275,6 @@ Here is the JSON file used:
 [example playground="true" preview="top-frame" orientation="landscape"]
 
 [sourcecode:html]
-
 <head>
   <script
     async
@@ -343,7 +340,6 @@ Here is the JSON file used:
 `<amp-mega-menu>` 在每个可扩展菜单项的子级上分配以下ARIA属性。屏幕阅读器使用这些属性将按钮与可切换容器相关联，并将焦点捕获在打开的容器内。
 
 [sourcecode:html]
-
 <li>
   <button aria-expanded aria-controls="unique_id" aria-haspopup="dialog">
     ...

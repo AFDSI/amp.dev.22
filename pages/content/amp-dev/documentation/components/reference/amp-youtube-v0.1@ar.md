@@ -8,6 +8,8 @@ teaser:
   text: Displays a YouTube video.
 ---
 
+
+
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -23,6 +25,7 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 
 يعرض المكّوِن فيديو [YouTube](https://www.youtube.com/).
 
@@ -41,6 +44,7 @@ teaser:
   </tr>
 </table>
 
+
 [جدول المحتويات]
 
 ## مثال <a name="example"></a>
@@ -49,26 +53,23 @@ teaser:
 
 ```html
 <amp-youtube
-  data-videoid="mGENRKrdoGY"
-  layout="responsive"
-  width="480"
-  height="270"
-></amp-youtube>
+    data-videoid="mGENRKrdoGY"
+    layout="responsive"
+    width="480" height="270"></amp-youtube>
 ```
 
 ```html
 <amp-youtube
-  id="myLiveChannel"
-  data-live-channelid="UCB8Kb4pxYzsDsHxzBfnid4Q"
-  width="358"
-  height="204"
-  layout="responsive"
->
+    id="myLiveChannel"
+    data-live-channelid="UCB8Kb4pxYzsDsHxzBfnid4Q"
+    width="358"
+    height="204"
+    layout="responsive">
   <amp-img
     src="https://i.ytimg.com/vi/Wm1fWz-7nLQ/hqdefault_live.jpg"
     placeholder
     layout="fill"
-  />
+    />
 </amp-youtube>
 ```
 
@@ -130,6 +131,8 @@ teaser:
     <td>يتضمن هذا العنصر <a href="../../../documentation/guides-and-tutorials/learn/common_attributes.md">السمات المشتركة</a> التي تشمل مكونات AMP.</td>
   </tr>
 </table>
+
+
 
 ## التحقق <a name="validation"></a>
 

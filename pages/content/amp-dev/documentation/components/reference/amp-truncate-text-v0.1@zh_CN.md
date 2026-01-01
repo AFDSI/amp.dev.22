@@ -6,6 +6,7 @@ teaser:
   text: '用省略号截断文本，可以选择显示一个溢出元素。'
 ---
 
+
 <!--
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,11 +23,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 使用省略号截断容器内的文本。
 
 ## 行为
 
-用省略号截断文本，有溢出时可以选择显示一个溢出元素。溢出元素始终位于内容的末尾，并且必须是的直接子元素 `<amp-truncate-text>`。
+用省略号截断文本，有溢出时可以选择显示一个溢出元素。溢出元素始终位于内容的末尾，并且必须是的直接子元素    `<amp-truncate-text>`。
 
 ## Children
 
@@ -49,9 +52,9 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-truncate-text layout="fixed" height="3em" width="20em">
-Some text that may get truncated.
-<button slot="collapsed">See more</button>
-<button slot="expanded">See less</button>
+  Some text that may get truncated.
+  <button slot="collapsed">See more</button>
+  <button slot="expanded">See less</button>
 </amp-truncate-text>
 [/sourcecode]
 
@@ -61,8 +64,8 @@ Some text that may get truncated.
 
 [sourcecode:html]
 <amp-truncate-text layout="fixed-height" height="3em">
-Some text that may get truncated.
-<a href="some/url" slot="persistent">See more</a>
+  Some text that may get truncated.
+  <a href="some/url" slot="persistent">See more</a>
 </amp-truncate-text>
 [/sourcecode]
 
@@ -70,8 +73,8 @@ Some text that may get truncated.
 
 [sourcecode:html]
 <amp-truncate-text layout="fixed-height" height="3em">
-Some text that may get truncated.
-<a href="some/url" slot="collapsed">See more</a>
+  Some text that may get truncated.
+  <a href="some/url" slot="collapsed">See more</a>
 </amp-truncate-text>
 [/sourcecode]
 
@@ -79,9 +82,9 @@ Some text that may get truncated.
 
 [sourcecode:html]
 <amp-truncate-text layout="fixed-height" height="3em">
-Some text that may get truncated.
-<button slot="collapsed">See more</button>
-<a href="some/url" slot="expanded">See even more</a>
+  Some text that may get truncated.
+  <button slot="collapsed">See more</button>
+  <a href="some/url" slot="expanded">See even more</a>
 </amp-truncate-text>
 [/sourcecode]
 

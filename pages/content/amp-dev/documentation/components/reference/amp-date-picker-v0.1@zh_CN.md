@@ -7,6 +7,7 @@ teaser:
     提供用于选择日期的小部件。日期选择器可以呈现为覆盖，相对于输入字段，或作为静态日历小部件。
 ---
 
+
 <!---
 Copyright 2020 The AMP HTML Authors. All Rights Reserved.
 
@@ -22,6 +23,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+
 
 ## 行为
 
@@ -42,7 +45,6 @@ limitations under the License.
 在此示例中，日历显示为特定表单字段的覆盖：
 
 [sourcecode:html]
-
 <form method="post" action-xhr="/form/echo-json/post" target="_blank">
   <amp-date-picker
     mode="overlay"
@@ -65,12 +67,11 @@ limitations under the License.
 
 对于静态日期选择器，必须指定大小定义的布局，可以是： `fixed`、 `fixed-height`、 `responsive`、 `fill` 或 `flex-item`。
 
-当 `static` 中amp-date-picker以 `<form>`呈现时，如果没有 [指定输入 `*input-selector`](#input-selector), amp-date-picker 会创建隐藏的输入元素 (e.g., `<input type="hidden" …`)。 amp-date-picker 将元素命名为 `date` 或 `start-date` 和 `end-date` ；如果表单中已经使用了这些名称， 则 amp-date-picker 将尝试使用 `<amp-date-picker>` 的 `id` 为输入字段命名。
+当 `static` 中amp-date-picker以 `<form>`呈现时，如果没有 [指定输入 `*input-selector`](#input-selector), amp-date-picker 会创建隐藏的输入元素 (e.g., `<input type="hidden" …`)。 amp-date-picker 将元素命名为 `date` 或 `start-date` 和 `end-date` ；如果表单中已经使用了这些名称， 则 amp-date-picker 将尝试使用  `<amp-date-picker>` 的 `id` 为输入字段命名。
 
 本示例演示了如何在表单中使用静态日期选择器，用户可以在其中选择日历中的日期范围。 由于 `*input-selector` 在amp-date-picker中没有定义属性，因此会自动生成隐藏的输入字段。
 
 [sourcecode:html]
-
 <form method="post" action-xhr="/form-post" target="_blank">
   <fieldset>
     <label>
@@ -108,7 +109,6 @@ limitations under the License.
 这个例子演示了在用户可以选择日期的表单中使用重叠日期选择器。日期选择器通过 `input-selector` 属性连接到一个特定的输入字段。
 
 [sourcecode:html]
-
 <form method="post" action-xhr="/form-post" target="_blank">
   <input type="text" name="name" placeholder="Your Name" required />
   <amp-date-picker
@@ -211,14 +211,14 @@ limitations under the License.
 
 [sourcecode:html]
 <amp-date-picker
-type="single"
-mode="overlay"
-layout="container"
-input-selector="[name=deliverydate]"
-
->   <input type="text" name="deliverydate" placeholder="Delivery Date" />
-> </amp-date-picker>
-> [/sourcecode]
+  type="single"
+  mode="overlay"
+  layout="container"
+  input-selector="[name=deliverydate]"
+>
+  <input type="text" name="deliverydate" placeholder="Delivery Date" />
+</amp-date-picker>
+[/sourcecode]
 
 ### start-input-selector
 
@@ -233,14 +233,14 @@ input-selector="[name=deliverydate]"
 <input id="a2" />
 <input id="b2" />
 <amp-date-picker
-type="range"
-start-input-selector="#a2"
-end-input-selector="#b2"
-layout="fixed-height"
-height="360"
-
-> </amp-date-picker>
-> [/sourcecode]
+  type="range"
+  start-input-selector="#a2"
+  end-input-selector="#b2"
+  layout="fixed-height"
+  height="360"
+>
+</amp-date-picker>
+[/sourcecode]
 
 ### end-input-selector
 
@@ -254,14 +254,14 @@ height="360"
 <input id="a2" />
 <input id="b2" />
 <amp-date-picker
-type="range"
-start-input-selector="#a2"
-end-input-selector="#b2"
-layout="fixed-height"
-height="360"
-
-> </amp-date-picker>
-> [/sourcecode]
+  type="range"
+  start-input-selector="#a2"
+  end-input-selector="#b2"
+  layout="fixed-height"
+  height="360"
+>
+</amp-date-picker>
+[/sourcecode]
 
 ### min
 
@@ -289,16 +289,16 @@ height="360"
 
 [sourcecode:html]
 <amp-date-picker
-type="single"
-mode="overlay"
-layout="container"
-format="MM/DD/YYYY"
-week-day-format="ddd"
-input-selector="[name=date]"
-
->   <input type="text" name="date" placeholder="Your Date" />
-> </amp-date-picker>
-> [/sourcecode]
+  type="single"
+  mode="overlay"
+  layout="container"
+  format="MM/DD/YYYY"
+  week-day-format="ddd"
+  input-selector="[name=date]"
+>
+  <input type="text" name="date" placeholder="Your Date" />
+</amp-date-picker>
+[/sourcecode]
 
 ### locale
 
@@ -335,8 +335,8 @@ input-selector="[name=date]"
 `px` 日历视图表中日期单元格的大小。默认值为 `39`。
 
 [sourcecode:css]
-.amp-date-picker-resize-bug .DayPicker*transitionContainer {
-min-height: 354px; /* 354px is the default. You must update it. \_/
+.amp-date-picker-resize-bug .DayPicker_transitionContainer {
+  min-height: 354px; /* 354px is the default. You must update it. */
 }
 [/sourcecode]
 
@@ -398,11 +398,11 @@ min-height: 354px; /* 354px is the default. You must update it. \_/
 
 [sourcecode:json]
 {
-"id": "my-template-id",
-"dates": [
-"2018-01-02",
-"FREQ=WEEKLY;DTSTART=20180101T000000Z;COUNT=52;WKST=SU;BYDAY=TU"
-]
+  "id": "my-template-id",
+  "dates": [
+    "2018-01-02",
+    "FREQ=WEEKLY;DTSTART=20180101T000000Z;COUNT=52;WKST=SU;BYDAY=TU"
+  ]
 }
 [/sourcecode]
 
@@ -416,27 +416,27 @@ _示例：通过 `src` 属性指定属性_
 
 [sourcecode:json]
 {
-"blocked": ["2018-02-14"],
-"highlighted": ["2018-02-15"],
-"templates": [
-{
-"id": "my-template-id",
-"dates": ["2018-01-01"]
-},
-{
-"id": "my-second-template-id",
-"dates": [
-"2018-01-02",
-"FREQ=WEEKLY;DTSTART=20180101T000000Z;COUNT=52;WKST=SU;BYDAY=TU"
-]
-},
-{
-"id": "my-default-template-id"
-}
-],
-"startDate": "2018-01-01",
-"endDate": "2018-02-02",
-"date": "2018-02-03"
+  "blocked": ["2018-02-14"],
+  "highlighted": ["2018-02-15"],
+  "templates": [
+    {
+      "id": "my-template-id",
+      "dates": ["2018-01-01"]
+    },
+    {
+      "id": "my-second-template-id",
+      "dates": [
+        "2018-01-02",
+        "FREQ=WEEKLY;DTSTART=20180101T000000Z;COUNT=52;WKST=SU;BYDAY=TU"
+      ]
+    },
+    {
+      "id": "my-default-template-id"
+    }
+  ],
+  "startDate": "2018-01-01",
+  "endDate": "2018-02-02",
+  "date": "2018-02-03"
 }
 [/sourcecode]
 
@@ -444,19 +444,19 @@ _示例：使用 `src` 属性进行标记_
 
 [sourcecode:html]
 <amp-date-picker
-src="https://www.example.com/date-data.json"
-layout="fixed-height"
-height="360"
-
-> <template type="amp-mustache" date-template id="my-template-id">⚡️</template>
-> <template type="amp-mustache" date-template id="my-second-template-id"
-> 🌮</template
+  src="https://www.example.com/date-data.json"
+  layout="fixed-height"
+  height="360"
 >
-> <template type="amp-mustache" date-template id="my-default-template-id"
-> {% raw %}{{D}}{% endraw %}</template
->
-> </amp-date-picker>
-> [/sourcecode]
+  <template type="amp-mustache" date-template id="my-template-id">⚡️</template>
+  <template type="amp-mustache" date-template id="my-second-template-id"
+    >🌮</template
+  >
+  <template type="amp-mustache" date-template id="my-default-template-id"
+    >{% raw %}{{D}}{% endraw %}</template
+  >
+</amp-date-picker>
+[/sourcecode]
 
 ### 全屏
 
@@ -467,21 +467,20 @@ height="360"
 <input on="tap:lightbox.open" placeholder="End" id="end" />
 <button on="tap:dp.clear">Clear</button>
 <amp-lightbox id="lightbox" layout="nodisplay">
-<amp-date-picker
-id="date-picker"
-layout="fill"
-fullscreen
-type="range"
-number-of-months="12"
-start-input-selector="#start"
-end-input-selector="#end"
-on="
-activate: lightbox.open;
-deactivate: lightbox.close"
-
-> </amp-date-picker>
-> </amp-lightbox>
-> [/sourcecode]
+  <amp-date-picker
+    id="date-picker"
+    layout="fill"
+    fullscreen
+    type="range"
+    number-of-months="12"
+    start-input-selector="#start"
+    end-input-selector="#end"
+    on="
+      activate: lightbox.open;
+      deactivate: lightbox.close"
+  ></amp-date-picker>
+</amp-lightbox>
+[/sourcecode]
 
 <amp-img alt="static single date picker" layout="fixed" src="https://github.com/ampproject/amphtml/raw/main/extensions/amp-date-picker/img/amp-date-picker-lightbox-fullscreen.png" width="320" height="571">
   <noscript>
@@ -525,7 +524,7 @@ deactivate: lightbox.close"
 
 [sourcecode:html]
 <button on="tap: date-picker.setDate(date='2018-01-01')">
-Set to Jan 1, 2018
+  Set to Jan 1, 2018
 </button>
 [/sourcecode]
 
@@ -535,7 +534,7 @@ Set to Jan 1, 2018
 
 [sourcecode:html]
 <button on="tap: date-picker.setDates(start='2018-01-01', end='2018-01-07')">
-Set to Jan 1, 2018 through Jan 7, 2018
+  Set to Jan 1, 2018 through Jan 7, 2018
 </button>
 [/sourcecode]
 
@@ -563,10 +562,11 @@ Set to Jan 1, 2018 through Jan 7, 2018
 
 [sourcecode:html]
 <button
-on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
-
-> Next week
-> </button> > [/sourcecode]
+  on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
+>
+  Next week
+</button>
+[/sourcecode]
 
 ### endToday
 
@@ -582,10 +582,11 @@ on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
 
 [sourcecode:html]
 <button
-on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
-
-> Next week
-> </button> > [/sourcecode]
+  on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
+>
+  Next week
+</button>
+[/sourcecode]
 
 ## Events
 
@@ -625,12 +626,10 @@ on="tap:date-picker.startToday(offset=7), date-picker.endToday(offset=14)"
 
 [sourcecode:html]
 <amp-date-picker
-type="single"
-on="select: AMP.setState({date: event.date, templateSelected: event.id})"
-…
-
+  type="single"
+  on="select: AMP.setState({date: event.date, templateSelected: event.id})"
+  …
 >
-
   <!-- … -->
 </amp-date-picker>
 [/sourcecode]
@@ -658,12 +657,10 @@ For a date range picker:
 
 [sourcecode:html]
 <amp-date-picker
-type="range"
-on="select: AMP.setState({dates: event.dates, firstTemplate: event.start.id})"
-…
-
+  type="range"
+  on="select: AMP.setState({dates: event.dates, firstTemplate: event.start.id})"
+  …
 >
-
   <!-- … -->
 </amp-date-picker>
 [/sourcecode]
@@ -690,21 +687,15 @@ on="select: AMP.setState({dates: event.dates, firstTemplate: event.start.id})"
 
 [sourcecode:html]
 <amp-date-picker layout="fixed-height" height="360">
-
   <!-- Render the "party" emoji on New Years Day 2018 -->
-
-<template type="amp-mustache" date-template dates="2018-01-01">🎉</template>
-
+  <template type="amp-mustache" date-template dates="2018-01-01">🎉</template>
   <!-- Render the "taco" emoji every Tuesday for 52 weeks starting 2018-01-01 -->
-
-<template
+  <template
     type="amp-mustache"
     date-template
     dates="FREQ=WEEKLY;DTSTART=20180101T000000Z;COUNT=52;WKST=SU;BYDAY=TU"
     >🌮</template
-
->
-
+  >
   <!-- Render an image -->
   <template type="amp-mustache" date-template dates="2018-01-02">
     <amp-img layout="fixed-height" height="39" src="./example.jpg"></amp-img>
@@ -720,9 +711,9 @@ on="select: AMP.setState({dates: event.dates, firstTemplate: event.start.id})"
 
 [sourcecode:html]
 <amp-date-picker layout="fixed-height" height="360">
-<template type="amp-mustache" info-template>
-Warning: Tacos are only available on Tuesday
-</template>
+  <template type="amp-mustache" info-template>
+    Warning: Tacos are only available on Tuesday
+  </template>
 </amp-date-picker>
 [/sourcecode]
 

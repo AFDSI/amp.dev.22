@@ -5,6 +5,8 @@ teaser:
   text: Substitui a tag de vídeo HTML5.
 ---
 
+
+
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +22,8 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+
 
 Um substituto para a tag `video` de HTML5; para ser usado apenas em incorporações diretas de arquivos de vídeo HTML5.
 
@@ -46,44 +50,29 @@ O componente `amp-video` carrega o recurso de vídeo especificado pelo atributo 
 
 O componente `amp-video` aceita até quatro tipos exclusivos de nós HTML como filhos:
 
-- Tags `source`: assim como na tag `<video>` de HTML, você pode adicionar tags `<source>` filhas para especificar diversos arquivos de mídia de origem a serem abertos.
-- Tags `track` para ativar legendas no vídeo. Se a faixa estiver hospedada em uma origem diferente do documento, adicione o atributo `crossorigin` à tag `<amp-video>`.
-- Um marcador antes do início do vídeo.
-- Um substituto caso o navegador não seja compatível com vídeo HTML5: um ou zero nós filhos imediatos podem ter o atributo `fallback`. Se presente, esse nó e os filhos dele formam o conteúdo exibido caso o vídeo HTML5 não seja compatível com o navegador do usuário.
+* Tags `source`: assim como na tag `<video>` de HTML, você pode adicionar tags `<source>` filhas para especificar diversos arquivos de mídia de origem a serem abertos.
+* Tags `track` para ativar legendas no vídeo. Se a faixa estiver hospedada em uma origem diferente do documento, adicione o atributo `crossorigin` à tag `<amp-video>`.
+* Um marcador antes do início do vídeo.
+* Um substituto caso o navegador não seja compatível com vídeo HTML5: um ou zero nós filhos imediatos podem ter o atributo `fallback`. Se presente, esse nó e os filhos dele formam o conteúdo exibido caso o vídeo HTML5 não seja compatível com o navegador do usuário.
 
 #### Exemplo <a name="example"></a>
 
 [example preview="inline" playground="true" imports="amp-video"]
-
 ```html
-<amp-video
-  {%
-  if
-  format=""
-  ="stories"
-  %}autoplay
-  {%
-  endif
-  %}controls
+<amp-video {% if format=='stories'%}autoplay {% endif %}controls
   width="640"
   height="360"
   layout="responsive"
-  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png"
->
-  <source
-    src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.webm"
-    type="video/webm"
-  />
-  <source
-    src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.mp4"
-    type="video/mp4"
-  />
+  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png">
+  <source src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.webm"
+    type="video/webm" />
+  <source src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.mp4"
+    type="video/mp4" />
   <div fallback>
     <p>This browser does not support the video element.</p>
   </div>
 </amp-video>
 ```
-
 [/example]
 
 ## Análise <a name="analytics"></a>
@@ -178,23 +167,18 @@ Exemplo:
 Este exemplo contém os atributos `poster` e `artwork`. O `poster` atua como a imagem do marcador antes da reprodução do vídeo, enquanto o `artwork` é a imagem exibida na notificação por meio da API Media Session.
 
 ```html
-<amp-video
-  width="720"
-  height="305"
-  layout="responsive"
-  src="https://yourhost.com/videos/myvideo.mp4"
-  poster="https://yourhost.com/posters/poster.png"
-  artwork="https://yourhost.com/artworks/artwork.png"
-  title="Awesome video"
-  artist="Awesome artist"
-  album="Amazing album"
->
+<amp-video width="720" height="305" layout="responsive"
+    src="https://yourhost.com/videos/myvideo.mp4"
+    poster="https://yourhost.com/posters/poster.png"
+    artwork="https://yourhost.com/artworks/artwork.png"
+    title="Awesome video" artist="Awesome artist"
+    album="Amazing album">
 </amp-video>
 ```
 
 ## Sobreposição de reprodução com um clique <a name="click-to-play-overlay"></a>
 
-O fornecimento de uma sobreposição de reprodução com um clique é um recurso comum de UX para players de vídeo na Web. Por exemplo, você pode exibir um ícone de reprodução personalizado em que o usuário pode clicar, bem como incluir o título do vídeo, imagens de pôster de diferentes tamanhos etc. Como o componente `amp-video` é compatível com a ação padrão de AMP `play`, é possível implementar facilmente a reprodução com um clique.
+O fornecimento de uma sobreposição de reprodução com um clique é um recurso comum de UX para players de vídeo na Web.  Por exemplo, você pode exibir um ícone de reprodução personalizado em que o usuário pode clicar, bem como incluir o título do vídeo, imagens de pôster de diferentes tamanhos etc.  Como o componente `amp-video` é compatível com a ação padrão de AMP `play`, é possível implementar facilmente a reprodução com um clique.
 
 Para um exemplo detalhado, acesse [Sobreposição de reprodução com um clique para amp-video](https://ampbyexample.com/advanced/click-to-play_overlay_for_amp-video/) no site AMP By Example.
 

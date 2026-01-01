@@ -10,6 +10,7 @@ toc: true
 $title: amp-sidebar
 ---
 
+
 <!--
        Copyright 2017 The AMP HTML Authors. All Rights Reserved.
 
@@ -25,6 +26,8 @@ $title: amp-sidebar
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+
 
 <table>
   <tr>
@@ -52,20 +55,20 @@ $title: amp-sidebar
 
 ## 動作 <a name="behavior"></a>
 
-- `<amp-sidebar>` は、`<body>` の直接の子である必要があります。
-- サイドバーを表示できるのは、ページの左側または右側に限られます。
-- `<amp-sidebar>` は、AMP がサポートしている有効な HTML 要素をすべて格納することができます。
-  - `<amp-sidebar>` は、以下の AMP 要素を格納することができます。<li>`<amp-accordion>`
-  - `<amp-img>`
-  - `<amp-fit-text>`
-  - `<amp-list>`
-  - `<amp-live-list>`
-  - `<amp-social-share>`</li>
-- サイドバーの最大高さは 100 vh です。高さが 100 vh を超えた場合は、垂直スクロールバーが表示されます。デフォルトの高さは CSS 内で 100 vh に設定されていますが、CSS 内でオーバーライドすることができます。
-- サイドバーの幅は、CSS を使用して設定、調整することができます（最小幅は 45 px です）。
-- サイドバーが開いている場合、`amp-sidebar` やそのマスクに対するタップズームは無効化されます。
+* `<amp-sidebar>` は、`<body>` の直接の子である必要があります。
+* サイドバーを表示できるのは、ページの左側または右側に限られます。
+* `<amp-sidebar>` は、AMP がサポートしている有効な HTML 要素をすべて格納することができます。
+    * `<amp-sidebar>` は、以下の AMP 要素を格納することができます。<li>`<amp-accordion>`
+    * `<amp-img>`
+    * `<amp-fit-text>`
+    * `<amp-list>`
+    * `<amp-live-list>`
+    * `<amp-social-share>`</li>
+* サイドバーの最大高さは 100 vh です。高さが 100 vh を超えた場合は、垂直スクロールバーが表示されます。デフォルトの高さは CSS 内で 100 vh に設定されていますが、CSS 内でオーバーライドすることができます。
+* サイドバーの幅は、CSS を使用して設定、調整することができます（最小幅は 45 px です）。
+* サイドバーが開いている場合、`amp-sidebar` やそのマスクに対するタップズームは無効化されます。
 
-_例:_
+*例:*
 
 以下の例では、`amp-sidebar` を使用して、ナビゲーション アイテムを格納しています。ただし、2 番目のアイテム（Nav Item 2）と 4 番目のアイテム（Nav Item 4）は、ページ上の要素 ID に割り当てられています。[`on`](https://github.com/ampproject/amphtml/blob/main/extensions/amp-sidebar/../../spec/amp-actions-and-events.md) 属性を使用することで、要素 ID と `scrollTo` を使用して、要素をスムーズにスクロールすることができます。
 
@@ -109,13 +112,13 @@ _例:_
 
 また、キーボードの Esc キーを押した場合も、サイドバーが閉じます。
 
-_例:_
+*例:*
 
 ```html
-<button class="hamburger" on="tap:sidebar1.toggle"></button>
-<button on="tap:sidebar1">Open</button>
-<button on="tap:sidebar1.open">Open</button>
-<button on="tap:sidebar1.close">x</button>
+<button class="hamburger" on='tap:sidebar1.toggle'></button>
+<button on='tap:sidebar1'>Open</button>
+<button on='tap:sidebar1.open'>Open</button>
+<button on='tap:sidebar1.close'>x</button>
 ```
 
 ### ツールバー <a name="toolbar"></a>
@@ -124,14 +127,14 @@ _例:_
 
 #### 動作 <a name="behavior-1"></a>
 
-- サイドバーは、`toolbar` 属性と `toolbar-target` 属性を持つ nav 要素を追加することで、ツールバーを実装することができます。
-- nav 要素は、`<amp-sidebar>` の子にする必要があります。また、`<nav toolbar="(media-query)" toolbar-target="elementID">` という形式にする必要があります。
-  - たとえば、`<nav toolbar="(max-width: 1024px)" toolbar-target="target-element">` と指定すると、有効なツールバーになります。</li>
-- toolbar 属性を格納している nav は、`<li>` 要素を格納する単一の `<ul>` 要素だけを格納している必要があります。
-  - `<li>` 要素は、AMP がサポートしている有効な HTML 要素と、`<amp-sidebar>` がサポートしているすべての AMP 要素をすべて格納することができます。</li>
-- ツールバー動作は、`toolbar` 属性のメディアクエリが有効な場合に限り適用されます。また、ツールバーを適用するには、`toolbar-target` 属性 ID を持つ要素が、ページ上に存在している必要があります。
+* サイドバーは、`toolbar` 属性と `toolbar-target` 属性を持つ nav 要素を追加することで、ツールバーを実装することができます。
+* nav 要素は、`<amp-sidebar>` の子にする必要があります。また、`<nav toolbar="(media-query)" toolbar-target="elementID">` という形式にする必要があります。
+    * たとえば、`<nav toolbar="(max-width: 1024px)" toolbar-target="target-element">` と指定すると、有効なツールバーになります。</li>
+* toolbar 属性を格納している nav は、`<li>` 要素を格納する単一の `<ul>` 要素だけを格納している必要があります。
+    * `<li>` 要素は、AMP がサポートしている有効な HTML 要素と、`<amp-sidebar>` がサポートしているすべての AMP 要素をすべて格納することができます。</li>
+* ツールバー動作は、`toolbar` 属性のメディアクエリが有効な場合に限り適用されます。また、ツールバーを適用するには、`toolbar-target` 属性 ID を持つ要素が、ページ上に存在している必要があります。
 
-_例: 基本ツールバー_
+*例: 基本ツールバー*
 
 以下の例では、ウィンドウ幅が 767 px 以下の場合に `toolbar` を表示します。`toolbar` 内に、検索入力要素が含まれています。`toolbar` 要素は、`<div id="target-element">` 要素に追加されます。
 
@@ -149,28 +152,31 @@ _例: 基本ツールバー_
   <nav toolbar="(max-width: 767px)" toolbar-target="target-element">
     <ul>
       <li>
-        <input placeholder="Search..." />
+        <input placeholder="Search..."/>
       </li>
     </ul>
   </nav>
 </amp-sidebar>
 
-<div id="target-element"></div>
+<div id="target-element">
+</div>
 ```
 
 ## ツールバーのスタイルを設定する <a name="styling-toolbar"></a>
 
 `<amp-sidebar>` 要素内の `toolbar` 要素は、`toolbar-target` 要素の表示 / 非表示に応じて適用されるクラスを持っています。これは、`toolbar` 要素と `toolbar-target` 要素にそれぞれ異なるスタイルを適用する場合に便利です。対象となるクラスは、`amp-sidebar-toolbar-target-shown` と `amp-sidebar-toolbar-target-hidden` です。クラス `amp-sidebar-toolbar-target-shown` は、`toolbar-target` 要素が表示されているときに `toolbar` 要素に適用されます。クラス `amp-sidebar-toolbar-target-hidden` は、`toolbar-target` 要素が非表示のときに `toolbar` 要素に適用されます。
 
-_例: ツールバー状態クラス_
+*例: ツールバー状態クラス*
 
 以下の例では、ウィンドウ幅が 767 px 以下の場合に `toolbar` を表示します。`toolbar` 内に、検索入力要素が含まれています。`toolbar` 要素は、`<div id="target-element">` 要素に追加されます。ただし、`<div id="toolbar-target">` 要素が表示されているときに `toolbar` 要素を非表示にするカスタム スタイルを追加しています。
 
 ```html
 <style amp-custom="">
+
   .amp-sidebar-toolbar-target-shown {
-    display: none;
+      display: none;
   }
+
 </style>
 
 <amp-sidebar id="sidebar1" layout="nodisplay" side="right">
@@ -186,13 +192,16 @@ _例: ツールバー状態クラス_
   <nav toolbar="(max-width: 767px)" toolbar-target="target-element">
     <ul>
       <li>
-        <input placeholder="Search..." />
+        <input placeholder="Search..."/>
       </li>
     </ul>
   </nav>
 </amp-sidebar>
 
-<div id="target-element"></div>
+<div id="target-element">
+</div>
+
+
 ```
 
 [tip type="success"]
@@ -205,21 +214,21 @@ _例: ツールバー状態クラス_
 
 ### 動作 <a name="behavior-2"></a>
 
-- `<amp-sidebar>` は、`<amp-story>` の直接の子である必要があります。
-- デフォルトでは、サイドバーは、通常の AMP ドキュメントの「開始」側に設定されます。つまり、左から右に向かう言語の場合は右側に、右から左に向かう言語の場合は左側に設定されます。
-- `<amp-sidebar>` のデフォルト背景色は白色に設定されており、CSS 内でオーバーライドすることができます。
-- `<amp-sidebar>` の最大幅は、通常は `280px` に設定されており、パソコン向けの場合は `320px` になります。
-- サイドバーを開閉する「ハンバーガー」スタイルのボタンが、ストーリー UI 上に表示されます。
+* `<amp-sidebar>` は、`<amp-story>` の直接の子である必要があります。
+* デフォルトでは、サイドバーは、通常の AMP ドキュメントの「開始」側に設定されます。つまり、左から右に向かう言語の場合は右側に、右から左に向かう言語の場合は左側に設定されます。
+* `<amp-sidebar>` のデフォルト背景色は白色に設定されており、CSS 内でオーバーライドすることができます。
+* `<amp-sidebar>` の最大幅は、通常は `280px` に設定されており、パソコン向けの場合は `320px` になります。
+* サイドバーを開閉する「ハンバーガー」スタイルのボタンが、ストーリー UI 上に表示されます。
 
 ストーリー プラットフォームを横断して一貫した UI エクスペリエンスを提供するため、許可される属性と機能に関して一定の制限があります。`amp-story` 内で `amp-sidebar` を使用する場合に許可される属性と機能は以下のとおりです。
 
 ### 許可される属性 <a name="allowed-attributes"></a>
 
-- [layout](#layout)
-- [data-close-button-aria-label](#data)
-- [共通の属性](#common)
+* [layout](#layout)
+* [data-close-button-aria-label](#data)
+* [共通の属性](#common)
 
-_例: ストーリー内の基本サイドバー_
+*例: ストーリー内の基本サイドバー*
 
 `amp-story` 内でシンプルな `amp-sidebar` を使用する例を以下に示します。
 
@@ -278,9 +287,9 @@ _例: ストーリー内の基本サイドバー_
 
 `amp-sidebar` コンポーネントは、標準 CSS でスタイルを設定できます。
 
-- `amp-sidebar` の `width` を設定すると、プリセットの最小値（45 px）と最大値（80 vw）の間で幅を調整できます。
-- 必要に応じて、`amp-sidebar` の高さを設定すると、サイドバーの高さを調整できます。高さが 100 vw を超えると、サイドバーに垂直スクロールバーが表示されます。サイドバーの高さのプリセットは 100 vw です。短くしたい場合は、CSS 内でオーバーライドすることができます。
-- サイドバーの現在の状態は、サイドバーがページ上で開いているときに `amp-sidebar` タグ内に設定された `open` 属性を通じてエクスポーズされます。
+* `amp-sidebar` の `width` を設定すると、プリセットの最小値（45 px）と最大値（80 vw）の間で幅を調整できます。
+* 必要に応じて、`amp-sidebar` の高さを設定すると、サイドバーの高さを調整できます。高さが 100 vw を超えると、サイドバーに垂直スクロールバーが表示されます。サイドバーの高さのプリセットは 100 vw です。短くしたい場合は、CSS 内でオーバーライドすることができます。
+* サイドバーの現在の状態は、サイドバーがページ上で開いているときに `amp-sidebar` タグ内に設定された `open` 属性を通じてエクスポーズされます。
 
 [tip type="success"]
 AMP ページ内で使用できるスタイル設定済みのレスポンシブ ナビゲーション メニューについては、[AMP Start](https://ampstart.com/components#navigation) をご覧ください。
@@ -296,9 +305,11 @@ AMP ページ内で使用できるスタイル設定済みのレスポンシブ 
 
 ```html
 <style amp-custom="">
+
   nav [toolbar] {
     overflow: auto;
   }
+
 </style>
 
 <amp-sidebar id="sidebar1" layout="nodisplay" side="right">
@@ -314,7 +325,9 @@ AMP ページ内で使用できるスタイル設定済みのレスポンシブ 
   </nav>
 </amp-sidebar>
 
-<div id="target-element"></div>
+<div id="target-element">
+</div>
+
 ```
 
 機能するサンプルコードについては、[こちらのサンプル ファイル](https://github.com/ampproject/amphtml/blob/main/examples/amp-sidebar-autoscroll.amp.html)をご覧ください。

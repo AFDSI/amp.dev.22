@@ -21,6 +21,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 Ce composant affiche les modèles 3D au format glTF (GL Transmission Format).
 
 <table>
@@ -48,13 +50,12 @@ Le composant `amp-3d-gltf` affiche les modèles 3D qui sont au format glTF.
 
 ```html
 <amp-3d-gltf
-  layout="responsive"
-  width="320"
-  height="240"
-  alpha="true"
-  antialiasing="true"
-  src="path/to/model.glb"
-></amp-3d-gltf>
+    layout="responsive"
+    width="320"
+    height="240"
+    alpha="true"
+    antialiasing="true"
+    src="path/to/model.glb"></amp-3d-gltf>
 ```
 
 ### Limitations <a name="limitations"></a>

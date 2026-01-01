@@ -5,6 +5,8 @@ teaser:
   text: Verileri dinamik bir şekilde indirir ve şablon kullanarak liste öğeleri oluşturur.
 ---
 
+
+
 <!--
        Copyright 2016 The AMP HTML Authors. All Rights Reserved.
 
@@ -20,6 +22,8 @@ teaser:
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+
 
 İçeriği dinamik bir biçimde bir CORS JSON uç noktasından getirir ve sağlanan bir şablonu kullanarak oluşturur.
 
@@ -48,68 +52,61 @@ Uç noktanız, [AMP'de CORS İstekleri](../../../documentation/guides-and-tutori
 
 Bir şablonu şu iki yöntemden biriyle belirtebilirsiniz:
 
-- mevcut bir `template` veya `script` öğesinin bir kimliğine başvuran `template` özelliği.
-- doğrudan `amp-list` öğesinin içine yerleştirilmiş bir `template` veya `script` öğesi.
+* mevcut bir `template` veya `script` öğesinin bir kimliğine başvuran `template` özelliği.
+* doğrudan `amp-list` öğesinin içine yerleştirilmiş bir `template` veya `script` öğesi.
 
 Şablonlar hakkında daha fazla bilgi için [AMP HTML Şablonları](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-html-templates.md) bölümüne bakın.
 
-_Örnek: Dinamik liste görüntüleme_
+*Örnek: Dinamik liste görüntüleme*
 
 Aşağıdaki örnekte, URL'ler ve başlıklar içeren JSON verilerini alıp içeriği, iç içe yerleştirilmiş bir [amp-mustache şablonunda](amp-mustache.md) oluşturuyoruz.
 
 [example preview="inline" playground="true" imports="amp-list" template="amp-mustache"]
-
 ```html
-<amp-list
-  width="auto"
+<amp-list width="auto"
   height="100"
   layout="fixed-height"
-  src="{{server_for_email}}/static/inline-examples/data/amp-list-urls.json"
->
-  <template type="amp-mustache"
-    >{% raw %}
+  src="{{server_for_email}}/static/inline-examples/data/amp-list-urls.json">
+  <template type="amp-mustache">{% raw %}
     <div class="url-entry">
       <a href="{{url}}">{{title}}</a>
     </div>
-    {% endraw %}</template
-  >
+  {% endraw %}</template>
 </amp-list>
 ```
-
 [/example]
 
 Burada, kullandığımız JSON dosyasını görebilirsiniz:
 
 ```json
 {
-  "items": [
-    {
-      "title": "AMP YouTube Channel",
-      "url": "https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw"
-    },
-    {
-      "title": "AMP.dev",
-      "url": "https://amp.dev/"
-    },
-    {
-      "title": "AMP Validator",
-      "url": "https://validator.amp.dev/"
-    },
-    {
-      "title": "AMP Playground",
-      "url": "https://playground.amp.dev/"
-    }
-  ]
+ "items": [
+   {
+     "title": "AMP YouTube Channel",
+     "url": "https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw"
+   },
+   {
+     "title": "AMP.dev",
+     "url": "https://amp.dev/"
+   },
+   {
+     "title": "AMP Validator",
+     "url": "https://validator.amp.dev/"
+   },
+   {
+     "title": "AMP Playground",
+     "url": "https://playground.amp.dev/"
+   }
+ ]
 }
 ```
-
 Getirilen içeriği şu şekilde biçimlendirdik:
 
 ```css
-amp-list div[role='list'] {
+amp-list div[role="list"] {
   display: grid;
   grid-gap: 0.5em;
-}
+  }
 ```
 
 ## Davranış <a name="behavior"></a>
@@ -122,7 +119,7 @@ Varsayılan olarak `<amp-list>`, liste öğesine bir `list` ARIA rolü ve şablo
 
 ### XHR toplu işlemesi <a name="xhr-batching"></a>
 
-AMP, XMLHttpRequest öğelerini (XHR'ler) JSON uç noktalarında toplu olarak işler; diğer bir deyişle, bir AMP sayfasında birden çok tüketici (ör. birden fazla `<amp-list>` öğesi) için veri kaynağı olarak tek bir JSON veri isteğini kullanabilirsiniz. Örneğin, `<amp-list>` öğeniz bir uç noktaya XHR gönderirse XHR iletilirken aynı uç noktaya yapılacak sonraki XHR'lerin hiçbiri tetiklenmez ve bunun yerine, ilk XHR'nin sonuçları döndürülür.
+AMP, XMLHttpRequest öğelerini (XHR'ler) JSON uç noktalarında toplu olarak işler; diğer bir deyişle, bir AMP sayfasında birden çok tüketici (ör. birden fazla `<amp-list>` öğesi) için veri kaynağı olarak tek bir JSON veri isteğini kullanabilirsiniz.  Örneğin, `<amp-list>` öğeniz bir uç noktaya XHR gönderirse XHR iletilirken aynı uç noktaya yapılacak sonraki XHR'lerin hiçbiri tetiklenmez ve bunun yerine, ilk XHR'nin sonuçları döndürülür.
 
 `<amp-list>` bileşeninde, JSON yanıtının bir alt kümesini oluşturmak için [`items`](#items-optional) özelliğini kullanabilir ve böylece, farklı içerikler oluşturan ancak tek bir XHR paylaşan birden fazla `<amp-list>` öğesine sahip olabilirsiniz.
 
@@ -130,31 +127,30 @@ AMP, XMLHttpRequest öğelerini (XHR'ler) JSON uç noktalarında toplu olarak i�
 
 İsteğe bağlı olarak, `<amp-list>` öğesi, `overflow` özelliğine sahip bir öğe içerebilir. Bu öğe, AMP Çalışma Zamanı `<amp-list>` öğesini istendiği gibi yeniden boyutlandıramazsa gösterilir.
 
-_Örnek: Liste daha fazla alana ihtiyaç duyduğunda taşma görüntüleme_
+*Örnek: Liste daha fazla alana ihtiyaç duyduğunda taşma görüntüleme*
 
 Aşağıdaki örnekte, resimlerin ve başlıkların bir listesi gösterilmektedir. `<amp-list>` içeriği, kullanılabilir olandan daha fazla alan gerektirdiğinden AMP Çalışma Zamanı, taşma öğesini görüntüler.
 
 [example preview="inline" playground="true" imports="amp-list" template="amp-mustache"]
-
 ```html
-<amp-list
-  width="auto"
+<amp-list width="auto"
   height="140"
   layout="fixed-height"
-  src="{{server_for_email}}/static/inline-examples/data/amp-list-data.json"
->
-  <template type="amp-mustache"
-    >{% raw %}
+  src="{{server_for_email}}/static/inline-examples/data/amp-list-data.json">
+  <template type="amp-mustache">{% raw %}
     <div class="image-entry">
-      <amp-img src="{{imageUrl}}" width="100" height="75"></amp-img>
+      <amp-img src="{{imageUrl}}"
+        width="100"
+        height="75"></amp-img>
       <span class="image-title">{{title}}</span>
     </div>
-    {% endraw %}</template
-  >
-  <div overflow class="list-overflow">See more</div>
+  {% endraw %}</template>
+  <div overflow
+    class="list-overflow">
+    See more
+  </div>
 </amp-list>
 ```
-
 [/example]
 
 Burada, `overflow` için CSS'yi görebilirsiniz:
@@ -165,15 +161,15 @@ Burada, `overflow` için CSS'yi görebilirsiniz:
   bottom: 0;
   left: 0;
   right: 0;
-}
+  }
 ```
 
 ### Yer tutucu ve yedek <a name="placeholder-and-fallback"></a>
 
 İsteğe bağlı olarak, `<amp-list>` bir yer tutucuyu ve/veya yedeği destekler.
 
-- _Yer tutucu_, `placeholder` özelliğine sahip bir alt öğedir. Bu öğe, `<amp-list>` başarıyla yükleninceye kadar gösterilir. Ayrıca bir yedek sağlanmışsa `<amp-list>` yüklenemediğinde yer tutucu gizlenir.
-- _Yedek_, `fallback` özelliğine sahip bir alt öğedir. Bu öğe, `<amp-list>` yüklenemezse gösterilir.
+* *Yer tutucu*, `placeholder` özelliğine sahip bir alt öğedir. Bu öğe, `<amp-list>` başarıyla yükleninceye kadar gösterilir. Ayrıca bir yedek sağlanmışsa `<amp-list>` yüklenemediğinde yer tutucu gizlenir.
+* *Yedek*, `fallback` özelliğine sahip bir alt öğedir. Bu öğe, `<amp-list>` yüklenemezse gösterilir.
 
 [Yer Tutucu ve Yedekler](../../../documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md) hakkında daha fazla bilgi edinin. Bir alt öğenin hem yer tutucu hem de yedek olamayacağını unutmayın.
 
@@ -206,14 +202,12 @@ Bazı durumlarda, kullanıcı etkileşiminde yeniden boyutlandırma yapmak için
 
 ```html
 {% raw %}<button on="list.changeToLayoutContainer()">Show Grid</button>
-<amp-list
-  id="list"
-  width="396"
-  height="80"
-  layout="responsive"
-  src="/test/manual/amp-list-data.json?RANDOM"
->
-  <template type="amp-mustache"> {{title}} </template>
+<amp-list id="list"
+          width="396" height="80" layout="responsive"
+          src="/test/manual/amp-list-data.json?RANDOM">
+  <template type="amp-mustache">
+    {{title}}
+  </template>
 </amp-list>
 {% endraw %}
 ```
@@ -236,8 +230,8 @@ Uç noktanız, [AMP'de CORS İstekleri](../../../documentation/guides-and-tutori
 
 [Getirme API'si](https://fetch.spec.whatwg.org/) tarafından belirtildiği şekliyle bir `credentials` seçeneğini tanımlar.
 
-- Desteklenen değerler: `omit`, `include`
-- Varsayılan değer: `omit`
+* Desteklenen değerler: `omit`, `include`
+* Varsayılan değer: `omit`
 
 Kimlik bilgilerini göndermek için `include` değerini geçirin. Bu değer ayarlanırsa yanıt, [AMP CORS güvenlik yönergelerine](../../../documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests.md#cors-security-in-amp) uygun olmalıdır.
 
@@ -245,11 +239,11 @@ Bir listede kişiselleştirilmiş içeriği görüntülemek için kimlik bilgile
 
 ```html
 {% raw %}
-<amp-list
-  credentials="include"
-  src="<%host%>/json/product.json?clientId=CLIENT_ID(myCookieId)"
->
-  <template type="amp-mustache"> Your personal offer: ${{price}} </template>
+<amp-list credentials="include"
+          src="<%host%>/json/product.json?clientId=CLIENT_ID(myCookieId)">
+  <template type="amp-mustache">
+    Your personal offer: ${{price}}
+  </template>
 </amp-list>
 {% endraw %}
 ```
@@ -259,12 +253,11 @@ Bir listede kişiselleştirilmiş içeriği görüntülemek için kimlik bilgile
 Yanıt içinde oluşturulacak diziyi bulacak ifadeyi tanımlar. Bu, JSON yanıtının alanları aracılığıyla geçiş yapan, noktalarla gösterilen bir ifadedir.
 `<amp-list>`, varsayılan olarak bir dizi bekler. Bir nesneden veri yüklemek için `single-item` özelliği kullanılabilir.
 
-- Varsayılan değer `"items"` değeridir. Beklenen yanıt: `{items: [...]}`.
-- Yanıtın kendisi istenen diziyse `"."` değerini kullanın. Beklenen yanıt: `[...]`.
-- İç içe yerleştirilmiş gezinmeye izin verilir (ör. `"field1.field2"`). Beklenen yanıt: `{field1: {field2: [...]}}`.
+* Varsayılan değer `"items"` değeridir. Beklenen yanıt: `{items: [...]}`.
+* Yanıtın kendisi istenen diziyse `"."` değerini kullanın. Beklenen yanıt: `[...]`.
+* İç içe yerleştirilmiş gezinmeye izin verilir (ör. `"field1.field2"`). Beklenen yanıt: `{field1: {field2: [...]}}`.
 
 `items="items"` belirtildiğinde (bu varsayılan değerdir) yanıt, `"items"` adlı bir dizi özelliği içeren bir JSON nesnesi olmalıdır:
-
 ```text
 {
   "items": [...]
@@ -297,9 +290,9 @@ Bu, varsayılan olarak her zaman yanlış olması gereken, bağlanabilir bir öz
 
 Daha hızlı performans için `binding="no"` veya `binding="refresh"` kullanılmasını öneririz.
 
-- `binding="no"`: Oluşturmayı hiçbir zaman engelleme **(en hızlı)**.
-- `binding="refresh"`: İlk yüklemede oluşturmayı engelleme **(daha hızlı)**.
-- `binding="always"`: Oluşturmayı her zaman engelle **(yavaş)**.
+* `binding="no"`: Oluşturmayı hiçbir zaman engelleme **(en hızlı)**.
+* `binding="refresh"`: İlk yüklemede oluşturmayı engelleme **(daha hızlı)**.
+* `binding="always"`: Oluşturmayı her zaman engelle **(yavaş)**.
 
 `binding` özelliği sağlanmazsa varsayılan olarak `always` değeri kullanılır.
 
@@ -310,14 +303,12 @@ Daha hızlı performans için `binding="no"` veya `binding="refresh"` kullanılm
 #### Örnek Kullanım <a name="load-more-and-infinite-scroll"></a>
 
 ```html
-<amp-list
-  height="200"
-  src="https://my.rest.endpoint/"
-  width="100"
-  load-more="auto"
->
-  <template type="amp-mustache"> // ... </template>
+<amp-list height="200" src="https://my.rest.endpoint/" width="100" load-more="auto">
+  <template type="amp-mustache">
+    // ...
+  </template>
 </amp-list>
+
 ```
 
 Çalışan örnekler için lütfen [test/manual/amp-list/infinite-scroll-1.amp.html](https://github.com/ampproject/amphtml/blob/main/test/manual/amp-list/infinite-scroll-1.amp.html) ve [test/manual/amp-list/infinite-scroll-2.amp.html](https://github.com/ampproject/amphtml/blob/main/test/manual/amp-list/infinite-scroll-1.amp.html) sayfalarına bakın.
@@ -347,36 +338,27 @@ Yüklenecek daha fazla öğe varsa, listenin sonunda gösterilen (manuel load-mo
 ##### Örnek: <a name="load-more-button"></a>
 
 ```html
-<amp-list
-  load-more="manual"
-  src="https://www.load.more.example.com/"
-  width="400"
-  height="800"
->
+<amp-list load-more="manual" src="https://www.load.more.example.com/" width="400" height="800">
   ...
   <amp-list-load-more load-more-button>
     <button>See More</button> /* My custom see more button */
   </amp-list-load-more>
 </amp-list>
 ```
-
-`amp-mustache` aracılığıyla şablonu oluşturulabilir.
+  `amp-mustache` aracılığıyla şablonu oluşturulabilir.
 
 ##### Örnek: <a name="example"></a>
 
 ```html
 {% raw %}
-<amp-list
-  load-more="auto"
-  width="100"
-  height="500"
-  src="https://www.load.more.example.com/"
->
+<amp-list load-more="auto" width="100" height="500" src="https://www.load.more.example.com/">
   ...
   <amp-list-load-more load-more-button>
     <template type="amp-mustache">
       Showing {{#count}} out of {{#total}} items
-      <button>Click here to see more!</button>
+      <button>
+        Click here to see more!
+      </button>
     </template>
   </amp-list-load-more>
 </amp-list>
@@ -386,14 +368,8 @@ Yüklenecek daha fazla öğe varsa, listenin sonunda gösterilen (manuel load-mo
 #### load-more-loading <a name="example-1"></a>
 
 Bu öğe, kullanıcı listenin sonuna ulaşırsa ve içerik yükleme işlemi devam ediyorsa veya (yeni `<amp-list>` alt öğeleri yüklenmeye devam ederken) `load-more-button` öğesinin tıklanması sonucu görüntülenecek olan bir yükleyicidir. `<amp-list>` bileşeni, `load-more-loading` özelliğine sahip bir alt öğeyle sağlanarak bu öğenin özelleştirilmesi sağlanabilir. Aşağıda bir örnek gösterilmiştir:
-
 ```html
-<amp-list
-  load-more="auto"
-  src="https://www.load.more.example.com/"
-  width="400"
-  height="800"
->
+<amp-list load-more=auto src="https://www.load.more.example.com/" width="400" height="800">
   ...
   <amp-list-load-more load-more-loading>
     <svg>...</svg> /* My custom loader */
@@ -406,12 +382,7 @@ Bu öğe, kullanıcı listenin sonuna ulaşırsa ve içerik yükleme işlemi dev
 Yükleme başarısız olursa `<amp-list>` öğesinin alt kısmında görüntülenecek `load-more-clickable` özelliğine sahip bir düğme içeren `load-more-failed` özelliğinin yer aldığı bir `<amp-list-load-more>` öğesi. Bu öğenin tıklanması, başarısız olan URL'nin yeniden yüklenmesini tetikler. `<amp-list>` bileşeni, `load-more-failed` özelliğine sahip bir alt öğeyle sağlanarak bu öğenin özelleştirilmesi sağlanabilir. Aşağıda bir örnek gösterilmiştir:
 
 ```html
-<amp-list
-  load-more="auto"
-  src="https://www.load.more.example.com/"
-  width="200"
-  height="500"
->
+<amp-list load-more="auto" src="https://www.load.more.example.com/" width="200" height="500">
   ...
   <amp-list-load-more load-more-failed>
     <button>Unable to Load More</button>
@@ -422,15 +393,12 @@ Yükleme başarısız olursa `<amp-list>` öğesinin alt kısmında görüntüle
 Yukarıdaki örnekte, `load-more-failed` öğesinin tamamı tıklanabilir özelliktedir. Bununla birlikte, bu öğe için tıklanabilir bir "reload" (yeniden yükle) düğmesi içeren genel bir tıklanamaz "loading failed" (yükleme başarısız) öğesi yaygın şekilde kullanılır. Bunu daha açık anlatmak gerekirse, genel olarak tıklanamaz bir öğeniz ve bu öğenin, `load-more-clickable` öğesini içeren bir düğmesi olabilir. Örneğin:
 
 ```html
-<amp-list
-  load-more="auto"
-  src="https://www.load.more.example.com/"
-  width="200"
-  height="500"
->
+<amp-list load-more="auto" src="https://www.load.more.example.com/" width="200" height="500">
   ...
   <amp-list-load-more load-more-failed>
-    <div>Here is some unclickable text saying sorry loading failed.</div>
+    <div>
+      Here is some unclickable text saying sorry loading failed.
+    </div>
     <button load-more-clickable>Click me to reload!</button>
   </amp-list-load-more>
 </amp-list>
@@ -438,15 +406,10 @@ Yukarıdaki örnekte, `load-more-failed` öğesinin tamamı tıklanabilir özell
 
 #### load-more-end <a name="load-more-failed"></a>
 
-Bu öğe varsayılan olarak sağlanmaz ancak `<amp-list>` öğesine, `load-more-end` özelliğini içeren bir `<amp-list-load-more>` öğesi bir alt öğe olarak eklenirse bu öğe, başka hiçbir öğenin olmaması durumunda `<amp-list>` öğesinin alt kısmında görüntülenir. `amp-mustache` aracılığıyla bu öğenin şablonu oluşturulabilir. Aşağıda bir örnek gösterilmiştir:
+Bu öğe varsayılan olarak sağlanmaz ancak `<amp-list>` öğesine, `load-more-end` özelliğini içeren bir `<amp-list-load-more>` öğesi bir alt öğe olarak eklenirse bu öğe, başka hiçbir öğenin olmaması durumunda `<amp-list>` öğesinin alt kısmında görüntülenir.  `amp-mustache` aracılığıyla bu öğenin şablonu oluşturulabilir. Aşağıda bir örnek gösterilmiştir:
 
 ```html
-<amp-list
-  load-more="auto"
-  src="https://www.load.more.example.com/"
-  width="200"
-  height="500"
->
+<amp-list load-more="auto" src="https://www.load.more.example.com/" width="200" height="500">
   ...
   <amp-list-load-more load-more-end>
     Congratulations! You've reached the end. /* Custom load-end element */
@@ -464,11 +427,9 @@ Bu öğe, AMP bileşenlerine genişletilmiş [ortak özellikleri](../../../docum
 Daha fazla bilgi için [Değişiklik Kılavuzu](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md) dokümanına bakın.
 
 Örneğin:
-
 ```html
 <amp-list src="https://foo.com/list.json?RANDOM"></amp-list>
 ```
-
 öğesi, `https://foo.com/list.json?0.8390278471201` gibi bir istekte bulunabilir. Burada, RANDOM değeri, her gösterimden sonra rastgele oluşturulur.
 
 ## Doğrulama <a name="validation"></a>

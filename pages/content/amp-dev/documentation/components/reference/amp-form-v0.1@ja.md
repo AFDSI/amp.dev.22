@@ -26,6 +26,8 @@ $title: amp-form
      limitations under the License.
 -->
 
+
+
 <table>
   <tr>
     <td width="40%"><strong>説明</strong></td>
@@ -45,6 +47,7 @@ $title: amp-form
   </tr>
 </table>
 
+
 # 動作 <a name="behavior"></a>
 
 `amp-form` 拡張機能を使用すると、AMP ドキュメントの入力フィールドを送信するためのフォーム（`<form>`）を作成できます。また、`amp-form` 拡張機能には、ブラウザに実装されていない動作を補うための[ポリフィル](#polyfills)が用意されています。
@@ -57,44 +60,40 @@ $title: amp-form
 以下に、基本的なフォームの例を示します。
 
 [example preview="inline" playground="true" imports="amp-form" template="amp-mustache"]
-
 ```html
-<form
-  method="post"
-  action-xhr="https://example.com/subscribe"
-  {%
-  if
-  not
-  format=""
-  ="email"
-  %}
-  target="_top"
-  {%
-  endif
-  %}
->
-  <fieldset>
-    <label>
-      <span>Name:</span>
-      <input type="text" name="name" required />
-    </label>
-    <br />
-    <label>
-      <span>Email:</span>
-      <input type="email" name="email" required />
-    </label>
-    <br />
-    <input type="submit" value="Subscribe" />
-  </fieldset>
-  <div submit-success>
-    <template type="amp-mustache"> Subscription successful! </template>
-  </div>
-  <div submit-error>
-    <template type="amp-mustache"> Subscription failed! </template>
-  </div>
-</form>
+<form method="post"
+    action-xhr="https://example.com/subscribe"{% if not format=='email'%}  
+    target="_top"{% endif %}>
+    <fieldset>
+      <label>
+        <span>Name:</span>
+        <input type="text"
+          name="name"
+          required>
+      </label>
+      <br>
+      <label>
+        <span>Email:</span>
+        <input type="email"
+          name="email"
+          required>
+      </label>
+      <br>
+      <input type="submit"
+        value="Subscribe">
+    </fieldset>
+    <div submit-success>
+      <template type="amp-mustache">
+        Subscription successful!
+      </template>
+    </div>
+    <div submit-error>
+      <template type="amp-mustache">
+        Subscription failed!
+      </template>
+    </div>
+  </form>
 ```
-
 [/example]
 
 # 属性 <a name="attributes"></a>
@@ -107,8 +106,8 @@ $title: amp-form
 
 フォームの入力を処理するサーバー エンドポイントを指定します。値には `https` URL（絶対または相対）を指定する必要があります。CDN へのリンクは指定できません。
 
-- `method=GET` の場合: この属性または [`action-xhr`](#action-xhr) を使用します。
-- `method=POST` の場合: [`action-xhr`](#action-xhr) 属性を使用します。
+* `method=GET` の場合: この属性または [`action-xhr`](#action-xhr) を使用します。
+* `method=POST` の場合: [`action-xhr`](#action-xhr) 属性を使用します。
 
 [tip type="note"] `target` 属性と `action` 属性は non-xhr GET リクエストにのみ使用します。AMP ランタイムはリクエストの作成に `action-xhr` を使用し、`action` と `target` は無視します。`action-xhr` が使用されていない場合、AMP は `action` エンドポイントに対する GET リクエストを作成し、`target` を使用して新しいウィンドウを開きます（`_blank` の場合）。`amp-form` 拡張機能が読み込みに失敗した場合、AMP ランタイムは `action` と `target` を使用するように切り替えることがあります。
 [/tip]
@@ -140,14 +139,14 @@ $title: amp-form
 
 **使用可**:
 
-- フォーム関連のその他の要素: `<textarea>`、`<select>`、`<option>`、`<fieldset>`、`<label>`、`<input type=text>`、`<input type=submit>` など
-- `<input type=password>`、`<input type=file>`（`<form method=POST action-xhr>` 内）
-- [`amp-selector`](amp-selector.md)
+* フォーム関連のその他の要素: `<textarea>`、`<select>`、`<option>`、`<fieldset>`、`<label>`、`<input type=text>`、`<input type=submit>` など
+* `<input type=password>`、`<input type=file>`（`<form method=POST action-xhr>` 内）
+* [`amp-selector`](amp-selector.md)
 
 **使用不可**:
 
-- `<input type=button>`、`<input type=image>`
-- 入力のフォーム関連の属性の大部分: `form`、`formaction`、`formtarget`、`formmethod` など
+* `<input type=button>`、`<input type=image>`
+* 入力のフォーム関連の属性の大部分: `form`、`formaction`、`formtarget`、`formmethod` など
 
 （今後、これらのルールの緩和が再検討される可能性があります。これらの属性が必要な場合は[お知らせください](https://github.com/ampproject/amphtml/blob/main/docs/contributing.md#suggestions-and-feature-requests)。また、ユースケースをご提示ください）
 
@@ -157,10 +156,10 @@ $title: amp-form
 
 `amp-form` 要素では以下のアクションを使用できます。
 
-| アクション | 説明                                                                                                                                        |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `submit`   | 特定のアクション（リンクのタップ、[入力の変更に基づくフォームの送信](#input-events)など）が行われたときにフォームの送信をトリガーできます。 |
-| `clear`    | フォームの各入力の値を空にします。これにより、フォームの入力を簡単にやり直すことができます。                                                |
+| アクション | 説明 |
+|--------|-------------|
+| `submit` | 特定のアクション（リンクのタップ、[入力の変更に基づくフォームの送信](#input-events)など）が行われたときにフォームの送信をトリガーできます。 |
+| `clear` | フォームの各入力の値を空にします。これにより、フォームの入力を簡単にやり直すことができます。 |
 
 [tip type="read-on"] [AMP のアクションとイベント](../../../documentation/guides-and-tutorials/learn/amp-actions-and-events.md)の詳細をご確認ください。
 [/tip]
@@ -169,28 +168,29 @@ $title: amp-form
 
 `amp-form` では以下のイベントを使用できます。
 
-| イベント         | 発行のタイミング                                                                                    |
-| ---------------- | --------------------------------------------------------------------------------------------------- |
-| `submit`         | フォームが送信され、送信が完了する前。                                                              |
-| `submit-success` | フォームの送信が完了し、レスポンスが成功したとき。                                                  |
-| `submit-error`   | フォームの送信が完了し、レスポンスがエラーになったとき。                                            |
-| `verify`         | 非同期検証が開始されたとき。                                                                        |
-| `verify-error`   | 非同期検証が完了し、レスポンスがエラーになったとき。                                                |
-| `valid`          | フォームの検証ステータスが（[レポート戦略](#reporting-strategies)に従って）「有効」に変わったとき。 |
-| `invalid`        | フォームの検証ステータスが（[レポート戦略](#reporting-strategies)に従って）「無効」に変わったとき。 |
+| イベント | 発行のタイミング |
+|-------|-------------|
+| `submit` | フォームが送信され、送信が完了する前。 |
+| `submit-success` | フォームの送信が完了し、レスポンスが成功したとき。 |
+| `submit-error` | フォームの送信が完了し、レスポンスがエラーになったとき。 |
+| `verify` | 非同期検証が開始されたとき。 |
+| `verify-error` | 非同期検証が完了し、レスポンスがエラーになったとき。 |
+| `valid` | フォームの検証ステータスが（[レポート戦略](#reporting-strategies)に従って）「有効」に変わったとき。 |
+| `invalid` | フォームの検証ステータスが（[レポート戦略](#reporting-strategies)に従って）「無効」に変わったとき。 |
 
 これらのイベントは [`on` 属性](../../../documentation/guides-and-tutorials/learn/spec/amphtml.md#on)を介して使用できます。
 
 以下の例では、`submit-success` と `submit-error` の両方のイベントをリッスンし、イベントに応じて各種のライトボックスを表示します。
 
 ```html
-<form
-  ...=""
-  on="submit-success:success-lightbox;submit-error:error-lightbox"
-></form>
+
+<form ...="" on="submit-success:success-lightbox;submit-error:error-lightbox">
+</form>
+
 ```
 
 [この例のコード全体](https://github.com/ampproject/amphtml/blob/main/examples/forms.amp.html)をご覧ください。
+
 
 # 入力イベント <a name="input-events"></a>
 
@@ -199,44 +199,27 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
 一般的な使用例として、入力の変更時にフォームを送信することができます（ラジオボタンを選択してアンケートに回答する、`select` 入力から言語を選択してページを翻訳するなど）。
 
 [example preview="inline" playground="true" imports="amp-form"]
-
 ```html
-<form
-  id="myform"
-  method="post"
-  action-xhr="https://example.com/myform"
-  {%
-  if
-  not
-  format=""
-  ="email"
-  %}
-  target="_blank"
-  {%
-  endif
-  %}
->
-  <fieldset>
-    <label>
-      <input
-        name="answer1"
-        value="Value 1"
-        type="radio"
-        on="change:myform.submit"
-      />Value 1
-    </label>
-    <label>
-      <input
-        name="answer1"
-        value="Value 2"
-        type="radio"
-        on="change:myform.submit"
-      />Value 2
-    </label>
-  </fieldset>
-</form>
+<form id="myform"
+    method="post"
+    action-xhr="https://example.com/myform"{% if not format=='email'%}  
+    target="_blank"{% endif %}>
+    <fieldset>
+      <label>
+        <input name="answer1"
+          value="Value 1"
+          type="radio"
+          on="change:myform.submit">Value 1
+      </label>
+      <label>
+        <input name="answer1"
+          value="Value 2"
+          type="radio"
+          on="change:myform.submit">Value 2
+      </label>
+    </fieldset>
+  </form>
 ```
-
 [/example]
 
 [この例のコード全体](https://github.com/ampproject/amphtml/blob/main/examples/forms.amp.html)をご覧ください。
@@ -245,10 +228,10 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
 
 `amp-form` 拡張機能は、[amp-analytics](amp-analytics.md) の設定でトラッキング可能な以下のイベントをトリガーします。
 
-| イベント                  | 発行のタイミング                                                                  |
-| ------------------------- | --------------------------------------------------------------------------------- |
-| `amp-form-submit`         | フォーム リクエストが開始されたとき。                                             |
-| `amp-form-submit-success` | 成功のレスポンスを受信したとき（レスポンスのステータスが `2XX` の場合など）。     |
+| イベント | 発行のタイミング |
+|---------------------------|-----------------------------------|
+| `amp-form-submit`         | フォーム リクエストが開始されたとき。 |
+| `amp-form-submit-success` | 成功のレスポンスを受信したとき（レスポンスのステータスが `2XX` の場合など）。 |
 | `amp-form-submit-error`   | 失敗のレスポンスを受信したとき（レスポンスのステータスが `2XX` でない場合など）。 |
 
 次の例のように、これらのイベントを送信するようにアナリティクスを設定できます。
@@ -291,32 +274,33 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
 たとえば、次のフォームには 1 つのフィールドがあります。
 
 ```html
+
 <form id="submit_form" action-xhr="/comment" method="POST">
-  <input type="text" name="comment" />
-  <input type="submit" value="説明" />
-</form>
+  <input type="text" name="comment">
+    <input type="submit" value="説明">
+    </form>
 ```
 
 `amp-form-submit`、`amp-form-submit-success`、`amp-form-submit-error` のいずれかのイベントが発生すると、フォームで指定された値を含む以下の変数が生成されます。
 
-- `formId`
-- `formFields[comment]`
+  * `formId`
+  * `formFields[comment]`
 
 # 成功 / エラー レスポンスのレンダリング <a name="successerror-response-rendering"></a>
 
 [amp-mustache](amp-mustache.md) などの[拡張テンプレート](../../../documentation/guides-and-tutorials/learn/spec/amphtml.md#templates)を使用することで、成功またはエラー レスポンスをフォームにレンダリングできます。また、[amp-bind](amp-bind.md) によるデータ バインディングと以下のレスポンス属性を使用して成功レスポンスをレンダリングすることもできます。
 
-| レスポンス属性   | 説明                                                                                                                                                                                                                                         |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `submit-success` | レスポンスが成功の場合（ステータスが `2XX` の場合など）、成功メッセージの表示に使用できます。                                                                                                                                                |
-| `submit-error`   | レスポンスが失敗の場合（ステータスが `2XX` でない場合など）、送信エラーの表示に使用できます。                                                                                                                                                |
-| `submitting`     | フォームの送信中にメッセージを表示する場合に使用できます。この属性のテンプレートから、表示目的でフォームの入力フィールドにアクセスできます。`submitting` 属性の使用方法については、[以下のフォームの例](#example-submitting)をご覧ください。 |
+| レスポンス属性 | 説明 |
+|-----------|---------------------|
+| `submit-success` | レスポンスが成功の場合（ステータスが `2XX` の場合など）、成功メッセージの表示に使用できます。 |
+| `submit-error` | レスポンスが失敗の場合（ステータスが `2XX` でない場合など）、送信エラーの表示に使用できます。 |
+| `submitting` | フォームの送信中にメッセージを表示する場合に使用できます。この属性のテンプレートから、表示目的でフォームの入力フィールドにアクセスできます。`submitting` 属性の使用方法については、[以下のフォームの例](#example-submitting)をご覧ください。 |
 
 # テンプレートを使用したレスポンスのレンダリング方法: <a name="to-render-responses-with-templating"></a>
 
-- `<form>` 要素の*直接の子*にレスポンス属性を適用します。
-- 子要素の内部で `<template></template>` タグまたは `<script type="text/plain"></script>` タグを使用してテンプレートを含めるか、`template="id_of_other_template"` 属性でテンプレートを参照することにより、子要素でレスポンスをレンダリングします。
-- レスポンスの有効な JSON オブジェクトを `submit-success` と `submit-error` に指定します。成功とエラーのどちらのレスポンスにも `Content-Type: application/json` ヘッダーを含める必要があります。
+* `<form>` 要素の*直接の子*にレスポンス属性を適用します。
+* 子要素の内部で `<template></template>` タグまたは `<script type="text/plain"></script>` タグを使用してテンプレートを含めるか、`template="id_of_other_template"` 属性でテンプレートを参照することにより、子要素でレスポンスをレンダリングします。
+* レスポンスの有効な JSON オブジェクトを `submit-success` と `submit-error` に指定します。成功とエラーのどちらのレスポンスにも `Content-Type: application/json` ヘッダーを含める必要があります。
 
 <a id="example-submitting"></a>
 
@@ -325,16 +309,15 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
 次の例では、フォーム内のインライン テンプレートにレスポンスがレンダリングされます。
 
 ```html
-{% raw %}
-<form ...="">
+{% raw %}<form ...="">
   <fieldset>
-    <input type="text" name="firstName" />
-    ...
-  </fieldset>
-  <div verify-error="">
-    <template type="amp-mustache">
-      There is a mistake in the form!
-      {{#verifyErrors}}{{message}}{{/verifyErrors}}
+    <input type="text" name="firstName">
+      ...
+    </fieldset>
+    <div verify-error="">
+      <template type="amp-mustache">
+        There is a mistake in the form!
+        {{#verifyErrors}}{{message}}{{/verifyErrors}}
     </template>
   </div>
   <div submitting="">
@@ -344,14 +327,15 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
   </div>
   <div submit-success="">
     <template type="amp-mustache">
-      Success! Thanks {{name}} for subscribing! Please make sure to check your
-      email {{email}} to confirm! After that we'll start sending you weekly
-      articles on {{#interests}}<b>{{name}}</b> {{/interests}}.
-    </template>
-  </div>
-  <div submit-error="">
-    <template type="amp-mustache"> Oops! {{name}}, {{message}}. </template>
-  </div>
+      Success! Thanks {{name}} for subscribing! Please make sure to check your email {{email}}
+    to confirm! After that we'll start sending you weekly articles on {{#interests}}<b>{{name}}</b> {{/interests}}.
+  </template>
+</div>
+<div submit-error="">
+  <template type="amp-mustache">
+    Oops! {{name}}, {{message}}.
+  </template>
+</div>
 </form>
 {% endraw %}
 ```
@@ -363,17 +347,12 @@ AMP では、子の `<input>` 要素で `change` イベントと `input-debounce
 ```json
 {
   "name": "Jane Miller",
-  "interests": [
-    {"name": "Basketball"},
-    {"name": "Swimming"},
-    {"name": "Reading"}
-  ],
+  "interests": [{"name": "Basketball"}, {"name": "Swimming"}, {"name": "Reading"}],
   "email": "email@example.com"
 }
 ```
 
 エラー:
-
 ```json
 {
   "name": "Jane Miller",
@@ -406,27 +385,28 @@ to confirm! After that we'll start sending you weekly articles on {{#interests}}
 
 # データ バインディングを使用して成功レスポンスをレンダリングするには <a name="to-render-a-successful-response-with-data-binding"></a>
 
-- [on 属性](../../../documentation/guides-and-tutorials/learn/amp-actions-and-events.md)を使用して、フォームの submit-success\*\* 属性を [`AMP.setState()`](amp-bind.md#updating-state-with-amp.setstate%28%29) にバインドします。
-- `event` プロパティを使用して、レスポンス データを収集します。
-- 状態の属性を目的の要素に追加して、フォーム レスポンスをバインドします。
+* [on 属性](../../../documentation/guides-and-tutorials/learn/amp-actions-and-events.md)を使用して、フォームの submit-success** 属性を [`AMP.setState()`](amp-bind.md#updating-state-with-amp.setstate%28%29) にバインドします。
+* `event` プロパティを使用して、レスポンス データを収集します。
+* 状態の属性を目的の要素に追加して、フォーム レスポンスをバインドします。
 
 以下に、[`amp-bind`](amp-bind.md) を使用してフォームの `submit-success` レスポンスをレンダリングする例を示します。
-
 ```html
-<p [text]="'Thanks, ' + subscribe +'! You have successfully subscribed.'">
-  Subscribe to our newsletter
-</p>
-<form
-  method="post"
-  action-xhr="/components/amp-form/submit-form-input-text-xhr"
-  target="_ top"
-  on="submit-success: AMP.setState({'subscribe': event.response.name})"
->
+<p [text]="'Thanks, ' + subscribe +'! You have successfully subscribed.'">Subscribe to our newsletter</p>
+<form method="post"
+      action-xhr="/components/amp-form/submit-form-input-text-xhr"
+      target="_ top"
+      on="submit-success: AMP.setState({'subscribe': event.response.name})">
   <div>
-    <input type="text" name="name" placeholder="Name..." required />
-    <input type="email" name="email" placeholder="Email..." required />
+    <input type="text"
+        name="name"
+        placeholder="Name..."
+        required>
+    <input type="email"
+      name="email"
+      placeholder="Email..."
+      required>
   </div>
-  <input type="submit" value="Subscribe" />
+  <input type="submit" value="Subscribe">
 </form>
 ```
 
@@ -438,14 +418,11 @@ to confirm! After that we'll start sending you weekly articles on {{#interests}}
   "email": "email@example.com"
 }
 ```
-
 その後、`amp-bind` により、`<p>` 要素のテキストが `subscibe` の状態と一致するように更新されます。
 
 ```html
 ...
-<p [text]="'Thanks, ' + subscribe +'! You have successfully subscribed.'">
-  Thanks Jane Miller! You have successfully subscribed.
-</p>
+<p [text]="'Thanks, ' + subscribe +'! You have successfully subscribed.'">Thanks Jane Miller! You have successfully subscribed.</p>
 ...
 ```
 
@@ -455,7 +432,7 @@ to confirm! After that we'll start sending you weekly articles on {{#interests}}
 
 `Access-Control-Expose-Headers` レスポンス ヘッダーを更新し、許可されるヘッダーのリストに `AMP-Redirect-To` を追加してください。これらのヘッダーについて詳しくは、[AMP の CORS セキュリティ](../../../documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests.md#cors-security-in-amp)をご覧ください。
 
-_レスポンス ヘッダーの例:_
+*レスポンス ヘッダーの例:*
 
 ```text
 AMP-Redirect-To: https://example.com/forms/thank-you
@@ -477,46 +454,44 @@ Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin, AMP-Redir
 以下に例を示します。
 
 [example preview="inline" playground="true" imports="amp-form"]
-
 ```html
-<form
-  method="post"
-  action-xhr="https://example.com/subscribe"
-  custom-validation-reporting="show-all-on-submit"
-  {%
-  if
-  not
-  format=""
-  ="email"
-  %}
-  target="_blank"
-  {%
-  endif
-  %}
->
-  <fieldset>
-    <label>
-      <span>Name:</span>
-      <input type="text" name="name" id="name5" required pattern="\w+\s\w+" />
-      <span visible-when-invalid="valueMissing" validation-for="name5"></span>
-      <span visible-when-invalid="patternMismatch" validation-for="name5">
-        Please enter your first and last name separated by a space (e.g. Jane
-        Miller)
-      </span>
-    </label>
-    <br />
-    <label>
-      <span>Email:</span>
-      <input type="email" name="email" id="email5" required />
-      <span visible-when-invalid="valueMissing" validation-for="email5"></span>
-      <span visible-when-invalid="typeMismatch" validation-for="email5"></span>
-    </label>
-    <br />
-    <input type="submit" value="Subscribe" />
-  </fieldset>
-</form>
+<form method="post"
+    action-xhr="https://example.com/subscribe"
+    custom-validation-reporting="show-all-on-submit"{% if not format=='email'%}  
+    target="_blank"{% endif %}>
+    <fieldset>
+      <label>
+        <span>Name:</span>
+        <input type="text"
+          name="name"
+          id="name5"
+          required
+          pattern="\w+\s\w+">
+        <span visible-when-invalid="valueMissing"
+          validation-for="name5"></span>
+        <span visible-when-invalid="patternMismatch"
+          validation-for="name5">
+          Please enter your first and last name separated by a space (e.g. Jane Miller)
+        </span>
+      </label>
+      <br>
+      <label>
+        <span>Email:</span>
+        <input type="email"
+          name="email"
+          id="email5"
+          required>
+        <span visible-when-invalid="valueMissing"
+          validation-for="email5"></span>
+        <span visible-when-invalid="typeMismatch"
+          validation-for="email5"></span>
+      </label>
+      <br>
+      <input type="submit"
+        value="Subscribe">
+    </fieldset>
+  </form>
 ```
-
 [/example]
 
 その他の例については、[examples/forms.amp.html](https://github.com/ampproject/amphtml/blob/main/examples/forms.amp.html) をご覧ください。
@@ -551,71 +526,55 @@ Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin, AMP-Redir
 HTML5 の検証で提供されるフィードバックは、ページで利用できる情報のみに基づくものです（値が特定のパターンと一致するかどうかなど）。`amp-form` 検証では、HTML5 の検証だけでは得られないユーザー フィードバックを得ることができます。たとえば、フォームで検証を使用すると、メールアドレスが登録済みかどうか、市区町村名フィールドと郵便番号フィールドが対応しているかどうかなどを確認できます。
 
 以下に例を示します。
-
 ```html
-{% raw %}
-<h4>検証の例</h4>
-<form
-  method="post"
-  action-xhr="/form/verify-json/post"
-  verify-xhr="/form/verify-json/post"
-  {%
-  if
-  not
-  format=""
-  ="email"
-  %}
-  target="_blank"
-  {%
-  endif
-  %}
->
+{% raw %}<h4>検証の例</h4>
+<form method="post" action-xhr="/form/verify-json/post" verify-xhr="/form/verify-json/post"{% if not format=='email'%}   target="_blank"{% endif %}>
   <fieldset>
     <label>
       <span>Email</span>
-      <input type="text" name="email" required="" />
-    </label>
-    <label>
-      <span>Zip Code</span>
-      <input type="tel" name="zip" required="" pattern="[0-9]{5}(-[0-9]{4})?" />
-    </label>
-    <label>
-      <span>City</span>
-      <input type="text" name="city" required="" />
-    </label>
-    <label>
-      <span>Document</span>
-      <input type="file" name="document" no-verify="" />
-    </label>
-    <div class="spinner"></div>
-    <input type="submit" value="送信" />
-  </fieldset>
-  <div submit-success="">
-    <template type="amp-mustache">
-      <p>Congratulations! You are registered with {{email}}</p>
-    </template>
-  </div>
-  <div submit-error="">
-    <template type="amp-mustache">
-      {{#verifyErrors}}
-      <p>{{message}}</p>
-      {{/verifyErrors}} {{^verifyErrors}}
-      <p>Something went wrong. Try again later?</p>
-      {{/verifyErrors}}
-    </template>
-  </div>
-</form>
+      <input type="text" name="email" required="">
+      </label>
+      <label>
+        <span>Zip Code</span>
+        <input type="tel" name="zip" required="" pattern="[0-9]{5}(-[0-9]{4})?">
+        </label>
+        <label>
+          <span>City</span>
+          <input type="text" name="city" required="">
+          </label>
+          <label>
+            <span>Document</span>
+            <input type="file" name="document" no-verify="">
+            </label>
+            <div class="spinner"></div>
+            <input type="submit" value="送信">
+            </fieldset>
+            <div submit-success="">
+              <template type="amp-mustache">
+                <p>Congratulations! You are registered with {{email}}</p>
+              </template>
+            </div>
+            <div submit-error="">
+              <template type="amp-mustache">
+                {{#verifyErrors}}
+              <p>{{message}}</p>
+              {{/verifyErrors}}
+            {{^verifyErrors}}
+          <p>Something went wrong. Try again later?</p>
+          {{/verifyErrors}}
+      </template>
+    </div>
+  </form>
 {% endraw %}
 ```
 
 フォームは、リクエストが検証リクエストであり、正式な送信ではないことをサーバーに伝えるために、フォームデータの一部として `__amp_form_verify` フィールドを送信します。これにより、検証と送信用に同じエンドポイントが使用されている場合には検証リクエストが保存されないことをサーバーが認識できます。
 
 以下に、検証のエラー レスポンスの例を示します。
-
 ```json
-{
-  "verifyErrors": [
-    {"name": "email", "message": "That email is already taken."},
+  {
+    "verifyErrors": [
+      {"name": "email", "message": "That email is already taken."},
     {"name": "zip", "message": "The city and zip do not match."}
   ]
 }
@@ -632,22 +591,15 @@ HTML5 の検証で提供されるフィードバックは、ページで利用�
 使用する変数のスペース区切りの文字列を `data-amp-replace` で指定することにより、各入力の置換に使用する変数を指定する必要があります（以下の例を参照）。AMP は、明示的に指定されていない変数の置換を行いません。
 
 以下に、置換の前後の入力の例を示します（アナリティクスではなく変数置換のプラットフォーム構文を使用する必要があることに注意してください）。
-
 ```html
 <!-- Initial Load -->
 <form ...>
-  <input
-    name="canonicalUrl"
-    type="hidden"
-    value="The canonical URL is: CANONICAL_URL - RANDOM - CANONICAL_HOSTNAME"
-    data-amp-replace="CANONICAL_URL RANDOM"
-  />
-  <input
-    name="clientId"
-    type="hidden"
-    value="CLIENT_ID(myid)"
-    data-amp-replace="CLIENT_ID"
-  />
+  <input name="canonicalUrl" type="hidden"
+        value="The canonical URL is: CANONICAL_URL - RANDOM - CANONICAL_HOSTNAME"
+        data-amp-replace="CANONICAL_URL RANDOM">
+  <input name="clientId" type="hidden"
+        value="CLIENT_ID(myid)"
+        data-amp-replace="CLIENT_ID">
   ...
 </form>
 ```
@@ -657,19 +609,13 @@ HTML5 の検証で提供されるフィードバックは、ページで利用�
 ```html
 <!-- User submits the form, variables values are resolved into fields' value -->
 <form ...>
-  <input
-    name="canonicalUrl"
-    type="hidden"
-    value="The canonical URL is: https://example.com/hello - 0.242513759125 - CANONICAL_HOSTNAME"
-    data-amp-replace="CANONICAL_URL RANDOM"
-  />
-  <input
-    name="clientId"
-    type="hidden"
-    value="amp:asqar893yfaiufhbas9g879ab9cha0cja0sga87scgas9ocnas0ch"
-    data-amp-replace="CLIENT_ID"
-  />
-  ...
+  <input name="canonicalUrl" type="hidden"
+        value="The canonical URL is: https://example.com/hello - 0.242513759125 - CANONICAL_HOSTNAME"
+        data-amp-replace="CANONICAL_URL RANDOM">
+  <input name="clientId" type="hidden"
+        value="amp:asqar893yfaiufhbas9g879ab9cha0cja0sga87scgas9ocnas0ch"
+        data-amp-replace="CLIENT_ID">
+    ...
 </form>
 ```
 
@@ -711,17 +657,17 @@ amp-form では、`<textarea>` 要素に `autoexpand` 属性を指定できま�
 
 以下のクラスを使用すると、フォームの送信状態を指定できます。
 
-- `.amp-form-initial`
-- `.amp-form-verify`
-- `.amp-form-verify-error`
-- `.amp-form-submitting`
-- `.amp-form-submit-success`
-- `.amp-form-submit-error`
+* `.amp-form-initial`
+* `.amp-form-verify`
+* `.amp-form-verify-error`
+* `.amp-form-submitting`
+* `.amp-form-submit-success`
+* `.amp-form-submit-error`
 
 以下のクラスは、[ユーザー操作の疑似クラス用のポリフィル](#user-interaction-pseudo-classes)です。
 
-- `.user-valid`
-- `.user-invalid`
+* `.user-valid`
+* `.user-invalid`
 
 サイト運営者はこれらのクラスを使用して入力とフィールドセットのスタイルを設定し、ユーザー アクションに対応することができます（ユーザーが無効な入力をぼかした後に赤枠で強調するなど）。
 
@@ -738,8 +684,8 @@ amp-form では、`<textarea>` 要素に `autoexpand` 属性を指定できま�
 
 一般に、ユーザーからの入力を受け付ける場合は以下の点に注意してください。
 
-- 状態の変化に関するリクエストには POST のみを使用します。
-- XHR 以外の GET リクエストは、ナビゲーション（検索など）用にのみ使用します。
-  - XHR 以外の GET リクエストは正確なオリジンやヘッダーを受け取らないため、バックエンドは上記のメカニズムでは XSRF から保護することができません。
-  - 一般に、XHR GET リクエストまたは XHR 以外の GET リクエストは、ナビゲーションまたは情報取得用にのみ使用します。</li>
-- XHR 以外の POST リクエストは、AMP ドキュメントでは使用できません。これは、このリクエストでの `Origin` ヘッダーの設定方法がブラウザ間で統一されていないためです。また、XSRF からの保護では、このヘッダーのサポートに関する問題が生じます。このヘッダーは見直しが行われ、導入が遅れる可能性があります。このヘッダーが必要だとお考えの場合は、問題を報告してください。
+* 状態の変化に関するリクエストには POST のみを使用します。
+* XHR 以外の GET リクエストは、ナビゲーション（検索など）用にのみ使用します。
+    * XHR 以外の GET リクエストは正確なオリジンやヘッダーを受け取らないため、バックエンドは上記のメカニズムでは XSRF から保護することができません。
+    * 一般に、XHR GET リクエストまたは XHR 以外の GET リクエストは、ナビゲーションまたは情報取得用にのみ使用します。</li>
+* XHR 以外の POST リクエストは、AMP ドキュメントでは使用できません。これは、このリクエストでの `Origin` ヘッダーの設定方法がブラウザ間で統一されていないためです。また、XSRF からの保護では、このヘッダーのサポートに関する問題が生じます。このヘッダーは見直しが行われ、導入が遅れる可能性があります。このヘッダーが必要だとお考えの場合は、問題を報告してください。

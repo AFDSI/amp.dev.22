@@ -21,6 +21,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+
+
 GL İletim Biçimi (glTF) 3D modellerini görüntüler.
 
 <table>
@@ -48,13 +50,12 @@ GL İletim Biçimi (glTF) 3D modellerini görüntüler.
 
 ```html
 <amp-3d-gltf
-  layout="responsive"
-  width="320"
-  height="240"
-  alpha="true"
-  antialiasing="true"
-  src="path/to/model.glb"
-></amp-3d-gltf>
+    layout="responsive"
+    width="320"
+    height="240"
+    alpha="true"
+    antialiasing="true"
+    src="path/to/model.glb"></amp-3d-gltf>
 ```
 
 ### Sınırlamalar <a name="limitations"></a>
