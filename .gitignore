@@ -5,6 +5,7 @@
 .com.apple.timemachine.supported
 .idea
 .vscode
+.vs
 *.swp
 *.swo
 desktop.ini
