@@ -17,20 +17,12 @@ author: sebastianbenz
 <!doctype html>
 <html amp4ads lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Lightbox Ad</title>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+  <title>Lightbox Ad</title>
+    <meta name="viewport" content="width=device-width">
     <script async src="https://cdn.ampproject.org/amp4ads-v0.js"></script>
-    <script
-      async
-      custom-element="amp-lightbox"
-      src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"
-    ></script>
-    <style amp4ads-boilerplate>
-      body {
-        visibility: hidden;
-      }
-    </style>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <style amp4ads-boilerplate>body{visibility:hidden}</style>
     <!-- ## Summary-->
     <!--
     Sample AMPHTML ad using [amp-lightbox](/content/amp-dev/documentation/components/reference/amp-lightbox-v0.1.md).    -->
@@ -146,7 +138,7 @@ author: sebastianbenz
       /* Creates decorative underline for h3 headers */
       .lightbox-main h3:after {
         display: block;
-        content: ' ';
+        content: " ";
         background-color: #2979ff;
         width: 20px;
         height: 3px;
@@ -169,7 +161,7 @@ author: sebastianbenz
         align-items: center;
         justify-content: center;
       }
-      .lightbox-header h1 {
+      .lightbox-header h1  {
         display: inline;
         color: #fff;
         text-transform: uppercase;
@@ -217,6 +209,7 @@ author: sebastianbenz
     </style>
   </head>
   <body>
+
     <!-- ## Banner markup -->
     <!--
     `amp-ad-banner` is a dummy AMP element that is used by the AMP runtime to determine the position of the ad when a lightbox is opened.
@@ -232,20 +225,14 @@ author: sebastianbenz
       -->
       <div class="cards-container" id="cardsContainer">
         <div class="card card-seats">
-          <div
-            class="button expand-button"
-            role="button"
-            on="tap:lightbox-seats.activate"
-          >
-            +
-          </div>
-          <amp-img
-            src="/static/samples/img/car-seats.jpg"
-            width="340"
-            height="240"
-            layout="responsive"
-            alt="Ergonomic Leather Seats"
-          ></amp-img>
+          <div class="button expand-button"
+              role="button"
+              on="tap:lightbox-seats.activate">+</div>
+          <amp-img src="/static/samples/img/car-seats.jpg"
+              width="340"
+              height="240"
+              layout="responsive"
+              alt="Ergonomic Leather Seats"></amp-img>
         </div>
       </div>
     </amp-ad-banner>
@@ -256,44 +243,34 @@ author: sebastianbenz
     <amp-lightbox id="lightbox-seats" layout="nodisplay">
       <div class="lightbox">
         <div class="lightbox-hero">
-          <amp-img
-            src="/static/samples/img/car-seats.jpg"
-            width="608"
-            height="342"
-            layout="responsive"
-            alt="Ergonomic Leather Seats"
-            class="lightbox-hero-img"
-          ></amp-img>
+          <amp-img src="/static/samples/img/car-seats.jpg"
+              width="608"
+              height="342"
+              layout="responsive"
+              alt="Ergonomic Leather Seats"
+              class="lightbox-hero-img"></amp-img>
           <div class="lightbox-header">
-            <amp-img
-              src="/static/samples/img/car-logo.png"
-              width="72"
-              height="32"
-              layout="fixed"
-              alt="Howdy"
-              class="logo-img"
-            ></amp-img>
+            <amp-img src="/static/samples/img/car-logo.png"
+                width="72"
+                height="32"
+                layout="fixed"
+                alt="Howdy"
+                class="logo-img"></amp-img>
             <h1>The all-new WX-S R5</h1>
           </div>
         </div>
         <div class="lightbox-main">
           <h3>Ergonomic Leather Seats</h3>
           <p>
-            Available in Comfort Suede and leather. High-contrast stitching
-            colors available.
+            Available in Comfort Suede and leather. High-contrast stitching colors available.
           </p>
           <p class="learn-more">
-            <a href="https://amp.dev/documentation/examples/" target="_blank"
-              >Learn more</a
-            >
+            <a href="https://amp.dev/documentation/examples/" target="_blank">Learn more</a>
           </p>
         </div>
         <div class="lightbox-close-container">
-          <div
-            class="button lightbox-close-button"
-            role="button"
-            on="tap:lightbox-seats.close"
-          >
+          <div class="button lightbox-close-button" role="button"
+              on="tap:lightbox-seats.close">
             Close
           </div>
         </div>

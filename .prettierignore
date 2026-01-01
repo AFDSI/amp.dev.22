@@ -25,3 +25,8 @@ pages/content/shared/*.html
 # Files with Jinja2 templates that prettier breaks
 pages/content/amp-dev/about/websites-2021.html
 pages/content/amp-dev/documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md
+
+# Documentation with embedded examples
+pages/content/amp-dev/documentation/components/reference/*.md
+pages/content/amp-dev/documentation/guides-and-tutorials/**/*.md
+examples/source/

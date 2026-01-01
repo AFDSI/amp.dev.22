@@ -19,18 +19,14 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
 <!doctype html>
 <html ⚡ lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Tic-Tac-Toe</title>
-    <link rel="canonical" href="<% canonical %>" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href="<% canonical %>">
+    <meta name="viewport" content="width=device-width">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <!-- ## Setup -->
     <!-- `amp-bind` is required for interactive gameplay. -->
-    <script
-      async
-      custom-element="amp-bind"
-      src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
-    ></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <style amp-custom>
       .board-component {
         margin: 5em auto;
@@ -55,17 +51,17 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
       .board-component .cell {
         width: 5.25em;
         height: 5.25em;
-        border-color: #5adafd;
+        border-color: #5ADAFD;
         border-style: solid;
         border: 0;
       }
       .board-component .cell-vert {
-        border-left: 0.25em solid #5adafd;
-        border-right: 0.25em solid #5adafd;
+        border-left: 0.25em solid #5ADAFD;
+        border-right: 0.25em solid #5ADAFD;
       }
       .board-component .cell-horiz {
-        border-top: 0.25em solid #5adafd;
-        border-bottom: 0.25em solid #5adafd;
+        border-top: 0.25em solid #5ADAFD;
+        border-bottom: 0.25em solid #5ADAFD;
       }
       .board-component .win {
         background: lightgrey;
@@ -94,75 +90,22 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
       .reset-component .reset-button {
         font-size: 1rem;
         line-height: 1.125rem;
-        padding: 0.7em 0.8em;
+        padding: .7em .8em;
         text-decoration: none;
         white-space: nowrap;
         word-wrap: normal;
         vertical-align: middle;
         cursor: pointer;
         background-color: #fff;
-        color: #5adafd;
-        border: 1px solid #5adafd;
+        color: #5ADAFD;
+        border: 1px solid #5ADAFD
       }
     </style>
-    <style amp-boilerplate>
-      body {
-        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-      }
-      @-webkit-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-moz-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-ms-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-o-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
     <noscript>
-      <style amp-boilerplate>
-        body {
-          -webkit-animation: none;
-          -moz-animation: none;
-          -ms-animation: none;
-          animation: none;
-        }
-      </style>
+      <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
     </noscript>
+
   </head>
   <body>
     <!-- ## Initial game state -->
@@ -187,23 +130,9 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
     <!-- ## Showing a win -->
     <!-- To detect a win, we check whether any of the tallies has reached positive or negative 3. -->
     <div class="results-component">
-      <h1
-        [class]="max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3 ? 'hide' : 'show'"
-      >
-        Let's play!
-      </h1>
-      <h1
-        [class]="max(tr,br,lc,rc,fd,bd,mc,mr) == 3 ? 'show' : 'hide'"
-        class="hide"
-      >
-        ⚡ wins!!!
-      </h1>
-      <h1
-        [class]="min(tr,br,lc,rc,fd,bd,mc,mr) == -3 ? 'show' : 'hide'"
-        class="hide"
-      >
-        O wins!!!
-      </h1>
+      <h1 [class]="max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3 ? 'hide' : 'show'">Let's play!</h1>
+      <h1 [class]="max(tr,br,lc,rc,fd,bd,mc,mr) == 3 ? 'show' : 'hide'" class='hide'>⚡ wins!!!</h1>
+      <h1 [class]="min(tr,br,lc,rc,fd,bd,mc,mr) == -3 ? 'show' : 'hide'" class='hide'>O wins!!!</h1>
     </div>
 
     <!-- ## Handling a player's turn -->
@@ -223,8 +152,7 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
       <table>
         <tr>
           <td class="cell">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           tr: tr + gameState.currentPlayer,
                           lc: lc + gameState.currentPlayer,
                           bd: bd + gameState.currentPlayer,
@@ -238,12 +166,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.a ? board.a : ''"
               [class]="max(abs(tr),abs(lc),abs(bd)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.a || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell cell-vert">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           tr: tr + gameState.currentPlayer,
                           mc: mc + gameState.currentPlayer,
                           board: {
@@ -256,12 +183,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.b ? board.b : ''"
               [class]="max(abs(tr),abs(mc)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.b || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           tr: tr + gameState.currentPlayer,
                           rc: rc + gameState.currentPlayer,
                           fd: fd + gameState.currentPlayer,
@@ -275,14 +201,13 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.c ? board.c : ''"
               [class]="max(abs(tr),abs(rc),abs(fd)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.c || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
         </tr>
         <tr>
           <td class="cell cell-horiz">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           mr: mr + gameState.currentPlayer,
                           lc: lc + gameState.currentPlayer,
                           board: {
@@ -295,12 +220,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.d ? board.d : ''"
               [class]="max(abs(mr),abs(lc)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.d || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell cell-horiz cell-vert">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           mr: mr + gameState.currentPlayer,
                           mc: mc + gameState.currentPlayer,
                           fd: fd + gameState.currentPlayer,bd: bd + gameState.currentPlayer,
@@ -314,12 +238,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.e ? board.e : ''"
               [class]="max(abs(mr),abs(mc),abs(fd),abs(bd)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.e || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell cell-horiz">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           mr: mr + gameState.currentPlayer,
                           rc: rc + gameState.currentPlayer,
                           board: {
@@ -332,14 +255,13 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.f ? board.f : ''"
               [class]="max(abs(mr),abs(rc)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.f || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
         </tr>
         <tr>
           <td class="cell">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           br: br + gameState.currentPlayer,
                           lc: lc + gameState.currentPlayer,
                           fd: fd + gameState.currentPlayer,
@@ -353,12 +275,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.g ? board.g : ''"
               [class]="max(abs(br),abs(lc),abs(fd)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.g || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell cell-vert">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           br: br + gameState.currentPlayer,
                           mc: mc + gameState.currentPlayer,
                           board: {
@@ -371,12 +292,11 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.h ? board.h : ''"
               [class]="max(abs(br),abs(mc)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.h || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
           <td class="cell">
-            <button
-              on="tap:AMP.setState({
+            <button on="tap:AMP.setState({
                           br: br + gameState.currentPlayer,
                           rc: rc + gameState.currentPlayer,
                           bd: bd + gameState.currentPlayer,
@@ -390,8 +310,8 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
               [text]="board.i ? board.i : ''"
               [class]="max(abs(br),abs(rc), abs(bd)) == 3 ? 'grid-button win' : 'grid-button in-play'"
               [disabled]="board.i || max(abs(tr),abs(br),abs(lc),abs(rc),abs(fd),abs(bd),abs(mc),abs(mr)) == 3"
-              class="grid-button in-play"
-            ></button>
+              class="grid-button in-play">
+            </button>
           </td>
         </tr>
       </table>
@@ -400,9 +320,8 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
     <!-- ## Resetting the game state -->
     <!-- To start a new game, the `board` and 8 tallies are reset to `null` and the `currentPlayer` reset to `⚡`. -->
     <div class="reset-component">
-      <button
-        class="reset-button"
-        on="tap:AMP.setState({
+      <button class="reset-button"
+              on="tap:AMP.setState({
                   gameState: {
                     currentPlayer: 1,
                     displayValues: {
@@ -419,8 +338,7 @@ This is a sample showing how to implement Tic-Tac-Toe. This includes:
                   fd: null,
                   bd: null,
                   board: null
-                })"
-      >
+                })">
         Restart game
       </button>
     </div>

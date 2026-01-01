@@ -1,7 +1,6 @@
 <!---
 standaloneSnippets: true
 preview: true
-disablePlayground: true
 author: TomerAberbach
 formats:
   - email
@@ -16,51 +15,31 @@ formats:
 <!doctype html>
 <html ⚡4email lang="en" data-css-strict>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <style amp4email-boilerplate>
-      body {
-        visibility: hidden;
-      }
-    </style>
+    <style amp4email-boilerplate>body{visibility:hidden}</style>
 
     <!-- ## Setup -->
 
     <!--
       We use an [`amp-list`](/documentation/components/amp-list) component to query the user's current subscription setting on email or page load from the server.
     -->
-    <script
-      async
-      custom-element="amp-list"
-      src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
-    ></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 
     <!--
       We'll use [`amp-mustache`](/documentation/components/amp-mustache) to render the dropdown icon linked to the server responded subscription state.
     -->
-    <script
-      async
-      custom-template="amp-mustache"
-      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
-    ></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 
     <!--
       We'll also use [`amp-form`](/documentation/components/amp-form) to update the user's subscription setting on the server when they select a new setting from the icon dropdown.
     -->
-    <script
-      async
-      custom-element="amp-form"
-      src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
-    ></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 
     <!--
       Lastly, we use [`amp-bind`](/documentation/components/amp-bind) to update the dropdown's state in response to events.
     -->
-    <script
-      async
-      custom-element="amp-bind"
-      src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
-    ></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 
     <style amp-custom>
       .ap-o-code-preview-preview {
@@ -178,20 +157,21 @@ formats:
 
       Finally, we add a [placeholder and fallback](/documentation/guides-and-tutorials/develop/style_and_layout/placeholders) to keep the user informed about the state of the user interface and gracefully handle any issues.
     -->
-    <amp-list
-      src="<% base_path %>/subscription"
-      binding="refresh"
-      items="."
-      single-item
-      layout="fill"
-    >
+    <amp-list src="<% base_path %>/subscription" binding="refresh" items="." single-item layout="fill">
       <template type="amp-mustache">
         <select>
-          {{#options}} {{#isSelected}}
-          <option value="{{value}}" selected>{{text}}</option>
-          {{/isSelected}} {{^isSelected}}
-          <option value="{{value}}">{{text}}</option>
-          {{/isSelected}} {{/options}}
+          {{#options}}
+            {{#isSelected}}
+              <option value="{{value}}" selected>
+                {{text}}
+              </option>
+            {{/isSelected}}
+            {{^isSelected}}
+              <option value="{{value}}">
+                {{text}}
+              </option>
+            {{/isSelected}}
+          {{/options}}
         </select>
       </template>
       <div placeholder>Loading...</div>
@@ -213,25 +193,22 @@ formats:
 
       You can test the code by selecting a new subscription setting and refreshing the page. The `select` element's subscription setting on page load is now the one you selected!
     -->
-    <amp-list
-      src="<% base_path %>/subscription"
-      binding="refresh"
-      items="."
-      single-item
-      layout="fill"
-    >
+    <amp-list src="<% base_path %>/subscription" binding="refresh" items="." single-item layout="fill">
       <template type="amp-mustache">
-        <form
-          action-xhr="<% base_path %>/subscription"
-          method="post"
-          id="form1"
-        >
+        <form action-xhr="<% base_path %>/subscription" method="post" id="form1">
           <select name="nextSubscription" on="change: form1.submit;">
-            {{#options}} {{#isSelected}}
-            <option value="{{value}}" selected>{{text}}</option>
-            {{/isSelected}} {{^isSelected}}
-            <option value="{{value}}">{{text}}</option>
-            {{/isSelected}} {{/options}}
+            {{#options}}
+              {{#isSelected}}
+                <option value="{{value}}" selected>
+                  {{text}}
+                </option>
+              {{/isSelected}}
+              {{^isSelected}}
+                <option value="{{value}}">
+                  {{text}}
+                </option>
+              {{/isSelected}}
+            {{/options}}
           </select>
         </form>
       </template>
@@ -250,39 +227,27 @@ formats:
 
       To disable the `select` element we need a state variable that represents whether the form is currently submitting that we can use in the `select` element's `disabled` attribute binding. We reuse the `nextSubscription` state variable by ensuring it is `null` when the form is _not_ submitting by updating `nextSubscription` to `null` on the `submit-success` and `submit-error` events of the `form` element. Finally, we bind the `select` element's `disabled` attribute to `!!nextSubscription` because the state variable is truthy when the form is submitting. We do the same for each of its `option` elements to prevent the user from using the keyboard to switch between the values while the form is submitting.
     -->
-    <amp-list
-      src="<% base_path %>/subscription"
-      binding="refresh"
-      items="."
-      single-item
-      layout="fill"
-    >
+    <amp-list src="<% base_path %>/subscription" binding="refresh" items="." single-item layout="fill">
       <template type="amp-mustache">
-        <form
-          action-xhr="<% base_path %>/subscription"
-          method="post"
-          id="form2"
+        <form action-xhr="<% base_path %>/subscription" method="post" id="form2"
           on="submit-success: AMP.setState({ nextSubscription: null });
-            submit-error: AMP.setState({ nextSubscription: null });"
-        >
-          <input
-            type="hidden"
-            name="nextSubscription"
-            [value]="nextSubscription"
-          />
+            submit-error: AMP.setState({ nextSubscription: null });">
+          <input type="hidden" name="nextSubscription" [value]="nextSubscription">
           <select
             on="change: AMP.setState({ nextSubscription: event.value }), form2.submit;"
-            [disabled]="!!nextSubscription"
-          >
-            {{#options}} {{#isSelected}}
-            <option value="{{value}}" [disabled]="!!nextSubscription" selected>
-              {{text}}
-            </option>
-            {{/isSelected}} {{^isSelected}}
-            <option value="{{value}}" [disabled]="!!nextSubscription">
-              {{text}}
-            </option>
-            {{/isSelected}} {{/options}}
+            [disabled]="!!nextSubscription">
+            {{#options}}
+              {{#isSelected}}
+                <option value="{{value}}" [disabled]="!!nextSubscription" selected>
+                  {{text}}
+                </option>
+              {{/isSelected}}
+              {{^isSelected}}
+                <option value="{{value}}" [disabled]="!!nextSubscription">
+                  {{text}}
+                </option>
+              {{/isSelected}}
+            {{/options}}
           </select>
         </form>
       </template>
@@ -309,30 +274,16 @@ formats:
 
       The following code snippet is configured to fail form submissions. Test out the new behavior!
      -->
-    <amp-list
-      src="<% base_path %>/subscription"
-      binding="refresh"
-      items="."
-      single-item
-      layout="fill"
-    >
+    <amp-list src="<% base_path %>/subscription" binding="refresh" items="." single-item layout="fill">
       <template type="amp-mustache">
-        <form
-          action-xhr="<% base_path %>/subscription?fail=true"
-          method="post"
-          id="form3"
+        <form action-xhr="<% base_path %>/subscription?fail=true" method="post" id="form3"
           on="submit-success: AMP.setState({ nextSubscription: null });
             submit-error:
               AMP.setState({
                 currentSubscription: previousSubscription,
                 nextSubscription: null
-              });"
-        >
-          <input
-            type="hidden"
-            name="nextSubscription"
-            [value]="nextSubscription"
-          />
+              });">
+          <input type="hidden" name="nextSubscription" [value]="nextSubscription">
           <select
             on="change:
                 AMP.setState({
@@ -341,26 +292,21 @@ formats:
                   nextSubscription: event.value
                 }),
                 form3.submit;"
-            [disabled]="!!nextSubscription"
-          >
-            {{#options}} {{#isSelected}}
-            <option
-              value="{{value}}"
-              [disabled]="!!nextSubscription"
-              selected
-              [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'"
-            >
-              {{text}}
-            </option>
-            {{/isSelected}} {{^isSelected}}
-            <option
-              value="{{value}}"
-              [disabled]="!!nextSubscription"
-              [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'"
-            >
-              {{text}}
-            </option>
-            {{/isSelected}} {{/options}}
+            [disabled]="!!nextSubscription">
+            {{#options}}
+              {{#isSelected}}
+                <option value="{{value}}" [disabled]="!!nextSubscription"
+                  selected [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'">
+                  {{text}}
+                </option>
+              {{/isSelected}}
+              {{^isSelected}}
+                <option value="{{value}}" [disabled]="!!nextSubscription"
+                  [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'">
+                  {{text}}
+                </option>
+              {{/isSelected}}
+            {{/options}}
           </select>
           <div submit-error>Something went wrong. Please try again</div>
         </form>
@@ -437,46 +383,26 @@ formats:
 
       And we're done!
     -->
-    <amp-list
-      src="<% base_path %>/subscription"
-      binding="refresh"
-      items="."
-      single-item
-      layout="fill"
-    >
+    <amp-list src="<% base_path %>/subscription" binding="refresh" items="." single-item layout="fill">
       <template type="amp-mustache">
-        <form
-          action-xhr="<% base_path %>/subscription"
-          method="post"
-          id="form4"
+        <form action-xhr="<% base_path %>/subscription" method="post" id="form4"
           on="submit-success: AMP.setState({ nextSubscription: null });
             submit-error:
               AMP.setState({
                 currentSubscription: previousSubscription,
                 nextSubscription: null
-              });"
-        >
-          <div
-            class="icon-container relative icon-sized"
-            [class]="(nextSubscription ? 'disabled ' : ' ') + 'icon-container relative icon-sized'"
-          >
+              });">
+          <div class="icon-container relative icon-sized"
+               [class]="(nextSubscription ? 'disabled ' : ' ') + 'icon-container relative icon-sized'">
             <div class="icon icon-sized" aria-hidden>
               {{#options}}
-              <amp-img
-                width="30"
-                height="30"
-                src="{{imgUrl}}"
-                class="{{#isSelected}}visible {{/isSelected}}absolute"
-                [class]="((currentSubscription || '{{currentSubscription}}') == '{{value}}' ? 'visible ' : ' ') + 'absolute'"
-              >
-              </amp-img>
+                <amp-img width="30" height="30" src="{{imgUrl}}"
+                   class="{{#isSelected}}visible {{/isSelected}}absolute"
+                   [class]="((currentSubscription || '{{currentSubscription}}') == '{{value}}' ? 'visible ' : ' ') + 'absolute'">
+                </amp-img>
               {{/options}}
             </div>
-            <input
-              type="hidden"
-              name="nextSubscription"
-              [value]="nextSubscription"
-            />
+            <input type="hidden" name="nextSubscription" [value]="nextSubscription">
             <select
               class="subscription-select absolute icon-sized"
               on="change:
@@ -486,26 +412,21 @@ formats:
                     nextSubscription: event.value
                   }),
                   form4.submit;"
-              [disabled]="!!nextSubscription"
-            >
-              {{#options}} {{#isSelected}}
-              <option
-                value="{{value}}"
-                [disabled]="!!nextSubscription"
-                selected
-                [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'"
-              >
-                {{text}}
-              </option>
-              {{/isSelected}} {{^isSelected}}
-              <option
-                value="{{value}}"
-                [disabled]="!!nextSubscription"
-                [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'"
-              >
-                {{text}}
-              </option>
-              {{/isSelected}} {{/options}}
+              [disabled]="!!nextSubscription">
+              {{#options}}
+                {{#isSelected}}
+                  <option value="{{value}}" [disabled]="!!nextSubscription"
+                    selected [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'">
+                    {{text}}
+                  </option>
+                {{/isSelected}}
+                {{^isSelected}}
+                  <option value="{{value}}" [disabled]="!!nextSubscription"
+                    [selected]="(currentSubscription || '{{currentSubscription}}') == '{{value}}'">
+                    {{text}}
+                  </option>
+                {{/isSelected}}
+              {{/options}}
             </select>
           </div>
           <div submit-error>Something went wrong. Please try again</div>

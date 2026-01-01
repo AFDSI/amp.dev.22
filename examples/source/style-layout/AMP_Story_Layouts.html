@@ -13,76 +13,16 @@ skipValidation: 'true'
 <!doctype html>
 <html amp lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script
-      async
-      custom-element="amp-story"
-      src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-    ></script>
+    <script async custom-element="amp-story"
+        src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
     <title>AMP Story Layouts</title>
-    <meta name="description" content="Get started with amp-story" />
+    <meta name="description" content="Get started with amp-story">
 
-    <meta name="viewport" content="width=device-width" />
-    <link rel="canonical" href="<% canonical %>" />
-    <style amp-boilerplate>
-      body {
-        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-      }
-      @-webkit-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-moz-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-ms-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-o-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-    </style>
-    <noscript
-      ><style amp-boilerplate>
-        body {
-          -webkit-animation: none;
-          -moz-animation: none;
-          -ms-animation: none;
-          animation: none;
-        }
-      </style></noscript
-    >
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="<% canonical %>">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
       body {
         font-family: 'Roboto', sans-serif;
@@ -97,19 +37,18 @@ skipValidation: 'true'
         color: white;
         padding: 8px;
       }
-    </style>
+      </style>
   </head>
 
   <body>
-    <amp-story
-      standalone
+    <amp-story standalone
       title="Stories in AMP - Layouts"
       publisher="AMP Project"
       publisher-logo-src="<% hosts.platform %>/favicons/coast-228x228.png"
       poster-portrait-src="https://picsum.photos/300/400"
       poster-square-src="https://picsum.photos/300/300"
-      poster-landscape-src="https://picsum.photos/400/300"
-    >
+      poster-landscape-src="https://picsum.photos/400/300">
+
       <!-- ## Fill -->
 
       <!-- The fill layout template makes the first child take up all the available space. -->
@@ -122,13 +61,7 @@ skipValidation: 'true'
       <!-- Images & videos should have a resolution of `720x1280` pixels when using the `fill` layout.-->
       <amp-story-page id="fill-template-example-2">
         <amp-story-grid-layer template="fill">
-          <amp-img
-            src="https://unsplash.it/720/1280/"
-            width="720"
-            height="1280"
-            layout="responsive"
-            alt="..."
-          ></amp-img>
+          <amp-img src="https://unsplash.it/720/1280/" width="720" height="1280" layout="responsive" alt="..."></amp-img>
         </amp-story-grid-layer>
       </amp-story-page>
 
@@ -139,10 +72,8 @@ skipValidation: 'true'
           <div class="content">A paragraph</div>
           <div class="content">A longer paragraph</div>
           <div class="content">A much longer paragraph</div>
-          <div class="content">
-            A veeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long Paragraph. By far. So very
-            very long. It's actually so long that it spans over multiple lines.
-          </div>
+          <div class="content">A veeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long Paragraph. By far. So very very long. It's
+          actually so long that it spans over multiple lines.</div>
         </amp-story-grid-layer>
       </amp-story-page>
 
@@ -170,22 +101,17 @@ skipValidation: 'true'
       <!-- The content defines how much space each row takes. -->
       <amp-story-page id="vertical-template-example-3">
         <amp-story-grid-layer template="vertical">
-          <amp-img
-            src="https://unsplash.it/720/640/?image=10"
-            width="720"
-            height="640"
-            layout="responsive"
-            alt="..."
-          ></amp-img>
-          <amp-img
-            src="https://unsplash.it/720/640/?image=11"
-            width="720"
-            height="640"
-            layout="responsive"
-            alt="..."
-          ></amp-img>
+          <amp-img src="https://unsplash.it/720/640/?image=10"
+                   width="720"
+                   height="640" layout="responsive"
+                   alt="..."></amp-img>
+          <amp-img src="https://unsplash.it/720/640/?image=11"
+                   width="720"
+                   height="640" layout="responsive"
+                   alt="..."></amp-img>
         </amp-story-grid-layer>
       </amp-story-page>
+
 
       <!-- ## Thirds -->
       <!-- The thirds template divides the screen into three equally-sized rows. -->
@@ -226,11 +152,9 @@ skipValidation: 'true'
         </amp-story-grid-layer>
       </amp-story-page>
 
-      <amp-story-bookend
-        src="<% hosts.platform %>/static/samples/json/bookend.json"
-        layout="nodisplay"
-      >
+      <amp-story-bookend src="<% hosts.platform %>/static/samples/json/bookend.json" layout="nodisplay">
       </amp-story-bookend>
+
     </amp-story>
   </body>
 </html>

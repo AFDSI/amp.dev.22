@@ -2,6 +2,7 @@
 author: mszylkowski
 --->
 
+
 <!--
   ## Introduction
 
@@ -14,137 +15,56 @@ author: mszylkowski
 <!doctype html>
 <html ⚡ lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="This is an interactive story with quizzes."
-    />
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" />
-    <link
-      rel="preload"
-      as="script"
-      href="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This is an interactive story with quizzes.">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-story-1.0.js">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script
-      async
-      custom-element="amp-story"
-      src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-    ></script>
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
     <!-- To begin, import `amp-story-interactive` along your other stories imports. -->
-    <script
-      async
-      custom-element="amp-story-interactive"
-      src="https://cdn.ampproject.org/v0/amp-story-interactive-0.1.js"
-    ></script>
+    <script async custom-element="amp-story-interactive" src="https://cdn.ampproject.org/v0/amp-story-interactive-0.1.js"></script>
     <!-- We will also link analytics to track statistics -->
-    <script
-      async
-      custom-element="amp-analytics"
-      src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
-    ></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <style amp-custom>
-      .center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 22em;
-        font-size: 0.23em;
-      }
 
-      #quiz-1 {
-        --interactive-prompt-text-color: rgb(112, 238, 96);
-        --interactive-accent-color: green;
-      }
+    .center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 22em;
+      font-size: 0.23em;
+    }
 
-      #quiz-2 {
-        --interactive-accent-color: rgb(9, 63, 4);
-      }
+    #quiz-1 {
+      --interactive-prompt-text-color: rgb(112, 238, 96);
+      --interactive-accent-color: green;
+    }
 
-      #quiz-3 {
-        --interactive-prompt-background: linear-gradient(
-          120deg,
-          dodgerblue,
-          blue
-        );
-      }
+    #quiz-2 {
+      --interactive-accent-color: rgb(9, 63, 4);
+    }
 
-      #results-1 {
-        --interactive-prompt-text-color: white;
-        --interactive-accent-color: rgb(5, 99, 221);
-      }
+    #quiz-3 {
+        --interactive-prompt-background: linear-gradient(120deg, dodgerblue, blue);
+    }
+
+    #results-1 {
+      --interactive-prompt-text-color: white;
+      --interactive-accent-color: rgb(5, 99, 221);
+    }
     </style>
-    <style amp-boilerplate>
-      body {
-        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-      }
-      @-webkit-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-moz-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-ms-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-o-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-    </style>
-    <noscript
-      ><style amp-boilerplate>
-        body {
-          -webkit-animation: none;
-          -moz-animation: none;
-          -ms-animation: none;
-          animation: none;
-        }
-      </style></noscript
-    >
-    <link rel="canonical" href="." />
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link rel="canonical" href=".">
     <title>Interactive quizzes with results</title>
   </head>
   <body>
-    <amp-story
-      standalone
+    <amp-story standalone
       publisher="Stories Format"
       title="Soccer facts"
       poster-portrait-src="./last_supper.jpg"
-      publisher-logo-src="https://amp.dev/static/img/icons/icon-512x512.png"
-    >
+      publisher-logo-src="https://amp.dev/static/img/icons/icon-512x512.png">
       <!-- Add your [amp-analytics](https://amp.dev/documentation/components/amp-analytics/?format=stories) configuration to the story. We will be using the `${storyInteractiveId}` and `${storyInteractiveResponse}` to gather additional information on the responses. A complete list of vars can be found in the [documentation](/documentation/components/amp-story-interactive?format=stories) -->
       <amp-analytics id="my-analytics">
         <script type="application/json">
@@ -185,31 +105,22 @@ author: mszylkowski
       -->
       <amp-story-page id="page-quiz-1">
         <amp-story-grid-layer template="fill" style="background-color: black">
-          <amp-img
-            style="opacity: 0.7"
-            layout="fixed"
-            width="1600"
-            height="1200"
+          <amp-img style="opacity:0.7"
+            layout="fixed" width="1600" height="1200"
             src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=20"
-            alt="..."
-          />
+            alt="..." />
         </amp-story-grid-layer>
         <amp-story-grid-layer template="fill" aspect-ratio="4:6">
           <div animate-in="scale-fade-up">
             <amp-story-interactive-quiz
-              id="quiz-1"
-              class="center"
+              id="quiz-1" class="center"
               prompt-text="Who won the first soccer world cup?"
               endpoint="https://amp.dev/documentation/examples/components/amp-story-interactive-poll/results"
-              prompt-size="large"
-              chip-style="transparent"
+              prompt-size="large" chip-style="transparent"
               option-1-text="Spain"
               option-2-text="Brazil"
-              option-3-text="Uruguay"
-              option-3-correct
-              option-3-confetti="⚽"
-              option-4-text="Germany"
-            >
+              option-3-text="Uruguay" option-3-correct option-3-confetti="⚽"
+              option-4-text="Germany">
             </amp-story-interactive-quiz>
           </div>
         </amp-story-grid-layer>
@@ -224,12 +135,9 @@ author: mszylkowski
       <amp-story-page id="page-quiz-2">
         <amp-story-grid-layer template="fill">
           <amp-img
-            layout="fixed"
-            width="1600"
-            height="1200"
+            layout="fixed" width="1600" height="1200"
             src="https://images.unsplash.com/photo-1527871252447-4ce32da643c6?q=20"
-            alt="..."
-          />
+            alt="..." />
         </amp-story-grid-layer>
         <amp-story-grid-layer template="fill" aspect-ratio="4:6">
           <div animate-in="scale-fade-up">
@@ -240,12 +148,9 @@ author: mszylkowski
               class="center"
               prompt-size="large"
               option-1-text="Spain"
-              option-2-text="Brazil"
-              option-2-correct
-              option-2-confetti="⚽"
+              option-2-text="Brazil" option-2-correct option-2-confetti="⚽"
               option-3-text="Uruguay"
-              option-4-text="Germany"
-            >
+              option-4-text="Germany">
             </amp-story-interactive-quiz>
           </div>
         </amp-story-grid-layer>
@@ -263,28 +168,22 @@ author: mszylkowski
       <amp-story-page id="page-quiz-3">
         <amp-story-grid-layer template="fill">
           <amp-img
-            layout="fixed"
-            width="1600"
-            height="1200"
+            layout="fixed" width="1600" height="1200"
             src="https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?q=20"
-            alt="..."
-          />
+            alt="..." />
         </amp-story-grid-layer>
         <amp-story-grid-layer template="fill" aspect-ratio="4:6">
           <div animate-in="scale-fade-up">
             <amp-story-interactive-quiz
-              id="quiz-3"
-              prompt-text="Where are FIFA headquarters?"
-              endpoint="https://amp.dev/documentation/examples/components/amp-story-interactive-poll/results"
-              class="center"
-              prompt-size="large"
-              option-1-text="Germany"
-              option-2-text="USA"
-              option-3-text="Switzerland"
-              option-3-correct
-              option-3-confetti="🌐"
-              option-4-text="Spain"
-            >
+               id="quiz-3"
+               prompt-text="Where are FIFA headquarters?"
+               endpoint="https://amp.dev/documentation/examples/components/amp-story-interactive-poll/results"
+               class="center"
+               prompt-size="large"
+               option-1-text="Germany"
+               option-2-text="USA"
+               option-3-text="Switzerland" option-3-correct option-3-confetti="🌐"
+               option-4-text="Spain">
             </amp-story-interactive-quiz>
           </div>
         </amp-story-grid-layer>
@@ -303,26 +202,17 @@ author: mszylkowski
       <amp-story-page id="page-results">
         <amp-story-grid-layer template="fill">
           <amp-img
-            layout="fixed"
-            width="1600"
-            height="1200"
+            layout="fixed" width="1600" height="1200"
             src="https://images.unsplash.com/photo-1527871369852-eb58cb2b54e2?q=20"
-            alt="..."
-          />
+            alt="..." />
         </amp-story-grid-layer>
         <amp-story-grid-layer template="fill" aspect-ratio="4:6">
           <div animate-in="scale-fade-up">
             <amp-story-interactive-results
-              id="results-1"
-              class="center"
-              prompt-text="You are a soccer"
-              option-1-results-category="Fan"
-              option-1-text="You might not be the most knowledgeable, but enjoy watching games every now and then"
-              option-1-results-threshold="0"
-              option-2-results-category="Expert"
-              option-2-text="You know everything about soccer, be proud of it!"
-              option-2-results-threshold="80"
-            >
+               id="results-1" class="center"
+               prompt-text="You are a soccer"
+               option-1-results-category="Fan" option-1-text="You might not be the most knowledgeable, but enjoy watching games every now and then" option-1-results-threshold="0"
+               option-2-results-category="Expert" option-2-text="You know everything about soccer, be proud of it!" option-2-results-threshold="80">
             </amp-story-interactive-results>
           </div>
         </amp-story-grid-layer>

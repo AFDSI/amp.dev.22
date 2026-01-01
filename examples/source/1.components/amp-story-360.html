@@ -12,106 +12,29 @@ author: philipbell
 <!doctype html>
 <html ⚡ lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="This is an immersive story with 360 content."
-    />
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" />
-    <link
-      rel="preload"
-      as="script"
-      href="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This is an immersive story with 360 content.">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-story-1.0.js">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script
-      async
-      custom-element="amp-story"
-      src="https://cdn.ampproject.org/v0/amp-story-1.0.js"
-    ></script>
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
     <!-- To begin, import `amp-story-360` along with your other stories imports. -->
-    <script
-      async
-      custom-element="amp-story-360"
-      src="https://cdn.ampproject.org/v0/amp-story-360-0.1.js"
-    ></script>
+    <script async custom-element="amp-story-360" src="https://cdn.ampproject.org/v0/amp-story-360-0.1.js"></script>
     <!-- We also import `amp-video` since we will use a 360 video. -->
-    <script
-      async
-      custom-element="amp-video"
-      src="https://cdn.ampproject.org/v0/amp-video-0.1.js"
-    ></script>
-    <style amp-custom></style>
-    <style amp-boilerplate>
-      body {
-        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-      }
-      @-webkit-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-moz-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-ms-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @-o-keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
-      @keyframes -amp-start {
-        from {
-          visibility: hidden;
-        }
-        to {
-          visibility: visible;
-        }
-      }
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <style amp-custom>
     </style>
-    <noscript
-      ><style amp-boilerplate>
-        body {
-          -webkit-animation: none;
-          -moz-animation: none;
-          -ms-animation: none;
-          animation: none;
-        }
-      </style></noscript
-    >
-    <link rel="canonical" href="." />
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link rel="canonical" href=".">
     <title>amp-story-360</title>
   </head>
   <body>
-    <amp-story
-      standalone
+    <amp-story standalone
       publisher="Stories Format"
       title="amp-story-360"
       poster-portrait-src="img/amp-story-360-video-cover.jpg"
-      publisher-logo-src="https://amp.dev/static/img/icons/icon-512x512.png"
-    >
+      publisher-logo-src="https://amp.dev/static/img/icons/icon-512x512.png">
       <!-- 
         ## Basic usage
 
@@ -129,18 +52,12 @@ author: philipbell
 
       <amp-story-page id="360-image-1">
         <amp-story-grid-layer template="fill">
-          <amp-story-360
-            layout="fill"
-            heading-start="115"
-            pitch-start="10"
-            zoom-start="1"
-          >
+          <amp-story-360 layout="fill"
+          heading-start="115"
+          pitch-start="10"
+          zoom-start="1">
             <amp-img
-              src="/static/samples/img/amp-story-360.jpg"
-              width="4300"
-              height="2150"
-              alt="..."
-            >
+              src="/static/samples/img/amp-story-360.jpg" width="4300" height="2150" alt="...">
             </amp-img>
           </amp-story-360>
         </amp-story-grid-layer>
@@ -158,22 +75,16 @@ author: philipbell
 
       <amp-story-page id="360-image-2">
         <amp-story-grid-layer template="fill">
-          <amp-story-360
-            layout="fill"
+          <amp-story-360 layout="fill"
             heading-start="115"
             pitch-start="10"
             zoom-start="1"
             heading-end="50"
             pitch-end="-5"
             zoom-end="1.33"
-            duration="3s"
-          >
+            duration="3s">
             <amp-img
-              src="/static/samples/img/amp-story-360.jpg"
-              width="4300"
-              height="2150"
-              alt="..."
-            >
+              src="/static/samples/img/amp-story-360.jpg" width="4300" height="2150" alt="...">
             </amp-img>
           </amp-story-360>
         </amp-story-grid-layer>
@@ -194,8 +105,7 @@ author: philipbell
 
       <amp-story-page id="360-image-3">
         <amp-story-grid-layer template="fill">
-          <amp-story-360
-            layout="fill"
+          <amp-story-360 layout="fill"
             heading-start="115"
             pitch-start="10"
             zoom-start="1"
@@ -203,14 +113,9 @@ author: philipbell
             pitch-end="-5"
             zoom-end="1.33"
             duration="3s"
-            controls="gyroscope"
-          >
+            controls="gyroscope">
             <amp-img
-              src="/static/samples/img/amp-story-360.jpg"
-              width="4300"
-              height="2150"
-              alt="..."
-            >
+              src="/static/samples/img/amp-story-360.jpg" width="4300" height="2150" alt="...">
             </amp-img>
           </amp-story-360>
         </amp-story-grid-layer>
@@ -223,34 +128,25 @@ author: philipbell
 
         Video credit: [NASA](https://commons.wikimedia.org/wiki/File:NASA_VR-360_Astronaut_Training-_Space_Walk.webm).  
       -->
-
+  
       <amp-story-page id="360-video-1">
         <amp-story-grid-layer template="fill">
-          <amp-story-360
-            layout="fill"
-            heading-start="30"
-            pitch-start="20"
+          <amp-story-360 layout="fill"
+            heading-start="30" 
+            pitch-start="20" 
             zoom-start="1"
-            heading-end="-20"
-            pitch-end="10"
+            heading-end="-20" 
+            pitch-end="10" 
             zoom-end="1.33"
             duration="3s"
-            controls="gyroscope"
-          >
-            <amp-video
-              poster="img/amp-story-360-video-cover.jpg"
-              autoplay
-              layout="fill"
-              loop
-            >
-              <source
-                src="/static/samples/video/amp-story-360.mp4"
-                type="video/mp4"
-              />
+            controls="gyroscope">
+            <amp-video poster="img/amp-story-360-video-cover.jpg" autoplay layout="fill" loop>
+              <source src="/static/samples/video/amp-story-360.mp4" type="video/mp4" />
             </amp-video>
           </amp-story-360>
         </amp-story-grid-layer>
       </amp-story-page>
+
     </amp-story>
   </body>
 </html>

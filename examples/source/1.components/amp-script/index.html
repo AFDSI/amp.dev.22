@@ -14,7 +14,7 @@ author:
 -->
 
 <!-- -->
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8" />
@@ -507,7 +507,7 @@ author:
         };
 
         const lang = navigator.language.slice(0, 2);
-        let translation = translationMap[lang];
+        const translation = translationMap[lang];
         if (!translation) {
           translation = "Couldn't recognize your language. So: Saluton";
         }

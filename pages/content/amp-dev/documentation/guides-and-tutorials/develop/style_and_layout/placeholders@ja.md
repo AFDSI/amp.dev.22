@@ -23,28 +23,22 @@ contributors:
 `placeholder` 属性が指定された要素は、 親 AMP 要素のプレースホルダとして機能します。 指定する場合、`placeholder` 要素は AMP 要素の直接の子にする必要があります。 `placeholder` として指定された要素は常に親 AMP 要素に入れられます（`fill`）。
 
 [example preview="inline" playground="true" imports="amp-anim:0.1"]
-
 ```html
-<amp-anim
-  src="{{server_for_email}}/static/inline-examples/images/wavepool.gif"
+<amp-anim src="{{server_for_email}}/static/inline-examples/images/wavepool.gif"
   layout="responsive"
   width="400"
-  height="300"
->
-  <amp-img
-    placeholder
+  height="300">
+  <amp-img placeholder
     src="{{server_for_email}}/static/inline-examples/images/wavepool.png"
-    layout="fill"
-  >
+    layout="fill">
   </amp-img>
 </amp-anim>
 ```
-
 [/example]
 
 デフォルトでは、AMP 要素のリソースがダウンロードまたは初期化されていない場合でも、 プレースホルダが AMP 要素にすぐに表示されます。 AMP 要素の準備ができると、通常その要素がプレースホルダを非表示にしてコンテンツを表示します。
 
-[tip type="note"] <strong>注意 –</strong> プレースホルダは AMP 要素でなくてもかまいません。 任意の HTML 要素をプレースホルダとして使用できます。[/tip]
+[tip type="note"] <strong>注意 –</strong>  プレースホルダは AMP 要素でなくてもかまいません。 任意の HTML 要素をプレースホルダとして使用できます。[/tip]
 
 ## フォールバック <a name="fallbacks"></a>
 
@@ -54,35 +48,24 @@ contributors:
 - コンテンツを読み込めなかった場合（削除されたツイートなど）
 - 画像の種類がサポートされていない場合（すべてのブラウザでサポートされていない WebP など）
 
-AMP要素だけでなく、_&nbsp;any {/ em1} HTML要素に` fallback {/ code0}属性を設定できます。指定する場合、` fallback {/ code2}要素はAMP要素の直接の子である必要があります。``_
+AMP要素だけでなく、*&nbsp;any {/ em1} HTML要素に` fallback {/ code0}属性を設定できます。指定する場合、` fallback {/ code2}要素はAMP要素の直接の子である必要があります。``*
 
 ##### 例: サポートされていない機能の場合
 
 次の例では、`fallback` 属性を使うことで、ブラウザが特定の機能をサポートしていないことをユーザーに伝えています。
 
 [example preview="inline" playground="true" imports="amp-video:0.1"]
-
 ```html
-<amp-video
-  {%
-  if
-  format=""
-  ="stories"
-  %}autoplay
-  {%
-  endif
-  %}controls
+<amp-video {% if format=='stories'%}autoplay {% endif %}controls
   width="640"
   height="360"
   src="{{server_for_email}}/static/inline-examples/videos/kitten-playing.mp4"
-  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png"
->
+  poster="{{server_for_email}}/static/inline-examples/images/kitten-playing.png">
   <div fallback>
     <p>This browser does not support the video element.</p>
   </div>
 </amp-video>
 ```
-
 [/example]
 
 ##### 例: 異なる画像形式を配信する場合
@@ -90,26 +73,20 @@ AMP要素だけでなく、_&nbsp;any {/ em1} HTML要素に` fallback {/ code0}�
 次の例では、`fallback` 属性を使用して、WebP 形式がサポートされていない場合に JPEG ファイルを使用するようにブラウザに指示しています。
 
 [example preview="inline" playground="true"]
-
 ```html
-<amp-img
-  alt="Mountains"
+<amp-img alt="Mountains"
   width="550"
   height="368"
   layout="responsive"
-  src="{{server_for_email}}/static/inline-examples/images/mountains.webp"
->
-  <amp-img
-    alt="Mountains"
+  src="{{server_for_email}}/static/inline-examples/images/mountains.webp">
+  <amp-img alt="Mountains"
     fallback
     width="550"
     height="368"
     layout="responsive"
-    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"
-  ></amp-img>
+    src="{{server_for_email}}/static/inline-examples/images/mountains.jpg"></amp-img>
 </amp-img>
 ```
-
 [/example]
 
 ## プレースホルダとフォールバックの相互作用
