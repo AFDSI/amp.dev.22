@@ -90,15 +90,19 @@ success_stories:
             performance.') }}
           </p>
         </div>
-        {% with %} {% set square = true %} {% set href =
-        g.doc('/content/amp-dev/documentation/components/index.html',
-        locale=doc.locale).url.path %} {% set text = _("See the full component
-        library") %} {% include '/views/2021/partials/content/link.j2' %} {%
-        endwith %}
+        {% with %}
+          {% set square = true %}
+          {% set href = g.doc('/content/amp-dev/documentation/components/index.html', locale=doc.locale).url.path %}
+          {% set text = _("See the full component library") %}
+          {% include '/views/2021/partials/content/link.j2' %}
+        {% endwith %}
 
         <p>
           {{ _('Want just the components without the AMP ecosystem? ')}}
-          <a href="https://bentojs.dev/get-started/">Check out Bento AMP</a>!
+          <a
+            href="https://bentojs.dev/get-started/"
+            >Check out Bento AMP</a
+          >!
         </p>
       </div>
       <div class="ap-text-media-col">
@@ -167,24 +171,10 @@ success_stories:
       </div>
       {% endfor %}
     </amp-base-carousel>
-    <amp-selector
-      class="ap-cards-carousel-pagination"
-      id="cards-carousel-pagination"
-      layout="container"
-      on="select: cards-carousel.goToSlide(index=event.targetOption)"
-    >
+    <amp-selector class="ap-cards-carousel-pagination" id="cards-carousel-pagination" layout="container" on="select: cards-carousel.goToSlide(index=event.targetOption)">
       {% for card in doc.cards %}
-      <div
-        class="ap-cards-carousel-pagination-item"
-        option="{{ loop.index0 }}"
-        {%
-        if
-        loop.index0=""
-        ="0"
-        %}selected{%
-        endif
-        %}
-      ></div>
+        <div class="ap-cards-carousel-pagination-item" option="{{ loop.index0 }}" {% if loop.index0==0 %}selected{% endif
+          %}></div>
       {% endfor %}
     </amp-selector>
   </section>
@@ -204,11 +194,12 @@ success_stories:
             }}
           </p>
         </div>
-        {% with %} {% set square = true %} {% set href =
-        g.doc('/content/amp-dev/support/faq/platform-and-vendor-partners.md',
-        locale=doc.locale).url.path %} {% set text = _("See supported
-        platforms") %} {% include '/views/2021/partials/content/link.j2' %} {%
-        endwith %}
+        {% with %}
+          {% set square = true %}
+          {% set href = g.doc('/content/amp-dev/support/faq/platform-and-vendor-partners.md', locale=doc.locale).url.path %}
+          {% set text = _("See supported platforms") %}
+          {% include '/views/2021/partials/content/link.j2' %}
+        {% endwith %}
       </div>
       <div class="ap-text-media-col">
         <figure>
@@ -262,10 +253,12 @@ success_stories:
           </p>
         </div>
 
-        {% with %} {% set square = true %} {% set href =
-        g.doc('/content/amp-dev/documentation/guides-and-tutorials/contribute/index.md',
-        locale=doc.locale).url.path %} {% set text = _("Start contributing") %}
-        {% include '/views/2021/partials/content/link.j2' %} {% endwith %}
+        {% with %}
+          {% set square = true %}
+          {% set href = g.doc('/content/amp-dev/documentation/guides-and-tutorials/contribute/index.md', locale=doc.locale).url.path %}
+          {% set text = _("Start contributing") %}
+          {% include '/views/2021/partials/content/link.j2' %}
+        {% endwith %}
       </div>
     </div>
   </section>

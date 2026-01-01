@@ -21,3 +21,7 @@ __pycache__/
 
 # Grow content files with YAML front matter
 pages/content/shared/*.html
+
+# Files with Jinja2 templates that prettier breaks
+pages/content/amp-dev/about/websites-2021.html
+pages/content/amp-dev/documentation/guides-and-tutorials/develop/style_and_layout/placeholders.md
