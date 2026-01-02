@@ -844,6 +844,18 @@ function copyNetlifyConfig() {
   fs.mkdirSync(path.dirname(functionsDest), {recursive: true});
   execSync(`cp -r "${functionsSrc}" "${path.dirname(functionsDest)}"`);
   signale.success('Copied netlify/functions to publish directory');
+
+  // Copy boilerplate dist to publish directory
+  const boilerplateSrc = path.join(__dirname, '..', 'boilerplate', 'dist');
+  const boilerplateDest = path.join(project.paths.PAGES_DEST, 'boilerplate');
+  if (fs.existsSync(boilerplateSrc)) {
+    fs.mkdirSync(boilerplateDest, {recursive: true});
+    execSync(`cp -r "${boilerplateSrc}"/* "${boilerplateDest}"/`);
+    signale.success('Copied boilerplate/dist to publish directory');
+  } else {
+    console.log('WARNING: boilerplate/dist not found, skipping');
+  }
+
   return Promise.resolve();
 }
 
