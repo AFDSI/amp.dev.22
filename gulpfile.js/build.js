@@ -475,12 +475,12 @@ function buildPages(done) {
       }
 
       console.log('packArtifacts: Starting...');
-      
+
       // Ensure artifacts directory exists
       await sh('mkdir -p artifacts');
-      
+
       const archive = `artifacts/pages-${process.env.GITHUB_RUN_ID}.tar.gz`;
-      
+
       // Build list of directories that exist
       const fs = require('fs');
       const dirs = ['./dist/pages'];
@@ -490,7 +490,7 @@ function buildPages(done) {
       if (fs.existsSync('./dist/static/files/search-promoted-pages')) {
         dirs.push('./dist/static/files/search-promoted-pages');
       }
-      
+
       console.log('packArtifacts: Packing directories:', dirs);
       await sh(`tar cfj ${archive} ${dirs.join(' ')}`);
       console.log('packArtifacts: Created', archive);
