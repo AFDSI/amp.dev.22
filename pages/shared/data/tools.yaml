@@ -423,7 +423,7 @@ developer:
     official: true
     type: Development
     description: Generate custom templates for your AMP websites, stories, emails or ads.
-    url: https://amp.dev/boilerplate/
+    url: https://amp-new.netlify.app/boilerplate/
     image:
       src: /static/img/docs/tools/ampboilerplate.png
       width: 1280
