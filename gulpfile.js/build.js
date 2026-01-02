@@ -787,6 +787,21 @@ function copyNetlifyConfig() {
   const path = require('path');
   const {execSync} = require('child_process');
 
+  // DEBUG: Check directory state
+  console.log('DEBUG copyNetlifyConfig: __dirname =', __dirname);
+  const configsDir = path.join(__dirname, '..', 'netlify', 'configs');
+  console.log('DEBUG: configsDir =', configsDir);
+  try {
+    console.log('DEBUG: configsDir contents:', fs.readdirSync(configsDir));
+    const ampDevDir = path.join(configsDir, 'amp.dev');
+    console.log('DEBUG: ampDevDir exists:', fs.existsSync(ampDevDir));
+    if (fs.existsSync(ampDevDir)) {
+      console.log('DEBUG: ampDevDir contents:', fs.readdirSync(ampDevDir));
+    }
+  } catch (e) {
+    console.log('DEBUG: Error listing dirs:', e.message);
+  }
+
   // Copy netlify.toml
   const configSrc = path.join(
     __dirname,
@@ -796,6 +811,8 @@ function copyNetlifyConfig() {
     'amp.dev',
     'netlify.toml'
   );
+  console.log('DEBUG: configSrc =', configSrc);
+  console.log('DEBUG: configSrc exists:', fs.existsSync(configSrc));
   const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
   fs.copyFileSync(configSrc, configDest);
   signale.success('Copied netlify.toml to publish directory');
