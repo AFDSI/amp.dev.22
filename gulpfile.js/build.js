@@ -814,6 +814,7 @@ function copyNetlifyConfig() {
   console.log('DEBUG: configSrc =', configSrc);
   console.log('DEBUG: configSrc exists:', fs.existsSync(configSrc));
   const configDest = path.join(project.paths.PAGES_DEST, 'netlify.toml');
+  fs.mkdirSync(path.dirname(configDest), {recursive: true});
   fs.copyFileSync(configSrc, configDest);
   signale.success('Copied netlify.toml to publish directory');
 
