@@ -24,13 +24,14 @@
     <div class="ap-m-search-trigger ap-m-search-trigger-close"
          on="tap:searchLightbox.close,AMP.setState({clear: true, query: null})"
          role="button"
-         tabindex="0">
+         tabindex="0"
+         aria-label="{{ _('Close search') }}">
       <div class="ap-a-ico ap-m-search-trigger-icon">
         <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg>
       </div>
     </div>
 
-    <div class="ap-o-search-field">
+    <div class="ap-o-search-field" role="search">
       <form action-xhr="{{ base_url }}/documentation/examples/api/echo"
             class="ap-o-search-form"
             id="searchForm"
@@ -59,7 +60,7 @@
         </amp-autocomplete>
       </form>
 
-      <div class="ap-o-search-result" id="searchResult" tabindex="-1">
+      <div class="ap-o-search-result" id="searchResult" tabindex="-1" aria-live="polite" aria-atomic="true">
         <amp-state id="search"
                   src="{{ base_url }}/search/highlights/{{ doc.locale }}.json"
                   [src]="query == null || clear ? '{{ base_url }}/search/highlights/{{ doc.locale }}.json' : '{{ base_url }}/search/do?q=' + encodeURIComponent(query) + '&locale={{ doc.locale }}'"></amp-state>
