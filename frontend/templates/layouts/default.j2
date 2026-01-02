@@ -113,8 +113,10 @@
     {% endblock %}
 
     {% block main %}
+    <main role="main" id="main-content">
     {# Only render the grid toggle during development #}
     {% include 'views/partials/content.j2' %}
+        </main>
     {% endblock %}
 
     {% block search %}
