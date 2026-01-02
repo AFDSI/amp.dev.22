@@ -13,7 +13,7 @@
   <span class="ap-o-header-home-title">{{ podspec.site.title }}</span>
 </a>
 
-<nav class="ap-o-header-main">
+<nav class="ap-o-header-main" aria-label="{{ _('Main navigation') }}">
   {# Top level sections, defined by their top collection and landing page #}
   {% set sections = [
     (g.collection('/content/amp-dev/about/'), None),
@@ -31,14 +31,14 @@
     {% elif not section %}
     <a class="ap-o-header-main-link ap-m-nav-link [% if homepage.url.path == '{{ doc.url.path }}' %]active[% endif %]" href="{{ homepage.url.path }}">{{_(homepage.titles('navigation'))}}</a>
     {% else %}
-    <button class="ap-o-header-main-link ap-m-nav-link [% if requestPath.startsWith('{{ section.pod_path.replace('/content/amp-dev/', '/') }}') %]active[% endif %]">
+    <button class="ap-o-header-main-link ap-m-nav-link [% if requestPath.startsWith('{{ section.pod_path.replace('/content/amp-dev/', '/') }}') %]active[% endif %]" aria-expanded="false" aria-haspopup="menu">
       {{_(section.title)}}
-      <div class="ap-a-ico ap-o-header-main-link-icon">
+      <div class="ap-a-ico ap-o-header-main-link-icon" aria-hidden="true">
         <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-solid"></use></svg>
       </div>
     </button>
 
-    <ul class="ap-o-header-flyout">
+    <ul class="ap-o-header-flyout" role="menu">
       {% for path in section.flyout %}
       {% set flyout_doc = g.doc(path, locale=doc.locale) %}
       {% set flyout = flyout_doc.flyout or {} %}
