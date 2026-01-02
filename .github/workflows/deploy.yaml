@@ -188,6 +188,12 @@ jobs:
         run: |
           npx gulp unpackArtifacts
 
+      - name: Debug file check
+        run: |
+          echo "Checking netlify configs..."
+          ls -la netlify/configs/
+          ls -la netlify/configs/amp.dev/ || echo "amp.dev dir not found"
+          
       - name: Finalizing build
         run: |
           npx gulp buildFinalize
