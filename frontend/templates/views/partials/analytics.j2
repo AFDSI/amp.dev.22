@@ -47,8 +47,8 @@
       'base': 'https://google-analytics.com/collect/',
       'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
+  {# --- Engagement Timers --- #}
   'triggers': {
-    {# --- Engagement Timers --- #}
     'timer30s': {
       'on': 'timer',
       'timerSpec': { 'interval': 30, 'limit': 1 },
