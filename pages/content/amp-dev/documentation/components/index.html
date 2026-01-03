@@ -138,7 +138,7 @@ recent_components:
             {% for teaser_doc in doc.highlighted_components %} {% set teaser_doc
             = g.doc(teaser_doc, locale=doc.locale) %} {# Show highlighted
             component if format matches any of its supported formats #}
-            <div
+            <div style="display: contents"
               {% if 'websites' not in teaser_doc.formats|default(['websites']) %}hidden{% endif %}
               [hidden]="!({% for fmt in teaser_doc.formats|default(['websites']) %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
@@ -157,7 +157,7 @@ recent_components:
             {% for teaser_doc in doc.recent_components %} {% set teaser_doc =
             g.doc(teaser_doc, locale=doc.locale) %} {# Show recent component if
             format matches any of its supported formats #}
-            <div
+            <div style="display: contents"
               {% if 'websites' not in teaser_doc.formats|default(['websites']) %}hidden{% endif %}
               [hidden]="!({% for fmt in teaser_doc.formats|default(['websites']) %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
