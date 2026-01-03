@@ -1,4 +1,5 @@
-The `triggers` block is located inside your **Section 3** (the `config` object). It’s the largest part of that dictionary and sits right below the `requests` section.
+The `triggers` block is located inside your **Section 3** (the `config` object).
+It’s the largest part of that dictionary and sits right below the `requests` section.
 
 Here is exactly where to insert the new timer code. I've highlighted the "insertion point" for you:
 

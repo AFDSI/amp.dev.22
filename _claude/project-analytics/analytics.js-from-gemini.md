@@ -48,7 +48,7 @@
       'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
   'triggers': {
-    {# --- Engagement Timers --- #}
+    {# --- NEW: Engagement Timers --- #}
     'timer30s': {
       'on': 'timer',
       'timerSpec': { 'interval': 30, 'limit': 1 },
@@ -67,7 +67,7 @@
         'event_action': 'deep_read'
       }
     },
-    {# --- Pageview and Core Web Vitals --- #}
+    {# --- Pageviews and Core Web Vitals --- #}
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
@@ -118,7 +118,7 @@
   }
 }) %}
 
-{# 6. Conditional Triggers (Documentation Pages) #}
+{# 6. Conditional Triggers #}
 {% if category.value != 'other' %}
     {{ add_trigger(config, 'sidebarLink', '.ap-o-sidebar a', 'link') }}
     {{ add_trigger(config, 'sidebarToggle', 'label[for="sidebar-desktop"], label[for="sidebar"]', 'toggle') }}
@@ -135,6 +135,7 @@
 {% if 'teachers.md' in doc.pod_path %}
     {{ add_trigger(config, 'getCoursesButton', '#get-courses', 'download', event_name='courses') }}
 {% endif %}
+
 
 <amp-analytics type="gtag" data-credentials="include" data-block-on-consent>
 <script type="application/json">

@@ -38,7 +38,7 @@
     }
   },
   'extraUrlParams': {
-      'cd2': '${' ~ 'ampdocHost}',
+      'cd1': '${' ~ 'ampdocHost}',
       'debug_mode': 'true',
       '_dbg': '1',
       'page_category': category.value | default('other') | string
@@ -48,14 +48,46 @@
       'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
   'triggers': {
+    {# --- Engagement Timers --- #}
+    'timer30s': {
+      'on': 'timer',
+      'timerSpec': { 'interval': 30, 'limit': 1 },
+      'vars': {
+        'event_name': 'timer_30s',
+        'event_category': category.value | default('other') | string,
+        'event_action': 'read_minimum'
+      }
+    },
+    'timer2m': {
+      'on': 'timer',
+      'timerSpec': { 'interval': 120, 'limit': 1 },
+      'vars': {
+        'event_name': 'timer_2m',
+        'event_category': category.value | default('other') | string,
+        'event_action': 'deep_read'
+      }
+    },
+    {# --- Pageview and Core Web Vitals --- #}
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
       'vars': { 'title': title | default('Untitled Page') } 
     },
-    'cls': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'cls': '${' ~ 'cumulativeLayoutShift}' } },
-    'lcp': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'lcp': '${' ~ 'largestContentfulPaint}' } },
-    'fid': { 'on': 'visible', 'request': 'CWV_EVENT', 'extraUrlParams': { 'fid': '${' ~ 'firstInputDelay}' } }
+    'cls': { 
+      'on': 'visible', 
+      'request': 'CWV_EVENT', 
+      'extraUrlParams': { 'cls': '${' ~ 'cumulativeLayoutShift}' } 
+    },
+    'lcp': { 
+      'on': 'visible', 
+      'request': 'CWV_EVENT', 
+      'extraUrlParams': { 'lcp': '${' ~ 'largestContentfulPaint}' } 
+    },
+    'fid': { 
+      'on': 'visible', 
+      'request': 'CWV_EVENT', 
+      'extraUrlParams': { 'fid': '${' ~ 'firstInputDelay}' } 
+    }
   }
 } %}
 
@@ -86,7 +118,7 @@
   }
 }) %}
 
-{# 6. Conditional Triggers #}
+{# 6. Conditional Triggers (Documentation Pages) #}
 {% if category.value != 'other' %}
     {{ add_trigger(config, 'sidebarLink', '.ap-o-sidebar a', 'link') }}
     {{ add_trigger(config, 'sidebarToggle', 'label[for="sidebar-desktop"], label[for="sidebar"]', 'toggle') }}
@@ -99,22 +131,9 @@
     {% endif %}
 {% endif %}
 
-{# 7. Page-Specific (Pixi & Courses) #}
+{# 7. Courses-Specific #}
 {% if 'teachers.md' in doc.pod_path %}
     {{ add_trigger(config, 'getCoursesButton', '#get-courses', 'download', event_name='courses') }}
-{% endif %}
-
-{% if 'page-experience.html' in doc.pod_path %}
-    {% set pixi_items = [
-        ('analyzeButton', '.ap-m-input-bar-submit', 'analyze'),
-        ('shareButton', '#share-button', 'share'),
-        ('investigateButton', '#investigate-button', 'api-failure'),
-        ('openFieldData', '#field-data-tab', 'view-field-data'),
-        ('openLabData', '#lab-data-tab', 'view-lab-data')
-    ] %}
-    {% for id, selector, action in pixi_items %}
-        {{ add_trigger(config, id, selector, action, cat='pixi') }}
-    {% endfor %}
 {% endif %}
 
 <amp-analytics type="gtag" data-credentials="include" data-block-on-consent>
