@@ -139,8 +139,8 @@ recent_components:
             = g.doc(teaser_doc, locale=doc.locale) %} {# Show highlighted
             component if format matches any of its supported formats #}
             <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
-              [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
+              {% if 'websites' not in teaser_doc.formats|default(['websites']) %}hidden{% endif %}
+              [hidden]="!({% for fmt in teaser_doc.formats|default(['websites']) %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
               {% with highlightedTeaser = True %} {% include
               'views/partials/teaser.j2' %} {% endwith %}
@@ -158,8 +158,8 @@ recent_components:
             g.doc(teaser_doc, locale=doc.locale) %} {# Show recent component if
             format matches any of its supported formats #}
             <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
-              [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
+              {% if 'websites' not in teaser_doc.formats|default(['websites']) %}hidden{% endif %}
+              [hidden]="!({% for fmt in teaser_doc.formats|default(['websites']) %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
               {% with highlightedTeaser = True %} {% include
               'views/partials/teaser.j2' %} {% endwith %}
@@ -203,10 +203,10 @@ recent_components:
           formats = formats|sum(start=[])|unique|list %}
 
           <a
-            {% if 'websites' not in formats %}hidden{% endif %}
+            {% if 'websites' not in formats|default(['websites']) %}hidden{% endif %}
             class="ap-m-table-component-link"
             href="{{ component.url.path }}"
-            [hidden]="!({% for fmt in formats %}format == '{{ fmt }}'{% if not loop.last %} || {% endif %}{% endfor %})"
+            [hidden]="!({% for fmt in formats|default(['websites']) %}format == '{{ fmt }}'{% if not loop.last %} || {% endif %}{% endfor %})"
           >
             <div class="ap-m-table-component-row-components">
               {% if formats %} {% do
