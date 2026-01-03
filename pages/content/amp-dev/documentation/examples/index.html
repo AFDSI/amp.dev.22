@@ -191,7 +191,7 @@ recent_examples:
         {# Show featured examples for current format - display:contents
         preserves grid layout #} {% for fmt in ['websites', 'stories', 'ads',
         'email'] %}
-        <div style="display: contents" [hidden]="format != '{{ fmt }}'">
+        <div style="display: contents" {% if fmt != 'websites' %}hidden{% endif %} [hidden]="format != '{{ fmt }}'">
           {% for item in doc.examples[fmt] %} {% set card_grid_items_custom = []
           %} {% do card_grid_items_custom.append(item) %} {% include
           '/views/partials/card-grid.j2' %} {% endfor %}
