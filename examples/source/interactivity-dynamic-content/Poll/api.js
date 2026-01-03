@@ -16,7 +16,12 @@
 'use strict';
 
 const express = require('express');
-const {Datastore} = require('@google-cloud/datastore');
+let Datastore;
+try {
+  Datastore = require('@google-cloud/datastore').Datastore;
+} catch (e) {
+  console.warn('Poll API: @google-cloud/datastore not available, poll endpoints disabled');
+}
 const multer = require('multer');
 const upload = multer();
 const cookieParser = require('cookie-parser');
@@ -39,7 +44,7 @@ const POLL_ENTITY_NAME = 'poll';
 const CLIENTID_ENTITY_NAME = 'clientId';
 
 // initialize datastore
-const datastore = new Datastore();
+const datastore = Datastore ? new Datastore() : null;
 
 examples.post('/submit-poll', upload.none(), async (request, response) => {
   setNoCache(response);
