@@ -139,6 +139,7 @@ recent_components:
             = g.doc(teaser_doc, locale=doc.locale) %} {# Show highlighted
             component if format matches any of its supported formats #}
             <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
               [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
               {% with highlightedTeaser = True %} {% include
@@ -157,6 +158,7 @@ recent_components:
             g.doc(teaser_doc, locale=doc.locale) %} {# Show recent component if
             format matches any of its supported formats #}
             <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
               [hidden]="!({% for fmt in teaser_doc.formats %}'{{ fmt }}' == format{% if not loop.last %} || {% endif %}{% endfor %})"
             >
               {% with highlightedTeaser = True %} {% include
@@ -184,6 +186,7 @@ recent_components:
         cat.split('.')|length == 2 else cat %} {% set category_slug =
         category_name|slug %}
         <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
           id="{{ cat }}"
           class="ap-m-table-component"
           [hidden]="category != '' && category != '{{ category_slug }}'"
@@ -201,6 +204,7 @@ recent_components:
           formats = formats|sum(start=[])|unique|list %}
 
           <a
+            {% if 'websites' not in formats %}hidden{% endif %}
             class="ap-m-table-component-link"
             href="{{ component.url.path }}"
             [hidden]="!({% for fmt in formats %}format == '{{ fmt }}'{% if not loop.last %} || {% endif %}{% endfor %})"
@@ -211,18 +215,22 @@ recent_components:
               <div class="ap-m-table-component-tags">
                 {% if 'websites' in formats %}
                 <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-websites ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'stories' in formats %}
                 <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-stories ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'ads' in formats %}
                 <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-ads ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'email' in formats or 'emails' in formats %}
                 <div
+              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-email ap-m-table-component-tag"
                 ></div>
                 {% endif %}
