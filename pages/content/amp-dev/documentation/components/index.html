@@ -186,7 +186,6 @@ recent_components:
         cat.split('.')|length == 2 else cat %} {% set category_slug =
         category_name|slug %}
         <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
           id="{{ cat }}"
           class="ap-m-table-component"
           [hidden]="category != '' && category != '{{ category_slug }}'"
@@ -215,22 +214,18 @@ recent_components:
               <div class="ap-m-table-component-tags">
                 {% if 'websites' in formats %}
                 <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-websites ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'stories' in formats %}
                 <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-stories ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'ads' in formats %}
                 <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-ads ap-m-table-component-tag"
                 ></div>
                 {% endif %} {% if 'email' in formats or 'emails' in formats %}
                 <div
-              {% if 'websites' not in teaser_doc.formats %}hidden{% endif %}
                   class="ap-m-tag ap-m-tag-email ap-m-table-component-tag"
                 ></div>
                 {% endif %}
