@@ -47,7 +47,6 @@
       'base': 'https://google-analytics.com/collect/',
       'CWV_EVENT': '${' ~ 'base}?v=1&t=event&tid=' ~ (podspec.gaTrackingId | default('G-XXXXXXXX')) ~ '&cid=0&ec=cwv'
     },
-  {# --- Engagement Timers --- #}
   'triggers': {
     'timer30s': {
       'on': 'timer',
@@ -67,7 +66,6 @@
         'event_action': 'deep_read'
       }
     },
-    {# --- Pageview and Core Web Vitals --- #}
     'defaultPageview': {
       'on': 'visible',
       'request': 'pageview',
