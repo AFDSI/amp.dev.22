@@ -106,7 +106,6 @@ async function checkGitHubRateLimit() {
       reason: `${remaining}/${limit} remaining (resets in ${resetIn} min)`,
       critical: false,
     };
-
   } catch (err) {
     return {
       name: 'GitHub Rate Limit',
