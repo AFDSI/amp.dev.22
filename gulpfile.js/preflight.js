@@ -93,7 +93,9 @@ async function checkGitHubRateLimit() {
       return {
         name: 'GitHub Rate Limit',
         pass: false,
-        reason: `Only ${remaining}/${limit} remaining. Resets in ${resetIn} minutes at ${resetTime.toISOString()}`,
+        reason:
+          `Only ${remaining}/${limit} remaining. ` +
+          `Resets in ${resetIn} minutes at ${resetTime.toISOString()}`,
         critical: true,
       };
     }
@@ -104,6 +106,7 @@ async function checkGitHubRateLimit() {
       reason: `${remaining}/${limit} remaining (resets in ${resetIn} min)`,
       critical: false,
     };
+
   } catch (err) {
     return {
       name: 'GitHub Rate Limit',
