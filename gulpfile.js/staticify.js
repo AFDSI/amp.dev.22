@@ -183,7 +183,7 @@ async function staticify(done) {
       const env = nunjucksEnv();
 
       return gulp
-        .src(`${project.paths.PAGES_DEST}${coursesPath}/**/*.html`)
+        .src([`${project.paths.PAGES_DEST}${coursesPath}/*.html`, `${project.paths.PAGES_DEST}${coursesPath}/*-course/**/*.html`])
         .pipe(
           through.obj((file, enc, callback) => {
             const srcHTML = file.contents.toString();
