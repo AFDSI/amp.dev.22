@@ -19,6 +19,7 @@
 const gulp = require('gulp');
 const {sh} = require('@lib/utils/sh');
 const grow = require('@lib/utils/grow');
+const {preflight} = require('./preflight.js');
 const mkdirp = require('mkdirp').sync;
 const config = require('@lib/config');
 const signale = require('signale');
@@ -952,7 +953,7 @@ async function generateSitemap() {
   await fs.writeFile(`${PAGES_DIR}/sitemap_generated.xml`, xml);
   signale.success(`Generated sitemap with ${count} URLs`);
 }
-// Add this line
+
 exports.generateSitemap = generateSitemap;
 
 exports.copyRootFiles = copyRootFiles;
@@ -965,12 +966,12 @@ async function quickGrow() {
 // Reference it by name
 exports.testSitemap = gulp.series(buildFrontend, quickGrow, generateSitemap);
 
+exports.preflight = preflight;
+
 exports.buildFinalize = gulp.series(
   gulp.parallel(collectStatics, persistBuildInfo),
   copyNetlifyConfig,
-  // Add this line
   generateSitemap,
-  // Add this to the series
   copyRootFiles
 );
 
@@ -979,9 +980,7 @@ exports.build = gulp.series(
   buildPrepare,
   buildPages,
   gulp.parallel(collectStatics, persistBuildInfo),
-  // Add this line
   generateSitemap,
-  // Add this to the series
   copyRootFiles
 );
 
