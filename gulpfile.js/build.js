@@ -424,12 +424,16 @@ function buildPages(done) {
               ([path]) => !path.includes('^')
             );
 
+            // Use host URLs from environment config instead of hardcoding
+            const goHostUrl = config.hosts.go.base;
+            const pagesHostUrl = config.hosts.pages.base;
+
             redirects = redirects.map(([from, to]) => {
-              from = `https://go.amp.dev${from}`;
+              from = `${goHostUrl}${from}`;
 
               // we only want to update the URL of shorturls that point to relative URLs
               if (!to.startsWith('http://') && !to.startsWith('https://')) {
-                to = `https://amp.dev${to}`;
+                to = `${pagesHostUrl}${to}`;
               }
 
               return {
