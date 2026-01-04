@@ -29,13 +29,8 @@ const MIN_GITHUB_RATE_LIMIT = 500;
 
 // Required environment variables for different contexts
 const REQUIRED_SECRETS = {
-  ci: [
-    'AMP_DOC_TOKEN',
-    'NETLIFY_DEPLOY_TOKEN',
-  ],
-  local: [
-    'AMP_DOC_TOKEN',
-  ],
+  ci: ['AMP_DOC_TOKEN', 'NETLIFY_DEPLOY_TOKEN'],
+  local: ['AMP_DOC_TOKEN'],
 };
 
 // Optional but recommended secrets
