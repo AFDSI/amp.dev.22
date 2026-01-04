@@ -1,4 +1,16 @@
 
+
+Standard YAML validators don't recognize:
+
+- `$` prefixed keys (Grow metadata convention)
+- `!g.json`, `!g.doc`, `!g.yaml` (Grow data loaders)
+
+The linter is being cautious: "I see syntax I don't understand, so I can't guarantee this file is valid."
+
+To suppress these warnings, configure the linter to skip Grow YAML files
+
+
+
 2025/11/18
 removed ' from title label; no errors
 
