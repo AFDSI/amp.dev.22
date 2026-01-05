@@ -459,7 +459,7 @@ developer:
     official: true
     type: Development
     description: Start prototyping in an interactive online editor with the ability to use templates and our examples.
-    url: https://playground.amp.dev/
+    url: https://playground-amp-new.netlify.app/
     image:
       src: /static/img/docs/tools/ampplayground.jpg
       width: 1280

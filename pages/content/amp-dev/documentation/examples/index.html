@@ -210,8 +210,8 @@ recent_examples:
           </p>
           <a
             class="ap-m-lnk ap-m-lnk-square"
-            href="https://playground.amp.dev/"
-            [href]="format == 'websites' ? 'https://playground.amp.dev/' : format == 'stories' ? 'https://playground.amp.dev/?runtime=amp4stories' : format == 'ads' ? 'https://playground.amp.dev/?runtime=amp4ads' : 'https://playground.amp.dev/?runtime=amp4email'"
+            href="{{ podspec.base_urls.playground }}"
+            [href]="format == 'websites' ? '{{ podspec.base_urls.playground }}' : format == 'stories' ? '{{ podspec.base_urls.playground }}?runtime=amp4stories' : format == 'ads' ? '{{ podspec.base_urls.playground }}?runtime=amp4ads' : '{{ podspec.base_urls.playground }}?runtime=amp4email'"
           >
             <div class="ap-a-ico ap-m-lnk-icon">
               {% do doc.icons.useIcon('icons/internal.svg') %}
