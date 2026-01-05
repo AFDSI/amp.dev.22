@@ -70,6 +70,12 @@ jobs:
       - name: Installing Node.js packages
         run: npm ci
 
+      - name: Pre-flight checks
+        run: npx gulp preflight
+        env:
+          AMP_DOC_TOKEN: ${{ secrets.AMP_DOC_TOKEN }}
+          NETLIFY_DEPLOY_TOKEN: ${{ secrets.NETLIFY_DEPLOY_TOKEN }}
+
       - name: Preparing build
         env:
           APP_ENV: production
