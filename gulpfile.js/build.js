@@ -198,37 +198,54 @@ function buildBoilerplate() {
  */
 async function generateGoLinksConfig(done) {
   const goLinksPath = project.absolute('platform/config/go-links.yaml');
-  const outputPath = project.absolute('netlify/configs/go.amp.dev/netlify.toml');
-  
+  const outputPath = project.absolute(
+    'netlify/configs/go.amp.dev/netlify.toml'
+  );
+
   // Get domain URLs from environment config
-  const goHostUrl = config.hosts.go.base;
   const pagesHostUrl = config.hosts.pages.base;
-  
+
   signale.info(`[GoLinks] Generating config for ${config.hosts.go.host}`);
   signale.info(`[GoLinks] Redirecting to ${pagesHostUrl}`);
-  
+
   // Read go-links
   const goLinks = yaml.load(fs.readFileSync(goLinksPath, 'utf-8'));
-  
+
   // Separate regex and simple entries
   const simpleEntries = Object.entries(goLinks).filter(
     ([path]) => !path.includes('^')
   );
-  
+
   // Build redirects array for TOML
   const redirects = [];
-  
+
   // Catch-all first (lowest priority, but Netlify processes top-down for non-matches)
   // Actually, catch-all should be LAST in Netlify
-  
+
   // Regex patterns (converted to Netlify splat syntax)
   redirects.push(
-    {from: '/c/amp-*', to: `${pagesHostUrl}/documentation/components/amp-:splat`, status: 301},
-    {from: '/e/amp-*', to: `${pagesHostUrl}/documentation/examples/components/amp-:splat/`, status: 301},
-    {from: '/pr/:id', to: 'https://github.com/ampproject/amphtml/pull/:id', status: 301},
-    {from: '/issue/:id', to: 'https://github.com/ampproject/amphtml/issues/:id', status: 301}
+    {
+      from: '/c/amp-*',
+      to: `${pagesHostUrl}/documentation/components/amp-:splat`,
+      status: 301,
+    },
+    {
+      from: '/e/amp-*',
+      to: `${pagesHostUrl}/documentation/examples/components/amp-:splat/`,
+      status: 301,
+    },
+    {
+      from: '/pr/:id',
+      to: 'https://github.com/ampproject/amphtml/pull/:id',
+      status: 301,
+    },
+    {
+      from: '/issue/:id',
+      to: 'https://github.com/ampproject/amphtml/issues/:id',
+      status: 301,
+    }
   );
-  
+
   // Simple redirects
   for (const [from, to] of simpleEntries) {
     let targetUrl = to;
@@ -237,31 +254,33 @@ async function generateGoLinksConfig(done) {
     }
     redirects.push({from, to: targetUrl, status: 301});
   }
-  
+
   // Catch-all last
   redirects.push({from: '/*', to: `${pagesHostUrl}/:splat`, status: 302});
-  
+
   // Build TOML config object
   const netlifyConfig = {
     build: {
       command: '',
-      publish: '.'
+      publish: '.',
     },
-    redirects
+    redirects,
   };
-  
+
   // Write the file
   const tomlContent = `# Go-Links Redirects for ${config.hosts.go.host}
 # Auto-generated from platform/config/go-links.yaml
 # Do not edit manually - run 'npx gulp generateGoLinksConfig' to regenerate
 
 ${toml.stringify(netlifyConfig, {newline: '\n', indent: 2})}`;
-  
+
   fs.writeFileSync(outputPath, tomlContent);
-  
+
   signale.success(`[GoLinks] Generated ${outputPath}`);
-  signale.info(`[GoLinks] ${simpleEntries.length} simple + 4 regex + 1 catch-all redirects`);
-  
+  signale.info(
+    `[GoLinks] ${simpleEntries.length} simple + 4 regex + 1 catch-all redirects`
+  );
+
   done();
 }
 
