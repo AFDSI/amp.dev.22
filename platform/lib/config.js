@@ -229,7 +229,6 @@ class Config {
       'repository': this.shared.baseUrls.repository,
       'playground': this.hosts.playground.base,
       'platform': this.hosts.platform.base,
-      'api': this.hosts.api.base,
       'preview': this.hosts.preview.base,
     };
 
