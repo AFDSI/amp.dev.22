@@ -1,395 +1,387 @@
 # Go-Links Redirects for go-amp-new.netlify.app
-# Generated from platform/config/go-links.yaml
-# 71 simple redirects + 4 regex patterns
+# Auto-generated from platform/config/go-links.yaml
+# Do not edit manually - run 'npx gulp generateGoLinksConfig' to regenerate
 
 [build]
-  publish = "."
+command = ""
+publish = "."
 
-# Catch-all: redirect unknown paths to main site
 [[redirects]]
-  from = "/*"
-  to = "https://amp-new.netlify.app/:splat"
-  status = 302
+from = "/c/amp-*"
+to = "https://amp-new.netlify.app/documentation/components/amp-:splat"
+status = 301
 
-# =============================================================================
-# Regex-based redirects (must come before simple redirects)
-# =============================================================================
-
 [[redirects]]
-  from = "/c/amp-*"
-  to = "https://amp-new.netlify.app/documentation/components/amp-:splat"
-  status = 301
+from = "/e/amp-*"
+to = "https://amp-new.netlify.app/documentation/examples/components/amp-:splat/"
+status = 301
 
 [[redirects]]
-  from = "/e/amp-*"
-  to = "https://amp-new.netlify.app/documentation/examples/components/amp-:splat/"
-  status = 301
+from = "/pr/:id"
+to = "https://github.com/ampproject/amphtml/pull/:id"
+status = 301
 
 [[redirects]]
-  from = "/pr/:id"
-  to = "https://github.com/ampproject/amphtml/pull/:id"
-  status = 301
+from = "/issue/:id"
+to = "https://github.com/ampproject/amphtml/issues/:id"
+status = 301
 
 [[redirects]]
-  from = "/issue/:id"
-  to = "https://github.com/ampproject/amphtml/issues/:id"
-  status = 301
-
-# =============================================================================
-# Simple redirects (alphabetical order)
-# =============================================================================
+from = "/ads"
+to = "https://amp-new.netlify.app/about/ads/"
+status = 301
 
 [[redirects]]
-  from = "/ads"
-  to = "https://amp-new.netlify.app/about/ads/"
-  status = 301
+from = "/ampdevmode"
+to = "https://github.com/ampproject/amphtml/issues/20974"
+status = 301
 
 [[redirects]]
-  from = "/amp-email-register"
-  to = "https://docs.google.com/forms/d/e/1FAIpQLSdso95e7UDLk_R-bnpzsAmuUMDQEMUgTErcfGGItBDkghHU2A/viewform?gxids=7628"
-  status = 301
+from = "/amp-email-register"
+to = "https://docs.google.com/forms/d/e/1FAIpQLSdso95e7UDLk_R-bnpzsAmuUMDQEMUgTErcfGGItBDkghHU2A/viewform?gxids=7628"
+status = 301
 
 [[redirects]]
-  from = "/amp-optimizer"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
-  status = 301
+from = "/amp-optimizer"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
+status = 301
 
 [[redirects]]
-  from = "/amp-packager"
-  to = "https://github.com/ampproject/amppackager"
-  status = 301
+from = "/amp-packager"
+to = "https://github.com/ampproject/amppackager"
+status = 301
 
 [[redirects]]
-  from = "/amp-pwa-amp"
-  to = "https://blog.amp.dev/2018/06/19/the-shadow-reader-improved/"
-  status = 301
+from = "/amp-pwa-amp"
+to = "https://blog.amp.dev/2018/06/19/the-shadow-reader-improved/"
+status = 301
 
 [[redirects]]
-  from = "/amp-script-apis"
-  to = "https://github.com/ampproject/worker-dom/blob/main/web_compat_table.md"
-  status = 301
+from = "/amp-script-apis"
+to = "https://github.com/ampproject/worker-dom/blob/main/web_compat_table.md"
+status = 301
 
 [[redirects]]
-  from = "/ampcs"
-  to = "https://amp-new.netlify.app/events/amp-cs-2019/#Schedule"
-  status = 301
+from = "/ampcs"
+to = "https://amp-new.netlify.app/events/amp-cs-2019/#Schedule"
+status = 301
 
 [[redirects]]
-  from = "/ampdevmode"
-  to = "https://github.com/ampproject/amphtml/issues/20974"
-  status = 301
+from = "/auto-sw"
+to = "https://github.com/ampproject/amp-sw/"
+status = 301
 
 [[redirects]]
-  from = "/auto-sw"
-  to = "https://github.com/ampproject/amp-sw/"
-  status = 301
+from = "/axios-case-study"
+to = "https://blog.amp.dev/2020/04/07/people-behind-the-code-the-axios-ascent/"
+status = 301
 
 [[redirects]]
-  from = "/axios-case-study"
-  to = "https://blog.amp.dev/2020/04/07/people-behind-the-code-the-axios-ascent/"
-  status = 301
+from = "/camp-code"
+to = "https://github.com/ampproject/samples/tree/master/amp-camp"
+status = 301
 
 [[redirects]]
-  from = "/camp-code"
-  to = "https://github.com/ampproject/samples/tree/master/amp-camp"
-  status = 301
+from = "/cherry-picks"
+to = "https://github.com/ampproject/amphtml/blob/main/docs/contributing-code.md#Cherry-picks"
+status = 301
 
 [[redirects]]
-  from = "/cherry-picks"
-  to = "https://github.com/ampproject/amphtml/blob/main/docs/contributing-code.md#Cherry-picks"
-  status = 301
+from = "/components"
+to = "https://amp.dev/documentation/components/"
+status = 301
 
 [[redirects]]
-  from = "/components"
-  to = "https://amp.dev/documentation/components/"
-  status = 301
+from = "/contribute"
+to = "https://amp.dev/documentation/guides-and-tutorials/contribute/"
+status = 301
 
 [[redirects]]
-  from = "/contribute"
-  to = "https://amp.dev/documentation/guides-and-tutorials/contribute/"
-  status = 301
+from = "/contribute/code"
+to = "https://github.com/ampproject/amphtml/blob/main/docs/contributing-code.md"
+status = 301
 
 [[redirects]]
-  from = "/contribute/code"
-  to = "https://github.com/ampproject/amphtml/blob/main/docs/contributing-code.md"
-  status = 301
+from = "/contribute/code-samples"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/contribute-documentation/formatting/?format=websites#preview-code-samples"
+status = 301
 
 [[redirects]]
-  from = "/contribute/code-samples"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/contribute-documentation/formatting/?format=websites#preview-code-samples"
-  status = 301
+from = "/contribute/docs"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/contribute-documentation/"
+status = 301
 
 [[redirects]]
-  from = "/contribute/docs"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/contribute-documentation/"
-  status = 301
+from = "/contribute/samples"
+to = "https://amp-new.netlify.app/documentation/examples/"
+status = 301
 
 [[redirects]]
-  from = "/contribute/samples"
-  to = "https://amp-new.netlify.app/documentation/examples/"
-  status = 301
+from = "/contribute/translations"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/translations/"
+status = 301
 
 [[redirects]]
-  from = "/contribute/translations"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/contribute/translations/"
-  status = 301
+from = "/cors"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests/"
+status = 301
 
 [[redirects]]
-  from = "/cors"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests/"
-  status = 301
+from = "/design-reviews"
+to = "https://github.com/ampproject/amphtml/issues?q=is%3Aissue+is%3Aopen+design+review+utc+in%3Atitle"
+status = 301
 
 [[redirects]]
-  from = "/design-reviews"
-  to = "https://github.com/ampproject/amphtml/issues?q=is%3Aissue+is%3Aopen+design+review+utc+in%3Atitle"
-  status = 301
+from = "/devx-survey"
+to = "https://google.qualtrics.com/jfe/form/SV_1FA0wBp7elD7Xa5"
+status = 301
 
 [[redirects]]
-  from = "/devx-survey"
-  to = "https://google.qualtrics.com/jfe/form/SV_1FA0wBp7elD7Xa5"
-  status = 301
+from = "/docs"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/"
+status = 301
 
 [[redirects]]
-  from = "/docs"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/"
-  status = 301
+from = "/docsgfi"
+to = "https://github.com/ampproject/amp.dev/issues?q=is:open+is:issue+label:%22good+first+issue%22"
+status = 301
 
 [[redirects]]
-  from = "/docsgfi"
-  to = "https://github.com/ampproject/amp.dev/issues?q=is:open+is:issue+label:%22good+first+issue%22"
-  status = 301
+from = "/eleventy"
+to = "https://github.com/ampproject/eleventy-plugin-amp"
+status = 301
 
 [[redirects]]
-  from = "/eleventy"
-  to = "https://github.com/ampproject/eleventy-plugin-amp"
-  status = 301
+from = "/email"
+to = "https://amp-new.netlify.app/about/email/"
+status = 301
 
 [[redirects]]
-  from = "/email"
-  to = "https://amp-new.netlify.app/about/email/"
-  status = 301
+from = "/email-registration"
+to = "https://docs.google.com/forms/d/e/1FAIpQLSdso95e7UDLk_R-bnpzsAmuUMDQEMUgTErcfGGItBDkghHU2A/viewform?gxids=7628"
+status = 301
 
 [[redirects]]
-  from = "/email-registration"
-  to = "https://docs.google.com/forms/d/e/1FAIpQLSdso95e7UDLk_R-bnpzsAmuUMDQEMUgTErcfGGItBDkghHU2A/viewform?gxids=7628"
-  status = 301
+from = "/email-support"
+to = "https://amp-new.netlify.app/support/faq/email-support/"
+status = 301
 
 [[redirects]]
-  from = "/email-support"
-  to = "https://amp-new.netlify.app/support/faq/email-support/"
-  status = 301
+from = "/email-tools"
+to = "https://amp-new.netlify.app/documentation/tools/?format=email"
+status = 301
 
 [[redirects]]
-  from = "/email-tools"
-  to = "https://amp-new.netlify.app/documentation/tools/?format=email"
-  status = 301
+from = "/email-viewer"
+to = "https://github.com/ampproject/amp-email-viewer"
+status = 301
 
 [[redirects]]
-  from = "/email-viewer"
-  to = "https://github.com/ampproject/amp-email-viewer"
-  status = 301
+from = "/getting-started"
+to = "https://github.com/ampproject/amphtml/blob/main/docs/getting-started-quick.md"
+status = 301
 
 [[redirects]]
-  from = "/getting-started"
-  to = "https://github.com/ampproject/amphtml/blob/main/docs/getting-started-quick.md"
-  status = 301
+from = "/github"
+to = "https://github.com/ampproject/amphtml"
+status = 301
 
 [[redirects]]
-  from = "/github"
-  to = "https://github.com/ampproject/amphtml"
-  status = 301
+from = "/governance"
+to = "https://amp-new.netlify.app/community/governance/"
+status = 301
 
 [[redirects]]
-  from = "/governance"
-  to = "https://amp-new.netlify.app/community/governance/"
-  status = 301
+from = "/i2i"
+to = "https://github.com/ampproject/amphtml/issues/new?assignees=&labels=INTENT+TO+IMPLEMENT&template=intent-to-implement.yml"
+status = 301
 
 [[redirects]]
-  from = "/i2i"
-  to = "https://github.com/ampproject/amphtml/issues/new?assignees=&labels=INTENT+TO+IMPLEMENT&template=intent-to-implement.yml"
-  status = 301
+from = "/io-email"
+to = "https://amp-new.netlify.app/documentation/examples/interactivity-dynamic-content/conference_survey_email/"
+status = 301
 
 [[redirects]]
-  from = "/io-email"
-  to = "https://amp-new.netlify.app/documentation/examples/interactivity-dynamic-content/conference_survey_email/"
-  status = 301
+from = "/learn"
+to = "https://amp-new.netlify.app/documentation/courses/"
+status = 301
 
 [[redirects]]
-  from = "/learn"
-  to = "https://amp-new.netlify.app/documentation/courses/"
-  status = 301
+from = "/learn-advanced"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/add_advanced/"
+status = 301
 
 [[redirects]]
-  from = "/learn-advanced"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/add_advanced/"
-  status = 301
+from = "/learn-email"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/email_fundamentals/?format=email"
+status = 301
 
 [[redirects]]
-  from = "/learn-email"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/email_fundamentals/?format=email"
-  status = 301
+from = "/learn-first"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/create/"
+status = 301
 
 [[redirects]]
-  from = "/learn-first"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/create/"
-  status = 301
+from = "/learn-interact"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/interactivity/"
+status = 301
 
 [[redirects]]
-  from = "/learn-interact"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/interactivity/"
-  status = 301
+from = "/learn-script"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/custom-javascript-tutorial/"
+status = 301
 
 [[redirects]]
-  from = "/learn-pwa"
-  to = "https://codelabs.developers.google.com/codelabs/amp-pwa-workbox/"
-  status = 301
+from = "/learn-story"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/visual_story/?format=stories"
+status = 301
 
 [[redirects]]
-  from = "/learn-script"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/custom-javascript-tutorial/"
-  status = 301
+from = "/learn-pwa"
+to = "https://codelabs.developers.google.com/codelabs/amp-pwa-workbox/"
+status = 301
 
 [[redirects]]
-  from = "/learn-story"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/start/visual_story/?format=stories"
-  status = 301
+from = "/nextjs"
+to = "https://nextjs.org/docs/advanced-features/amp-support/introduction"
+status = 301
 
 [[redirects]]
-  from = "/nextjs"
-  to = "https://nextjs.org/docs/advanced-features/amp-support/introduction"
-  status = 301
+from = "/optimize"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
+status = 301
 
 [[redirects]]
-  from = "/optimize"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
-  status = 301
+from = "/optimizer"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
+status = 301
 
 [[redirects]]
-  from = "/optimize-amp"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
-  status = 301
+from = "/optimize-amp"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
+status = 301
 
 [[redirects]]
-  from = "/optimize-guide"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/optimize_amp/"
-  status = 301
+from = "/optimize-guide"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/optimize_amp/"
+status = 301
 
 [[redirects]]
-  from = "/optimizer"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/"
-  status = 301
+from = "/owners"
+to = "https://ampproject-owners-bot.appspot.com/tree"
+status = 301
 
 [[redirects]]
-  from = "/owners"
-  to = "https://ampproject-owners-bot.appspot.com/tree"
-  status = 301
+from = "/publishing-checklist"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/publishing_checklist/"
+status = 301
 
 [[redirects]]
-  from = "/publishing-checklist"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/publishing_checklist/"
-  status = 301
+from = "/px-faq"
+to = "https://support.google.com/webmasters/thread/104436075"
+status = 301
 
 [[redirects]]
-  from = "/px-faq"
-  to = "https://support.google.com/webmasters/thread/104436075"
-  status = 301
+from = "/px-video-series"
+to = "https://www.youtube.com/playlist?list=PLKoqnv2vTMUPC5r00xToO6wPtxkmprj13"
+status = 301
 
 [[redirects]]
-  from = "/px-video-series"
-  to = "https://www.youtube.com/playlist?list=PLKoqnv2vTMUPC5r00xToO6wPtxkmprj13"
-  status = 301
+from = "/reftemplate"
+to = "https://docs.google.com/document/d/1lRFcErFBnqsuv6W9mZsfYk2qnXO9nPzMkeog4Xtunl8/edit?usp=sharing"
+status = 301
 
 [[redirects]]
-  from = "/reftemplate"
-  to = "https://docs.google.com/document/d/1lRFcErFBnqsuv6W9mZsfYk2qnXO9nPzMkeog4Xtunl8/edit?usp=sharing"
-  status = 301
+from = "/service"
+to = "https://blog.amp.dev/2020/06/29/amp-as-a-service-2020-roadmap/"
+status = 301
 
 [[redirects]]
-  from = "/service"
-  to = "https://blog.amp.dev/2020/06/29/amp-as-a-service-2020-roadmap/"
-  status = 301
+from = "/shopify-apps"
+to = "https://blog.amp.dev/2019/04/15/shopify-apps-make-amp-easy-and-effective-for-ecommerce"
+status = 301
 
 [[redirects]]
-  from = "/shopify-apps"
-  to = "https://blog.amp.dev/2019/04/15/shopify-apps-make-amp-easy-and-effective-for-ecommerce"
-  status = 301
+from = "/stories-best-practices"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/amp_story_best_practices/"
+status = 301
 
 [[redirects]]
-  from = "/stories"
-  to = "https://amp-new.netlify.app/about/stories/"
-  status = 301
+from = "/stories"
+to = "https://amp-new.netlify.app/about/stories/"
+status = 301
 
 [[redirects]]
-  from = "/stories-best-practices"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/amp_story_best_practices/"
-  status = 301
+from = "/sxg"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/"
+status = 301
 
 [[redirects]]
-  from = "/sxg"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/"
-  status = 301
+from = "/templates"
+to = "https://amp-new.netlify.app/documentation/templates/"
+status = 301
 
 [[redirects]]
-  from = "/templates"
-  to = "https://amp-new.netlify.app/documentation/templates/"
-  status = 301
+from = "/test-email"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/testing_amp_emails/?format=email"
+status = 301
 
 [[redirects]]
-  from = "/test-email"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/develop/testing_amp_emails/?format=email"
-  status = 301
+from = "/twitter-devx-survey"
+to = "https://google.qualtrics.com/jfe/form/SV_2fZ0z843nw0CBOR"
+status = 301
 
 [[redirects]]
-  from = "/tools"
-  to = "https://amp-new.netlify.app/documentation/tools/"
-  status = 301
+from = "/tools"
+to = "https://amp-new.netlify.app/documentation/tools/"
+status = 301
 
 [[redirects]]
-  from = "/twitter-devx-survey"
-  to = "https://google.qualtrics.com/jfe/form/SV_2fZ0z843nw0CBOR"
-  status = 301
+from = "/validate"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/validation-workflow/validate_amp/"
+status = 301
 
 [[redirects]]
-  from = "/validate"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/learn/validation-workflow/validate_amp/"
-  status = 301
+from = "/verizonmedia"
+to = "https://developer.verizonmedia.com/mail/amp-for-email/"
+status = 301
 
 [[redirects]]
-  from = "/verizonmedia"
-  to = "https://developer.verizonmedia.com/mail/amp-for-email/"
-  status = 301
+from = "/vision-mission"
+to = "https://amp-new.netlify.app/about/mission-and-vision/"
+status = 301
 
 [[redirects]]
-  from = "/vision-mission"
-  to = "https://amp-new.netlify.app/about/mission-and-vision/"
-  status = 301
+from = "/web-story-player"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/integrate/web-story-player-guide/?format=stories"
+status = 301
 
 [[redirects]]
-  from = "/web-player"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/integrate/web-story-player-guide/?format=stories"
-  status = 301
+from = "/web-player"
+to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/integrate/web-story-player-guide/?format=stories"
+status = 301
 
 [[redirects]]
-  from = "/web-story-player"
-  to = "https://amp-new.netlify.app/documentation/guides-and-tutorials/integrate/web-story-player-guide/?format=stories"
-  status = 301
+from = "/websites"
+to = "https://amp-new.netlify.app/about/websites/"
+status = 301
 
 [[redirects]]
-  from = "/websites"
-  to = "https://amp-new.netlify.app/about/websites/"
-  status = 301
+from = "/wg"
+to = "https://github.com/ampproject/meta/tree/master/working-groups"
+status = 301
 
 [[redirects]]
-  from = "/wg"
-  to = "https://github.com/ampproject/meta/tree/master/working-groups"
-  status = 301
+from = "/wg-updates"
+to = "https://github.com/search?o=desc&q=org%3Aampproject+label%3A%22Type%3A+Status+Update%22&s=created&"
+status = 301
 
 [[redirects]]
-  from = "/wg-updates"
-  to = "https://github.com/search?o=desc&q=org%3Aampproject+label%3A%22Type%3A+Status+Update%22&s=created&"
-  status = 301
+from = "/wordpress"
+to = "https://amp-wp.org/"
+status = 301
 
 [[redirects]]
-  from = "/wordpress"
-  to = "https://amp-wp.org/"
-  status = 301
+from = "/*"
+to = "https://amp-new.netlify.app/:splat"
+status = 302
