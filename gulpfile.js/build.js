@@ -166,10 +166,6 @@ async function buildPlayground() {
   await sh('npm run build:playground');
 
   await gulp
-    .src(project.absolute('netlify/configs/preview.amp.dev/netlify.toml'))
-    .pipe(gulp.dest(`${project.paths.DIST}/examples/sources`));
-
-  await gulp
     .src([project.absolute('pages/static/**/*')])
     .pipe(gulp.dest(`${project.paths.DIST}/playground/static`));
 
@@ -851,6 +847,11 @@ function collectStatics(done) {
       await gulp
         .src(`${project.paths.DIST}/inline-examples/documentation**/**/*`)
         .pipe(gulp.dest(`${project.paths.DIST}/examples/sources/`));
+
+      // Copy preview site netlify.toml
+      await gulp
+        .src(project.absolute('netlify/configs/preview.amp.dev/netlify.toml'))
+        .pipe(gulp.dest(`${project.paths.DIST}/examples/sources`));
 
       await Promise.all(writes);
       signale.await('Finished collecting static files!');
