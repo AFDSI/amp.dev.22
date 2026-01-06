@@ -320,7 +320,7 @@ class SamplesBuilder {
     }
 
     const platformHost = config.getHost(config.hosts.platform);
-    const websocketHost = config.getHost(config.hosts.websocket);
+    const websocketHost = '';
 
     const parsedSample = await abe.parseSample(
       samplePath,
