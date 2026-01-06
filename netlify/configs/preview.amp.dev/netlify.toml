@@ -46,7 +46,7 @@
 
 [[redirects]]
   from = "/documentation/examples/*"
-  to = "/sources/:splat"
+  to = "/:splat"
   status = 200
 
 [[redirects]]
