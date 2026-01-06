@@ -41,11 +41,11 @@ const SITES = {
       id: 'aadcd0ab-1ef1-4d58-bddc-0d37c44d629b',
       dir: `${DIST}/playground`,
     },
-    // {
-    //   name: 'preview-amp-dev.netlify.app',
-    //   id: '8ade0d74-9b2c-4e8e-8d85-73e198208fba',
-    //   dir: `${DIST}/examples`,
-    // },
+    {
+      name: 'preview-amp-dev.netlify.app',
+      id: '9590d1f5-f1b1-4e59-b12e-b94895160059',
+      dir: `${DIST}/examples/sources`,
+    },
   ],
 };
 
