@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /shared
-
-Sitemap: https://amp.dev/sitemap.xml

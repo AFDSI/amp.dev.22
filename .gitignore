@@ -127,3 +127,5 @@ z-*.bak2
 z-*.js.bak
 z-*.json.bak
 z-*.yaml.bak
+z-*.html.bak
+z-*.toml.bak
