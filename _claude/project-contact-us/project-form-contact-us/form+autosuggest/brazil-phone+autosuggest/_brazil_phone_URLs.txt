@@ -1,0 +1,7 @@
+
+https://melhorplano.net/api/amp/location/autocomplete?q=rio%20de%20janeiro-rj
+
+https://melhorplano.net/planos-oi?l=rio%20de%20janeiro-rj
+
+https://melhorplano.net/api/amp/location/autocomplete03d2.json
+https://melhorplano.net/api/amp/location/autocomplete.json

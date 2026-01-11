@@ -1,0 +1,20 @@
+{
+	"items": [{
+		"results": [{
+			"text": "SÃO PAULO, SP",
+			"option": "/planos-oi?l=sao paulo-sp"
+		},
+		{
+			"text": "RIO DE JANEIRO, RJ",
+			"option": "/planos-oi?l=rio de janeiro-rj"
+		},
+		{
+			"text": "BELO HORIZONTE, MG",
+			"option": "/planos-oi?l=belo horizonte-mg"
+		},
+		{
+			"text": "BRASÍLIA, DF",
+			"option": "/planos-oi?l=brasilia-df"
+		}]
+	}]
+}

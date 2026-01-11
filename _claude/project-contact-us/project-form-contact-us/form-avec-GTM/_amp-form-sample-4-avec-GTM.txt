@@ -1,0 +1,83 @@
+<!--
+source:
+https://www.simgolf.dk/information
+https://github.com/ampproject/amphtml/issues/13005
+-->
+
+<form enctype="multipart/form-data" id="kontaktformular" method="post" action-xhr="//www.simgolf.dk/submit-amp.php" target="_top" custom-validation-reporting="show-all-on-submit">
+
+<fieldset>
+<legend>Skriv til os direkte</legend>
+<div class="row">
+<div class="span4">
+<div class="group">
+<input type="text" name="navn" placeholder="Navn" required aria-required="true" id="show-all-on-submit-name"> <span class="highlight">
+</span> <span class="bar">
+</span>
+<label>Navn</label>
+<span class="validation-error" visible-when-invalid="valueMissing" validation-for="show-all-on-submit-name">Skriv venligst dit navn</span>
+</div>
+</div>
+<div class="span4">
+<div class="group">
+<input type="tel" name="telefon" placeholder="Telefonnummer" required aria-required="true" id="show-all-on-submit-telefon"> <span class="highlight">
+</span> <span class="bar">
+</span>
+<label>Telefonnummer</label>
+<span class="validation-error" visible-when-invalid="valueMissing" validation-for="show-all-on-submit-telefon">Skriv venligst dit telefonnummer</span> <span class="validation-error" visible-when-invalid="typeMismatch" validation-for="show-all-on-submit-telefon">Skriv venligst et telefonnummer</span>
+</div>
+</div>
+<div class="span4">
+<div class="group">
+<input type="email" name="email" placeholder="E-mail" class="Email" id="show-all-on-submit-email"> <span class="highlight">
+</span> <span class="bar">
+</span>
+<label>E-mail</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="span12">
+<div class="group">
+<textarea name="Besked" id="besked" placeholder="Dit Spørgsmål">
+</textarea>
+<span class="highlight">
+</span> <span class="bar">
+</span>
+<label class="textarea-label">Dit spørgsmål</label>
+</div>
+</div>
+</div>
+<button type="submit" class="btn-material contactcolor btn-block btn-kontaktformular" name="send">
+<i class="fa fa-paper-plane" aria-hidden="true">
+</i> Tag kontakt</button> <input type="hidden" name="okc-formname" data-show="false" value="simgolf">
+</fieldset>
+
+<div submit-success>
+<template type="amp-mustache">
+<div class="success form-return">
+<div class="form-return-inner">
+<p class="tak-header">Tak for din henvendelse, som nu er registreret.</p>
+<p class="tak-tekst">Vi vender tilbage snarest muligt.</p>
+</div>
+</div>
+</template>
+</div>
+
+<div submit-error>
+<template type="amp-mustache">
+<div class="error form-return">
+<div class="form-return-inner">
+<p class="tak-header error-text">Der skete desværre en fejl.</p>
+<p class="tak-tekst error-text">Vores kontaktformular er i stykker,<br>ring venligst i stedet eller send en email.</p>
+<a href="tel:+4538 34 19 25" class="btn-kontakt-error btn-material">
+<i class="fa fa-phone" aria-hidden="true">
+</i> 38 34 19 25</a> <a href="mailto:info@simgolf.dk" class="btn-kontakt-error btn-material">
+<i class="fa fa-envelope" aria-hidden="true">
+</i> info@simgolf.dk</a>
+</div>
+</div>
+</template>
+</div>
+
+</form>

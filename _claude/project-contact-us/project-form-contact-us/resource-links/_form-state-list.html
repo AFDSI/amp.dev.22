@@ -1,0 +1,55 @@
+<!doctype html>
+<html ⚡>
+<head>
+<meta charset="utf-8">
+<title>Repro</title>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+<link rel="canonical" href="https://ampbyexample.com/components/amp-sidebar/">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+
+<amp-state id="state">
+<script type="application/json">
+    {
+      "item": "1"
+    }
+</script>
+</amp-state>
+
+<button class="button" on="tap:AMP.setState({state: {item: '1'}}), list.refresh()">Item 1</button>
+<button class="button" on="tap:AMP.setState({state: {item: '2'}}), list.refresh()">Item 2</button>
+<button class="button" on="tap:form.submit()">Submit</button>
+
+<form
+	id="form"
+	method="post"
+	target="_top"
+	custom-validation-reporting="interact-and-submit"
+	action-xhr="{{baseUrl}}/submit"
+>
+<amp-list
+	id="list"
+	src="/list/fruit-data/get"
+	[src]="'/list/fruit-data/get?' + state.item"
+	layout="responsive"
+	height=100
+	width=100
+	single-item
+	items="."
+	>
+<template type="amp-mustache">
+<span validation-for="item" visible-when-invalid="valueMissing">
+          Please enter a value for the current item
+</span>
+<input class="input" id="item" width=100 height=25 name="item" type="text" required />
+</template>
+</amp-list>
+</form>
+
+</body></html>

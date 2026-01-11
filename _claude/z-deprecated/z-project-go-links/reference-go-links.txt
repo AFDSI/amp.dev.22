@@ -1,8 +1,0 @@
-
-
-platform/lib/routers/go.js
-https://github.com/ampproject/amp.dev/blob/main/platform/lib/routers/go.js
-
-platform/config/go-links.yaml
-https://github.com/ampproject/amp.dev/blob/main/platform/config/go-links.yaml
-

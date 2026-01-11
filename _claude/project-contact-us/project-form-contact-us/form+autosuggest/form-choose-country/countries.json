@@ -1,0 +1,212 @@
+{
+	"items": [{
+		"countries": [{
+			"code": "61",
+			"name": "Australia",
+			"cities": ["Brisbane",
+			"Melbourne",
+			"Sydney"]
+		},
+		{
+			"code": "973",
+			"name": "Bahrain",
+			"cities": ["Hamad Town",
+			"Manama",
+			"Muharraq",
+			"Riffa"]
+		},
+		{
+			"code": "1",
+			"name": "Canada",
+			"cities": ["Calgary",
+			"Montreal",
+			"Toronto",
+			"Vancouver"]
+		},
+		{
+			"code": "33",
+			"name": "France",
+			"cities": ["Lyon",
+			"Marseille",
+			"Paris"]
+		},
+		{
+			"code": "49",
+			"name": "Germany",
+			"cities": ["Berlin",
+			"Hamburg",
+			"Munich",
+			"Frankfurt"]
+		},
+		{
+			"code": "852",
+			"name": "Hong Kong",
+			"cities": ["Hong Kong"]
+		},
+		{
+			"code": "91",
+			"name": "India",
+			"cities": ["Agra",
+			"Ahmedabad",
+			"Allahabad",
+			"Asansol",
+			"Bangalore",
+			"Bhopal",
+			"Chandigarh",
+			"Chennai",
+			"Dehradun",
+			"Delhi",
+			"Dhanbad",
+			"Goa",
+			"Gurgaon",
+			"Gwalior",
+			"Hyderabad",
+			"Indore",
+			"Jaipur",
+			"Jammu",
+			"Kanpur",
+			"Karnal",
+			"Kolkata",
+			"Kurukshetra",
+			"Lucknow",
+			"Ludhiana",
+			"Meerut",
+			"Moradabad",
+			"Mumbai",
+			"Nagpur",
+			"Nasik",
+			"Noida",
+			"Panipat",
+			"Patna",
+			"Pune",
+			"Rajkot",
+			"Ranchi",
+			"Sonepat",
+			"Surat",
+			"Vadodara",
+			"Varanasi",
+			"Visakhapatnam"]
+		},
+		{
+			"code": "98",
+			"name": "Iran",
+			"cities": ["Isfahan",
+			"Mashhad",
+			"Tehran"]
+		},
+		{
+			"code": "353",
+			"name": "Ireland",
+			"cities": ["Cork",
+			"Dublin",
+			"Limerick"]
+		},
+		{
+			"code": "965",
+			"name": "Kuwait",
+			"cities": ["Kuwait"]
+		},
+		{
+			"code": "218",
+			"name": "Libya",
+			"cities": ["Benghazi",
+			"Misrata",
+			"Tripoli"]
+		},
+		{
+			"code": "60",
+			"name": "Malaysia",
+			"cities": ["George Town",
+			"Johor Bahru",
+			"Kuala Lumpur"]
+		},
+		{
+			"code": "64",
+			"name": "New Zealand",
+			"cities": ["Auckland",
+			"Christchurch",
+			"Dunedin"]
+		},
+		{
+			"code": "968",
+			"name": "Oman",
+			"cities": ["Ibri",
+			"Muscat",
+			"Seeb"]
+		},
+		{
+			"code": "92",
+			"name": "Pakistan",
+			"cities": ["Faisalabad",
+			"Karachi",
+			"Lahore",
+			"Rawalpindi"]
+		},
+		{
+			"code": "974",
+			"name": "Qatar",
+			"cities": ["Al Rayyan",
+			"Doha",
+			"Dukhan"]
+		},
+		{
+			"code": "966",
+			"name": "Saudi Arabia",
+			"cities": ["Jeddah",
+			"Mecca",
+			"Riyadh"]
+		},
+		{
+			"code": "65",
+			"name": "Singapore",
+			"cities": ["Singapore"]
+		},
+		{
+			"code": "27",
+			"name": "South Africa",
+			"cities": ["Cape Town",
+			"Durban",
+			"Johannesburg"]
+		},
+		{
+			"code": "963",
+			"name": "Syria",
+			"cities": ["Aleppo",
+			"Damascus",
+			"Homs"]
+		},
+		{
+			"code": "66",
+			"name": "Thailand",
+			"cities": ["Bangkok",
+			"Hat Yai",
+			"Pattaya"]
+		},
+		{
+			"code": "971",
+			"name": "UAE",
+			"cities": ["Abu Dhabi",
+			"Dubai",
+			"Sharjah"]
+		},
+		{
+			"code": "44",
+			"name": "United Kingdom",
+			"cities": ["Birmingham",
+			"Leeds",
+			"London"]
+		},
+		{
+			"code": "+1",
+			"name": "USA",
+			"cities": ["Chicago",
+			"Houston",
+			"New York"]
+		},
+		{
+			"code": "969",
+			"name": "Yemen",
+			"cities": ["Yemen"]
+		}]
+	}]
+}

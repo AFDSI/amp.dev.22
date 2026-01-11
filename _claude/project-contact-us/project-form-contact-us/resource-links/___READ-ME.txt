@@ -1,0 +1,44 @@
+
+AMP has been exclusively client-side technology.
+All resources needed to implement an HTML document are local to the document.
+Example: all CSS is inline. CSS cannot be referenced as a remote, reusable library.
+No JavaScript is allowed except for the AMP JS libraries.
+
+Recently, AMP has begun to expose server-side processing.
+One important feature that is in the roadmap (but not yet released) is content presentation based on permissions.
+Currently, AMP downloads all content but displays only the first several 'articles' depending on whether the user has subscribed or not.
+That feature depends on cookies.
+A future release will control content access on the server.
+
+We need to be proficient using AMP access control services for both the client and the server.
+One important AMP page is here:
+https://www.ampproject.org/docs/reference/components/amp-access
+
+The first project is amp-form:
+https://www.ampproject.org/docs/reference/components/amp-form
+https://ampbyexample.com/components/amp-form/
+Example:
+	<form method="post" action-xhr="https://example.com/myform">
+	...
+	</form>
+
+
+Resources:
+https://github.com/ampproject/amphtml/blob/master/examples/forms.amp.html
+https://ampstart.com/components#form-elements
+
+Stackoverflow questions:
+https://stackoverflow.com/questions/42761625/amp-form-does-not-redirect-to-another-page?rq=1
+https://stackoverflow.com/questions/42509415/amp-form-submit-from-amp-cdn?rq=1
+https://stackoverflow.com/questions/38915693/amp-html-http-protocol-restriction?rq=1
+https://stackoverflow.com/questions/42833278/amp-form-not-working-after-google-cache-error-403?rq=1
+https://stackoverflow.com/questions/47993462/how-to-submit-form-only-if-some-condition-match-from-other-form
+https://stackoverflow.com/questions/43422257/amp-form-submission-redirect-or-response?rq=1
+https://stackoverflow.com/questions/41844175/amp-form-submission-into-database
+https://stackoverflow.com/questions/41346187/amp-form-submitting-with-post
+
+
+
+
+Included in this folder are additional samples on which to build.
+

@@ -1,0 +1,330 @@
+<!doctype html>
+<html amp lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width">
+<title>
+Contact form on AMP page
+</title>
+<link rel="canonical" href="/index.html">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+<style amp-custom>
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+h1{
+  margin-bottom: 20px;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+.amp-form-contact {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+.amp-form-contact__header {
+  background-color: #083250;
+  border-bottom: 1px solid #000;
+  padding: 15px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  margin-bottom: 15px;
+}
+.amp-form-contact__title {
+  font-size: 1.3rem;
+  color: #fff;
+  text-align: center;
+}
+.amp-form-contact__descr {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.amp-form-contact__body {
+  background-color: #fff;
+  padding: 15px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.amp-form-contact__item {
+  margin-bottom: 10px;
+}
+.amp-form-contact__label {
+  position: relative;
+  float: left;
+}
+.amp-form-contact__label:before {
+  position: absolute;
+  font-family: fontawesome;
+  font-size: 17px;
+  color: #083250;
+  opacity: 0.5;
+  top: 13px;
+  left: 10px;
+  border-right: 1px solid #083250;
+  padding: 3px 10px 0 5px;
+  max-width: 30px;
+}
+.amp-form-contact__label_user:before {
+  content: "\f007";
+}
+.amp-form-contact__label_phone:before {
+  content: "\f095";
+}
+.amp-form-contact__label_email:before {
+  content: "\f0e0";
+}
+.amp-form-contact__input {
+  display: block;
+  height: 50px;
+  line-height: 47px;
+  font-size: 14px;
+  padding: 0 50px;
+  border: 1px solid #083250;
+  border-radius: 2px;
+  width: 100%;
+}
+.amp-form-contact__input::placeholder {
+  color: #a5a5a5;
+  font-family: "Roboto", sans-serif;
+}
+.amp-form-contact__textarea {
+  display: block;
+  line-height: 1.5rem;
+  font-size: 14px;
+  padding: 10px 50px 0 10px;
+  border: 1px solid #083250;
+  border-radius: 2px;
+  width: 100%;
+  min-height: 100px;
+  max-width: 100%;
+}
+.amp-form-contact__textarea::placeholder {
+  color: #a5a5a5;
+  font-family: "Roboto", sans-serif;
+}
+.amp-form-contact__submit {
+  background-color: #083250;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  padding: 15px 0;
+  transition: all 0.3s;
+}
+.amp-form-contact__submit:hover {
+  background-color: #737272;
+  color: #fff;
+}
+.amp-form-contact__submit-msg {
+  line-height: 1.4;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.amp-form-contact__submit-msg-close{
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-size: 21px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: -2px;
+  top: 0px;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+.amp-form-contact__submit-msg-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.amp-form-contact__submit-msg-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.amp-form-contact-style {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+input.user-invalid {
+  background-color: #fdeaea;
+}
+input.user-valid {
+  background-color: #e3f7eb;
+}
+.amp-form-contact__valid-message {
+  font-size: 14px;
+}
+/*   Change Autocomplete styles in Chrome */
+@-webkit-keyframes autofill {
+  to {
+    color: #000000;
+    background: transparent;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+/* Lightbox */
+.amp-lightbox{
+  background: rgba(0,0,0,0.8);
+}
+.amp-lightbox__content{
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  left:  50%;
+  max-width: 500px;
+  width: 90%;
+}
+.amp-lightbox__close{
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: -20px;
+  top: -30px;
+  transition: color .3s;
+}
+.amp-lightbox__close:hover{
+  color: #fff;
+}
+.amp-lightbox__header-title{
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+}
+.amp-lightbox__content-body{
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+</style>
+</head>
+
+<body>
+<div class="amp-form-contact-style">
+<h1>
+AMP contact form in a lightbox
+</h1>
+</div>
+<button on="tap:amp-lightbox">
+"Contact Us" button on menu
+</button>
+
+<amp-lightbox id="amp-lightbox" layout="nodisplay" class="amp-lightbox">
+
+<div class="amp-lightbox__content">
+<div class="amp-lightbox__content-body">
+<button type="button" on="tap:amp-lightbox.close" class="amp-lightbox__close">×</button>
+<div class="amp-form-contact">
+
+<div class="amp-form-contact__header">
+<h4 class="amp-form-contact__title">
+Request a call back
+</h4>
+</div>
+
+<div class="amp-form-contact__body">
+<p class="amp-form-contact__descr">
+Our managers will call you back shortly
+</p>
+<form method="post" action-xhr="amp-mail.php" custom-validation-reporting="show-all-on-submit" target="_top" id="amp-form-contact__form" class="amp-form-contact__form">
+
+<div class="amp-form-contact__item clearfix">
+<label class="amp-form-contact__label amp-form-contact__label_user" for="amp-form-contact__name"></label>
+<input type="text" name="contact-name" id="amp-form-contact__name" class="amp-form-contact__input" placeholder="Name*" required>
+<span visible-when-invalid="valueMissing" validation-for="amp-form-contact__name" class="amp-form-contact__valid-message">
+</div>
+
+<div class="amp-form-contact__item clearfix">
+<label class="amp-form-contact__label amp-form-contact__label_phone" for="amp-form-contact__tel"></label>
+<input type="tel" name="contact-phone" id="amp-form-contact__tel" class="amp-form-contact__input" placeholder="Telephone*" pattern="\d*" required>
+<span visible-when-invalid="valueMissing" validation-for="amp-form-contact__tel" class="amp-form-contact__valid-message"></span>
+<span visible-when-invalid="patternMismatch" validation-for="amp-form-contact__tel" class="amp-form-contact__valid-message">The field must contain only numbers. For example: 79190002211
+</span>
+</div>
+
+<div class="amp-form-contact__item">
+<label class="amp-form-contact__label amp-form-contact__label_email" for="amp-form-contact__email"></label>
+<input type="email" name="contact-email" id="amp-form-contact__email" class="amp-form-contact__input" placeholder="Email" required>
+<span visible-when-invalid="valueMissing" validation-for="amp-form-contact__email" class="amp-form-contact__valid-message"></span>
+<span visible-when-invalid="typeMismatch" validation-for="amp-form-contact__email" class="amp-form-contact__valid-message"></span>
+</div>
+
+<div class="amp-form-contact__item">
+<textarea name="contact-message" class="amp-form-contact__textarea" placeholder="Your message"></textarea>
+</div>
+
+<div class="amp-form-contact__item">
+<button type="submit" class="amp-form-contact__submit">
+Send message
+</button>
+</div>
+
+<div submit-success id="amp-form-contact__submit-msg-success" class="amp-form-contact__submit-msg amp-form-contact__submit-msg-success">
+<button type="button" on="tap:amp-form-contact__submit-msg-success.hide" class="amp-form-contact__submit-msg-close">×</button>
+
+<template type="amp-mustache">
+{{name}}, we have successfully received your message and will contact you shortly
+</template>
+</div>
+
+<div submit-error id="amp-form-contact__submit-msg-error" class="amp-form-contact__submit-msg amp-form-contact__submit-msg-error">
+<button type="button" on="tap:amp-form-contact__submit-msg-error.hide" class="amp-form-contact__submit-msg-close">×</button>
+<template type="amp-mustache">
+Unfortunately something went wrong and we were unable to send your message.
+</template>
+</div>
+
+</form>
+
+</div></div></div></div>
+</amp-lightbox>
+
+</body>
+</html>

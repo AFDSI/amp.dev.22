@@ -1,0 +1,16 @@
+
+reference:
+http://stackoverflow.com/questions/41844175/amp-form-submission-into-database
+
+http://stackoverflow.com/questions/41346187/amp-form-submitting-with-post
+
+https://ampbyexample.com/components/amp-form/
+
+
+
+AMP form
+Bootstrap grid
+http://rugmaster.uk/amp.html
+
+has good styles
+	columns

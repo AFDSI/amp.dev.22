@@ -1,0 +1,108 @@
+<!--
+source:
+https://codepen.io/sunturion/pen/ppmbMa
+https://github.com/ampproject/amphtml/issues/13003
+-->
+
+<!doctype html>
+<html amp>
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    
+</head>
+<body>
+    
+  <div class="kontakt_wrapper">
+	<form enctype="multipart/form-data" id="kontaktformular" method="post" action-xhr="//www.example.com/submit-amp.php" target="_top" custom-validation-reporting="show-all-on-submit">
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>Contactform</legend>
+        <div class="row">
+            <div class="span4">
+
+                <div class="group">      
+                    <input type="text" name="name" placeholder="name" required aria-required="true" id="show-all-on-submit-name">
+                 
+                    <label>Name</label>
+                    <span class="validation-error" visible-when-invalid="valueMissing" validation-for="show-all-on-submit-name">Skriv venligst dit navn</span>
+                </div>
+
+            </div>
+
+            <div class="span4">
+
+                <div class="group">      
+                    <input type="tel" name="Phonenumber" placeholder="Phonenumber" required aria-required="true" id="show-all-on-submit-telefon">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Phonenumber</label>
+                    <span class="validation-error" visible-when-invalid="valueMissing" validation-for="show-all-on-submit-telefon">Skriv venligst dit telefonnummer</span>
+                    <span class="validation-error" visible-when-invalid="typeMismatch" validation-for="show-all-on-submit-telefon">Skriv venligst et telefonnummer</span>
+                </div>
+            </div>
+            
+            <div class="span4">    
+
+                <div class="group">      
+                    <input type="email" name="email" placeholder="E-mail" class="Email" id="show-all-on-submit-email">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>E-mail</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="group"> 
+                    <textarea name="Besked" id="besked" placeholder="Dit Spørgsmål"></textarea>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="textarea-label">Your message</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-material contactcolor btn-block btn-kontaktformular" name="send"><i class="fa fa-paper-plane" aria-hidden="true"></i> submit</button>
+        <input type="hidden" name="okc-formname" data-show="false" value="simgolf" />
+
+
+        </fieldset>
+
+        <div submit-success>
+            <template type="amp-mustache">
+                <div class="success form-return">
+                    <div class="form-return-inner">
+                        <p class="tak-header">Tak for din henvendelse, som nu er registreret.</p>
+                        <p class="tak-tekst">Vi vender tilbage snarest muligt.</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div submit-error>
+            <template type="amp-mustache">
+                <div class="error form-return">
+                    <div class="form-return-inner">
+                        <p class="tak-header error-text">Der skete desværre en fejl.</p>
+                        <p class="tak-tekst error-text">Vores kontaktformular er i stykker,<br/>ring venligst i stedet eller send en email.</p>
+
+                        <a href="tel:+4511224455" class="btn-kontakt-error btn-material"><i class="fa fa-phone" aria-hidden="true"></i> 11224455</a>
+                        <a href="mailto:my@email.dk" class="btn-kontakt-error btn-material"><i class="fa fa-envelope" aria-hidden="true"></i> my@email.dk</a>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+	</form>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+playground/backend/api.js
+const rateLimitedFetch = new RateLimitedFetch({
+  requestHeaders: {
+    'x-requested-by': 'playground',
+    'Referer': 'https://amp.dev/playground',
+  },
+});
+
+const api = express.Router();
+api.get('/fetch', async (request, response) => {
+  try {
+    const doc = await rateLimitedFetch.fetchHtmlDocument(request.query.url);
+    setMaxAge(response, MAX_AGE);
+    response.send(doc);
+  } catch (error) {
+    log.error('Could not fetch URL', request.query.url, error);
+    if (error.errorId) {
+      response.status(errorIdMap[error.errorId] || 502).send(error.message);
+    } else {
+      response.status(500).send(`Internal error fetching ${request.query.url}`);
+    }
+  }
+});
+
+
+platform/lib/utils/rateLimitedFetch.js
+
+ let response;
+    try {
+      response = await fetch(fetchUrl.href, {
+        headers: {
+          'Accept': 'text/html',
+          'User-Agent':
+            'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MTC19V) ' +
+            'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile ' +
+            'Safari/537.36 (compatible; amp.dev/playground)',
+          ...this.requestHeaders,
+        },
+      });
+
+playground/src/validation-result/validation-result.hbs
+
+playground/src/index.hbs
+<a class="uppercase hide-on-mobile caret-right" href="https://amp.dev">amp.dev</a>
+
+playground/src/experiments/experiments.js
+
+document.getElementById('input-bar-experiments'),
+      {
+        helpText: `Enter a valid experiment id to enable a certain experiment for the playground's preview. Read more about <a href="https://amp.dev/documentation/guides-and-tutorials/learn/experimental/" target="_blank" rel="noopener">experiments</a> on amp.dev.`,
+        label: 'Add',
+

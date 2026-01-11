@@ -1,0 +1,63 @@
+<!doctype html>
+<html amp>
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="self.html" />
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-template='amp-mustache' src='https://cdn.ampproject.org/v0/amp-mustache-0.1.js'></script>
+<style amp-custom>
+form.amp-form-submit-success [submit-success],
+form.amp-form-submit-error [submit-error]{
+  margin-top: 16px;
+}
+form.amp-form-submit-success [submit-success] {
+  color: green;
+}
+form.amp-form-submit-error [submit-error] {
+  color: red;
+}
+form.amp-form-submit-success.hide-inputs > input {
+  display: none;
+}
+</style>
+</head>
+<body>
+<h1>Hello Ankita.<h1>
+<form method="post"
+  class="p2"
+  action-xhr="https://afdsi.org/test/components/amp-form/submit-form-input-text-xhr"
+  target="_top">
+  <div class="ampstart-input inline-block relative m0 p0 mb3">
+    <input type="text"
+      class="block border-none p0 m0"
+      name="name"
+      placeholder="Name..."
+      required>
+    <input type="email"
+      class="block border-none p0 m0"
+      name="email"
+      placeholder="Email..."
+      required>
+  </div>
+  <input type="submit"
+    value="Subscribe"
+    class="ampstart-btn caps">
+  <div submit-success>
+    <template type="amp-mustache">
+      Success! Thanks {{name}} for trying the
+      <code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how
+      <code>amp-form</code> handles errors.
+    </template>
+  </div>
+  <div submit-error>
+    <template type="amp-mustache">
+      Error! Thanks {{name}} for trying the
+      <code>amp-form</code> demo with an error response.
+    </template>
+  </div>
+</form>
+
+</body></html>

@@ -1,0 +1,6 @@
+
+user notification API
+https://github.com/ampproject/amp-publisher-sample/blob/master/amp-paywall-demo/controllers/amp-user-notification/api.js
+
+Endpoints:
+https://www.ampproject.org/docs/reference/components/amp-access

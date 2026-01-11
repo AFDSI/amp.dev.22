@@ -1,0 +1,43 @@
+
+<!-- source: https://gist.github.com/joshcp/5bd648767fcd88503b051aea8e89dffa -->
+
+<!-- a simple like button -->
+<form id="like-btn" class="vote parent" method="POST" target="_top" action-xhr="https://AmpedUpKids.com/castVote">
+  
+  <div class="fill">
+    <!-- download form data and pre-populate form using amp-list -->
+    <amp-list layout="fill" src="https://AmpedUpKids.com/WompKidsInit?assetID=000">
+      <template type="amp-mustache">
+        <!-- single click form by nesting radio input inside submit button -->
+        <button class="votes-up" type="submit" value="make-vote">
+          <label class="wm-icon" for="vote-up">Vote Up</label>
+          <input id="vote-up" type="radio" name="vote" value="vote-up">
+          <input type="text" name="votes-up" value="{{votes-up}}">
+          
+          <label class="wm-icon" for="vote-down">Vote Down</label>
+          <input id="vote-down" type="radio" name="vote" value="vote-down">
+          <input type="text" name="votes-down" value="{{votes-down}}">
+        </button>
+      </template>
+    </amp-list>
+  </div>
+  
+  <!-- Overlay success on top of form. Limit clicks using pointer events CSS -->
+  <div class="fill" submit-success>
+    <template type="amp-mustache">
+      <div class="{{items.0.changed}}">
+        <div class="votes-up">
+          <label class="wm-icon" for="vote-up"></label>
+          <span>{{items.o.votes-up}}</span>
+        </div>
+      </div>
+    </template>
+  </div>
+  
+  <!-- Overlay error on top of form. Don't limit clicks using pointer events CSS -->
+  <div class="fill" submit-error>
+    <template type="amp-mustache">
+      <span>Vote failed</span>
+    </template>
+  </div>
+</form>

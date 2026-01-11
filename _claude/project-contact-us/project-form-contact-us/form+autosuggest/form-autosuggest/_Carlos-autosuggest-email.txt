@@ -1,0 +1,94 @@
+
+To reprise, Carlos, our goals is to do the following for intra-page searches:
+  https://amphtml.wordpress.com/2017/07/12/amp-bind-brings-flexible-interactivity-to-amp-pages/bind-autosuggest-2/
+
+Here are five versions of your autosuggest structure.
+
+#1  https://afdsi.org/test/autosuggest_1/
+the source is:
+    https://ampbyexample.com/advanced/autosuggest/search_list
+method and action-xhr are null:
+<form
+    method=""
+    action-xhr=""
+
+for the mustache template:
+    option="{{.}}"
+
+the <div> uses:
+    >{{.}}</div>
+
+results are formatted:
+    {{#results}}<li>{{title}}</li>{{/results}}
+
+comment:
+we don't understand why this works.
+for example, if you type:
+    bois
+it will find:
+    Boise, Idaho
+
+but Boise, Idaho is not an item in the src file. Where does Boise come from?
+
+
+#2  https://afdsi.org/test/autosuggest_2/
+
+same as #1 except:
+<form
+    method="post"
+    action-xhr="/form/autosuggest/search"
+
+it behaves exactly like #1.
+We conclude that <form> plays no role in this implementation of autosuggest.
+
+#3  https://afdsi.org/test/autosuggest_3/
+
+here we build the <body> with state capitols and their descriptions.
+per your previous advice, the HTML structure is:
+    <li><a href="identifier">capitol</a>text about capitol and state</li>
+
+the JSON data structure is changed from the structure in #1 and #2 to:
+    {"items":[
+      {"query": "",
+        "results": [
+           {"title": "Olympia, Washington", "id":"47"},
+           {"title": "Charleston, West Virginia", "id":"48"},
+...
+see it here:
+    https://afdsi.org/test/autosuggest_3/query.json
+
+we use this search structure:
+    [value]="query"
+    [src]="'https://afdsi.org/test/autosuggest_3/query.json?q=' + (autosuggest ? autosuggest : '')"
+
+for the mustache template:
+    option="{{title}}"
+the <div> uses:
+    >{{title}}</div>
+results are formatted:
+    {{#results}}<li><a href="#{{id}}">{{title}}</a></li>{{/results}}
+
+ISSUES:
+A: unlike #1 and #2, the string 'bois' does not generate Boise, Idaho
+B: when any item is selected from the amp-list, the item is selectable but does not navigate to the appropriate id="identifier" on the page.
+
+#4  https://afdsi.org/test/autosuggest_4/
+Same as #3 except we use:
+
+    [value]="query || ''"
+and
+    [src]="'https://afdsi.org/test/autosuggest_4/query.json?q=' + (autosuggest || '')"
+
+RESULTS are same as #3
+
+#5 https://afdsi.org/test/autosuggest_5/
+here we switch back to the mustache structure from #1 and #2
+    option="{{.}}"
+the <div> uses:
+    >{{.}}</div>
+
+this version fails to load any items from te JSON amp-list file
+
+Can you suggest a solution to our errors?
+
+/jay

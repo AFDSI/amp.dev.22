@@ -1,0 +1,44 @@
+
+source:
+https://stackoverflow.com/questions/47454917/amp-form-response-not-working-in-google-cache
+
+<form action-xhr="posts/submit.php" method="POST" class="contactForm" target="_top">
+    <fieldset>
+        <div class="formFieldWrap">
+            <label class="field-title">Select a product:<span>(required)</span></label>
+            <div class="select-style full-bottom">
+            <select name="product">
+                    <option selected="" disabled="">Select a Product</option>
+                    <option value="product1">product 1</option>
+                    <option value="product2">product 2</option>
+            </select>
+            </div>
+        </div>                  
+        <div class="formFieldWrap">
+            <label class="field-title">Full Name:<span>(required)</span></label>
+            <input type="text" name="fullname" value="" class="contactField" />
+        </div>
+        <div class="formFieldWrap">
+            <label class="field-title">Telephone: <span>(required)</span></label>
+            <input type="text" name="telephone" value="" class="contactField" />
+        <div class="formFieldWrap">
+            <label class="field-title">Email: <span>(required)</span>
+            </label>
+            <input type="text" name="email" value="" class="contactField" />
+        </div>
+        <input type="hidden" name="ps" value="amp_Homepage">
+        <div class="formSubmitButtonErrorsWrap contactFormButton">
+            <input type="submit" class="buttonWrap button bg-teal-dark contactSubmitButton" value="Start my claim" />
+        </div>
+    </fieldset>
+    <div submit-success>
+        <template type="amp-mustache">
+            <span class="center-text color-green-dark"><strong>Congratulations {{fullname}}!</strong> You have successfully submitted your claim. You can expect a telephone call from My Claim Solved just to confirm a few details.</span>
+        </template>
+    </div>
+    <div submit-error>
+        <template type="amp-mustache">
+            <span class="center-text color-red-light"><strong>Oops!</strong> {{message}}</span>
+        </template>
+    </div>
+</form>

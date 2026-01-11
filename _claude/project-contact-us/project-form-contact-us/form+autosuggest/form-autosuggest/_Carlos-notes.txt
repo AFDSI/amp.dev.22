@@ -1,0 +1,30 @@
+
+"Have you considered making the div an <a> tag with an href to the ids of the headings you like to navigate to?"
+
+<div submit-success id="results">
+  <template type="amp-mustache">
+    <p>Here are the results for the search "{{query}}":</p>
+    <ul>
+        {{#results}}<li>{{title}}</li>{{/results}}
+    </ul>
+  </template>
+</div>
+
+<amp-list ...>
+  <template>
+    <!-- ... -->
+    <a href="#{{id}}">{{label}}</a>
+    <!-- ... -->
+  </template>
+</amp-list>
+
+<!-- ... -->
+
+<h2 id="myLinkId">My Link Label</h2>
+
+=========
+approach
+	replace
+	        {{#results}}<li>{{title}}</li>{{/results}}
+	with
+	        {{#results}}<li><a href="#{{id}}">{{title}}</a></li>{{/results}}

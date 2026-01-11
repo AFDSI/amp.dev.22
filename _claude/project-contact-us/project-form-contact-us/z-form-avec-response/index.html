@@ -1,0 +1,198 @@
+<!doctype html>
+<html amp>
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="self.html" />
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+<style amp-custom>
+body {padding-left: 40px;}
+h1 {margin: 16px;}
+section {margin-bottom: 30px;}
+header {background-color: #ffffff; width: 100%; padding: 10px; border-bottom: 1px solid #D3D3D3; display: flex;}
+footer {margin-top: 30px; background-color: #e10a0a; width: 100%; height: 50px;}
+.sidebar {display: inline-flex; position: absolute;}
+.logo {display: inline-flex; margin: auto;}
+.btn {color: #e10a0a; background: none; border: none; margin-top: 30px;}
+.menu {width: 35px; height: 5px; background-color: black; margin: 6px 0;}
+.amp-close-image {float: right; margin: 20px;}
+
+#sidebar {margin: auto; width: 30%; font-size: 1.5rem;}
+#sidebar ul {margin-top: 10px;text-align: center; padding: 30px;}
+#sidebar li {margin-top: 40px; list-style: none;}
+#sidebar a {text-decoration: none;}
+
+form.amp-form-submit-success [submit-success],
+	form.amp-form-submit-error [submit-error]{margin-top: 16px;}
+	form.amp-form-submit-success [submit-success] {color: green;}
+	form.amp-form-submit-error [submit-error] {color: red;}
+	form.amp-form-submit-success.hide-inputs > input {display: none;}
+	#contact {}
+
+.ampstart-btn {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    padding: .7em .8em;
+    text-decoration: none;
+    word-wrap: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #b60845;
+          color: #b60845;
+    border: 1px solid #b60845;
+}
+
+.caps {text-transform: uppercase;letter-spacing: .2em;}
+
+</style>
+</head>
+<body>
+<header>
+<div class="sidebar">
+<button class="btn" on="tap:sidebar.open">
+<div class="menu"></div>
+<div class="menu"></div>
+<div class="menu"></div>
+</button>
+</div>
+<div class="logo">
+<amp-img src="https://pmcdeadline2.files.wordpress.com/2016/07/logo-tv-logo.png"
+  width="100px"
+  height="100px"
+  alt="AMP">
+</amp-img>
+</div>
+</header>
+<section id="hero">
+    hero
+</section>
+<section id="usp">usps</section>
+<section id="marketing">marketing</section>
+
+<section id="testimonial">
+<amp-carousel height="300"
+  layout="fixed-height"
+  type="carousel">
+<amp-img src="/img/image1.jpg"
+    width="400"
+    height="300"
+    alt="a sample image"></amp-img>
+<amp-img src="/img/image2.jpg"
+    width="400"
+    height="300"
+    alt="another sample image"></amp-img>
+<amp-img src="/img/image3.jpg"
+    width="400"
+    height="300"
+    alt="and another sample image"></amp-img>
+</amp-carousel>
+</section>
+
+<section id="contact">
+
+<form class="p3 hide-inputs"
+  method="post"
+  action-xhr="/components/amp-form/submit-form-input-text-xhr"
+  target="_top">
+<div class="ampstart-input inline-block relative mb3">
+<input type="text"
+      name="name"
+      placeholder="Name..."
+      required>
+</div>
+</form>
+
+<form method="post"
+  class="p2"
+  action-xhr="/components/amp-form/submit-form-xhr"
+  target="_top">
+<div class="ampstart-input inline-block relative mb3">
+<input type="email"
+      name="email"
+      placeholder="Email...">
+</div>
+</form>
+    
+<form method="post"
+  class="p2"
+  action-xhr="/components/amp-form/submit-form-xhr"
+  target="_top">
+<div class=" ampstart-input inline-block relative mb3">
+<input type="range"
+      name="points"
+      min="0"
+      max="10">
+</div>
+</form>
+
+<form method="post"
+  class="p2"
+  action-xhr="/components/amp-form/submit-form-xhr"
+  target="_top">
+<div class="ampstart-input inline-block relative mb3">
+<input type="tel"
+      name="my_tel"
+      placeholder="Telephone...">
+</div>
+</form>
+
+<form method="post"
+  class="p2"
+  action-xhr="/components/amp-form/submit-form-xhr"
+  target="_top">
+<div class="ampstart-input inline-block relative mb3">
+<input type="url"
+      placeholder="URL..."
+      name="website">
+</div>
+<input type="submit"
+    value="Give us the lead"
+    class="ampstart-btn caps">
+<div submit-success>
+<template type="amp-mustache">
+      Success! Thanks {{name}} for trying the
+<code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how
+<code>amp-form</code> handles errors.
+</template>
+</div>
+<div submit-error>
+<template type="amp-mustache">
+      Error! Thanks {{name}} for trying the
+<code>amp-form</code> demo with an error response.
+</template>
+</div>
+</form>
+
+</section>
+
+<!---footer--->  
+<footer></footer>
+
+<amp-sidebar id="sidebar"
+  layout="nodisplay"
+  side="left">
+<amp-img class="amp-close-image"
+    src="https://d30y9cdsu7xlg0.cloudfront.net/png/52944-200.png"
+    width="40"
+    height="40"
+    alt="close sidebar"
+    on="tap:sidebar.close"
+    role="button"
+    tabindex="0"></amp-img>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/">What we offer</a></li>
+<li><a href="/">Happy Customers</a></li>
+<li><a href="/">Contact</a></li>
+</ul>
+</amp-sidebar>
+
+</body></html>

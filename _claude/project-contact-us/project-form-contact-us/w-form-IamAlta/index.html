@@ -1,0 +1,52 @@
+<!doctype html>
+<html ⚡="" lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Commerce</title>
+<link rel="canonical" href="https://www.ampstart.com/templates/e-commerce/landing.amp">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+
+<style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+
+<style amp-custom="">
+div, input {font-size:120%;margin-top:.5rem}
+.ampstart-input {max-width: 100%;width: 100%;font-size: 1rem;line-height: 1.5rem}
+.ampstart-input [disabled], .ampstart-input [disabled]+label {opacity: .5}
+.ampstart-input [disabled]:focus {outline: 0}
+.ampstart-input>input, .ampstart-input>select, .ampstart-input>textarea {width: 100%;margin-top: 1rem;line-height: 1.5rem;border: 0;border-radius: 0;border-bottom: 1px solid #4a4a4a;background: none;color: #000;outline: 0}
+.ampstart-input>label {color: #000;pointer-events: none;text-align: left;font-size: 1.125rem;line-height: 1rem;opacity: 1;-webkit-animation: .2s;animation: .2s;-webkit-animation-timing-function: cubic-bezier(.4, 0, .2, 1);animation-timing-function: cubic-bezier(.4, 0, .2, 1);-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards}
+.ampstart-input>input:focus, .ampstart-input>select:focus, .ampstart-input>textarea:focus {outline: 0}
+.ampstart-input>input:focus::-webkit-input-placeholder, .ampstart-input>select:focus::-webkit-input-placeholder, .ampstart-input>textarea:focus::-webkit-input-placeholder {color:transparent}
+.ampstart-input>input:focus::-moz-placeholder, .ampstart-input>select:focus::-moz-placeholder, .ampstart-input>textarea:focus::-moz-placeholder {color:transparent}
+.ampstart-input>input:focus:-ms-input-placeholder, .ampstart-input>select:focus:-ms-input-placeholder, .ampstart-input>textarea:focus:-ms-input-placeholder {color:transparent}
+</style>
+</head>
+
+<body>
+<form id="ccform">
+
+<amp-state id="expiry">
+<script type="application/json">
+    { 
+	"month": "01",
+	"year": "18"
+    }
+</script>
+</amp-state>
+</form>
+
+<form method="POST" id="ccform" action="https://example.com" target="_top">
+<br>Enter something or not. This will NOT be cleared:
+<br><input type=text id="some" name="some" value="something"/>
+<br><br>Enter 2 numbers:<input type=text id="MO" name="MO" on="change:AMP.setState({expiry:{month: event.value}})" />
+<br><br>Enter 2 numbers:<input type=text id="YR" name="YR" value="" on="change:AMP.setState({expiry:{year: event.value}})" />
+<br><br>The following is text here↓ but will be hidden in live version.<br>This field is also NOT cleared.<br><input type=text id="EXPDATE" name="EXPDATE" value="" [value]="expiry.month + expiry.year" />
+<br><input type="reset" value="Reset" on="tap:ccform.clear">
+</form>
+
+</body></html>
