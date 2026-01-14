@@ -1,6 +1,0 @@
-
-tree -N > /mnt/e/users/gigster/workspace/repos/amp/amp.dev.22/_claude/DIRECTORY-TREE.txt
-
-PWSH
-
-tree /F E:\users\gigster\workspace\repos\amp\amp.dev.22\_claude\ > E:\users\gigster\workspace\repos\amp\amp.dev.22\_claude\DIRECTORY-TREE-PS.txt

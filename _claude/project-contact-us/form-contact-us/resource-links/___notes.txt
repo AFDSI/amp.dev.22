@@ -1,9 +1,0 @@
-
-https://www.ampproject.org/docs/reference/components/amp-form
-
-
-An XHR request (sometimes called an AJAX request) is where the browser would make the request without a full load of the page or opening a new page. Browsers will send the request in the background using the Fetch API
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-
-form samples
-https://github.com/ampproject/amphtml/blob/master/examples/forms.amp.html

@@ -1,8 +1,0 @@
-
-autocomplete resources
-https://developers.google.com/places/web-service/autocomplete
-
-https://github.com/sryze/amp-google-places-autocomplete
-
-https://stackoverflow.com/questions/49259186/how-to-have-google-places-autocomplete-work-with-amp
-
