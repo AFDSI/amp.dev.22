@@ -196,6 +196,8 @@ platform_and_vendor_partners:
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/appnexus.md
       - label: AppVador
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/appvador.md
+      - label: Adserver.Online
+        url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/aso.md
       - label: Atomx
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/atomx.md
       - label: Avantis Video
@@ -458,6 +460,8 @@ platform_and_vendor_partners:
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/pixels.md
       - label: PlayStream
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/playstream.md
+      - label: Playwire
+        url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/playwire.md
       - label: plista
         url: https://github.com/ampproject/amphtml/blob/master/extensions/amp-ad/../../ads/vendors/plista.md
       - label: PolymorphicAds
